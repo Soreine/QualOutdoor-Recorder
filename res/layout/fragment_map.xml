@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res/com.qualoutdoor.recorder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="${packageName}.${activityClass}" >
+
+
+	<FrameLayout
+		android:id="@+id/map_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"/>
+    <!--fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        map:cameraZoom="15"
+        map:mapType="normal"
+        map:uiCompass="true"
+        tools:ignore="MissingPrefix" /--> <!-- This is for the map prefix bug -->
+
+    <com.qualoutdoor.recorder.charting.ColoredScale
+        android:id="@+id/scale"
+        android:background="@color/android_vdarkgray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        custom:label="Signal Strength"
+        custom:labelColor="@color/white"
+        custom:labelHeight="18dp"
+        custom:showText="true" 
+        custom:startColor="@color/alsett_blue"
+        custom:endColor="@color/alsett_lightblue"/>
+
+</LinearLayout>

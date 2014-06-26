@@ -1,0 +1,22 @@
+<!-- This is the layout used for landscape oritentation on small devices -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="horizontal" >
+
+    <fragment
+        android:id="@+id/select_display_fragment"
+        android:name="com.qualoutdoor.recorder.SelectDisplayFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" 
+        android:background="@color/android_vdarkgray"/>
+
+    <FrameLayout
+        android:id="@+id/view_container"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

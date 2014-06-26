@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ColoredScale">
+        <attr name="label" format="string" />
+        <attr name="labelColor" format="color" />
+        <attr name="startColor" format="color" />
+        <attr name="endColor" format="color" />
+        <attr name="graduationStartColor" format="color" />
+        <attr name="graduationEndColor" format="color" />
+        <attr name="labelHeight" format="dimension" />
+        <attr name="startValue" format="float" />
+        <attr name="endValue" format="float" />
+        <attr name="graduationStep" format="float" />
+        <attr name="showText" format="boolean" />
+    </declare-styleable>
+
+</resources>
