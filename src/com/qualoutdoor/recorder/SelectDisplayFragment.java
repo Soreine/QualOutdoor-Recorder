@@ -48,9 +48,9 @@ public class SelectDisplayFragment extends ListFragment {
 		// list item
 		// (We do this during onStart because at the point the listview is
 		// available.)
-		if (getFragmentManager().findFragmentById(R.id.select_display_fragment) != null) {
-			getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-		}
+//		if (getFragmentManager().findFragmentById(R.id.select_display_fragment) != null) {
+//			getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+//		}
 	}
 
 	@Override

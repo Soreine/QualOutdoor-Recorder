@@ -48,7 +48,7 @@ public class DataDisplayActivity extends FragmentActivity implements
 		Fragment newFragment = new Fragment();
 		switch (position) {
 		case 0: // Time view
-			newFragment = new TimeFragment();
+			newFragment = new SignalStrengthPlotFragment();
 			break;
 		case 1: // Map view
 			newFragment = new DataMapFragment();
@@ -59,8 +59,9 @@ public class DataDisplayActivity extends FragmentActivity implements
 				.beginTransaction();
 
 		// Check if we are in a two-pane layout
-		SelectDisplayFragment selectFragment = (SelectDisplayFragment) getSupportFragmentManager()
-				.findFragmentById(R.id.select_display_fragment);
+		SelectDisplayFragment selectFragment = null;
+//		(SelectDisplayFragment) getSupportFragmentManager()
+//				.findFragmentById(R.id.select_display_fragment);
 		if (selectFragment == null) {
 			// We are in a single-pane layout
 
@@ -78,7 +79,7 @@ public class DataDisplayActivity extends FragmentActivity implements
 			// Replace whatever is in the view_container view with this
 			// new fragment, and add the transaction to the back stack so the
 			// user can navigate back
-			transaction.replace(R.id.view_container, newFragment);
+//			transaction.replace(R.id.view_container, newFragment);
 			transaction.addToBackStack(null);
 
 			// Commit the transaction

@@ -5,7 +5,7 @@ import java.util.Random;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +18,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
@@ -58,7 +57,7 @@ public class DataMapFragment extends Fragment {
 			// fragments
 			return;
 		}
-		
+
 		// Create options for the Google Map
 		GoogleMapOptions options = new GoogleMapOptions();
 		options.tiltGesturesEnabled(false)
@@ -90,7 +89,11 @@ public class DataMapFragment extends Fragment {
 	public void onResume() {
 		super.onResume();
 		// Check that the map is available
-		setUpMapIfNeeded();
+		if (setUpMapIfNeeded()) {
+			Log.d("Map", "Map available");
+		} else {
+			Log.d("Map", "NO MAP AVAILABLE");
+		}
 	}
 
 	/**
@@ -103,6 +106,10 @@ public class DataMapFragment extends Fragment {
 		// map.
 		if (map == null) {
 			// Obtain the Map object from the MapFragment
+			if (mapFragment == null) {
+				mapFragment = (SupportMapFragment) getFragmentManager()
+						.findFragmentById(R.id.map_container);
+			}
 			map = mapFragment.getMap();
 			// Check if we were successful in obtaining the map.
 			if (map == null) {
@@ -120,6 +127,7 @@ public class DataMapFragment extends Fragment {
 	 * Add the markers to the map
 	 */
 	private void initMarkers() {
+		Log.d("Map", "InitMarkers");
 		// Center the camera on Melbourne
 		CameraUpdate update = CameraUpdateFactory.newLatLng(melbourne
 				.getCenter());
