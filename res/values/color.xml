@@ -16,7 +16,9 @@ Organized by: Willie Tsang
     <color name="android_lightgray">#e5e5e5</color>
     <color name="android_vlightgray">#f3f3f3</color>
     <color name="android_gray">#bfbfbf</color>
-
+    <color name="android_selected_item_background">#4c4c4c</color>
+    <color name="android_selected_item_text">#e5e5e5</color>
+    
     <!-- Windows 8 style -->
     <color name="win8_magenta">#FF0097</color>
     <color name="win8_purple">#A200FF</color>

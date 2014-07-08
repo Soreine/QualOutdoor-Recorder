@@ -2,10 +2,26 @@
 <resources>
 
     <string name="app_name">QualOutdoor Recorder</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_select_display">SelectDisplayActivity</string>
     <string name="title_activity_time">TimeActivity</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">QualOutdoor</string>
+
+    <!-- Screen titles -->
+    <string name="title_overview">Overview</string>
+    <string name="title_map">Map</string>
+    <string name="title_statistics">Statistics</string>
+    <string name="title_scripts">Scripts</string>
+
+    <!-- Navigation Drawer -->
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <string-array name="top_level_navigation_titles">
+        <item>@string/title_overview</item>
+        <item>@string/title_map</item>
+        <item>@string/title_statistics</item>
+        <item>@string/title_scripts</item>
+    </string-array>
 
 </resources>
