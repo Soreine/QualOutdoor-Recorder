@@ -1,16 +1,26 @@
 <resources>
 
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+	<!-- Android Typographic Scale guidelines -->
+	<dimen name="text_size_micro">12sp</dimen>
+	<dimen name="text_size_small">14sp</dimen>
+	<dimen name="text_size_medium">18sp</dimen>
+	<dimen name="text_size_large">22sp</dimen>
+	
+	<!-- UI dimension -->
+	<dimen name="ui_spacing">8dp</dimen>
+	<dimen name="divider_weight">2dp</dimen>
+	
+	<!-- Default screen margins, per the Android Design guidelines. -->
+	<dimen name="activity_horizontal_margin">16dp</dimen>
+	<dimen name="activity_vertical_margin">16dp</dimen>
 
-    <!-- Dimension for AndroidPlot -->
-    <dimen name="pie_segment_label_font_size">10dp</dimen>
-    <dimen name="title_font_size">20dp</dimen>
-    <dimen name="domain_label_font_size">13dp</dimen>
-    <dimen name="range_label_font_size">13dp</dimen>
-    <dimen name="range_tick_label_font_size">15dp</dimen>
-    <dimen name="domain_tick_label_font_size">15dp</dimen>
-    <dimen name="legend_text_font_size">20dp</dimen>
+	<!-- Dimension for AndroidPlot -->
+	<dimen name="pie_segment_label_font_size">10dp</dimen>
+	<dimen name="title_font_size">20dp</dimen>
+	<dimen name="domain_label_font_size">13dp</dimen>
+	<dimen name="range_label_font_size">13dp</dimen>
+	<dimen name="range_tick_label_font_size">15dp</dimen>
+	<dimen name="domain_tick_label_font_size">15dp</dimen>
+	<dimen name="legend_text_font_size">20dp</dimen>
 
 </resources>
