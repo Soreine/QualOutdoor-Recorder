@@ -136,10 +136,9 @@ public class MainActivity extends ActionBarActivity {
 
 	/** Swaps fragments in the main content view on item selection */
 	private void selectItem(int position) {
-		Log.d("MainActivity", "Select item " + position);
 
 		// Create the corresponding fragment
-		Fragment fragment = new GenericFragment(navigationTitles[position]);
+		Fragment fragment = NavigationDrawer.getFragment(position);
 
 		// Insert the fragment by replacing any existing fragment
 		FragmentManager fragmentManager = getSupportFragmentManager();
@@ -157,7 +156,6 @@ public class MainActivity extends ActionBarActivity {
 
 	@Override
 	public void setTitle(CharSequence title) {
-		Log.d("MainActivity", "Setting title");
 		this.title = title;
 		getSupportActionBar().setTitle(title);
 	}
