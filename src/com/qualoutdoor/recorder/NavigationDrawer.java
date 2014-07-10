@@ -29,15 +29,10 @@ public class NavigationDrawer {
 		switch (itemPosition) {
 		case OVERVIEW:
 			// Create a Generic Fragment
-			result = new GenericFragment();
-			// Add the name argument
-			args.putCharSequence(GenericFragment.FRAGMENT_NAME, "Overview");
+			result = new OverviewFragment();
 			break;
 		case MAP:
-			// Create a Generic Fragment
-			result = new GenericFragment();
-			// Add the name argument
-			args.putCharSequence(GenericFragment.FRAGMENT_NAME, "Map");
+			result = new DataMapFragment();
 			break;
 		case STATISTICS:
 			result = new StatisticsFragment();

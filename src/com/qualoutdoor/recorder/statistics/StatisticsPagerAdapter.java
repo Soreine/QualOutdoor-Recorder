@@ -9,6 +9,9 @@ import com.qualoutdoor.recorder.GenericFragment;
 
 public class StatisticsPagerAdapter extends FragmentPagerAdapter {
 
+	/** The list of the fragment names */
+	private CharSequence[] fragmentTitles = {"Cell Infos", "Neighbor Cells", "Graph", "Script Logs"};
+	
 	public StatisticsPagerAdapter(FragmentManager fm) {
 		super(fm);
 	}
@@ -20,20 +23,21 @@ public class StatisticsPagerAdapter extends FragmentPagerAdapter {
 		// Create the arguments
 		Bundle args = new Bundle();
 		// Add the name argument
-		args.putCharSequence(GenericFragment.FRAGMENT_NAME, "Fragment " + i);
-		
+		args.putCharSequence(GenericFragment.FRAGMENT_NAME, fragmentTitles[i]);
+		// Attach the arguments
+		fragment.setArguments(args);
 		return fragment;
 	}
 
 	@Override
 	public int getCount() {
 		// For this contrived example, we have a 10-object collection.
-		return 10;
+		return fragmentTitles.length;
 	}
 
 	@Override
-	public CharSequence getPageTitle(int position) {
-		return "Fragment " + (position + 1);
+	public CharSequence getPageTitle(int i) {
+		return fragmentTitles[i];
 	}
 
 }

@@ -27,4 +27,14 @@
         <item>@string/title_scripts</item>
     </string-array>
 
+    <!-- Overview -->
+    <string-array name="overview_array">
+        <item>Signal Strength</item>
+        <item>GPS Location</item>
+        <item>Mobile Network Code</item>
+        <item>Network Type Code</item>
+        <item>Mobile Country Code</item>
+        <item>Cell Info</item>
+    </string-array>
+
 </resources>
