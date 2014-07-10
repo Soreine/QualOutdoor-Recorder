@@ -28,16 +28,20 @@ public class MainActivity extends ActionBarActivity {
 	/***********************************************************************/
 	/* Private attributes */
 	/***********************************************************************/
-	/// The activity title
+	/** The activity title */
 	private CharSequence title;
-	/// The drawer title
+	/** The drawer title */
 	private CharSequence drawerTitle;
+	/** The active section in the drawer */
+	private int activeSection = -1;
+	/** The active section key in the savedInstanceState */
+	private static final String ACTIVE_SECTION = "active_section";
 
-	/// Hold the navigation titles displayed in the Navigation Drawer
+	/** Hold the navigation titles displayed in the Navigation Drawer */
 	private String[] navigationTitles;
-	/// A reference to the Navigation Drawer layout
+	/** A reference to the Navigation Drawer layout */
 	private DrawerLayout drawerLayout;
-	/// The ListView associated to the Navigation Drawer
+	/** The ListView associated to the Navigation Drawer */
 	private ListView drawerList;
 	/**
 	 * A DrawerListener that integrate well with the ActionBar and handle the
@@ -65,7 +69,7 @@ public class MainActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_main);
 
 		// Initialize the drawer title
-		drawerTitle = getResources().getString(R.string.title_activity_main);
+		title = drawerTitle = getTitle();
 
 		// Retrieve the navigation titles
 		navigationTitles = getResources().getStringArray(
@@ -75,8 +79,10 @@ public class MainActivity extends ActionBarActivity {
 		{
 			// Get the DrawerLayout instance
 			drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-	        // Set a custom shadow that overlays the main content when the drawer opens
-			drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+			// Set a custom shadow that overlays the main content when the
+			// drawer opens
+			drawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
+					GravityCompat.START);
 			// Get the ListView reference
 			drawerList = (ListView) findViewById(R.id.left_drawer);
 			// Items cannot be focused (as would an EditText for example)
@@ -125,14 +131,24 @@ public class MainActivity extends ActionBarActivity {
 
 		}
 
-		// Initialize activity title
-		title = getResources().getString(R.string.title_overview);
-
-		// Check that we are not being restored from a previous state
+		// Check we are not being restored
 		if (savedInstanceState == null) {
 			// Set the selected view as the first (Overview)
 			selectItem(0);
+		} else {
+			// Retrieve the active section
+			activeSection = savedInstanceState.getInt(ACTIVE_SECTION);
+			title = navigationTitles[activeSection];
+			selectItem(activeSection);
 		}
+
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		// Save the active section
+		outState.putInt(ACTIVE_SECTION, activeSection);
 	}
 
 	/** The navigation drawer items click listener */
@@ -148,25 +164,32 @@ public class MainActivity extends ActionBarActivity {
 
 	/** Swaps fragments in the main content view on item selection */
 	private void selectItem(int position) {
+		// Check that we selected an different item
+		if (position != activeSection) {
+			// Create the corresponding fragment
+			Fragment fragment = NavigationDrawer.getFragment(position);
 
-		// Create the corresponding fragment
-		Fragment fragment = NavigationDrawer.getFragment(position);
+			// Insert the fragment by replacing any existing fragment
+			FragmentManager fragmentManager = getSupportFragmentManager();
+			fragmentManager.beginTransaction()
+					.replace(R.id.container, fragment).commit();
 
-		// Insert the fragment by replacing any existing fragment
-		FragmentManager fragmentManager = getSupportFragmentManager();
-		fragmentManager.beginTransaction().replace(R.id.container, fragment)
-				.commit();
+			// Highlight the selected item
+			drawerList.setItemChecked(position, true);
 
-		// Highlight the selected item
-		drawerList.setItemChecked(position, true);
-		// Set the title
-		setTitle(navigationTitles[position]);
+			// Set the title
+			setTitle(navigationTitles[position]);
+
+			// Set the active section
+			activeSection = position;
+		}
 		// Close the drawer
 		drawerLayout.closeDrawer(drawerList);
 	}
 
 	@Override
 	public void setTitle(CharSequence title) {
+		Log.d("MainActivity", "Setting title");
 		this.title = title;
 		getSupportActionBar().setTitle(title);
 	}
