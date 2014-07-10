@@ -1,10 +1,11 @@
 package com.qualoutdoor.recorder.statistics;
 
-import com.qualoutdoor.recorder.GenericFragment;
-
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.qualoutdoor.recorder.GenericFragment;
 
 public class StatisticsPagerAdapter extends FragmentPagerAdapter {
 
@@ -14,7 +15,13 @@ public class StatisticsPagerAdapter extends FragmentPagerAdapter {
 
 	@Override
 	public Fragment getItem(int i) {
-		Fragment fragment = new GenericFragment("Fragment " + i);
+		// Create a generic fragment
+		Fragment fragment = new GenericFragment();
+		// Create the arguments
+		Bundle args = new Bundle();
+		// Add the name argument
+		args.putCharSequence(GenericFragment.FRAGMENT_NAME, "Fragment " + i);
+		
 		return fragment;
 	}
 

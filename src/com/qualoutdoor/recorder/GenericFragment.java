@@ -10,38 +10,21 @@ import android.widget.TextView;
 /** A generic fragment, to be used in place of a 'non implemented yet fragment'. */
 public class GenericFragment extends Fragment {
 
-	// The key to retrieve the fragment state when restoring from a saved
-	// instance Bundle.
-	private final String FRAGMENT_NAME = "fragment_name";
+	// The name argument key
+	public static final String FRAGMENT_NAME = "fragment_name";
 
 	/** The name of the generic fragment (and the name to display) */
-	private String name = "Generic Fragment";
-
-	public GenericFragment() {
-		super();
-	}
-
-	/** Create a GenericFragment called 'name' */
-	public GenericFragment(String name) {
-		super();
-		this.name = name;
-	}
-
-	@Override
-	/** Called when the activity will be destroyed and its state might be restored later. */
-	public void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		// Save the name
-		outState.putString(FRAGMENT_NAME, this.name);
-	}
+	private CharSequence name = "Generic Fragment";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// Check if we are being restored from a previous state
-		if (savedInstanceState != null) {
-			// Restore the name of the fragment
-			this.name = savedInstanceState.getString(FRAGMENT_NAME);
+		// Get the arguments passed
+		Bundle args = getArguments();
+		// Check if we had a name passed as argument
+		CharSequence nameArg = args.getCharSequence(FRAGMENT_NAME);
+		if (nameArg != null) {
+			this.name = nameArg;
 		}
 	}
 
