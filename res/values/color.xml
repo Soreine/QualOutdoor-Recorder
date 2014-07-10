@@ -2,6 +2,8 @@
 <!-- Version: 2 Organized by: Willie Tsang -->
 <resources>
 
+    <color name="transparent">#00000000</color>
+
 	<!-- ALSETT -->
 	<color name="alsett_blue">#5F5DE8</color>
 	<color name="alsett_lightblue">#61E8D2</color>

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -74,8 +75,12 @@ public class MainActivity extends ActionBarActivity {
 		{
 			// Get the DrawerLayout instance
 			drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+	        // Set a custom shadow that overlays the main content when the drawer opens
+			drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
 			// Get the ListView reference
 			drawerList = (ListView) findViewById(R.id.left_drawer);
+			// Items cannot be focused (as would an EditText for example)
+			drawerList.setItemsCanFocus(false);
 
 			// Set the adapter for the list view
 			drawerList.setAdapter(new ArrayAdapter<String>(this,
@@ -133,7 +138,6 @@ public class MainActivity extends ActionBarActivity {
 	/** The navigation drawer items click listener */
 	private class DrawerItemClickListener implements
 			ListView.OnItemClickListener {
-		/** Called when a item click occured */
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {

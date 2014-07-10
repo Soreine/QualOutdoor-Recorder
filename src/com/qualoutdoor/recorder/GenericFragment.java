@@ -21,14 +21,16 @@ public class GenericFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 		// Get the arguments passed
 		Bundle args = getArguments();
-		// Check if we had a name passed as argument
-		CharSequence nameArg = args.getCharSequence(FRAGMENT_NAME);
-		if (nameArg != null) {
-			this.name = nameArg;
+		// Check that arguments were passed
+		if (args != null) {
+			// Check if we had a name passed as argument
+			CharSequence nameArg = args.getCharSequence(FRAGMENT_NAME);
+			if (nameArg != null) {
+				this.name = nameArg;
+			}
 		}
 	}
 
-	/** Called on creation of the view */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
