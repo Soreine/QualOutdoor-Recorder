@@ -27,19 +27,21 @@ public class MainActivity extends ActionBarActivity {
 	/***********************************************************************/
 	/* Private attributes */
 	/***********************************************************************/
-	// / The activity title
+	/// The activity title
 	private CharSequence title;
-
-	// / The drawer title
+	/// The drawer title
 	private CharSequence drawerTitle;
 
-	// / Hold the navigation titles displayed in the Navigation Drawer
+	/// Hold the navigation titles displayed in the Navigation Drawer
 	private String[] navigationTitles;
-	// / A reference to the Navigation Drawer layout
+	/// A reference to the Navigation Drawer layout
 	private DrawerLayout drawerLayout;
-	// / The ListView associated to the Navigation Drawer
+	/// The ListView associated to the Navigation Drawer
 	private ListView drawerList;
-	// / A DrawerListener that integrate well with the ActionBar
+	/**
+	 * A DrawerListener that integrate well with the ActionBar and handle the
+	 * Navigation Drawer behaviors
+	 */
 	private ActionBarDrawerToggle drawerToggle;
 
 	@Override
@@ -52,6 +54,7 @@ public class MainActivity extends ActionBarActivity {
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
+		// Forward the onConfigurationChanged call to the drawerToggle
 		drawerToggle.onConfigurationChanged(newConfig);
 	}
 
@@ -62,11 +65,11 @@ public class MainActivity extends ActionBarActivity {
 
 		// Initialize the drawer title
 		drawerTitle = getResources().getString(R.string.title_activity_main);
-		
+
 		// Retrieve the navigation titles
 		navigationTitles = getResources().getStringArray(
 				R.array.top_level_navigation_titles);
-		
+
 		// Initialize the Navigation Drawer's content
 		{
 			// Get the DrawerLayout instance
@@ -110,8 +113,11 @@ public class MainActivity extends ActionBarActivity {
 			// Set the drawer toggle as the DrawerListener
 			drawerLayout.setDrawerListener(drawerToggle);
 
-			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+			// Enable the home button in the ActionBar
 			getSupportActionBar().setHomeButtonEnabled(true);
+			// Set the Home button to display an drawer indicator
+			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 		}
 
 		// Initialize activity title
@@ -127,9 +133,11 @@ public class MainActivity extends ActionBarActivity {
 	/** The navigation drawer items click listener */
 	private class DrawerItemClickListener implements
 			ListView.OnItemClickListener {
+		/** Called when a item click occured */
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
+			// The behavior has been exported to the selectItem method.
 			selectItem(position);
 		}
 	}
@@ -145,11 +153,10 @@ public class MainActivity extends ActionBarActivity {
 		fragmentManager.beginTransaction().replace(R.id.container, fragment)
 				.commit();
 
-		// Highlight the selected item, update the title, and close the
-		// drawer
+		// Highlight the selected item
 		drawerList.setItemChecked(position, true);
+		// Set the title
 		setTitle(navigationTitles[position]);
-
 		// Close the drawer
 		drawerLayout.closeDrawer(drawerList);
 	}

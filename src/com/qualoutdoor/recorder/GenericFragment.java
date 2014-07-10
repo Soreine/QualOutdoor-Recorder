@@ -31,6 +31,7 @@ public class GenericFragment extends Fragment {
 	/** Called when the activity will be destroyed and its state might be restored later. */
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
+		// Save the name
 		outState.putString(FRAGMENT_NAME, this.name);
 	}
 
@@ -39,7 +40,7 @@ public class GenericFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 		// Check if we are being restored from a previous state
 		if (savedInstanceState != null) {
-			// Restore the state of the fragment
+			// Restore the name of the fragment
 			this.name = savedInstanceState.getString(FRAGMENT_NAME);
 		}
 	}
