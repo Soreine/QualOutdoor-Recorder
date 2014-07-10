@@ -1,4 +1,4 @@
-package com.qualoutdoor.recorder;
+package com.qualoutdoor.recorder.charting;
 
 import java.util.Observable;
 import java.util.Observer;

@@ -37,4 +37,12 @@
         <item>Cell Info</item>
     </string-array>
 
+    <!-- Scripts -->
+    <string-array name="scripts_array">
+        <item>Script 1</item>
+        <item>Script 2</item>
+        <item>Script 3</item>
+        <item>Etc.</item>
+    </string-array>
+
 </resources>

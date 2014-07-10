@@ -1,4 +1,4 @@
-package com.qualoutdoor.recorder.charting;
+package com.qualoutdoor.recorder.map;
 
 import android.content.Context;
 import android.util.AttributeSet;

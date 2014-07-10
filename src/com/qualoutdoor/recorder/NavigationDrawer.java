@@ -1,5 +1,7 @@
 package com.qualoutdoor.recorder;
 
+import com.qualoutdoor.recorder.map.DataMapFragment;
+import com.qualoutdoor.recorder.scripts.ScriptListFragment;
 import com.qualoutdoor.recorder.statistics.StatisticsFragment;
 
 import android.os.Bundle;
@@ -32,16 +34,15 @@ public class NavigationDrawer {
 			result = new OverviewFragment();
 			break;
 		case MAP:
-			result = new DataMapFragment();
+			result = new GenericFragment();
+			args.putString(GenericFragment.FRAGMENT_NAME, "Map");
 			break;
 		case STATISTICS:
 			result = new StatisticsFragment();
 			break;
 		case SCRIPTS:
 			// Create a Generic Fragment
-			result = new GenericFragment();
-			// Add the name argument
-			args.putCharSequence(GenericFragment.FRAGMENT_NAME, "Scripts");
+			result = new ScriptListFragment();
 			break;
 		}
 

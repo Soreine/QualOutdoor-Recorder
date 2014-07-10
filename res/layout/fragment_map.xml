@@ -25,7 +25,7 @@
         map:uiCompass="true"
         tools:ignore="MissingPrefix" /--> <!-- This is for the map prefix bug -->
 
-    <com.qualoutdoor.recorder.charting.ColoredScale
+    <com.qualoutdoor.recorder.map.ColoredScale
         android:id="@+id/scale"
         android:background="@color/android_vdarkgray"
         android:layout_width="wrap_content"
