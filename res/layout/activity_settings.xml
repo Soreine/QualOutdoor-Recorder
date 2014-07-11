@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/settings_fragment"
-        android:name="com.qualoutdoor.recorder.GenericFragment"
+        android:name="com.qualoutdoor.recorder.settings.DisplaySettingsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

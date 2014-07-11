@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/pager" android:layout_width="match_parent"
+	android:layout_height="match_parent" android:orientation="vertical"
+	android:padding="@dimen/ui_spacing">
+	<TextView 
+		android:id="@+id/settings_general_settings" 
+		android:text="@string/settings_general_settings"
+		style="@style/ListItem" />
+		
+	<View style="@style/Divider"/>
+		
+
+	<TextView 
+		android:id="@+id/settings_upload_prefs" 
+		android:text="@string/settings_upload_prefs"
+		style="@style/ListItem" />
+		
+	<View style="@style/Divider"/>
+		
+	<TextView 
+		android:id="@+id/settings_device_infos" 
+		android:text="@string/settings_device_infos"
+		style="@style/ListItem" />
+		
+	<View style="@style/Divider"/>
+		
+	<Button 
+		android:id="@+id/settings_send_data_button" 
+		android:text="@string/settings_send_data_now"
+		style="@style/Button" />				
+</LinearLayout>

@@ -3,7 +3,7 @@ package com.qualoutdoor.recorder;
 /***********************************************************************/
 /* Imported packages */
 /***********************************************************************/
-import com.qualoutdoor.recorder.settings.DisplaySettingsActivity;
+import com.qualoutdoor.recorder.settings.SettingsActivity;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -236,7 +236,7 @@ public class MainActivity extends ActionBarActivity {
 	/** Action associated to the settings option menu item */
 	private void openSettings() {
 		// Create an intent toward the DisplaySettingsActivity
-		Intent intent = new Intent(this, DisplaySettingsActivity.class);
+		Intent intent = new Intent(this, SettingsActivity.class);
 		// Start the activity
 		startActivity(intent);
 	}

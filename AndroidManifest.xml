@@ -58,13 +58,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
-            android:name="com.qualoutdoor.recorder.settings.DisplaySettingsActivity"
-            android:label="@string/title_display_settings" >
+            android:name="com.qualoutdoor.recorder.settings.SettingsActivity"
+            android:label="@string/title_display_settings"
+            android:parentActivityName="com.qualoutdoor.recorder.MainActivity" >
+
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.qualoutdoor.recorder.MainActivity" />
         </activity>
+        
         <activity
             android:name="com.qualoutdoor.recorder.DisplayHelpActivity"
-            android:label="@string/title_display_help" >
+            android:label="@string/title_display_help"
+            android:parentActivityName="com.qualoutdoor.recorder.MainActivity" >
+
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.qualoutdoor.recorder.MainActivity" />
         </activity>
     </application>
 
