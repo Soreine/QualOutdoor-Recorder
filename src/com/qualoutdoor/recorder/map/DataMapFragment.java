@@ -71,7 +71,8 @@ public class DataMapFragment extends Fragment {
 
 		// Create a new MapFragment to be placed in the fragment layout
 		mapFragment = SupportMapFragment.newInstance(options);
-		mapFragment.setRetainInstance(true);
+		
+		// TODO : see what does mapFragment.setRetainInstance(true);
 		// Add the fragment to the 'fragment_container' FrameLayout
 		getFragmentManager().beginTransaction()
 				.add(R.id.map_container, mapFragment).commit();

@@ -34,8 +34,9 @@ public class NavigationDrawer {
 			result = new OverviewFragment();
 			break;
 		case MAP:
-			result = new GenericFragment();
-			args.putString(GenericFragment.FRAGMENT_NAME, "Map");
+//			result = new GenericFragment();
+//			args.putString(GenericFragment.FRAGMENT_NAME, "Map");
+			result = new DataMapFragment();
 			break;
 		case STATISTICS:
 			result = new StatisticsFragment();
