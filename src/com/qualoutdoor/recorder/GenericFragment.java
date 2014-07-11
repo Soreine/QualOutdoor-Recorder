@@ -2,6 +2,7 @@ package com.qualoutdoor.recorder;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,9 @@ public class GenericFragment extends Fragment {
 
 	/** The name of the generic fragment (and the name to display) */
 	private CharSequence name = "Generic Fragment";
+
+	public GenericFragment() {
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,7 @@ public class GenericFragment extends Fragment {
 		TextView textView = (TextView) (rootView
 				.findViewById(R.id.generic_text));
 		// Set the content of the TextView
+		Log.d("GenericFragment", "My name = " + name);
 		textView.setText(name);
 		return rootView;
 	}

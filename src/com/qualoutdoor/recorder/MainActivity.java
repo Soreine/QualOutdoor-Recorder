@@ -3,6 +3,9 @@ package com.qualoutdoor.recorder;
 /***********************************************************************/
 /* Imported packages */
 /***********************************************************************/
+import com.qualoutdoor.recorder.settings.DisplaySettingsActivity;
+
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -77,7 +80,7 @@ public class MainActivity extends ActionBarActivity {
 
 			// Set the adapter for the list view
 			drawerList.setAdapter(new ArrayAdapter<String>(this,
-					R.layout.drawer_list_item, navigationTitles));
+					R.layout.view_drawer_list_item, navigationTitles));
 			// Set the list's click listener
 			drawerList.setOnItemClickListener(new DrawerItemClickListener());
 
@@ -199,7 +202,7 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	/***********************************************************************/
-	/* ActionBar Option Menu */
+	/* ActionBar Options Menu */
 	/***********************************************************************/
 
 	@Override
@@ -217,8 +220,33 @@ public class MainActivity extends ActionBarActivity {
 			return true;
 		}
 		// Handle the other action bar items...
+		switch (item.getItemId()) {
+		case R.id.action_settings:
+			openSettings();
+			return true;
+		case R.id.action_help:
+			openHelp();
+			return true;
+		default:
+			// We don't handle the event, pass it to the super class
+			return super.onOptionsItemSelected(item);
+		}
+	}
 
-		return super.onOptionsItemSelected(item);
+	/** Action associated to the settings option menu item */
+	private void openSettings() {
+		// Create an intent toward the DisplaySettingsActivity
+		Intent intent = new Intent(this, DisplaySettingsActivity.class);
+		// Start the activity
+		startActivity(intent);
+	}
+
+	/** Action associated to the help option menu item */
+	private void openHelp() {
+		// Create an intent toward the DisplayHelpActivity
+		Intent intent = new Intent(this, DisplayHelpActivity.class);
+		// Start the activity
+		startActivity(intent);
 	}
 
 }
