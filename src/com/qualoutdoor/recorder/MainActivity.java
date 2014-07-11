@@ -52,20 +52,6 @@ public class MainActivity extends ActionBarActivity {
 	private ActionBarDrawerToggle drawerToggle;
 
 	@Override
-	protected void onPostCreate(Bundle savedInstanceState) {
-		super.onPostCreate(savedInstanceState);
-		// Sync the toggle state after onRestoreInstanceState has occurred.
-		drawerToggle.syncState();
-	}
-
-	@Override
-	public void onConfigurationChanged(Configuration newConfig) {
-		super.onConfigurationChanged(newConfig);
-		// Forward the onConfigurationChanged call to the drawerToggle
-		drawerToggle.onConfigurationChanged(newConfig);
-	}
-
-	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
@@ -147,6 +133,20 @@ public class MainActivity extends ActionBarActivity {
 					savedInstanceState.getCharSequence(PREVIOUS_TITLE));
 		}
 
+	}
+
+	@Override
+	protected void onPostCreate(Bundle savedInstanceState) {
+		super.onPostCreate(savedInstanceState);
+		// Sync the toggle state after onRestoreInstanceState has occurred.
+		drawerToggle.syncState();
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+		// Forward the onConfigurationChanged call to the drawerToggle
+		drawerToggle.onConfigurationChanged(newConfig);
 	}
 
 	@Override

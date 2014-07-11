@@ -12,7 +12,7 @@
 	android:layout_height="wrap_content"
 	android:background="@drawable/navigation_drawer_item_background_selector"
 	android:gravity="center_vertical" 
-	android:minHeight="?attr/listPreferredItemHeightSmall"
+	android:minHeight="@dimen/min_touch_size"
 	android:paddingLeft="16dp" 
 	android:paddingRight="16dp"
 	android:textSize="@dimen/text_size_medium" android:textColor="@color/navigation_drawer_item_text_selector" />
