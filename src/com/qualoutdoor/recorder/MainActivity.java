@@ -11,7 +11,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,12 +27,15 @@ public class MainActivity extends ActionBarActivity {
 	/***********************************************************************/
 	/* Private attributes */
 	/***********************************************************************/
-	/** The activity title */
-	private CharSequence title;
+	/** The current fragment title */
+	private CharSequence fragmentTitle;
 	/** The drawer title */
 	private CharSequence drawerTitle;
-	/** The active section in the drawer */
+	/** The active section in the navigation drawer */
 	private int activeSection = -1;
+
+	/** The previous actionbar title key in the savedInstanceState */
+	private static final String PREVIOUS_TITLE = "previous_title";
 	/** The active section key in the savedInstanceState */
 	private static final String ACTIVE_SECTION = "active_section";
 
@@ -69,8 +71,7 @@ public class MainActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_main);
 
 		// Initialize the drawer title
-		title = drawerTitle = getTitle();
-
+		drawerTitle = getResources().getString(R.string.title_activity_main);
 		// Retrieve the navigation titles
 		navigationTitles = getResources().getStringArray(
 				R.array.top_level_navigation_titles);
@@ -110,7 +111,7 @@ public class MainActivity extends ActionBarActivity {
 				public void onDrawerClosed(View view) {
 					super.onDrawerClosed(view);
 					// Set the ActionBar title to the fragment title
-					getSupportActionBar().setTitle(title);
+					getSupportActionBar().setTitle(fragmentTitle);
 				}
 
 				/** Called when a drawer has settled in a completely open state. */
@@ -133,13 +134,17 @@ public class MainActivity extends ActionBarActivity {
 
 		// Check we are not being restored
 		if (savedInstanceState == null) {
-			// Set the selected view as the first (Overview)
+			// Set the first fragment as the selected view
 			selectItem(0);
 		} else {
 			// Retrieve the active section
 			activeSection = savedInstanceState.getInt(ACTIVE_SECTION);
-			title = navigationTitles[activeSection];
-			selectItem(activeSection);
+			// Get the corresponding fragment title
+			fragmentTitle = navigationTitles[activeSection];
+			// Restore the previous ActionBar title (this depends on the state
+			// of the drawer)
+			getSupportActionBar().setTitle(
+					savedInstanceState.getCharSequence(PREVIOUS_TITLE));
 		}
 
 	}
@@ -149,6 +154,9 @@ public class MainActivity extends ActionBarActivity {
 		super.onSaveInstanceState(outState);
 		// Save the active section
 		outState.putInt(ACTIVE_SECTION, activeSection);
+		// Save the current action bar title
+		outState.putCharSequence(PREVIOUS_TITLE, getSupportActionBar()
+				.getTitle());
 	}
 
 	/** The navigation drawer items click listener */
@@ -164,7 +172,7 @@ public class MainActivity extends ActionBarActivity {
 
 	/** Swaps fragments in the main content view on item selection */
 	private void selectItem(int position) {
-		// Check that we selected an different item
+		// Check that we selected an different item than the active one
 		if (position != activeSection) {
 			// Create the corresponding fragment
 			Fragment fragment = NavigationDrawer.getFragment(position);
@@ -177,21 +185,17 @@ public class MainActivity extends ActionBarActivity {
 			// Highlight the selected item
 			drawerList.setItemChecked(position, true);
 
-			// Set the title
-			setTitle(navigationTitles[position]);
+			// Update the fragment title
+			fragmentTitle = navigationTitles[position];
+
+			// Set the action bar title
+			setTitle(fragmentTitle);
 
 			// Set the active section
 			activeSection = position;
 		}
 		// Close the drawer
 		drawerLayout.closeDrawer(drawerList);
-	}
-
-	@Override
-	public void setTitle(CharSequence title) {
-		Log.d("MainActivity", "Setting title");
-		this.title = title;
-		getSupportActionBar().setTitle(title);
 	}
 
 	/***********************************************************************/
@@ -212,7 +216,7 @@ public class MainActivity extends ActionBarActivity {
 		if (drawerToggle.onOptionsItemSelected(item)) {
 			return true;
 		}
-		// Handle your other action bar items...
+		// Handle the other action bar items...
 
 		return super.onOptionsItemSelected(item);
 	}
