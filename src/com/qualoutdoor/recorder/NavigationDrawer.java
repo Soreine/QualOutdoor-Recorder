@@ -34,8 +34,6 @@ public class NavigationDrawer {
 			result = new OverviewFragment();
 			break;
 		case MAP:
-//			result = new GenericFragment();
-//			args.putString(GenericFragment.FRAGMENT_NAME, "Map");
 			result = new DataMapFragment();
 			break;
 		case STATISTICS:
@@ -50,7 +48,6 @@ public class NavigationDrawer {
 		// Give the arguments bundle to the fragment
 		result.setArguments(args);
 
-		Log.d("NavigationDrawer", "Fragment " + itemPosition + " created");
 		return result;
 	}
 
