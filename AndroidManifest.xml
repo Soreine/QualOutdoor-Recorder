@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="7"
+        android:minSdkVersion="9"
         android:targetSdkVersion="19" />
 
     <!-- Allows applications to open network sockets. -->
@@ -13,7 +13,7 @@
     <!-- Allows applications to access information about networks -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- Ask authorization for writing on the external storage -->
-    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- Access a rough location (from the WiFi provider infos for example) -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- Access a precise location (from the GPS services for example) -->
@@ -34,15 +34,11 @@
         android:logo="@drawable/logo"
         android:theme="@style/AppTheme" >
 
-        <!--
-        Google Play Services Version : 
-        This is only needed for the up-to-date version of Google Play Services (not the Froyo support version)
-
+        <!-- Google Play Services Version : -->
+        <!-- This is only needed for the up-to-date version of Google Play Services (not the Froyo support version) -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        -->
-
 
         <!-- Google Maps API Key registered for the application package 'com.qualoutdoor.recorder' -->
         <meta-data
@@ -58,7 +54,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name="com.qualoutdoor.recorder.settings.SettingsActivity"
             android:label="@string/title_display_settings"
@@ -69,7 +64,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.qualoutdoor.recorder.MainActivity" />
         </activity>
-        
         <activity
             android:name="com.qualoutdoor.recorder.DisplayHelpActivity"
             android:label="@string/title_display_help"

@@ -44,7 +44,6 @@ public class StatisticsFragment extends Fragment {
 		// use
 		// getSupportFragmentManager.
 		statisticsPagerAdapter = new StatisticsPagerAdapter(getChildFragmentManager());
-		Log.d("StatisticsFragment", "onCreate Complete");
 	}
 
 	@Override
@@ -52,11 +51,13 @@ public class StatisticsFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_statistics, container, false);
 
-		// Set up the ViewPager, attaching the adapter.
+		// Set up the ViewPager
 		mViewPager = (ViewPager) view.findViewById(R.id.pager);
+		// Setting the limit of page cached to maximum (we do this as long as we do not have much complex views)
+		mViewPager.setOffscreenPageLimit(3); // Up to 3 + 1 + 3 pages will be kept active at once
+		// Attaching the adapter
 		mViewPager.setAdapter(statisticsPagerAdapter);
-		
-		Log.d("StatisticsFragment", "View created");
+
 		return view;
 	}
 

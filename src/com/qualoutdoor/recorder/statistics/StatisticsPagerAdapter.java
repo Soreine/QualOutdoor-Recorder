@@ -52,6 +52,7 @@ public class StatisticsPagerAdapter extends FragmentPagerAdapter {
 		return result;
 	}
 
+
 	@Override
 	public int getCount() {
 		// For this contrived example, we have a 10-object collection.
