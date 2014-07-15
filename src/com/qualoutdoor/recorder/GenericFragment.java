@@ -46,7 +46,6 @@ public class GenericFragment extends Fragment {
 		TextView textView = (TextView) (rootView
 				.findViewById(R.id.generic_text));
 		// Set the content of the TextView
-		Log.d("GenericFragment", "My name = " + name);
 		textView.setText(name);
 		return rootView;
 	}
