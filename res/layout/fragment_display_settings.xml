@@ -26,6 +26,11 @@
 		
 	<Button 
 		android:id="@+id/settings_send_data_button" 
-		android:text="@string/settings_send_data_now"
-		style="@style/Button" />				
+		android:text="@string/settings_send_data_button"
+		style="@style/Button" />		
+		
+	<Button 
+		android:id="@+id/settings_start_stop_button" 
+		android:text="@string/settings_start_stop_button"
+		style="@style/Button" />			
 </LinearLayout>

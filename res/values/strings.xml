@@ -46,12 +46,16 @@
         <item>Script 3</item>
         <item>Etc.</item>
     </string-array>
-    
+
     <!-- Settings -->
-	<string name="settings_general_settings">General settings&#8230;</string>
-	<string name="settings_upload_prefs">Upload preferences&#8230;</string>
-	<string name="settings_device_infos">Device informations&#8230;</string>
-	<string name="settings_send_data_now">Send data now</string>
-	
-	
+    <string name="settings_general_settings">General settings&#8230;</string>
+    <string name="settings_upload_prefs">Upload preferences&#8230;</string>
+    <string name="settings_device_infos">Device informations&#8230;</string>
+    <string name="settings_send_data_button">Send data now</string>
+    <string name="settings_start_stop_button">Start/Stop</string>
+    
+    <!-- Notifications -->
+    <string name="notification_sampling_title">Sampling</string>
+    <string name="notification_sampling_text">QualOutdoor is currently sampling datas&#8230;</string>
+    
 </resources>
