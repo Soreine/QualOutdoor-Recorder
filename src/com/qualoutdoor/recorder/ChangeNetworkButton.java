@@ -3,6 +3,7 @@ package com.qualoutdoor.recorder;
 import java.util.Random;
 
 import android.content.Context;
+import android.telephony.TelephonyManager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
@@ -39,15 +40,29 @@ public class ChangeNetworkButton extends Button {
 
 	/** Change the current network artificially */
 	private void actionChangeNetwork(View view) {
+		// Get the application context
+		QualOutdoorApp app = (QualOutdoorApp) getContext()
+				.getApplicationContext();
 		// Create a random generator
 		Random rnd = new Random();
-		// Get the network names array from the ressources
-		String[] networkNames = getResources().getStringArray(
-				R.array.network_type_name);
-		// Chose a random network
-		int network = rnd.nextInt(networkNames.length);
-		// Update the application network variable value
-		((QualOutdoorApp) getContext().getApplicationContext())
-				.setCurrentNetwork(network);
+		if (rnd.nextBoolean()) {
+			int callState = app.getCallState();
+			if (callState == TelephonyManager.CALL_STATE_IDLE) {
+				callState = TelephonyManager.CALL_STATE_OFFHOOK;
+			} else {
+				callState = TelephonyManager.CALL_STATE_IDLE;
+			}
+			app.setCallState(callState);
+		} else {
+			// Get the network names array from the ressources
+			String[] networkNames = getResources().getStringArray(
+					R.array.network_type_name);
+			// Chose a random network
+			int network = rnd.nextInt(networkNames.length);
+
+			// Update the application network variable value
+			app.setCurrentNetwork(network);
+			// Change the call state randomly
+		}
 	}
 }

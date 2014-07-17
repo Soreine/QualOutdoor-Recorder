@@ -5,6 +5,7 @@ package com.qualoutdoor.recorder;
 /***********************************************************************/
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
@@ -13,18 +14,22 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.qualoutdoor.recorder.QualOutdoorApp.NetworkChangeListener;
 import com.qualoutdoor.recorder.settings.SettingsActivity;
 
-public class MainActivity extends ActionBarActivity implements NetworkChangeListener {
+public class MainActivity extends ActionBarActivity implements
+		NetworkChangeListener {
 
 	/***********************************************************************/
 	/* Public attributes */
@@ -56,8 +61,11 @@ public class MainActivity extends ActionBarActivity implements NetworkChangeList
 	 * Navigation Drawer behaviors
 	 */
 	private ActionBarDrawerToggle drawerToggle;
-	
-	/** The view located in the action bar which displays the current network type */
+
+	/**
+	 * The view located in the action bar which displays the current network
+	 * type
+	 */
 	private TextView networkView;
 
 	@Override
@@ -216,31 +224,47 @@ public class MainActivity extends ActionBarActivity implements NetworkChangeList
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		// Search the network info widget
-	    MenuItem networkItem = menu.findItem(R.id.network_info);
-	    // Initialize the network info view attribute
-	    networkView = (TextView) MenuItemCompat.getActionView(networkItem);
-	    
-	    // Get the application
-	    QualOutdoorApp app = (QualOutdoorApp) getApplication();
-	    // Find the current network type code
-	    int currentNetwork = app.getCurrentNetwork();
-	    // Update the network view
-	    onNetworkChanged(currentNetwork);
-	    // Register as a network change listener
-	    app.addNetworkChangeListener(this);
-	    
+		MenuItem networkItem = menu.findItem(R.id.network_info);
+		// Initialize the network info view attribute
+		networkView = (TextView) MenuItemCompat
+				.getActionView(networkItem);
+
+		// Get the application
+		QualOutdoorApp app = (QualOutdoorApp) getApplication();
+		// Find the current network type code
+		int currentNetwork = app.getCurrentNetwork();
+		// Find the phone call state
+		int callState = app.getCallState();
+		// Update the network view
+		onNetworkChanged(currentNetwork, callState);
+		// Register as a network change listener
+		app.addNetworkChangeListener(this);
 		return true;
 	}
 
-
 	@Override
-	public void onNetworkChanged(int newNetwork) {
-	    // Find the network names array
-	    String[] networkNames = getResources().getStringArray(R.array.network_type_name);
-	    // Initialize the text view with the current network type string
-	    networkView.setText(networkNames[newNetwork]);
+	public void onNetworkChanged(int currentNetwork, int currentCallState) {
+		// Find the network names array
+		String[] networkNames = getResources().getStringArray(
+				R.array.network_type_name);
+		// Initialize the text view with the current network type string
+		networkView.setText(networkNames[currentNetwork]);
+
+		// Set the network view style according to the call state
+		if(currentCallState == TelephonyManager.CALL_STATE_OFFHOOK) {
+			// Phone is offhook
+			
+			// Change color to highlight the state
+			networkView.setTextColor(getResources().getColor(R.color.network_info_highlight));
+			networkView.setTypeface(null, Typeface.BOLD_ITALIC);
+		} else {
+			// Phone is idle
+			networkView.setTextColor(getResources().getColor(R.color.normal_text));
+			networkView.setTypeface(null, Typeface.NORMAL);
+		}
+
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Pass the event to ActionBarDrawerToggle, if it returns
@@ -277,6 +301,5 @@ public class MainActivity extends ActionBarActivity implements NetworkChangeList
 		// Start the activity
 		startActivity(intent);
 	}
-
 
 }

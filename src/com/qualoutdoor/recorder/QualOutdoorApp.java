@@ -13,7 +13,7 @@ public class QualOutdoorApp extends Application {
 
 	/** An interface for network changes listeners */
 	public interface NetworkChangeListener {
-		public void onNetworkChanged(int newNetwork);
+		public void onNetworkChanged(int network, int callState);
 	}
 
 	/** The registered network changes listeners */
@@ -24,6 +24,8 @@ public class QualOutdoorApp extends Application {
 	/// The current network type value
 	private int currentNetwork = TelephonyManager.NETWORK_TYPE_UNKNOWN;
 	
+	/// The current network type value
+	private int callState = TelephonyManager.CALL_STATE_IDLE;
 	
 	/** The application constructor */
 	public QualOutdoorApp() {
@@ -37,7 +39,17 @@ public class QualOutdoorApp extends Application {
 	/** Modify the current network value */
 	public void setCurrentNetwork(int network) {
 		this.currentNetwork = network;
-		notifyNetworkListeners(network);
+		notifyNetworkListeners(currentNetwork, callState);
+	}
+	
+	/** Get the current call state */
+	public int getCallState() {
+		return callState;
+	}
+	/** Modify the current call state */
+	public void setCallState(int callState) {
+		this.callState = callState;
+		notifyNetworkListeners(currentNetwork, callState);
 	}
 
 	/** Add a new listener */
@@ -51,9 +63,9 @@ public class QualOutdoorApp extends Application {
 	}
 
 	/** Notifies the network changes listeners that the network type has changed */
-	public void notifyNetworkListeners(int newNetwork) {
+	public void notifyNetworkListeners(int currentNetwork, int currentCallState) {
 		for (NetworkChangeListener l : networkListeners) {
-			l.onNetworkChanged(newNetwork);
+			l.onNetworkChanged(currentNetwork, currentCallState);
 		}
 	}
 }
