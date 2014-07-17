@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/listView1"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:entries="@array/overview_array">
-</ListView>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:layout_height="match_parent"
+	android:paddingLeft="16dp" android:paddingRight="16dp"
+	android:orientation="vertical">
+
+	<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/listView1" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:entries="@array/overview_array">
+	</ListView>
+
+	<com.qualoutdoor.recorder.ChangeNetworkButton
+		android:id="@+id/overview_change_network_button" android:text="@string/change_network_button"
+		style="@style/Button" />
+
+</LinearLayout>

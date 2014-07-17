@@ -12,7 +12,7 @@ import android.util.Log;
  * This class define the order and the association between items in the
  * Navigation Drawer and their corresponding fragments
  */
-public class NavigationDrawer {
+public class NavigationDrawerBehavior {
 	// / The items positions
 	public static final int OVERVIEW = 0;
 	public static final int MAP = 1;

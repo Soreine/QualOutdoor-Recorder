@@ -3,8 +3,6 @@ package com.qualoutdoor.recorder;
 /***********************************************************************/
 /* Imported packages */
 /***********************************************************************/
-import com.qualoutdoor.recorder.settings.SettingsActivity;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -12,6 +10,7 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -20,8 +19,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
-public class MainActivity extends ActionBarActivity {
+import com.qualoutdoor.recorder.QualOutdoorApp.NetworkChangeListener;
+import com.qualoutdoor.recorder.settings.SettingsActivity;
+
+public class MainActivity extends ActionBarActivity implements NetworkChangeListener {
 
 	/***********************************************************************/
 	/* Public attributes */
@@ -53,6 +56,9 @@ public class MainActivity extends ActionBarActivity {
 	 * Navigation Drawer behaviors
 	 */
 	private ActionBarDrawerToggle drawerToggle;
+	
+	/** The view located in the action bar which displays the current network type */
+	private TextView networkView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -178,7 +184,7 @@ public class MainActivity extends ActionBarActivity {
 		// Check that we selected an different item than the active one
 		if (position != activeSection) {
 			// Create the corresponding fragment
-			Fragment fragment = NavigationDrawer.getFragment(position);
+			Fragment fragment = NavigationDrawerBehavior.getFragment(position);
 
 			// Insert the fragment by replacing any existing fragment
 			FragmentManager fragmentManager = getSupportFragmentManager();
@@ -209,9 +215,32 @@ public class MainActivity extends ActionBarActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
+		// Search the network info widget
+	    MenuItem networkItem = menu.findItem(R.id.network_info);
+	    // Initialize the network info view attribute
+	    networkView = (TextView) MenuItemCompat.getActionView(networkItem);
+	    
+	    // Get the application
+	    QualOutdoorApp app = (QualOutdoorApp) getApplication();
+	    // Find the current network type code
+	    int currentNetwork = app.getCurrentNetwork();
+	    // Update the network view
+	    onNetworkChanged(currentNetwork);
+	    // Register as a network change listener
+	    app.addNetworkChangeListener(this);
+	    
 		return true;
 	}
 
+
+	@Override
+	public void onNetworkChanged(int newNetwork) {
+	    // Find the network names array
+	    String[] networkNames = getResources().getStringArray(R.array.network_type_name);
+	    // Initialize the text view with the current network type string
+	    networkView.setText(networkNames[newNetwork]);
+	}
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Pass the event to ActionBarDrawerToggle, if it returns
@@ -248,5 +277,6 @@ public class MainActivity extends ActionBarActivity {
 		// Start the activity
 		startActivity(intent);
 	}
+
 
 }

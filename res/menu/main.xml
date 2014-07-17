@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.qualoutdoor.recorder.MainActivity" >
 
+   <item android:id="@+id/network_info"
+          android:title="@string/network_info"
+          app:showAsAction="always"
+          app:actionLayout="@layout/view_network_info" />
+
     <item
         android:id="@+id/action_settings"
         android:icon="@drawable/settings"
