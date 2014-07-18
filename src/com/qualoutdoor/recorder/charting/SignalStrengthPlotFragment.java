@@ -21,8 +21,6 @@ import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYPlot;
 import com.androidplot.xy.XYStepMode;
 import com.qualoutdoor.recorder.R;
-import com.qualoutdoor.recorder.R.id;
-import com.qualoutdoor.recorder.R.layout;
 
 public class SignalStrengthPlotFragment extends Fragment {
 

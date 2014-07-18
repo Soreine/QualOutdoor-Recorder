@@ -30,8 +30,9 @@
 		<item name="android:background">?android:attr/listDivider</item>
 	</style>
 
-	<style name="Button" parent="@style/ListItem">
-		<item name="android:layout_width">wrap_content</item>
+	<style name="Button">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
 		<item name="android:layout_gravity">center_horizontal</item>
 		<item name="android:gravity">center_horizontal|center_vertical</item>
 	</style>

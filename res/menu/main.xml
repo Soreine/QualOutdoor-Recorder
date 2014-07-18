@@ -14,7 +14,7 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         android:alpha="125"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="never"/>
     <item
         android:id="@+id/action_help"
         android:orderInCategory="110"

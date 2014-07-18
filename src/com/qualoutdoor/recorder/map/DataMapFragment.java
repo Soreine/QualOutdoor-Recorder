@@ -23,8 +23,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.qualoutdoor.recorder.R;
-import com.qualoutdoor.recorder.R.id;
-import com.qualoutdoor.recorder.R.layout;
 
 public class DataMapFragment extends Fragment {
 

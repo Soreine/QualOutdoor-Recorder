@@ -21,12 +21,15 @@ public class QualOutdoorApp extends Application {
 	// listener attempts to remove itself during event notification.
 	private final CopyOnWriteArrayList<NetworkChangeListener> networkListeners;
 
-	/// The current network type value
+	// / The current network type value
 	private int currentNetwork = TelephonyManager.NETWORK_TYPE_UNKNOWN;
-	
-	/// The current network type value
+
+	// / The current network type value
 	private int callState = TelephonyManager.CALL_STATE_IDLE;
-	
+
+	// The current state of the background sampling process
+	private boolean sampling = false;
+
 	/** The application constructor */
 	public QualOutdoorApp() {
 		this.networkListeners = new CopyOnWriteArrayList<QualOutdoorApp.NetworkChangeListener>();
@@ -36,16 +39,20 @@ public class QualOutdoorApp extends Application {
 	public int getCurrentNetwork() {
 		return currentNetwork;
 	}
+
 	/** Modify the current network value */
 	public void setCurrentNetwork(int network) {
+		// Set the new network value
 		this.currentNetwork = network;
+		// Notify the listeners
 		notifyNetworkListeners(currentNetwork, callState);
 	}
-	
+
 	/** Get the current call state */
 	public int getCallState() {
 		return callState;
 	}
+
 	/** Modify the current call state */
 	public void setCallState(int callState) {
 		this.callState = callState;
@@ -64,8 +71,26 @@ public class QualOutdoorApp extends Application {
 
 	/** Notifies the network changes listeners that the network type has changed */
 	public void notifyNetworkListeners(int currentNetwork, int currentCallState) {
+		// For each listeners
 		for (NetworkChangeListener l : networkListeners) {
+			// Tell the listener the network state has changed
 			l.onNetworkChanged(currentNetwork, currentCallState);
 		}
 	}
+
+	/** Indicate if the background sampling process is running */
+	public boolean isSampling() {
+		return sampling;
+	}
+
+	/** Start the sampling */
+	public void startSampling() {
+		sampling = true;
+	}
+	
+	/** Stop the sampling */
+	public void stopSampling() {
+		sampling = false;
+	}
+
 }
