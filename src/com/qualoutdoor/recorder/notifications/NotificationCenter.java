@@ -12,8 +12,8 @@ import com.qualoutdoor.recorder.settings.SettingsActivity;
 
 /**
  * This class is a utility class allowing the app to manage user notifications.
- * An exemple of notification is the "ongoing sampling" notification which
- * tells the user that the app is currently sampling
+ * An exemple of notification is the "ongoing sampling" notification which tells
+ * the user that the app is currently sampling
  */
 public class NotificationCenter {
 
@@ -36,9 +36,9 @@ public class NotificationCenter {
 				R.string.notification_sampling_title));
 		// Set the notification text
 		notificationBuilder.setContentText(context.getResources().getText(
-				R.string.notification_sampling_text)); 
+				R.string.notification_sampling_text));
 		// Indicate that the notification represent an ongoing process
-		notificationBuilder.setOngoing(true); 
+		notificationBuilder.setOngoing(true);
 		// Set the priority of this notification to the minimum
 		notificationBuilder.setPriority(NotificationCompat.PRIORITY_MIN);
 
@@ -50,7 +50,8 @@ public class NotificationCenter {
 		// This ensures that navigating backward from the Activity leads out of
 		// the application to the Home screen.
 		TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-		// Adds the back stack for the Intent (but not the Intent itself)
+		// Adds the parents back stack according to the parents relationships
+		// defined in the app manifest
 		stackBuilder.addParentStack(SettingsActivity.class);
 		// Adds the Intent that starts the Activity to the top of the stack
 		stackBuilder.addNextIntent(resultIntent);

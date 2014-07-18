@@ -9,6 +9,9 @@
     <color name="selected_item_background">@color/android_darkgray</color>
     <color name="selected_item_text">@color/android_lightgray</color>
     <color name="network_info_highlight">@color/android_blue</color>
+    <!-- Buttons -->
+    <color name="button_bg">@color/android_blue</color>
+    <color name="button_bg_pressed">@color/android_darkblue</color>
 
     <!-- ALSETT -->
     <color name="alsett_blue">#5F5DE8</color>
@@ -16,8 +19,10 @@
 
     <!-- Android style -->
     <color name="android_green">#A4C639</color>
-    <color name="android_blue">#0099CC</color>
+    <color name="android_darkblue">#0099CC</color>
+    <color name="android_blue">#0fa1d3</color>
     <color name="android_lightblue">#33B5E5</color>
+    <color name="android_vlightblue">#50c0e9</color>
     <color name="android_vdarkgray">#222222</color>
     <color name="android_darkgray">#4c4c4c</color>
     <color name="android_gray">#bfbfbf</color>

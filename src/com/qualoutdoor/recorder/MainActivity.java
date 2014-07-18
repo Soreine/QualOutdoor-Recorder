@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -203,9 +204,9 @@ public class MainActivity extends ActionBarActivity implements
 			// Update the fragment title
 			fragmentTitle = navigationTitles[position];
 
-			// Set the action bar title
-			setTitle(fragmentTitle);
-
+			// Set the ActionBar title to the fragment title
+			getSupportActionBar().setTitle(fragmentTitle);
+			
 			// Set the active section
 			activeSection = position;
 		}
@@ -224,8 +225,7 @@ public class MainActivity extends ActionBarActivity implements
 		// Search the network info widget
 		MenuItem networkItem = menu.findItem(R.id.network_info);
 		// Initialize the network info view attribute
-		networkView = (TextView) MenuItemCompat
-				.getActionView(networkItem);
+		networkView = (TextView) MenuItemCompat.getActionView(networkItem);
 
 		// Get the application
 		QualOutdoorApp app = (QualOutdoorApp) getApplication();
@@ -249,15 +249,17 @@ public class MainActivity extends ActionBarActivity implements
 		networkView.setText(networkNames[currentNetwork]);
 
 		// Set the network view style according to the call state
-		if(currentCallState == TelephonyManager.CALL_STATE_OFFHOOK) {
+		if (currentCallState == TelephonyManager.CALL_STATE_OFFHOOK) {
 			// Phone is offhook
-			
+
 			// Change color to highlight the state
-			networkView.setTextColor(getResources().getColor(R.color.network_info_highlight));
+			networkView.setTextColor(getResources().getColor(
+					R.color.network_info_highlight));
 			networkView.setTypeface(null, Typeface.BOLD_ITALIC);
 		} else {
 			// Phone is idle
-			networkView.setTextColor(getResources().getColor(R.color.normal_text));
+			networkView.setTextColor(getResources().getColor(
+					R.color.normal_text));
 			networkView.setTypeface(null, Typeface.NORMAL);
 		}
 
@@ -282,6 +284,19 @@ public class MainActivity extends ActionBarActivity implements
 			// We don't handle the event, pass it to the super class
 			return super.onOptionsItemSelected(item);
 		}
+	}
+
+	@Override
+	public void onBackPressed() {
+		// We desire to go back to the main section when back button is pressed, and
+		// to leave the app if we were in the main section already
+		if(activeSection == 0) {
+			// Defer to the system default behavior
+			super.onBackPressed();
+		} else {
+			selectItem(0);
+		}
+		
 	}
 
 	/** Action associated to the settings option menu item */

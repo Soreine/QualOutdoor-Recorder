@@ -1,4 +1,4 @@
-package com.qualoutdoor.recorder.charting;
+package com.qualoutdoor.recorder.telephony;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -7,7 +7,7 @@ import android.telephony.PhoneStateListener;
 import android.telephony.SignalStrength;
 import android.util.Log;
 
-public class SignalStrengthSampler implements Runnable {
+public class SignalStrengthService implements Runnable {
 
 	public class MyPhoneStateListener extends PhoneStateListener {
 		@Override
@@ -34,7 +34,7 @@ public class SignalStrengthSampler implements Runnable {
 	private MyObservable notifier;
 	private MyPhoneStateListener listener;
 
-	public SignalStrengthSampler(int samplingRate) {
+	public SignalStrengthService(int samplingRate) {
 		this.sampling_rate = samplingRate;
 		this.notifier = new MyObservable();
 		this.listener = new MyPhoneStateListener();
