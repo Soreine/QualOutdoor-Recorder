@@ -3,11 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.qualoutdoor.recorder.MainActivity" >
 
-
    <item android:id="@+id/network_info"
           android:title="@string/network_info"
+          android:orderInCategory="1"
           app:showAsAction="always"
           app:actionLayout="@layout/view_network_info" />
+
+   <item android:id="@+id/action_record"
+          android:title="@string/action_start_record"
+          android:orderInCategory="10"
+          app:showAsAction="always"
+          android:icon="@drawable/start_record" />
 
     <item
         android:id="@+id/action_settings"

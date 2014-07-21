@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval" >
+
+    <size
+        android:height="@dimen/action_bar_icon_size_without_padding"
+        android:width="@dimen/action_bar_icon_size_without_padding" />
+
+    <solid android:color="@color/action_bar_disabled" />
+
+</shape>

@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -37,6 +36,8 @@ public class MainActivity extends ActionBarActivity implements
 	/***********************************************************************/
 	/* Private attributes */
 	/***********************************************************************/
+	/** A reference to the app context */
+	private QualOutdoorApp qualoutdoorApp;
 	/** The current fragment title */
 	private CharSequence fragmentTitle;
 	/** The drawer title */
@@ -66,12 +67,17 @@ public class MainActivity extends ActionBarActivity implements
 	 * type
 	 */
 	private TextView networkView;
+	/** The record action from the options menu */
+	private MenuItem recordMenuItem;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		// Get the application context
+		qualoutdoorApp = (QualOutdoorApp) getApplication();
+		
 		// Initialize the drawer title
 		drawerTitle = getResources().getString(R.string.title_activity_main);
 		// Retrieve the navigation titles
@@ -206,7 +212,7 @@ public class MainActivity extends ActionBarActivity implements
 
 			// Set the ActionBar title to the fragment title
 			getSupportActionBar().setTitle(fragmentTitle);
-			
+
 			// Set the active section
 			activeSection = position;
 		}
@@ -222,22 +228,39 @@ public class MainActivity extends ActionBarActivity implements
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
-		// Search the network info widget
-		MenuItem networkItem = menu.findItem(R.id.network_info);
-		// Initialize the network info view attribute
-		networkView = (TextView) MenuItemCompat.getActionView(networkItem);
 
-		// Get the application
-		QualOutdoorApp app = (QualOutdoorApp) getApplication();
-		// Find the current network type code
-		int currentNetwork = app.getCurrentNetwork();
-		// Find the phone call state
-		int callState = app.getCallState();
-		// Update the network view
-		onNetworkChanged(currentNetwork, callState);
-		// Register as a network change listener
-		app.addNetworkChangeListener(this);
+		{ // Initialize the record action reference
+			recordMenuItem = menu.findItem(R.id.action_record);
+		}
+
+		{// Initialize the network info view
+			// Find the current network type code
+			int currentNetwork = qualoutdoorApp.getCurrentNetwork();
+			// Find the phone call state
+			int callState = qualoutdoorApp.getCallState();
+			// Search the network info widget
+			MenuItem networkItem = menu.findItem(R.id.network_info);
+			// Initialize the network info view reference
+			networkView = (TextView) MenuItemCompat.getActionView(networkItem);
+			// Update the network view
+			onNetworkChanged(currentNetwork, callState);
+			// Register as a network change listener
+			qualoutdoorApp.addNetworkChangeListener(this);
+		}
 		return true;
+	}
+
+	@Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+		// Check whether the app is recording
+		if (qualoutdoorApp.isRecording()) {
+			// The icon should represent the stop record action
+			recordMenuItem.setIcon(R.drawable.recording);
+		} else {
+			// The icon should represent the start record action
+			recordMenuItem.setIcon(R.drawable.not_recording);
+		}
+		return super.onPrepareOptionsMenu(menu);
 	}
 
 	@Override
@@ -274,6 +297,12 @@ public class MainActivity extends ActionBarActivity implements
 		}
 		// Handle the other action bar items...
 		switch (item.getItemId()) {
+		case R.id.action_record:
+			// Start/Stop the recording
+			qualoutdoorApp.switchRecording();
+			// Update the Options Menu view (for the record icon to change)
+			supportInvalidateOptionsMenu();
+			return true;
 		case R.id.action_settings:
 			openSettings();
 			return true;
@@ -288,15 +317,16 @@ public class MainActivity extends ActionBarActivity implements
 
 	@Override
 	public void onBackPressed() {
-		// We desire to go back to the main section when back button is pressed, and
+		// We desire to go back to the main section when back button is pressed,
+		// and
 		// to leave the app if we were in the main section already
-		if(activeSection == 0) {
+		if (activeSection == 0) {
 			// Defer to the system default behavior
 			super.onBackPressed();
 		} else {
 			selectItem(0);
 		}
-		
+
 	}
 
 	/** Action associated to the settings option menu item */

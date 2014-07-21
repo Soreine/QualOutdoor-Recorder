@@ -6,26 +6,30 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.widget.Toast;
 
 import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.settings.SettingsActivity;
 
 /**
  * This class is a utility class allowing the app to manage user notifications.
- * An exemple of notification is the "ongoing sampling" notification which tells
- * the user that the app is currently sampling
+ * An exemple of notification is the "ongoing recording" notification which
+ * tells the user that the app is currently recording
  */
 public class NotificationCenter {
 
-	/** The id of the background sampling notification */
-	private final static int BACKGROUND_SAMPLING = 0;
+	/** The id of the background recording notification */
+	private final static int BACKGROUND_RECORDING = 0;
 
 	/** This class is not meant to be instantiated */
 	private NotificationCenter() {
 	}
 
-	/** Switch on/off the ongoing sampling notification */
-	public static void notifyBackgroundSampling(Context context) {
+	/** Switch on/off the ongoing recording notification */
+	public static void notifyBackgroundRecording(Context context) {
+		// Create a little Toast :)
+		Toast.makeText(context, R.string.notification_recording_title, Toast.LENGTH_SHORT).show();
+		
 		// Get a notification builder
 		NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(
 				context);
@@ -33,10 +37,10 @@ public class NotificationCenter {
 		notificationBuilder.setSmallIcon(R.drawable.notification_icon);
 		// Set the notification title
 		notificationBuilder.setContentTitle(context.getResources().getText(
-				R.string.notification_sampling_title));
+				R.string.notification_recording_title));
 		// Set the notification text
 		notificationBuilder.setContentText(context.getResources().getText(
-				R.string.notification_sampling_text));
+				R.string.notification_recording_text));
 		// Indicate that the notification represent an ongoing process
 		notificationBuilder.setOngoing(true);
 		// Set the priority of this notification to the minimum
@@ -66,16 +70,16 @@ public class NotificationCenter {
 		NotificationManager mNotificationManager = (NotificationManager) context
 				.getSystemService(Context.NOTIFICATION_SERVICE);
 		// Build the notification and notify it with the appropriate tag
-		mNotificationManager.notify(BACKGROUND_SAMPLING,
+		mNotificationManager.notify(BACKGROUND_RECORDING,
 				notificationBuilder.build());
 	}
 
-	public static void dismissBackgroundSampling(Context context) {
+	public static void dismissBackgroundRecording(Context context) {
 		// Get the notification manager from the host activity
 		NotificationManager mNotificationManager = (NotificationManager) context
 				.getSystemService(Context.NOTIFICATION_SERVICE);
 		// Cancel the notification
-		mNotificationManager.cancel(BACKGROUND_SAMPLING);
+		mNotificationManager.cancel(BACKGROUND_RECORDING);
 	}
 
 }

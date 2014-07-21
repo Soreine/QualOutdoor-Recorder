@@ -9,6 +9,10 @@
     <color name="selected_item_background">@color/android_darkgray</color>
     <color name="selected_item_text">@color/android_lightgray</color>
     <color name="network_info_highlight">@color/android_blue</color>
+    <!-- Action bar -->
+    <color name="action_bar_enabled">#99333333</color>
+    <color name="action_bar_disabled">#4D333333</color>
+    
     <!-- Buttons -->
     <color name="button_bg">@color/android_blue</color>
     <color name="button_bg_pressed">@color/android_darkblue</color>

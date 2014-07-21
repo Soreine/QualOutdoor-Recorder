@@ -5,8 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 
-import com.qualoutdoor.recorder.notifications.NotificationCenter;
-
 /**
  * A button which starts or stops the background sampling (this only displays
  * notification)
@@ -45,13 +43,7 @@ public class SamplingButton extends Button {
 		// Get the application context
 		QualOutdoorApp app = (QualOutdoorApp) getContext()
 				.getApplicationContext();
-		if (app.isSampling()) {
-			NotificationCenter.dismissBackgroundSampling(app);
-			app.stopSampling();
-		} else {
-			NotificationCenter.notifyBackgroundSampling(app);
-			app.startSampling();
-		}
-
+		// Start/Stop the recording
+		app.switchRecording();
 	}
 }

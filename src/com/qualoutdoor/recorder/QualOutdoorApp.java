@@ -2,6 +2,8 @@ package com.qualoutdoor.recorder;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import com.qualoutdoor.recorder.notifications.NotificationCenter;
+
 import android.app.Application;
 import android.telephony.TelephonyManager;
 
@@ -27,8 +29,8 @@ public class QualOutdoorApp extends Application {
 	// / The current network type value
 	private int callState = TelephonyManager.CALL_STATE_IDLE;
 
-	// The current state of the background sampling process
-	private boolean sampling = false;
+	// The current state of the background recording process
+	private boolean recording = false;
 
 	/** The application constructor */
 	public QualOutdoorApp() {
@@ -78,19 +80,25 @@ public class QualOutdoorApp extends Application {
 		}
 	}
 
-	/** Indicate if the background sampling process is running */
-	public boolean isSampling() {
-		return sampling;
+	/** Indicate if the background recording process is running */
+	public boolean isRecording() {
+		return recording;
 	}
 
-	/** Start the sampling */
-	public void startSampling() {
-		sampling = true;
-	}
-	
-	/** Stop the sampling */
-	public void stopSampling() {
-		sampling = false;
+	/** Start or stop the recording */
+	public void switchRecording() {
+		recording = !recording;
+		notifyRecording();
 	}
 
+	/** Create a notification according to the recorder state */
+	public void notifyRecording() {
+		if (recording) {
+			// Display the recording notification
+			NotificationCenter.notifyBackgroundRecording(this);
+		} else {
+			// Dismiss the recording notification
+			NotificationCenter.dismissBackgroundRecording(this);
+		}
+	}
 }
