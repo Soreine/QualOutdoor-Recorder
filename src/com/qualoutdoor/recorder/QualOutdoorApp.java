@@ -87,7 +87,24 @@ public class QualOutdoorApp extends Application {
 
 	/** Start or stop the recording */
 	public void switchRecording() {
-		recording = !recording;
+		if (!recording) {
+			startRecording();
+		} else {
+			stopRecording();
+		}
+	}
+
+	/** Stop the recording */
+	private void stopRecording() {
+		recording = false;
+		// Notify the new state of the recorder
+		notifyRecording();
+	}
+
+	/** Start the recording */
+	private void startRecording() {
+		recording = true;
+		// Notify the new state of the recorder
 		notifyRecording();
 	}
 

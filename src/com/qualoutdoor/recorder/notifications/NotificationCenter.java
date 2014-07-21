@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.qualoutdoor.recorder.MainActivity;
 import com.qualoutdoor.recorder.R;
-import com.qualoutdoor.recorder.settings.SettingsActivity;
 
 /**
  * This class is a utility class allowing the app to manage user notifications.
@@ -29,8 +28,9 @@ public class NotificationCenter {
 	/** Switch on/off the ongoing recording notification */
 	public static void notifyBackgroundRecording(Context context) {
 		// Create a little Toast :)
-		Toast.makeText(context, R.string.notification_recording_title, Toast.LENGTH_SHORT).show();
-		
+		Toast.makeText(context, R.string.notification_recording_title,
+				Toast.LENGTH_SHORT).show();
+
 		// Get a notification builder
 		NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(
 				context);
@@ -45,7 +45,7 @@ public class NotificationCenter {
 		// Indicate that the notification represent an ongoing process
 		notificationBuilder.setOngoing(true);
 		// Set the priority of this notification to the minimum
-		notificationBuilder.setPriority(NotificationCompat.PRIORITY_MIN);
+		notificationBuilder.setPriority(NotificationCompat.PRIORITY_LOW);
 
 		// Creates an explicit intent for the settings activity
 		Intent resultIntent = new Intent(context, MainActivity.class);
@@ -55,9 +55,11 @@ public class NotificationCenter {
 		// This ensures that navigating backward from the Activity leads out of
 		// the application to the Home screen.
 		TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-		// Adds the parents back stack according to the parents relationships
-		// defined in the app manifest
-		stackBuilder.addParentStack(SettingsActivity.class);
+		/**
+		 * // Adds the parents back stack according to the parents relationships
+		 * // defined in the app manifest
+		 * stackBuilder.addParentStack(MainActivity.class);
+		 */
 		// Adds the Intent that starts the Activity to the top of the stack
 		stackBuilder.addNextIntent(resultIntent);
 
