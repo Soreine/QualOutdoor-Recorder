@@ -8,6 +8,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.widget.Toast;
 
+import com.qualoutdoor.recorder.MainActivity;
 import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.settings.SettingsActivity;
 
@@ -47,7 +48,7 @@ public class NotificationCenter {
 		notificationBuilder.setPriority(NotificationCompat.PRIORITY_MIN);
 
 		// Creates an explicit intent for the settings activity
-		Intent resultIntent = new Intent(context, SettingsActivity.class);
+		Intent resultIntent = new Intent(context, MainActivity.class);
 
 		// The stack builder object will contain an artificial back stack for
 		// the started Activity.

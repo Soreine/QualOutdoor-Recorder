@@ -28,15 +28,5 @@
 		android:id="@+id/settings_send_data_button" 
 		android:text="@string/settings_send_data_button"
 		style="@style/Button" />		
-		
-	<com.qualoutdoor.recorder.SamplingButton
-		android:id="@+id/settings_start_stop_button" 
-		android:text="@string/settings_start_stop_button"
-		style="@style/Button" />		
-		
-	<com.qualoutdoor.recorder.ChangeNetworkButton 
-		android:id="@+id/settings_change_network_button" 
-		android:text="@string/change_network_button"
-		style="@style/Button"/>		
-		
+
 </LinearLayout>
