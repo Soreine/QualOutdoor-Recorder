@@ -83,6 +83,9 @@ public interface ITelephony {
 	/** Returns the most recently observed location */
 	ILocation getLocation();
 
+	/** Return the signal strength of the primary cell */
+	ISignalStrength getSignalStrength();
+	
 	/**
 	 * Register a listener object to receive notification concerning the
 	 * specified events type
