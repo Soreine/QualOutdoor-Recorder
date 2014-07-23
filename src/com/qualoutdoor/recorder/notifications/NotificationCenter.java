@@ -19,7 +19,7 @@ import com.qualoutdoor.recorder.R;
 public class NotificationCenter {
 
 	/** The id of the background recording notification */
-	private final static int BACKGROUND_RECORDING = 0;
+	private final static int BACKGROUND_RECORDING = 1337;
 
 	/** This class is not meant to be instantiated */
 	private NotificationCenter() {

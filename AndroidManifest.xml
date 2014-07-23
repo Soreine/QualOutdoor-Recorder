@@ -46,6 +46,7 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyAAg7_9kYhTBVGwfqsub-yfpyCHIl29KUg" />
 
+        <!-- ACTIVITIES -->
         <activity
             android:name="com.qualoutdoor.recorder.MainActivity"
             android:label="@string/title_activity_main" >
@@ -75,6 +76,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.qualoutdoor.recorder.MainActivity" />
         </activity>
+
+        <!-- SERVICES -->
+        <!-- android:exported="false" makes these services only available to our app -->
+        <service
+            android:name="com.qualoutdoor.recorder.recording.RecordingService"
+            android:exported="false" />
+        <service
+            android:name="com.qualoutdoor.recorder.telephony.TelephonyService"
+            android:exported="false" />
     </application>
 
 </manifest>

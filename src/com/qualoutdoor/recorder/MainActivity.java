@@ -3,6 +3,7 @@ package com.qualoutdoor.recorder;
 /***********************************************************************/
 /* Imported packages */
 /***********************************************************************/
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
@@ -15,6 +16,7 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,11 +25,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.qualoutdoor.recorder.QualOutdoorApp.NetworkChangeListener;
 import com.qualoutdoor.recorder.settings.SettingsActivity;
+import com.qualoutdoor.recorder.telephony.ITelephony;
+import com.qualoutdoor.recorder.telephony.TelephonyService;
+import com.qualoutdoor.recorder.telephony.TelephonyServiceConnection;
 
-public class MainActivity extends ActionBarActivity implements
-		NetworkChangeListener {
+public class MainActivity extends ActionBarActivity {
 
 	/***********************************************************************/
 	/* Public attributes */
@@ -38,6 +41,18 @@ public class MainActivity extends ActionBarActivity implements
 	/***********************************************************************/
 	/** A reference to the app context */
 	private QualOutdoorApp qualoutdoorApp;
+	/** A reference to the TelephonyService */
+	private TelephonyService telephonyService;
+	/** The TelephonyServiceConnection used to connect to the TelephonyService */
+	private TelephonyServiceConnection telServiceConnection = new TelephonyServiceConnection() {
+		@Override
+		public void onServiceObtained() {
+			Log.d("TelephonyServiceConnection", "onServiceObtained");
+			// Give the service to the activity
+			MainActivity.this.telephonyService = this.getService();
+		}
+	};
+
 	/** The current fragment title */
 	private CharSequence fragmentTitle;
 	/** The drawer title */
@@ -77,7 +92,7 @@ public class MainActivity extends ActionBarActivity implements
 
 		// Get the application context
 		qualoutdoorApp = (QualOutdoorApp) getApplication();
-		
+
 		// Initialize the drawer title
 		drawerTitle = getResources().getString(R.string.title_activity_main);
 		// Retrieve the navigation titles
@@ -181,6 +196,33 @@ public class MainActivity extends ActionBarActivity implements
 				.getTitle());
 	}
 
+	@Override
+	protected void onStart() {
+		super.onStart();
+		Log.d("MainActivity", "onStart");
+
+		// We do not check if the ServiceConnections are bound already,
+		// because it seems they never are when starting the activity...
+		// Create an intent toward TelephonyService
+		Intent intent = new Intent(this, TelephonyService.class);
+		// Bind to TelephonyService through TelephonyServiceConnection
+		bindService(intent, telServiceConnection, Context.BIND_AUTO_CREATE);
+		Log.d("MainActivity", "ask to bind service");
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		Log.d("MainActivity", "onStop");
+
+		// Unbind from the TelephonyService if appropriate
+		if (telServiceConnection.isBound()) {
+			unbindService(telServiceConnection);
+			Log.d("MainActivity", "ask to UNbind service");
+
+		}
+	}
+
 	/** The navigation drawer items click listener */
 	private class DrawerItemClickListener implements
 			ListView.OnItemClickListener {
@@ -229,29 +271,21 @@ public class MainActivity extends ActionBarActivity implements
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 
-		{ // Initialize the record action reference
-			recordMenuItem = menu.findItem(R.id.action_record);
-		}
+		// Initialize the record action reference
+		recordMenuItem = menu.findItem(R.id.action_record);
 
-		{// Initialize the network info view
-			// Find the current network type code
-			int currentNetwork = qualoutdoorApp.getCurrentNetwork();
-			// Find the phone call state
-			int callState = qualoutdoorApp.getCallState();
-			// Search the network info widget
-			MenuItem networkItem = menu.findItem(R.id.network_info);
-			// Initialize the network info view reference
-			networkView = (TextView) MenuItemCompat.getActionView(networkItem);
-			// Update the network view
-			onNetworkChanged(currentNetwork, callState);
-			// Register as a network change listener
-			qualoutdoorApp.addNetworkChangeListener(this);
-		}
+		// Get the network item reference
+		MenuItem networkMenuItem = menu.findItem(R.id.network_info);
+		// Initialize the network info view reference
+		networkView = (TextView) MenuItemCompat.getActionView(networkMenuItem);
+
+		Log.d("MainActivity", "onCreateOptionsMenu");
 		return true;
 	}
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
+		Log.d("MainActivity", "onPrepareOptionsMenu");
 		// Check whether the app is recording
 		if (qualoutdoorApp.isRecording()) {
 			// The icon should represent the stop record action
@@ -260,10 +294,26 @@ public class MainActivity extends ActionBarActivity implements
 			// The icon should represent the start record action
 			recordMenuItem.setIcon(R.drawable.not_recording);
 		}
+
+		// Initialize the network info view
+		{// The current network is unknown
+			int currentNetwork = ITelephony.NETWORK_TYPE_UNKNOWN;
+			// We first assume the phone state is idle
+			int callState = ITelephony.CALL_STATE_IDLE;
+			// If we can access to the TelephonyService
+			if (telServiceConnection.isBound()) {
+				// Get the current network type
+				currentNetwork = telephonyService.getNetworkType();
+				// Get the phonte state
+				callState = telephonyService.getCallState();
+			}
+			// Update the network view
+			onNetworkChanged(currentNetwork, callState);
+		}
 		return super.onPrepareOptionsMenu(menu);
 	}
 
-	@Override
+	// TODO
 	public void onNetworkChanged(int currentNetwork, int currentCallState) {
 		// Find the network names array
 		String[] networkNames = getResources().getStringArray(
