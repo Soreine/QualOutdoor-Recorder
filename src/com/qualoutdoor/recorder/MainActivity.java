@@ -25,6 +25,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.qualoutdoor.recorder.recording.RecordingService;
+import com.qualoutdoor.recorder.recording.RecordingServiceConnection;
 import com.qualoutdoor.recorder.settings.SettingsActivity;
 import com.qualoutdoor.recorder.telephony.ITelephony;
 import com.qualoutdoor.recorder.telephony.TelephonyService;
@@ -39,8 +41,7 @@ public class MainActivity extends ActionBarActivity {
 	/***********************************************************************/
 	/* Private attributes */
 	/***********************************************************************/
-	/** A reference to the app context */
-	private QualOutdoorApp qualoutdoorApp;
+
 	/** A reference to the TelephonyService */
 	private TelephonyService telephonyService;
 	/** The TelephonyServiceConnection used to connect to the TelephonyService */
@@ -50,6 +51,18 @@ public class MainActivity extends ActionBarActivity {
 			Log.d("TelephonyServiceConnection", "onServiceObtained");
 			// Give the service to the activity
 			MainActivity.this.telephonyService = this.getService();
+		}
+	};
+
+	/** A reference to the RecordingService */
+	private RecordingService recordingService;
+	/** The TelephonyServiceConnection used to connect to the TelephonyService */
+	private RecordingServiceConnection recServiceConnection = new RecordingServiceConnection() {
+		@Override
+		public void onServiceObtained() {
+			Log.d("RecordingServiceConnection", "onServiceObtained");
+			// Give the service to the activity
+			MainActivity.this.recordingService = this.getService();
 		}
 	};
 
@@ -89,9 +102,6 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		// Get the application context
-		qualoutdoorApp = (QualOutdoorApp) getApplication();
 
 		// Initialize the drawer title
 		drawerTitle = getResources().getString(R.string.title_activity_main);
@@ -203,11 +213,23 @@ public class MainActivity extends ActionBarActivity {
 
 		// We do not check if the ServiceConnections are bound already,
 		// because it seems they never are when starting the activity...
-		// Create an intent toward TelephonyService
-		Intent intent = new Intent(this, TelephonyService.class);
-		// Bind to TelephonyService through TelephonyServiceConnection
-		bindService(intent, telServiceConnection, Context.BIND_AUTO_CREATE);
-		Log.d("MainActivity", "ask to bind service");
+
+		// Bind to the TelephonyService
+		{
+			// Create an intent toward TelephonyService
+			Intent intent = new Intent(this, TelephonyService.class);
+			// Bind to TelephonyService through TelephonyServiceConnection
+			bindService(intent, telServiceConnection, Context.BIND_AUTO_CREATE);
+			Log.d("MainActivity", "ask to bind service");
+		}
+
+		// Bind to the RecordingService
+		{
+			// Create an intent toward TelephonyService
+			Intent intent = new Intent(this, RecordingService.class);
+			// bind to RecordingService through our RecordingServiceConnection
+			bindService(intent, recServiceConnection, Context.BIND_AUTO_CREATE);
+		}
 	}
 
 	@Override
@@ -215,10 +237,16 @@ public class MainActivity extends ActionBarActivity {
 		super.onStop();
 		Log.d("MainActivity", "onStop");
 
-		// Unbind from the TelephonyService if appropriate
+		// Unbind from the TelephonyService if needed
 		if (telServiceConnection.isBound()) {
 			unbindService(telServiceConnection);
-			Log.d("MainActivity", "ask to UNbind service");
+			Log.d("MainActivity", "ask to UNbind TelephonyService");
+
+		}
+		// Unbind from the RecordingService if needed
+		if (recServiceConnection.isBound()) {
+			unbindService(recServiceConnection);
+			Log.d("MainActivity", "ask to UNbind RecordingService");
 
 		}
 	}
@@ -286,8 +314,9 @@ public class MainActivity extends ActionBarActivity {
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		Log.d("MainActivity", "onPrepareOptionsMenu");
-		// Check whether the app is recording
-		if (qualoutdoorApp.isRecording()) {
+		// Check that we are bound to the recording service and if it is
+		// recording
+		if (recServiceConnection.isBound() && recordingService.isRecording()) {
 			// The icon should represent the stop record action
 			recordMenuItem.setIcon(R.drawable.recording);
 		} else {
@@ -348,10 +377,21 @@ public class MainActivity extends ActionBarActivity {
 		// Handle the other action bar items...
 		switch (item.getItemId()) {
 		case R.id.action_record:
-			// Start/Stop the recording
-			qualoutdoorApp.switchRecording();
-			// Update the Options Menu view (for the record icon to change)
-			supportInvalidateOptionsMenu();
+			// Check that we are bound to the recording service
+			if (recServiceConnection.isBound()) {
+				Intent recordingServiceIntent = new Intent(this,
+						RecordingService.class);
+				if (recordingService.isRecording()) {
+					// The service is recording, so stop the recording
+					stopService(recordingServiceIntent);
+				} else {
+					// The service is not recording, so start recording
+					startService(recordingServiceIntent);
+				}
+
+				// Update the Options Menu view (for the record icon to change)
+				supportInvalidateOptionsMenu();
+			}
 			return true;
 		case R.id.action_settings:
 			openSettings();

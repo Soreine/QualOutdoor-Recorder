@@ -1,5 +1,6 @@
 package com.qualoutdoor.recorder.notifications;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -19,18 +20,14 @@ import com.qualoutdoor.recorder.R;
 public class NotificationCenter {
 
 	/** The id of the background recording notification */
-	private final static int BACKGROUND_RECORDING = 1337;
+	public final static int BACKGROUND_RECORDING = 1337;
 
 	/** This class is not meant to be instantiated */
 	private NotificationCenter() {
 	}
 
-	/** Switch on/off the ongoing recording notification */
-	public static void notifyBackgroundRecording(Context context) {
-		// Create a little Toast :)
-		Toast.makeText(context, R.string.notification_recording_title,
-				Toast.LENGTH_SHORT).show();
-
+	/** Obtain a notification corresponding to an ongoing recording process */
+	public static Notification getRecordingNotification(Context context) {
 		// Get a notification builder
 		NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(
 				context);
@@ -47,34 +44,37 @@ public class NotificationCenter {
 		// Set the priority of this notification to the minimum
 		notificationBuilder.setPriority(NotificationCompat.PRIORITY_LOW);
 
+		
+		
 		// Creates an explicit intent for the settings activity
-		Intent resultIntent = new Intent(context, MainActivity.class);
+		Intent notificationIntent = new Intent(context, MainActivity.class);
 
 		// The stack builder object will contain an artificial back stack for
 		// the started Activity.
 		// This ensures that navigating backward from the Activity leads out of
 		// the application to the Home screen.
 		TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-		/**
-		 * // Adds the parents back stack according to the parents relationships
-		 * // defined in the app manifest
-		 * stackBuilder.addParentStack(MainActivity.class);
-		 */
+
 		// Adds the Intent that starts the Activity to the top of the stack
-		stackBuilder.addNextIntent(resultIntent);
+		stackBuilder.addNextIntent(notificationIntent);
 
 		// Obtain the pending intent associated to the task constructed so far
 		PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0,
 				PendingIntent.FLAG_UPDATE_CURRENT);
 		// Attach it to the notification builder
 		notificationBuilder.setContentIntent(resultPendingIntent);
+		
+		return notificationBuilder.build();
+	}
 
+	/** Switch on/off the ongoing recording notification */
+	public static void notifyBackgroundRecording(Context context) {
 		// Get the notification manager from the host activity
 		NotificationManager mNotificationManager = (NotificationManager) context
 				.getSystemService(Context.NOTIFICATION_SERVICE);
 		// Build the notification and notify it with the appropriate tag
 		mNotificationManager.notify(BACKGROUND_RECORDING,
-				notificationBuilder.build());
+				getRecordingNotification(context));
 	}
 
 	public static void dismissBackgroundRecording(Context context) {

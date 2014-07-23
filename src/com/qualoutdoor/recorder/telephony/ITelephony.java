@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * This is an interface for a service that can provide information about network
  * state, location, phone state. It is similar to the TelephonyManager class
- * from the Android APIs but also include location management
+ * from the Android APIs but also includes location management
  */
 public interface ITelephony {
 
