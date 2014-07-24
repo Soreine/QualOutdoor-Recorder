@@ -24,9 +24,9 @@ public abstract class RecordingServiceConnection extends LocalServiceConnection 
 	
 	@Override
 	public void onServiceConnected(ComponentName serviceName, IBinder binder) {
+		Log.d("RecordingServiceConnection", "onServiceConnected");
 		// Retrieve the service
 		service = ((RecordingBinder) binder).getService(); 
-		Log.d("RecordingServiceConnection", "onServiceConnected");
 		super.onServiceConnected(serviceName, binder);
 	}
 

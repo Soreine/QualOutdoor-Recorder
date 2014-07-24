@@ -48,7 +48,6 @@ public class MainActivity extends ActionBarActivity {
 	private TelephonyServiceConnection telServiceConnection = new TelephonyServiceConnection() {
 		@Override
 		public void onServiceObtained() {
-			Log.d("TelephonyServiceConnection", "onServiceObtained");
 			// Give the service to the activity
 			MainActivity.this.telephonyService = this.getService();
 		}
@@ -60,7 +59,6 @@ public class MainActivity extends ActionBarActivity {
 	private RecordingServiceConnection recServiceConnection = new RecordingServiceConnection() {
 		@Override
 		public void onServiceObtained() {
-			Log.d("RecordingServiceConnection", "onServiceObtained");
 			// Give the service to the activity
 			MainActivity.this.recordingService = this.getService();
 		}
@@ -220,7 +218,6 @@ public class MainActivity extends ActionBarActivity {
 			Intent intent = new Intent(this, TelephonyService.class);
 			// Bind to TelephonyService through TelephonyServiceConnection
 			bindService(intent, telServiceConnection, Context.BIND_AUTO_CREATE);
-			Log.d("MainActivity", "ask to bind service");
 		}
 
 		// Bind to the RecordingService
@@ -240,14 +237,10 @@ public class MainActivity extends ActionBarActivity {
 		// Unbind from the TelephonyService if needed
 		if (telServiceConnection.isBound()) {
 			unbindService(telServiceConnection);
-			Log.d("MainActivity", "ask to UNbind TelephonyService");
-
 		}
 		// Unbind from the RecordingService if needed
 		if (recServiceConnection.isBound()) {
 			unbindService(recServiceConnection);
-			Log.d("MainActivity", "ask to UNbind RecordingService");
-
 		}
 	}
 
@@ -307,13 +300,11 @@ public class MainActivity extends ActionBarActivity {
 		// Initialize the network info view reference
 		networkView = (TextView) MenuItemCompat.getActionView(networkMenuItem);
 
-		Log.d("MainActivity", "onCreateOptionsMenu");
 		return true;
 	}
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		Log.d("MainActivity", "onPrepareOptionsMenu");
 		// Check that we are bound to the recording service and if it is
 		// recording
 		if (recServiceConnection.isBound() && recordingService.isRecording()) {
@@ -379,13 +370,13 @@ public class MainActivity extends ActionBarActivity {
 		case R.id.action_record:
 			// Check that we are bound to the recording service
 			if (recServiceConnection.isBound()) {
-				Intent recordingServiceIntent = new Intent(this,
-						RecordingService.class);
 				if (recordingService.isRecording()) {
 					// The service is recording, so stop the recording
-					stopService(recordingServiceIntent);
+					recordingService.stopRecording();
 				} else {
-					// The service is not recording, so start recording
+					// The service is not recording, so start the service
+					Intent recordingServiceIntent = new Intent(this,
+							RecordingService.class);
 					startService(recordingServiceIntent);
 				}
 

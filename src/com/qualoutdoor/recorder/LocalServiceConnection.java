@@ -22,12 +22,10 @@ public abstract class LocalServiceConnection implements ServiceConnection {
 	public void onServiceDisconnected(ComponentName serviceName) {
 		// We are not bound anymore to the service
 		isBound = false;
-		Log.d("LocalServiceConnection", "onServiceDisconnected");
 	}
 
 	@Override
 	public void onServiceConnected(ComponentName serviceName, IBinder binder) {
-		Log.d("LocalServiceConnection", "onServiceConnected");
 		// We have bound to the service
 		isBound = true;
 		// Call onServiceObtained

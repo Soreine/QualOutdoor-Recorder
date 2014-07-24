@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.util.Log;
 
 import com.qualoutdoor.recorder.notifications.NotificationCenter;
 
@@ -20,8 +21,12 @@ public class RecordingService extends Service {
 	/** Indicates if a recording process is ongoing */
 	private boolean isRecording = false;
 
+	/** A fake recording thread */
+	private Thread thread;
+
 	@Override
 	public void onCreate() {
+		Log.d("RecordingService", "onCreate");
 		// Initialize a RecordingBinder that knows this Service
 		mRecordingBinder = new RecordingBinder(this);
 		// Initialize the recording state
@@ -40,20 +45,33 @@ public class RecordingService extends Service {
 		return isRecording;
 	}
 
+	/** Set the sampling rate to the specified value in milliseconds */
+	public void setSamplingRate(int millis) {
+	}
+
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		// Start the recording thread
-		startRecording();
+		Log.d("RecordingService", "onStartCommand");
+		if (!isRecording) {
+			// Start the recording thread
+			startRecording();
+		}
 		return super.onStartCommand(intent, flags, startId);
 	}
 
 	@Override
 	public void onDestroy() {
-		// TODO Stop the recording thread
+		Log.d("RecordingService", "onDestroy");
+		if (isRecording) {
+			// Stop the recording process
+			stopRecording();
+		}
 		super.onDestroy();
 	}
 
+	/** Start the recording process. */
 	private void startRecording() {
+		Log.d("RecordingService", "startRecording");
 		// Update the recording state
 		isRecording = true;
 		// Create the notification that will be displayed
@@ -62,5 +80,33 @@ public class RecordingService extends Service {
 		// Notify we are running in foreground
 		startForeground(NotificationCenter.BACKGROUND_RECORDING, notification);
 		// TODO actually start the thread
+		thread = new Thread() {
+			@Override
+			public void run() {
+				try {
+					while (true) {
+						Log.d("Thread", "Tick");
+						sleep(3000);
+					}
+				} catch (InterruptedException e) {
+					Log.d("Thread", "Interrupted exception");
+				}
+			}
+		};
+		thread.start();
+	}
+
+	/** Stop the recording process */
+	public void stopRecording() {
+		Log.d("RecordingService", "stopRecording");
+		// TODO stop the thread
+		thread.interrupt();
+		thread = null;
+		// Update the recording state
+		isRecording = false;
+		// Stop being foreground as we are no longer recording and remove
+		// notification
+		stopForeground(true);
+
 	}
 }
