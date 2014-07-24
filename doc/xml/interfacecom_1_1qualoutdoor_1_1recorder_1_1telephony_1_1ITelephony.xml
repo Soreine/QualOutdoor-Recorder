@@ -1,0 +1,513 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony" kind="interface" prot="public">
+    <compoundname>com::qualoutdoor::recorder::telephony::ITelephony</compoundname>
+    <derivedcompoundref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService" prot="public" virt="non-virtual">com.qualoutdoor.recorder.telephony.TelephonyService</derivedcompoundref>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1ab2d6e4c2dd160412dda46b26763e8a64" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.CALL_STATE_IDLE</definition>
+        <argsstring></argsstring>
+        <name>CALL_STATE_IDLE</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Device call state: No activity. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="13" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a2efb64f0209a5ae97c7cb331827c80a9" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.CALL_STATE_OFFHOOK</definition>
+        <argsstring></argsstring>
+        <name>CALL_STATE_OFFHOOK</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Device call state: Off-hook. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="15" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1aea753bfaf3bdcab76c67409284bd3aab" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.CALL_STATE_RINGING</definition>
+        <argsstring></argsstring>
+        <name>CALL_STATE_RINGING</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Device call state: Ringing. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="17" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a1d4417783954f4f1a82ade95bf2617b3" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.DATA_CONNECTED</definition>
+        <argsstring></argsstring>
+        <name>DATA_CONNECTED</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Data connection state: Connected. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="20" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a0fed369a5e327ef1100f8bb86ba8283e" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.DATA_CONNECTING</definition>
+        <argsstring></argsstring>
+        <name>DATA_CONNECTING</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Data connection state: Currently setting up a data connection. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="22" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a918bc00a6b832ab07926cf77626bbd24" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.DATA_DISCONNECTED</definition>
+        <argsstring></argsstring>
+        <name>DATA_DISCONNECTED</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Data connection state: Disconnected. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="24" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1adbd921850a2b4a6558f41dea27e861e0" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.DATA_SUSPENDED</definition>
+        <argsstring></argsstring>
+        <name>DATA_SUSPENDED</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Data connection state: Suspended. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="26" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a673927b5b9f59f4adfdbbe8403dc3f75" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_UNKNOWN</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_UNKNOWN</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Network type is unknown </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="31" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a370a400527daeffcf74e59bb8c25783f" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_GPRS</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_GPRS</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is GPRS </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="33" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a24b6cda1c698dedf417e58b3742acf02" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_EDGE</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_EDGE</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is EDGE </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="35" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a8135b29f493e56a852c6938f094e370c" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_UMTS</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_UMTS</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is UMTS </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="37" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a8242847ab2e7f8cd3b9a4ca0af7789aa" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_CDMA</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_CDMA</name>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is CDMA: Either IS95A or IS95B </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="39" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a17d25ab25bf982026aa45b3f4d29ceb5" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_EVDO_0</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_EVDO_0</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is EVDO revision 0 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="41" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a9ea0965450da41c68810e4e071b2230e" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_EVDO_A</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_EVDO_A</name>
+        <initializer>= 6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is EVDO revision A </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="43" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a4203966c4736f3023fc7940671f058d0" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_1xRTT</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_1xRTT</name>
+        <initializer>= 7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is 1xRTT </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="45" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1af03c317a10fcccd01008912fa27b8f25" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_HSDPA</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_HSDPA</name>
+        <initializer>= 8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is HSDPA </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="47" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a8508ef692db2bba21961b1e213b3440d" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_HSUPA</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_HSUPA</name>
+        <initializer>= 9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is HSUPA </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="49" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a90ea3934af7570fac6e9c4787b130d2a" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_HSPA</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_HSPA</name>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is HSPA </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="51" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1ad7af57643bf08eb193e93557d4c40e53" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_IDEN</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_IDEN</name>
+        <initializer>= 11</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is iDen </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="53" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a9c5eee3774b26ae94b26fa7a41dfe75e" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_EVDO_B</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_EVDO_B</name>
+        <initializer>= 12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is EVDO revision B </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="55" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a79e0b4ed8ec3eb9a708f37fd7e9a6316" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_LTE</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_LTE</name>
+        <initializer>= 13</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is LTE </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="57" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1aa6753bbf9b85da56a2319aee7de45cc4" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_EHRPD</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_EHRPD</name>
+        <initializer>= 14</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is eHRPD </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="59" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a1fac9f01efb238a6de1a6a7a5fccd304" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.ITelephony.NETWORK_TYPE_HSPAP</definition>
+        <argsstring></argsstring>
+        <name>NETWORK_TYPE_HSPAP</name>
+        <initializer>= 15</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current network is HSPA+ </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="61" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1ac5f0965e1dfccd7207f49c277593acaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>List&lt; <ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo" kindref="compound">ICellInfo</ref> &gt;</type>
+        <definition>List&lt;ICellInfo&gt; com.qualoutdoor.recorder.telephony.ITelephony.getAllCellInfo</definition>
+        <argsstring>()</argsstring>
+        <name>getAllCellInfo</name>
+        <reimplementedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1a7b9d95b5f6c9b8eb9e970f6c7f254677">getAllCellInfo</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns all the observed cell information including primary and neighboring cells. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="67" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a1b955c3be64a899274bf112d05c8d41a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.telephony.ITelephony.getCallState</definition>
+        <argsstring>()</argsstring>
+        <name>getCallState</name>
+        <reimplementedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1ab4452ab5791e52a2a00e7d2ee7626efd">getCallState</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a constant indicating the call state on the device. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="70" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1ab4135b0c4f01f0169b3a1ea63054b946" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.telephony.ITelephony.getDataState</definition>
+        <argsstring>()</argsstring>
+        <name>getDataState</name>
+        <reimplementedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1ab75e2767c592cb1c48ccefcbe075ed1b">getDataState</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a constant indicating the data connection state on the device. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="75" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1af19331bac8e7317958047a5448274a28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.telephony.ITelephony.getNetworkType</definition>
+        <argsstring>()</argsstring>
+        <name>getNetworkType</name>
+        <reimplementedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1ab5c56c3345271c1146d0d4da90914b01">getNetworkType</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a constant indicating the network type for the current data connection. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="81" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1acb95b0c4243cfca3c56776fc0ae3d18e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ILocation" kindref="compound">ILocation</ref></type>
+        <definition>ILocation com.qualoutdoor.recorder.telephony.ITelephony.getLocation</definition>
+        <argsstring>()</argsstring>
+        <name>getLocation</name>
+        <reimplementedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1af3e55e756592010491b87da8927e5cc9">getLocation</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the most recently observed location </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="84" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a3454755b99a36692f8ed113144491760" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ISignalStrength" kindref="compound">ISignalStrength</ref></type>
+        <definition>ISignalStrength com.qualoutdoor.recorder.telephony.ITelephony.getSignalStrength</definition>
+        <argsstring>()</argsstring>
+        <name>getSignalStrength</name>
+        <reimplementedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1a9360c2f3e55992b06c38d26cbf1768c0">getSignalStrength</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the signal strength of the primary cell </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="87" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a2bf33ee65f59c2100442f6ba33fac113" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.telephony.ITelephony.listen</definition>
+        <argsstring>(TelephonyListener listener, int events)</argsstring>
+        <name>listen</name>
+        <reimplementedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1ae688a21a3298fab47e845c0b7ba8065e">listen</reimplementedby>
+        <param>
+          <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener" kindref="compound">TelephonyListener</ref></type>
+          <declname>listener</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>events</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Register a listener object to receive notification concerning the specified events type </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="93" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1aaa52e62dfb4607e2f871e3ad0daeba23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.telephony.ITelephony.setMinimumRefreshRate</definition>
+        <argsstring>(int milliseconds)</argsstring>
+        <name>setMinimumRefreshRate</name>
+        <reimplementedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1a8c2446484f717c321902b171161b3dbf">setMinimumRefreshRate</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>milliseconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the minimum refresh rate for non event-driven data like AllCellInfos. These data can&apos;t be monitored through a listener, so they need to be refreshed manually by requesting the data provider at a fixed rate. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="100" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This is an interface for a service that can provide information about network state, location, phone state. It is similar to the TelephonyManager class from the Android APIs but also includes location management </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="51">
+        <label>com.qualoutdoor.recorder.telephony.TelephonyService</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService"/>
+        <childnode refid="50" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>com.qualoutdoor.recorder.telephony.ITelephony</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="52">
+        <label>com.qualoutdoor.recorder.telephony.ITelephony</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" line="10" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/ITelephony.java" bodystart="10" bodyend="101"/>
+    <listofallmembers>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1ab2d6e4c2dd160412dda46b26763e8a64" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>CALL_STATE_IDLE</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a2efb64f0209a5ae97c7cb331827c80a9" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>CALL_STATE_OFFHOOK</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1aea753bfaf3bdcab76c67409284bd3aab" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>CALL_STATE_RINGING</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a1d4417783954f4f1a82ade95bf2617b3" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>DATA_CONNECTED</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a0fed369a5e327ef1100f8bb86ba8283e" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>DATA_CONNECTING</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a918bc00a6b832ab07926cf77626bbd24" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>DATA_DISCONNECTED</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1adbd921850a2b4a6558f41dea27e861e0" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>DATA_SUSPENDED</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1ac5f0965e1dfccd7207f49c277593acaa" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>getAllCellInfo</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a1b955c3be64a899274bf112d05c8d41a" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>getCallState</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1ab4135b0c4f01f0169b3a1ea63054b946" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>getDataState</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1acb95b0c4243cfca3c56776fc0ae3d18e" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>getLocation</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1af19331bac8e7317958047a5448274a28" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>getNetworkType</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a3454755b99a36692f8ed113144491760" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>getSignalStrength</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a2bf33ee65f59c2100442f6ba33fac113" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>listen</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a4203966c4736f3023fc7940671f058d0" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_1xRTT</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a8242847ab2e7f8cd3b9a4ca0af7789aa" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_CDMA</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a24b6cda1c698dedf417e58b3742acf02" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_EDGE</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1aa6753bbf9b85da56a2319aee7de45cc4" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_EHRPD</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a17d25ab25bf982026aa45b3f4d29ceb5" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_EVDO_0</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a9ea0965450da41c68810e4e071b2230e" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_EVDO_A</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a9c5eee3774b26ae94b26fa7a41dfe75e" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_EVDO_B</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a370a400527daeffcf74e59bb8c25783f" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_GPRS</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1af03c317a10fcccd01008912fa27b8f25" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_HSDPA</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a90ea3934af7570fac6e9c4787b130d2a" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_HSPA</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a1fac9f01efb238a6de1a6a7a5fccd304" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_HSPAP</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a8508ef692db2bba21961b1e213b3440d" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_HSUPA</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1ad7af57643bf08eb193e93557d4c40e53" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_IDEN</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a79e0b4ed8ec3eb9a708f37fd7e9a6316" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_LTE</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a8135b29f493e56a852c6938f094e370c" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_UMTS</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a673927b5b9f59f4adfdbbe8403dc3f75" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>NETWORK_TYPE_UNKNOWN</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1aaa52e62dfb4607e2f871e3ad0daeba23" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::ITelephony</scope><name>setMinimumRefreshRate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

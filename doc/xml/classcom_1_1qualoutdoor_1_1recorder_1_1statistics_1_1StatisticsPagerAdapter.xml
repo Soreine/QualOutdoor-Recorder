@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::statistics::StatisticsPagerAdapter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">FragmentPagerAdapter</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1ab2945fd8047171f62d7424d3e8c40b9b" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.statistics.StatisticsPagerAdapter.CELL_INFO</definition>
+        <argsstring></argsstring>
+        <name>CELL_INFO</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The order of the fragments </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" line="14" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a0129f5c8b0e2921643fcc7a331d25062" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.statistics.StatisticsPagerAdapter.NEIGHBOR</definition>
+        <argsstring></argsstring>
+        <name>NEIGHBOR</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" line="15" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a379ae4d8a688ca9eb90dd1694a64bcc3" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.statistics.StatisticsPagerAdapter.GRAPH</definition>
+        <argsstring></argsstring>
+        <name>GRAPH</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" line="16" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1adae954e09edc2214d375a1b0c6dd2455" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.statistics.StatisticsPagerAdapter.SCRIPT_LOGS</definition>
+        <argsstring></argsstring>
+        <name>SCRIPT_LOGS</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" line="17" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a1cc9fe41e3f21712e228dfff867910ef" prot="private" static="no" mutable="no">
+        <type>CharSequence[]</type>
+        <definition>CharSequence [] com.qualoutdoor.recorder.statistics.StatisticsPagerAdapter.fragmentTitles</definition>
+        <argsstring></argsstring>
+        <name>fragmentTitles</name>
+        <initializer>= { &quot;Cell Infos&quot;, &quot;Neighbor Cells&quot;,
+			&quot;Graph&quot;, &quot;Script Logs&quot; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The list of the fragment names </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" line="20" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a5513cfb358b309f7bdde954943f6d8c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.statistics.StatisticsPagerAdapter.StatisticsPagerAdapter</definition>
+        <argsstring>(FragmentManager fm)</argsstring>
+        <name>StatisticsPagerAdapter</name>
+        <param>
+          <type>FragmentManager</type>
+          <declname>fm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" line="23" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" bodystart="23" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a0ec1243763650f3b047cfde095abb69d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Fragment</type>
+        <definition>Fragment com.qualoutdoor.recorder.statistics.StatisticsPagerAdapter.getItem</definition>
+        <argsstring>(int i)</argsstring>
+        <name>getItem</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" line="28" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" bodystart="28" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a9ce894bc0ed657c112da4fec3eb9a982" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.statistics.StatisticsPagerAdapter.getCount</definition>
+        <argsstring>()</argsstring>
+        <name>getCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" line="57" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a38adff0033038e48d72f16de75a3bef4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CharSequence</type>
+        <definition>CharSequence com.qualoutdoor.recorder.statistics.StatisticsPagerAdapter.getPageTitle</definition>
+        <argsstring>(int i)</argsstring>
+        <name>getPageTitle</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" line="63" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" bodystart="63" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="180">
+        <label>FragmentPagerAdapter</label>
+      </node>
+      <node id="179">
+        <label>com.qualoutdoor.recorder.statistics.StatisticsPagerAdapter</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter"/>
+        <childnode refid="180" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="182">
+        <label>FragmentPagerAdapter</label>
+      </node>
+      <node id="181">
+        <label>com.qualoutdoor.recorder.statistics.StatisticsPagerAdapter</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter"/>
+        <childnode refid="182" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" line="11" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/statistics/StatisticsPagerAdapter.java" bodystart="11" bodyend="67"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1ab2945fd8047171f62d7424d3e8c40b9b" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::statistics::StatisticsPagerAdapter</scope><name>CELL_INFO</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a1cc9fe41e3f21712e228dfff867910ef" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::statistics::StatisticsPagerAdapter</scope><name>fragmentTitles</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a9ce894bc0ed657c112da4fec3eb9a982" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::statistics::StatisticsPagerAdapter</scope><name>getCount</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a0ec1243763650f3b047cfde095abb69d" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::statistics::StatisticsPagerAdapter</scope><name>getItem</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a38adff0033038e48d72f16de75a3bef4" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::statistics::StatisticsPagerAdapter</scope><name>getPageTitle</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a379ae4d8a688ca9eb90dd1694a64bcc3" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::statistics::StatisticsPagerAdapter</scope><name>GRAPH</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a0129f5c8b0e2921643fcc7a331d25062" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::statistics::StatisticsPagerAdapter</scope><name>NEIGHBOR</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1adae954e09edc2214d375a1b0c6dd2455" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::statistics::StatisticsPagerAdapter</scope><name>SCRIPT_LOGS</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a5513cfb358b309f7bdde954943f6d8c7" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::statistics::StatisticsPagerAdapter</scope><name>StatisticsPagerAdapter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

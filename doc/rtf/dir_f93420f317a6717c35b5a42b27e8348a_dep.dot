@@ -1,0 +1,13 @@
+digraph "src/com/qualoutdoor" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_7a52bc9bbc54818d41b44c4ce6a4b0ae {
+    graph [ bgcolor="#ddddee", pencolor="black", label="com" fontname="Helvetica", fontsize="10", URL="dir_7a52bc9bbc54818d41b44c4ce6a4b0ae.html"]
+  subgraph clusterdir_f93420f317a6717c35b5a42b27e8348a {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_f93420f317a6717c35b5a42b27e8348a.html"];
+    dir_f93420f317a6717c35b5a42b27e8348a [shape=plaintext label="qualoutdoor"];
+    dir_d27a4643e8f320e40504dd9ecc4e195b [shape=box label="recorder" color="red" fillcolor="white" style="filled" URL="dir_d27a4643e8f320e40504dd9ecc4e195b.html"];
+  }
+  }
+}

@@ -85,7 +85,9 @@ public class RecordingService extends Service {
 			public void run() {
 				try {
 					while (true) {
-						Log.d("Thread", "Tick");
+						Log.d("Thread", "Tic");
+						sleep(3000);
+						Log.d("Thread", "Toc");
 						sleep(3000);
 					}
 				} catch (InterruptedException e) {

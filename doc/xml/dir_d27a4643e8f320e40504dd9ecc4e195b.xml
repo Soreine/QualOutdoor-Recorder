@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_d27a4643e8f320e40504dd9ecc4e195b" kind="dir">
+    <compoundname>src/com/qualoutdoor/recorder</compoundname>
+    <innerdir refid="dir_0280356e9d6205503aae3224b9f80380">src/com/qualoutdoor/recorder/bitmap</innerdir>
+    <innerdir refid="dir_47b55cda22d278590dc79e02895f478c">src/com/qualoutdoor/recorder/charting</innerdir>
+    <innerdir refid="dir_515bcd2d2b6caa4f4b914b3aad44aaff">src/com/qualoutdoor/recorder/map</innerdir>
+    <innerdir refid="dir_e990dd1041a52fac9662dcec82099977">src/com/qualoutdoor/recorder/notifications</innerdir>
+    <innerdir refid="dir_b65b6accb5fe607f843fcc70d8955f2f">src/com/qualoutdoor/recorder/recording</innerdir>
+    <innerdir refid="dir_c625b59f1aa770b80f27d6648b564664">src/com/qualoutdoor/recorder/scripts</innerdir>
+    <innerdir refid="dir_11dfeaabcfe5c5b0982a6e359759e430">src/com/qualoutdoor/recorder/settings</innerdir>
+    <innerdir refid="dir_59ffd5a110eaa56b6642b96337b6f02b">src/com/qualoutdoor/recorder/statistics</innerdir>
+    <innerdir refid="dir_981da934d4c6ce4b4cff18166591a4b7">src/com/qualoutdoor/recorder/telephony</innerdir>
+    <innerfile refid="ChangeNetworkButton_8java">ChangeNetworkButton.java</innerfile>
+    <innerfile refid="DisplayHelpActivity_8java">DisplayHelpActivity.java</innerfile>
+    <innerfile refid="GenericFragment_8java">GenericFragment.java</innerfile>
+    <innerfile refid="LocalServiceConnection_8java">LocalServiceConnection.java</innerfile>
+    <innerfile refid="MainActivity_8java">MainActivity.java</innerfile>
+    <innerfile refid="NavigationDrawerBehavior_8java">NavigationDrawerBehavior.java</innerfile>
+    <innerfile refid="OverviewFragment_8java">OverviewFragment.java</innerfile>
+    <innerfile refid="QualOutdoorApp_8java">QualOutdoorApp.java</innerfile>
+    <innerfile refid="SamplingButton_8java">SamplingButton.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/"/>
+  </compounddef>
+</doxygen>

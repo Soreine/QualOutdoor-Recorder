@@ -1,0 +1,4 @@
+var classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1_1MyPhoneStateListener =
+[
+    [ "onSignalStrengthsChanged", "classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1_1MyPhoneStateListener.html#a688de7dc88ac8f32892425e9c4663aad", null ]
+];

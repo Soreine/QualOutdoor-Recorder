@@ -1,0 +1,26 @@
+digraph "com.qualoutdoor.recorder.telephony.TelephonyBinder"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{com.qualoutdoor.recorder.telephony.\lTelephonyBinder\n||+ TelephonyBinder()\l+ getService()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node2 [label="{Binder\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -myService" ,arrowhead="odiamond"];
+  Node3 [label="{com.qualoutdoor.recorder.telephony.\lTelephonyService\n|- events\l|+ onCreate()\l+ onDestroy()\l+ onBind()\l+ getAllCellInfo()\l+ getCallState()\l+ getDataState()\l+ getNetworkType()\l+ getLocation()\l+ getSignalStrength()\l+ listen()\l+ setMinimumRefreshRate()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService.html"];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node4 [label="{Service\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node5 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node5 [label="{com.qualoutdoor.recorder.telephony.\lITelephony\n|+ CALL_STATE_IDLE\l+ CALL_STATE_OFFHOOK\l+ CALL_STATE_RINGING\l+ DATA_CONNECTED\l+ DATA_CONNECTING\l+ DATA_DISCONNECTED\l+ DATA_SUSPENDED\l+ NETWORK_TYPE_UNKNOWN\l+ NETWORK_TYPE_GPRS\l+ NETWORK_TYPE_EDGE\land 13 more...\l|+ getAllCellInfo()\l+ getCallState()\l+ getDataState()\l+ getNetworkType()\l+ getLocation()\l+ getSignalStrength()\l+ listen()\l+ setMinimumRefreshRate()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony.html"];
+  Node6 -> Node3 [color="grey25",fontsize="10",style="solid",label=" -mTelephonyBinder" ,arrowhead="odiamond"];
+  Node6 [label="{IBinder\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node7 -> Node3 [color="grey25",fontsize="10",style="solid",label=" -phoneStateListener" ,arrowhead="odiamond"];
+  Node7 [label="{PhoneStateListener\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node8 -> Node3 [color="grey25",fontsize="10",style="solid",label=" -telephonyManager" ,arrowhead="odiamond"];
+  Node8 [label="{TelephonyManager\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node9 -> Node3 [color="grey25",fontsize="10",style="solid",label=" -signalStrength" ,arrowhead="odiamond"];
+  Node9 [label="{com.qualoutdoor.recorder.telephony.\lCustomSignalStrength\n||+ CustomSignalStrength()\l+ setSignalStrength()\l+ getDbm()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength.html"];
+  Node10 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node10 [label="{com.qualoutdoor.recorder.telephony.\lISignalStrength\n||+ getDbm()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ISignalStrength.html"];
+  Node11 -> Node9 [color="grey25",fontsize="10",style="solid",label=" -ss" ,arrowhead="odiamond"];
+  Node11 [label="{SignalStrength\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

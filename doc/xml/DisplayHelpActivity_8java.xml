@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="DisplayHelpActivity_8java" kind="file">
+    <compoundname>DisplayHelpActivity.java</compoundname>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1DisplayHelpActivity" prot="public">com::qualoutdoor::recorder::DisplayHelpActivity</innerclass>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder">com::qualoutdoor::recorder</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.qualoutdoor.recorder;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>android.os.Bundle;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>android.support.v7.app.ActionBarActivity;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="classcom_1_1qualoutdoor_1_1recorder_1_1DisplayHelpActivity" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1DisplayHelpActivity" kindref="compound">DisplayHelpActivity</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/>ActionBarActivity<sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onCreate(Bundle<sp/>savedInstanceState)<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.onCreate(savedInstanceState);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setContentView(R.layout.activity_help);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/DisplayHelpActivity.java"/>
+  </compounddef>
+</doxygen>

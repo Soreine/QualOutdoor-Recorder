@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsActivity" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::settings::SettingsActivity</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ActionBarActivity</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsActivity_1af9a3a25e675b25b179091becbd9c3a28" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.settings.SettingsActivity.onCreate</definition>
+        <argsstring>(Bundle savedInstanceState)</argsstring>
+        <name>onCreate</name>
+        <param>
+          <type>Bundle</type>
+          <declname>savedInstanceState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsActivity.java" line="10" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsActivity.java" bodystart="10" bodyend="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="143">
+        <label>ActionBarActivity</label>
+      </node>
+      <node id="142">
+        <label>com.qualoutdoor.recorder.settings.SettingsActivity</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsActivity"/>
+        <childnode refid="143" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="145">
+        <label>ActionBarActivity</label>
+      </node>
+      <node id="144">
+        <label>com.qualoutdoor.recorder.settings.SettingsActivity</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsActivity"/>
+        <childnode refid="145" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsActivity.java" line="8" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsActivity.java" bodystart="8" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsActivity_1af9a3a25e675b25b179091becbd9c3a28" prot="protected" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::SettingsActivity</scope><name>onCreate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

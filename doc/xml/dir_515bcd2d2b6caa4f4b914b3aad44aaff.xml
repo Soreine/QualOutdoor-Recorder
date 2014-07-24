@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_515bcd2d2b6caa4f4b914b3aad44aaff" kind="dir">
+    <compoundname>src/com/qualoutdoor/recorder/map</compoundname>
+    <innerfile refid="ColoredScale_8java">ColoredScale.java</innerfile>
+    <innerfile refid="DataMapFragment_8java">DataMapFragment.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/map/"/>
+  </compounddef>
+</doxygen>

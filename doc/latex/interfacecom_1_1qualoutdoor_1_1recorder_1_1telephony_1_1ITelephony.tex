@@ -1,0 +1,345 @@
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony}{\section{com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony Interface Reference}
+\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony}\index{com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony@{com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony}}
+}
+Inheritance diagram for com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo}{I\-Cell\-Info} $>$ \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_ac5f0965e1dfccd7207f49c277593acaa}{get\-All\-Cell\-Info} ()
+\item 
+int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a1b955c3be64a899274bf112d05c8d41a}{get\-Call\-State} ()
+\item 
+int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_ab4135b0c4f01f0169b3a1ea63054b946}{get\-Data\-State} ()
+\item 
+int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_af19331bac8e7317958047a5448274a28}{get\-Network\-Type} ()
+\item 
+\hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ILocation}{I\-Location} \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_acb95b0c4243cfca3c56776fc0ae3d18e}{get\-Location} ()
+\item 
+\hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ISignalStrength}{I\-Signal\-Strength} \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a3454755b99a36692f8ed113144491760}{get\-Signal\-Strength} ()
+\item 
+void \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a2bf33ee65f59c2100442f6ba33fac113}{listen} (\hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener}{Telephony\-Listener} listener, int events)
+\item 
+void \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_aaa52e62dfb4607e2f871e3ad0daeba23}{set\-Minimum\-Refresh\-Rate} (int milliseconds)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_ab2d6e4c2dd160412dda46b26763e8a64}{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-I\-D\-L\-E} = 0
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a2efb64f0209a5ae97c7cb331827c80a9}{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-O\-F\-F\-H\-O\-O\-K} = 2
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_aea753bfaf3bdcab76c67409284bd3aab}{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-R\-I\-N\-G\-I\-N\-G} = 1
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a1d4417783954f4f1a82ade95bf2617b3}{D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-E\-D} = 2
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a0fed369a5e327ef1100f8bb86ba8283e}{D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-N\-G} = 1
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a918bc00a6b832ab07926cf77626bbd24}{D\-A\-T\-A\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-E\-D} = 0
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_adbd921850a2b4a6558f41dea27e861e0}{D\-A\-T\-A\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D} = 3
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a673927b5b9f59f4adfdbbe8403dc3f75}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-N\-K\-N\-O\-W\-N} = 0
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a370a400527daeffcf74e59bb8c25783f}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-G\-P\-R\-S} = 1
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a24b6cda1c698dedf417e58b3742acf02}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-D\-G\-E} = 2
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a8135b29f493e56a852c6938f094e370c}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-M\-T\-S} = 3
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a8242847ab2e7f8cd3b9a4ca0af7789aa}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-C\-D\-M\-A} = 4
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a17d25ab25bf982026aa45b3f4d29ceb5}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-0} = 5
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a9ea0965450da41c68810e4e071b2230e}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-\-A} = 6
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a4203966c4736f3023fc7940671f058d0}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-1x\-R\-T\-T} = 7
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_af03c317a10fcccd01008912fa27b8f25}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-D\-P\-A} = 8
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a8508ef692db2bba21961b1e213b3440d}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-U\-P\-A} = 9
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a90ea3934af7570fac6e9c4787b130d2a}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-P\-A} = 10
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_ad7af57643bf08eb193e93557d4c40e53}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-I\-D\-E\-N} = 11
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a9c5eee3774b26ae94b26fa7a41dfe75e}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-\-B} = 12
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a79e0b4ed8ec3eb9a708f37fd7e9a6316}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-L\-T\-E} = 13
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_aa6753bbf9b85da56a2319aee7de45cc4}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-H\-R\-P\-D} = 14
+\item 
+static final int \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a1fac9f01efb238a6de1a6a7a5fccd304}{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-P\-A\-P} = 15
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is an interface for a service that can provide information about network state, location, phone state. It is similar to the Telephony\-Manager class from the Android A\-P\-Is but also includes location management 
+
+Definition at line 10 of file I\-Telephony.\-java.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_ac5f0965e1dfccd7207f49c277593acaa}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!get\-All\-Cell\-Info@{get\-All\-Cell\-Info}}
+\index{get\-All\-Cell\-Info@{get\-All\-Cell\-Info}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{get\-All\-Cell\-Info}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf I\-Cell\-Info}$>$ com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-get\-All\-Cell\-Info (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_ac5f0965e1dfccd7207f49c277593acaa}
+Returns all the observed cell information including primary and neighboring cells. 
+
+Implemented in \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_a7b9d95b5f6c9b8eb9e970f6c7f254677}{com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Service}.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a1b955c3be64a899274bf112d05c8d41a}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!get\-Call\-State@{get\-Call\-State}}
+\index{get\-Call\-State@{get\-Call\-State}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{get\-Call\-State}]{\setlength{\rightskip}{0pt plus 5cm}int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-get\-Call\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a1b955c3be64a899274bf112d05c8d41a}
+Returns a constant indicating the call state on the device. 
+
+Implemented in \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_ab4452ab5791e52a2a00e7d2ee7626efd}{com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Service}.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_ab4135b0c4f01f0169b3a1ea63054b946}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!get\-Data\-State@{get\-Data\-State}}
+\index{get\-Data\-State@{get\-Data\-State}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{get\-Data\-State}]{\setlength{\rightskip}{0pt plus 5cm}int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-get\-Data\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_ab4135b0c4f01f0169b3a1ea63054b946}
+Returns a constant indicating the data connection state on the device. 
+
+Implemented in \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_ab75e2767c592cb1c48ccefcbe075ed1b}{com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Service}.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_acb95b0c4243cfca3c56776fc0ae3d18e}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!get\-Location@{get\-Location}}
+\index{get\-Location@{get\-Location}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{get\-Location}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-Location} com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-get\-Location (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_acb95b0c4243cfca3c56776fc0ae3d18e}
+Returns the most recently observed location 
+
+Implemented in \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_af3e55e756592010491b87da8927e5cc9}{com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Service}.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_af19331bac8e7317958047a5448274a28}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!get\-Network\-Type@{get\-Network\-Type}}
+\index{get\-Network\-Type@{get\-Network\-Type}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{get\-Network\-Type}]{\setlength{\rightskip}{0pt plus 5cm}int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-get\-Network\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_af19331bac8e7317958047a5448274a28}
+Returns a constant indicating the network type for the current data connection. 
+
+Implemented in \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_ab5c56c3345271c1146d0d4da90914b01}{com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Service}.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a3454755b99a36692f8ed113144491760}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!get\-Signal\-Strength@{get\-Signal\-Strength}}
+\index{get\-Signal\-Strength@{get\-Signal\-Strength}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{get\-Signal\-Strength}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-Signal\-Strength} com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-get\-Signal\-Strength (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a3454755b99a36692f8ed113144491760}
+Return the signal strength of the primary cell 
+
+Implemented in \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_a9360c2f3e55992b06c38d26cbf1768c0}{com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Service}.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a2bf33ee65f59c2100442f6ba33fac113}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!listen@{listen}}
+\index{listen@{listen}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{listen}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-listen (
+\begin{DoxyParamCaption}
+\item[{{\bf Telephony\-Listener}}]{listener, }
+\item[{int}]{events}
+\end{DoxyParamCaption}
+)}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a2bf33ee65f59c2100442f6ba33fac113}
+Register a listener object to receive notification concerning the specified events type 
+
+Implemented in \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_ae688a21a3298fab47e845c0b7ba8065e}{com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Service}.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_aaa52e62dfb4607e2f871e3ad0daeba23}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!set\-Minimum\-Refresh\-Rate@{set\-Minimum\-Refresh\-Rate}}
+\index{set\-Minimum\-Refresh\-Rate@{set\-Minimum\-Refresh\-Rate}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{set\-Minimum\-Refresh\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-set\-Minimum\-Refresh\-Rate (
+\begin{DoxyParamCaption}
+\item[{int}]{milliseconds}
+\end{DoxyParamCaption}
+)}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_aaa52e62dfb4607e2f871e3ad0daeba23}
+Set the minimum refresh rate for non event-\/driven data like All\-Cell\-Infos. These data can't be monitored through a listener, so they need to be refreshed manually by requesting the data provider at a fixed rate. 
+
+Implemented in \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_a8c2446484f717c321902b171161b3dbf}{com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Service}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_ab2d6e4c2dd160412dda46b26763e8a64}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-I\-D\-L\-E@{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-I\-D\-L\-E}}
+\index{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-I\-D\-L\-E@{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-I\-D\-L\-E}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-I\-D\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-I\-D\-L\-E = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_ab2d6e4c2dd160412dda46b26763e8a64}
+Device call state\-: No activity. 
+
+Definition at line 13 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a2efb64f0209a5ae97c7cb331827c80a9}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-O\-F\-F\-H\-O\-O\-K@{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-O\-F\-F\-H\-O\-O\-K}}
+\index{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-O\-F\-F\-H\-O\-O\-K@{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-O\-F\-F\-H\-O\-O\-K}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-O\-F\-F\-H\-O\-O\-K}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-O\-F\-F\-H\-O\-O\-K = 2\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a2efb64f0209a5ae97c7cb331827c80a9}
+Device call state\-: Off-\/hook. 
+
+Definition at line 15 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_aea753bfaf3bdcab76c67409284bd3aab}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-R\-I\-N\-G\-I\-N\-G@{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-R\-I\-N\-G\-I\-N\-G}}
+\index{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-R\-I\-N\-G\-I\-N\-G@{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-R\-I\-N\-G\-I\-N\-G}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-R\-I\-N\-G\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-R\-I\-N\-G\-I\-N\-G = 1\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_aea753bfaf3bdcab76c67409284bd3aab}
+Device call state\-: Ringing. 
+
+Definition at line 17 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a1d4417783954f4f1a82ade95bf2617b3}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-E\-D@{D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-E\-D}}
+\index{D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-E\-D@{D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-E\-D}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-E\-D = 2\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a1d4417783954f4f1a82ade95bf2617b3}
+Data connection state\-: Connected. 
+
+Definition at line 20 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a0fed369a5e327ef1100f8bb86ba8283e}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-N\-G@{D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-N\-G}}
+\index{D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-N\-G@{D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-N\-G}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-N\-G = 1\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a0fed369a5e327ef1100f8bb86ba8283e}
+Data connection state\-: Currently setting up a data connection. 
+
+Definition at line 22 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a918bc00a6b832ab07926cf77626bbd24}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!D\-A\-T\-A\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-E\-D@{D\-A\-T\-A\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-E\-D}}
+\index{D\-A\-T\-A\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-E\-D@{D\-A\-T\-A\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-E\-D}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{D\-A\-T\-A\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-D\-A\-T\-A\-\_\-\-D\-I\-S\-C\-O\-N\-N\-E\-C\-T\-E\-D = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a918bc00a6b832ab07926cf77626bbd24}
+Data connection state\-: Disconnected. 
+
+Definition at line 24 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_adbd921850a2b4a6558f41dea27e861e0}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!D\-A\-T\-A\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D@{D\-A\-T\-A\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D}}
+\index{D\-A\-T\-A\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D@{D\-A\-T\-A\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{D\-A\-T\-A\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-D\-A\-T\-A\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D = 3\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_adbd921850a2b4a6558f41dea27e861e0}
+Data connection state\-: Suspended. 
+
+Definition at line 26 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a4203966c4736f3023fc7940671f058d0}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-1x\-R\-T\-T@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-1x\-R\-T\-T}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-1x\-R\-T\-T@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-1x\-R\-T\-T}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-1x\-R\-T\-T}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-1x\-R\-T\-T = 7\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a4203966c4736f3023fc7940671f058d0}
+Current network is 1x\-R\-T\-T 
+
+Definition at line 45 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a8242847ab2e7f8cd3b9a4ca0af7789aa}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-C\-D\-M\-A@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-C\-D\-M\-A}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-C\-D\-M\-A@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-C\-D\-M\-A}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-C\-D\-M\-A}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-C\-D\-M\-A = 4\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a8242847ab2e7f8cd3b9a4ca0af7789aa}
+Current network is C\-D\-M\-A\-: Either I\-S95\-A or I\-S95\-B 
+
+Definition at line 39 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a24b6cda1c698dedf417e58b3742acf02}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-D\-G\-E@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-D\-G\-E}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-D\-G\-E@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-D\-G\-E}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-D\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-D\-G\-E = 2\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a24b6cda1c698dedf417e58b3742acf02}
+Current network is E\-D\-G\-E 
+
+Definition at line 35 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_aa6753bbf9b85da56a2319aee7de45cc4}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-H\-R\-P\-D@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-H\-R\-P\-D}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-H\-R\-P\-D@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-H\-R\-P\-D}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-H\-R\-P\-D}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-H\-R\-P\-D = 14\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_aa6753bbf9b85da56a2319aee7de45cc4}
+Current network is e\-H\-R\-P\-D 
+
+Definition at line 59 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a17d25ab25bf982026aa45b3f4d29ceb5}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-0@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-0}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-0@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-0}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-0}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-0 = 5\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a17d25ab25bf982026aa45b3f4d29ceb5}
+Current network is E\-V\-D\-O revision 0 
+
+Definition at line 41 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a9ea0965450da41c68810e4e071b2230e}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-\-A@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-\-A}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-\-A@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-\-A}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-\-A}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-\-A = 6\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a9ea0965450da41c68810e4e071b2230e}
+Current network is E\-V\-D\-O revision A 
+
+Definition at line 43 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a9c5eee3774b26ae94b26fa7a41dfe75e}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-\-B@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-\-B}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-\-B@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-\-B}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-\-B}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-E\-V\-D\-O\-\_\-\-B = 12\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a9c5eee3774b26ae94b26fa7a41dfe75e}
+Current network is E\-V\-D\-O revision B 
+
+Definition at line 55 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a370a400527daeffcf74e59bb8c25783f}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-G\-P\-R\-S@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-G\-P\-R\-S}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-G\-P\-R\-S@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-G\-P\-R\-S}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-G\-P\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-G\-P\-R\-S = 1\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a370a400527daeffcf74e59bb8c25783f}
+Current network is G\-P\-R\-S 
+
+Definition at line 33 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_af03c317a10fcccd01008912fa27b8f25}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-D\-P\-A@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-D\-P\-A}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-D\-P\-A@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-D\-P\-A}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-D\-P\-A}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-D\-P\-A = 8\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_af03c317a10fcccd01008912fa27b8f25}
+Current network is H\-S\-D\-P\-A 
+
+Definition at line 47 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a90ea3934af7570fac6e9c4787b130d2a}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-P\-A@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-P\-A}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-P\-A@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-P\-A}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-P\-A}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-P\-A = 10\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a90ea3934af7570fac6e9c4787b130d2a}
+Current network is H\-S\-P\-A 
+
+Definition at line 51 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a1fac9f01efb238a6de1a6a7a5fccd304}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-P\-A\-P@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-P\-A\-P}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-P\-A\-P@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-P\-A\-P}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-P\-A\-P}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-P\-A\-P = 15\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a1fac9f01efb238a6de1a6a7a5fccd304}
+Current network is H\-S\-P\-A+ 
+
+Definition at line 61 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a8508ef692db2bba21961b1e213b3440d}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-U\-P\-A@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-U\-P\-A}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-U\-P\-A@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-U\-P\-A}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-U\-P\-A}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-H\-S\-U\-P\-A = 9\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a8508ef692db2bba21961b1e213b3440d}
+Current network is H\-S\-U\-P\-A 
+
+Definition at line 49 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_ad7af57643bf08eb193e93557d4c40e53}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-I\-D\-E\-N@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-I\-D\-E\-N}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-I\-D\-E\-N@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-I\-D\-E\-N}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-I\-D\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-I\-D\-E\-N = 11\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_ad7af57643bf08eb193e93557d4c40e53}
+Current network is i\-Den 
+
+Definition at line 53 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a79e0b4ed8ec3eb9a708f37fd7e9a6316}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-L\-T\-E@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-L\-T\-E}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-L\-T\-E@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-L\-T\-E}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-L\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-L\-T\-E = 13\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a79e0b4ed8ec3eb9a708f37fd7e9a6316}
+Current network is L\-T\-E 
+
+Definition at line 57 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a8135b29f493e56a852c6938f094e370c}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-M\-T\-S@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-M\-T\-S}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-M\-T\-S@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-M\-T\-S}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-M\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-M\-T\-S = 3\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a8135b29f493e56a852c6938f094e370c}
+Current network is U\-M\-T\-S 
+
+Definition at line 37 of file I\-Telephony.\-java.
+
+\hypertarget{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a673927b5b9f59f4adfdbbe8403dc3f75}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}!N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-N\-K\-N\-O\-W\-N@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-N\-K\-N\-O\-W\-N}}
+\index{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-N\-K\-N\-O\-W\-N@{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-N\-K\-N\-O\-W\-N}!com::qualoutdoor::recorder::telephony::ITelephony@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-I\-Telephony}}
+\subsubsection[{N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-N\-K\-N\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-I\-Telephony.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-N\-K\-N\-O\-W\-N = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a673927b5b9f59f4adfdbbe8403dc3f75}
+Network type is unknown 
+
+Definition at line 31 of file I\-Telephony.\-java.
+
+
+
+The documentation for this interface was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/com/qualoutdoor/recorder/telephony/I\-Telephony.\-java\end{DoxyCompactItemize}

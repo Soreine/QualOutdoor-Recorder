@@ -1,0 +1,13 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Service",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="com.qualoutdoor.recorder.recording.\lRecordingService",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService.html"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="com.qualoutdoor.recorder.telephony.\lTelephonyService",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService.html"];
+  Node4 [label="com.qualoutdoor.recorder.telephony.\lITelephony",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony.html"];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

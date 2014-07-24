@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespacecom_1_1qualoutdoor_1_1recorder_1_1recording" kind="namespace">
+    <compoundname>com::qualoutdoor::recorder::recording</compoundname>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingBinder" prot="public">com::qualoutdoor::recorder::recording::RecordingBinder</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService" prot="public">com::qualoutdoor::recorder::recording::RecordingService</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingServiceConnection" prot="public">com::qualoutdoor::recorder::recording::RecordingServiceConnection</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingBinder.java" line="1" column="1"/>
+  </compounddef>
+</doxygen>

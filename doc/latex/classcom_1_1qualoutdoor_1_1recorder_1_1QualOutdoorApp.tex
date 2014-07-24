@@ -1,0 +1,277 @@
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp}{\section{com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App Class Reference}
+\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp}\index{com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App@{com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App}}
+}
+Inheritance diagram for com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+interface \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1_1NetworkChangeListener}{Network\-Change\-Listener}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a863e6a3fe7d020d62629cc47049a5618}{Qual\-Outdoor\-App} ()
+\item 
+int \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_ac9fdf8864e00f880803658ef94e8f20b}{get\-Current\-Network} ()
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a8d02d25c00d87540548e55b1de410b60}{set\-Current\-Network} (int network)
+\item 
+int \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a1d011e7d39b12c3657b5a927fda0ea8f}{get\-Call\-State} ()
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a195cc6939ad7d5d2dd8aae046ae8fb6a}{set\-Call\-State} (int call\-State)
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a829786bb3de92bfc6f38ed85d04aa44e}{add\-Network\-Change\-Listener} (\hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1_1NetworkChangeListener}{Network\-Change\-Listener} l)
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a34ce4fb04563b6f5f808866ec9156ac8}{remove\-Network\-Change\-Listener} (\hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1_1NetworkChangeListener}{Network\-Change\-Listener} l)
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a3d9228b4b2a55f80718d82d53fd6ca8c}{notify\-Network\-Listeners} (int current\-Network, int current\-Call\-State)
+\item 
+boolean \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a9ab899682caf9bc4eafa3bf236f9b4e4}{is\-Recording} ()
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_af8b76cf31bccb966036a94a3cbe086e1}{switch\-Recording} ()
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_ae1aaa8d84f0e13c8448beb8901a1aafd}{notify\-Recording} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_aaa95acb3101a265a6ecca3479ccd8298}{stop\-Recording} ()
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_aa6d92737d7715f9b80a8a97c1f3c91b7}{start\-Recording} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Copy\-On\-Write\-Array\-List\\*
+$<$ \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1_1NetworkChangeListener}{Network\-Change\-Listener} $>$ \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a355e77531ef176519c95f6d179a97889}{network\-Listeners}
+\item 
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a723c6a6184bda3f001148ae37fc3f230}{int {\bfseries current\-Network} = Telephony\-Manager.\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E\-\_\-\-U\-N\-K\-N\-O\-W\-N}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a723c6a6184bda3f001148ae37fc3f230}
+
+\item 
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a358eaab2d4ac7f4de7bfc440abe1d149}{int {\bfseries call\-State} = Telephony\-Manager.\-C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E\-\_\-\-I\-D\-L\-E}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a358eaab2d4ac7f4de7bfc440abe1d149}
+
+\item 
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a3ccdb482ddb310afd4dcad402c513dae}{boolean {\bfseries recording} = false}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a3ccdb482ddb310afd4dcad402c513dae}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The application class, it holds attributes and methods that are global to the application 
+
+Definition at line 14 of file Qual\-Outdoor\-App.\-java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a863e6a3fe7d020d62629cc47049a5618}{\index{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}!Qual\-Outdoor\-App@{Qual\-Outdoor\-App}}
+\index{Qual\-Outdoor\-App@{Qual\-Outdoor\-App}!com::qualoutdoor::recorder::QualOutdoorApp@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}}
+\subsubsection[{Qual\-Outdoor\-App}]{\setlength{\rightskip}{0pt plus 5cm}com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-Qual\-Outdoor\-App (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a863e6a3fe7d020d62629cc47049a5618}
+The application constructor 
+
+Definition at line 36 of file Qual\-Outdoor\-App.\-java.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a829786bb3de92bfc6f38ed85d04aa44e}{\index{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}!add\-Network\-Change\-Listener@{add\-Network\-Change\-Listener}}
+\index{add\-Network\-Change\-Listener@{add\-Network\-Change\-Listener}!com::qualoutdoor::recorder::QualOutdoorApp@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}}
+\subsubsection[{add\-Network\-Change\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-add\-Network\-Change\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf Network\-Change\-Listener}}]{l}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a829786bb3de92bfc6f38ed85d04aa44e}
+Add a new listener 
+
+Definition at line 65 of file Qual\-Outdoor\-App.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a1d011e7d39b12c3657b5a927fda0ea8f}{\index{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}!get\-Call\-State@{get\-Call\-State}}
+\index{get\-Call\-State@{get\-Call\-State}!com::qualoutdoor::recorder::QualOutdoorApp@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}}
+\subsubsection[{get\-Call\-State}]{\setlength{\rightskip}{0pt plus 5cm}int com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-get\-Call\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a1d011e7d39b12c3657b5a927fda0ea8f}
+Get the current call state 
+
+Definition at line 54 of file Qual\-Outdoor\-App.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_ac9fdf8864e00f880803658ef94e8f20b}{\index{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}!get\-Current\-Network@{get\-Current\-Network}}
+\index{get\-Current\-Network@{get\-Current\-Network}!com::qualoutdoor::recorder::QualOutdoorApp@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}}
+\subsubsection[{get\-Current\-Network}]{\setlength{\rightskip}{0pt plus 5cm}int com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-get\-Current\-Network (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_ac9fdf8864e00f880803658ef94e8f20b}
+Get the current network value 
+
+Definition at line 41 of file Qual\-Outdoor\-App.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a9ab899682caf9bc4eafa3bf236f9b4e4}{\index{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}!is\-Recording@{is\-Recording}}
+\index{is\-Recording@{is\-Recording}!com::qualoutdoor::recorder::QualOutdoorApp@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}}
+\subsubsection[{is\-Recording}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-is\-Recording (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a9ab899682caf9bc4eafa3bf236f9b4e4}
+Indicate if the background recording process is running 
+
+Definition at line 84 of file Qual\-Outdoor\-App.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a3d9228b4b2a55f80718d82d53fd6ca8c}{\index{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}!notify\-Network\-Listeners@{notify\-Network\-Listeners}}
+\index{notify\-Network\-Listeners@{notify\-Network\-Listeners}!com::qualoutdoor::recorder::QualOutdoorApp@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}}
+\subsubsection[{notify\-Network\-Listeners}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-notify\-Network\-Listeners (
+\begin{DoxyParamCaption}
+\item[{int}]{current\-Network, }
+\item[{int}]{current\-Call\-State}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a3d9228b4b2a55f80718d82d53fd6ca8c}
+Notifies the network changes listeners that the network type has changed 
+
+Definition at line 75 of file Qual\-Outdoor\-App.\-java.
+
+
+
+References com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-network\-Listeners.
+
+
+
+Referenced by com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-set\-Call\-State(), and com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-set\-Current\-Network().
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_ae1aaa8d84f0e13c8448beb8901a1aafd}{\index{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}!notify\-Recording@{notify\-Recording}}
+\index{notify\-Recording@{notify\-Recording}!com::qualoutdoor::recorder::QualOutdoorApp@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}}
+\subsubsection[{notify\-Recording}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-notify\-Recording (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_ae1aaa8d84f0e13c8448beb8901a1aafd}
+Create a notification according to the recorder state 
+
+Definition at line 112 of file Qual\-Outdoor\-App.\-java.
+
+
+
+Referenced by com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-start\-Recording(), and com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-stop\-Recording().
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a34ce4fb04563b6f5f808866ec9156ac8}{\index{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}!remove\-Network\-Change\-Listener@{remove\-Network\-Change\-Listener}}
+\index{remove\-Network\-Change\-Listener@{remove\-Network\-Change\-Listener}!com::qualoutdoor::recorder::QualOutdoorApp@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}}
+\subsubsection[{remove\-Network\-Change\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-remove\-Network\-Change\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf Network\-Change\-Listener}}]{l}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a34ce4fb04563b6f5f808866ec9156ac8}
+Remove a listener to the list 
+
+Definition at line 70 of file Qual\-Outdoor\-App.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a195cc6939ad7d5d2dd8aae046ae8fb6a}{\index{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}!set\-Call\-State@{set\-Call\-State}}
+\index{set\-Call\-State@{set\-Call\-State}!com::qualoutdoor::recorder::QualOutdoorApp@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}}
+\subsubsection[{set\-Call\-State}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-set\-Call\-State (
+\begin{DoxyParamCaption}
+\item[{int}]{call\-State}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a195cc6939ad7d5d2dd8aae046ae8fb6a}
+Modify the current call state 
+
+Definition at line 59 of file Qual\-Outdoor\-App.\-java.
+
+
+
+References com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-notify\-Network\-Listeners().
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a8d02d25c00d87540548e55b1de410b60}{\index{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}!set\-Current\-Network@{set\-Current\-Network}}
+\index{set\-Current\-Network@{set\-Current\-Network}!com::qualoutdoor::recorder::QualOutdoorApp@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}}
+\subsubsection[{set\-Current\-Network}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-set\-Current\-Network (
+\begin{DoxyParamCaption}
+\item[{int}]{network}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a8d02d25c00d87540548e55b1de410b60}
+Modify the current network value 
+
+Definition at line 46 of file Qual\-Outdoor\-App.\-java.
+
+
+
+References com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-notify\-Network\-Listeners().
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_aa6d92737d7715f9b80a8a97c1f3c91b7}{\index{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}!start\-Recording@{start\-Recording}}
+\index{start\-Recording@{start\-Recording}!com::qualoutdoor::recorder::QualOutdoorApp@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}}
+\subsubsection[{start\-Recording}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-start\-Recording (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_aa6d92737d7715f9b80a8a97c1f3c91b7}
+Start the recording 
+
+Definition at line 105 of file Qual\-Outdoor\-App.\-java.
+
+
+
+References com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-notify\-Recording().
+
+
+
+Referenced by com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-switch\-Recording().
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_aaa95acb3101a265a6ecca3479ccd8298}{\index{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}!stop\-Recording@{stop\-Recording}}
+\index{stop\-Recording@{stop\-Recording}!com::qualoutdoor::recorder::QualOutdoorApp@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}}
+\subsubsection[{stop\-Recording}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-stop\-Recording (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_aaa95acb3101a265a6ecca3479ccd8298}
+Stop the recording 
+
+Definition at line 98 of file Qual\-Outdoor\-App.\-java.
+
+
+
+References com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-notify\-Recording().
+
+
+
+Referenced by com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-switch\-Recording().
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_af8b76cf31bccb966036a94a3cbe086e1}{\index{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}!switch\-Recording@{switch\-Recording}}
+\index{switch\-Recording@{switch\-Recording}!com::qualoutdoor::recorder::QualOutdoorApp@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}}
+\subsubsection[{switch\-Recording}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-switch\-Recording (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_af8b76cf31bccb966036a94a3cbe086e1}
+Start or stop the recording 
+
+Definition at line 89 of file Qual\-Outdoor\-App.\-java.
+
+
+
+References com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-start\-Recording(), and com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-stop\-Recording().
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a355e77531ef176519c95f6d179a97889}{\index{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}!network\-Listeners@{network\-Listeners}}
+\index{network\-Listeners@{network\-Listeners}!com::qualoutdoor::recorder::QualOutdoorApp@{com\-::qualoutdoor\-::recorder\-::\-Qual\-Outdoor\-App}}
+\subsubsection[{network\-Listeners}]{\setlength{\rightskip}{0pt plus 5cm}final Copy\-On\-Write\-Array\-List$<${\bf Network\-Change\-Listener}$>$ com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-network\-Listeners\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_a355e77531ef176519c95f6d179a97889}
+The registered network changes listeners 
+
+Definition at line 24 of file Qual\-Outdoor\-App.\-java.
+
+
+
+Referenced by com.\-qualoutdoor.\-recorder.\-Qual\-Outdoor\-App.\-notify\-Network\-Listeners().
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/com/qualoutdoor/recorder/Qual\-Outdoor\-App.\-java\end{DoxyCompactItemize}

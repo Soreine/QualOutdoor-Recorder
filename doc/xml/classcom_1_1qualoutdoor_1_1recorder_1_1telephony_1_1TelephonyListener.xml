@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::telephony::TelephonyListener</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a191d2575b8783002ee3e5d8cbadd6f34" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.TelephonyListener.LISTEN_CALL_STATE</definition>
+        <argsstring></argsstring>
+        <name>LISTEN_CALL_STATE</name>
+        <initializer>= 8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Listen for changes to the device call state. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="14" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1aa73af11a2afc13c7bfb8ce7e58b45f69" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.TelephonyListener.LISTEN_CELL_INFO</definition>
+        <argsstring></argsstring>
+        <name>LISTEN_CELL_INFO</name>
+        <initializer>= 1024</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Listen for changes to observed cell info. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="16" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a640f1efa08e7e0869335cfc47c3a2124" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.TelephonyListener.LISTEN_DATA_CONNECTION_STATE</definition>
+        <argsstring></argsstring>
+        <name>LISTEN_DATA_CONNECTION_STATE</name>
+        <initializer>= 64</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Listen for changes to the data connection state (cellular). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="18" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a146371faf289ea1d3c019a9da50e6ba2" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.TelephonyListener.LISTEN_LOCATION</definition>
+        <argsstring></argsstring>
+        <name>LISTEN_LOCATION</name>
+        <initializer>= 2048</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Listen for changes to the device location </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="20" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1adff97a5ff891440e844b1438c8160ec1" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.TelephonyListener.LISTEN_NETWORK_TYPE</definition>
+        <argsstring></argsstring>
+        <name>LISTEN_NETWORK_TYPE</name>
+        <initializer>= 4096</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Listen for changes to the network type </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="22" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a5d217cc158268f8c01738b0f51e1ce53" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.TelephonyListener.LISTEN_NONE</definition>
+        <argsstring></argsstring>
+        <name>LISTEN_NONE</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stop listening for updates. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="24" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1aab3f3a875e74a3b4d6eab7db23683372" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.telephony.TelephonyListener.LISTEN_SIGNAL_STRENGTHS</definition>
+        <argsstring></argsstring>
+        <name>LISTEN_SIGNAL_STRENGTHS</name>
+        <initializer>= 256</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Listen for changes to the network signal strengths (cellular). </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="26" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a3d14b9a5603d15201ffef86df42d54f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.telephony.TelephonyListener.TelephonyListener</definition>
+        <argsstring>()</argsstring>
+        <name>TelephonyListener</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="29" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="29" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a171849910c348658f639011099980d84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.telephony.TelephonyListener.onCallStateChanged</definition>
+        <argsstring>(int state, String incomingNumber)</argsstring>
+        <name>onCallStateChanged</name>
+        <param>
+          <type>int</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>incomingNumber</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback invoked when device call state changes. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="33" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="33" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1ab93e4cd769a3efeedf3d4bd65de8ad15" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.telephony.TelephonyListener.onCellInfoChanged</definition>
+        <argsstring>(List&lt; ICellInfo &gt; cellInfo)</argsstring>
+        <name>onCellInfoChanged</name>
+        <param>
+          <type>List&lt; <ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo" kindref="compound">ICellInfo</ref> &gt;</type>
+          <declname>cellInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback invoked when a observed cell info has changed, or new cells have been added or removed. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="40" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="40" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a671048ccc7d961591b47ce714d660436" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.telephony.TelephonyListener.onLocationChanged</definition>
+        <argsstring>(ILocation location)</argsstring>
+        <name>onLocationChanged</name>
+        <param>
+          <type><ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ILocation" kindref="compound">ILocation</ref></type>
+          <declname>location</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback invoked when device location changes. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="44" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="44" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a8b3ff94c072f2d90dc82ae38d390bf62" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.telephony.TelephonyListener.onDataConnectionStateChanged</definition>
+        <argsstring>(int state)</argsstring>
+        <name>onDataConnectionStateChanged</name>
+        <param>
+          <type>int</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback invoked when connection state changes. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="48" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="48" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1aa5f922c9142ab0e8c933a1953b384269" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.telephony.TelephonyListener.onNetworkTypeChanged</definition>
+        <argsstring>(int state, int networkType)</argsstring>
+        <name>onNetworkTypeChanged</name>
+        <param>
+          <type>int</type>
+          <declname>state</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>networkType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback invoked when network type changes. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="52" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="52" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a560acb91a9cb03ad4e4389cc9393c76b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.telephony.TelephonyListener.onSignalStrengthsChanged</definition>
+        <argsstring>(ISignalStrength signalStrength)</argsstring>
+        <name>onSignalStrengthsChanged</name>
+        <param>
+          <type><ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ISignalStrength" kindref="compound">ISignalStrength</ref></type>
+          <declname>signalStrength</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback invoked when network signal strengths changes. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="56" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="56" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A listener class for monitoring changes in specific telephony states. Override the methods for the state that you want to receive updates for, and pass your <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener" kindref="compound">TelephonyListener</ref> object, along with bitwise-or of the LISTEN_xxx flags to <ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a2bf33ee65f59c2100442f6ba33fac113" kindref="member">ITelephony.listen()</ref> </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="197">
+        <label>com.qualoutdoor.recorder.telephony.TelephonyListener</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" line="11" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyListener.java" bodystart="11" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a191d2575b8783002ee3e5d8cbadd6f34" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyListener</scope><name>LISTEN_CALL_STATE</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1aa73af11a2afc13c7bfb8ce7e58b45f69" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyListener</scope><name>LISTEN_CELL_INFO</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a640f1efa08e7e0869335cfc47c3a2124" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyListener</scope><name>LISTEN_DATA_CONNECTION_STATE</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a146371faf289ea1d3c019a9da50e6ba2" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyListener</scope><name>LISTEN_LOCATION</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1adff97a5ff891440e844b1438c8160ec1" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyListener</scope><name>LISTEN_NETWORK_TYPE</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a5d217cc158268f8c01738b0f51e1ce53" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyListener</scope><name>LISTEN_NONE</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1aab3f3a875e74a3b4d6eab7db23683372" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyListener</scope><name>LISTEN_SIGNAL_STRENGTHS</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a171849910c348658f639011099980d84" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyListener</scope><name>onCallStateChanged</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1ab93e4cd769a3efeedf3d4bd65de8ad15" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyListener</scope><name>onCellInfoChanged</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a8b3ff94c072f2d90dc82ae38d390bf62" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyListener</scope><name>onDataConnectionStateChanged</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a671048ccc7d961591b47ce714d660436" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyListener</scope><name>onLocationChanged</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1aa5f922c9142ab0e8c933a1953b384269" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyListener</scope><name>onNetworkTypeChanged</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a560acb91a9cb03ad4e4389cc9393c76b" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyListener</scope><name>onSignalStrengthsChanged</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a3d14b9a5603d15201ffef86df42d54f1" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyListener</scope><name>TelephonyListener</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

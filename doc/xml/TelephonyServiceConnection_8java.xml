@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="TelephonyServiceConnection_8java" kind="file">
+    <compoundname>TelephonyServiceConnection.java</compoundname>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection" prot="public">com::qualoutdoor::recorder::telephony::TelephonyServiceConnection</innerclass>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1telephony">com::qualoutdoor::recorder::telephony</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.qualoutdoor.recorder.telephony;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>android.content.ComponentName;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>android.os.IBinder;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>android.util.Log;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection" kindref="compound">com.qualoutdoor.recorder.LocalServiceConnection</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">abstract</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection" kindref="compound">TelephonyServiceConnection</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection" kindref="compound">LocalServiceConnection</ref><sp/><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection_1a209be452896315097a33acbe55d27519" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService" kindref="compound">TelephonyService</ref><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection_1a209be452896315097a33acbe55d27519" kindref="member">service</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection" kindref="compound">TelephonyServiceConnection</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super();</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>onServiceConnected(ComponentName<sp/>serviceName,<sp/>IBinder<sp/>binder)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Retrieve<sp/>the<sp/>service</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection_1a209be452896315097a33acbe55d27519" kindref="member">service</ref><sp/>=<sp/>((<ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder" kindref="compound">TelephonyBinder</ref>)<sp/>binder).getService();<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Log.d(</highlight><highlight class="stringliteral">&quot;TelephonyServiceConnection&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;onServiceConnected&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super.onServiceConnected(serviceName,<sp/>binder);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection_1ab8017196e7585698b32d6d6766c39f9d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService" kindref="compound">TelephonyService</ref><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection_1ab8017196e7585698b32d6d6766c39f9d" kindref="member">getService</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection_1a209be452896315097a33acbe55d27519" kindref="member">service</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyServiceConnection.java"/>
+  </compounddef>
+</doxygen>

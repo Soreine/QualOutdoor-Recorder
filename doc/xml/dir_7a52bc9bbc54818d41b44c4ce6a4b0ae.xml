@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_7a52bc9bbc54818d41b44c4ce6a4b0ae" kind="dir">
+    <compoundname>src/com</compoundname>
+    <innerdir refid="dir_f93420f317a6717c35b5a42b27e8348a">src/com/qualoutdoor</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/"/>
+  </compounddef>
+</doxygen>

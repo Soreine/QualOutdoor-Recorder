@@ -1,0 +1,678 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::MainActivity</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ActionBarActivity</basecompoundref>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1_1DrawerItemClickListener" prot="private">com::qualoutdoor::recorder::MainActivity::DrawerItemClickListener</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1afa74ca8ca4d439945c9b72e360004f13" prot="private" static="no" mutable="no">
+        <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService" kindref="compound">TelephonyService</ref></type>
+        <definition>TelephonyService com.qualoutdoor.recorder.MainActivity.telephonyService</definition>
+        <argsstring></argsstring>
+        <name>telephonyService</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A reference to the TelephonyService </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="46" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1aee67fc3589f9ffcde9bdc275f9cdbac4" prot="private" static="no" mutable="no">
+        <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection" kindref="compound">TelephonyServiceConnection</ref></type>
+        <definition>TelephonyServiceConnection com.qualoutdoor.recorder.MainActivity.telServiceConnection</definition>
+        <argsstring></argsstring>
+        <name>telServiceConnection</name>
+        <initializer>= new <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection" kindref="compound">TelephonyServiceConnection</ref>() {
+		@Override
+		public void onServiceObtained() {
+			
+			MainActivity.this.telephonyService = this.getService();
+		}
+	}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The TelephonyServiceConnection used to connect to the TelephonyService </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="48" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1af38fdbc2c5b036977d4e0c25d817d736" prot="private" static="no" mutable="no">
+        <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService" kindref="compound">RecordingService</ref></type>
+        <definition>RecordingService com.qualoutdoor.recorder.MainActivity.recordingService</definition>
+        <argsstring></argsstring>
+        <name>recordingService</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A reference to the RecordingService </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="57" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a672740db9e6801d1f94786f3cac1ae7a" prot="private" static="no" mutable="no">
+        <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingServiceConnection" kindref="compound">RecordingServiceConnection</ref></type>
+        <definition>RecordingServiceConnection com.qualoutdoor.recorder.MainActivity.recServiceConnection</definition>
+        <argsstring></argsstring>
+        <name>recServiceConnection</name>
+        <initializer>= new <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingServiceConnection" kindref="compound">RecordingServiceConnection</ref>() {
+		@Override
+		public void onServiceObtained() {
+			
+			MainActivity.this.recordingService = this.getService();
+		}
+	}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The TelephonyServiceConnection used to connect to the TelephonyService </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="59" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a5959b69046a6d1ca238b4bed45b02d26" prot="private" static="no" mutable="no">
+        <type>CharSequence</type>
+        <definition>CharSequence com.qualoutdoor.recorder.MainActivity.fragmentTitle</definition>
+        <argsstring></argsstring>
+        <name>fragmentTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current fragment title </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="68" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="68" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ac9e15af94bc29b6343dc2ffe24afe995" compoundref="MainActivity_8java" startline="100" endline="181">com.qualoutdoor.recorder.MainActivity.onCreate</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a70960558ff7463002c78d0f02e654263" compoundref="MainActivity_8java" startline="259" endline="284">com.qualoutdoor.recorder.MainActivity.selectItem</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a6686ec562cfab0110bd52eddc7e33f54" prot="private" static="no" mutable="no">
+        <type>CharSequence</type>
+        <definition>CharSequence com.qualoutdoor.recorder.MainActivity.drawerTitle</definition>
+        <argsstring></argsstring>
+        <name>drawerTitle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The drawer title </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="70" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="70" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ac9e15af94bc29b6343dc2ffe24afe995" compoundref="MainActivity_8java" startline="100" endline="181">com.qualoutdoor.recorder.MainActivity.onCreate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a198488a2b8d8f4d8d9b9f63939fd4dff" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.MainActivity.activeSection</definition>
+        <argsstring></argsstring>
+        <name>activeSection</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The active section in the navigation drawer </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="72" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="72" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ac9e15af94bc29b6343dc2ffe24afe995" compoundref="MainActivity_8java" startline="100" endline="181">com.qualoutdoor.recorder.MainActivity.onCreate</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a70960558ff7463002c78d0f02e654263" compoundref="MainActivity_8java" startline="259" endline="284">com.qualoutdoor.recorder.MainActivity.selectItem</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1aebfe9b8493ba8495d570e4aff04aa98f" prot="private" static="no" mutable="no">
+        <type>String[]</type>
+        <definition>String [] com.qualoutdoor.recorder.MainActivity.navigationTitles</definition>
+        <argsstring></argsstring>
+        <name>navigationTitles</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hold the navigation titles displayed in the Navigation Drawer </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="80" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="80" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ac9e15af94bc29b6343dc2ffe24afe995" compoundref="MainActivity_8java" startline="100" endline="181">com.qualoutdoor.recorder.MainActivity.onCreate</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a70960558ff7463002c78d0f02e654263" compoundref="MainActivity_8java" startline="259" endline="284">com.qualoutdoor.recorder.MainActivity.selectItem</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ad37318bd3bb05942c955bc0ccc90935d" prot="private" static="no" mutable="no">
+        <type>DrawerLayout</type>
+        <definition>DrawerLayout com.qualoutdoor.recorder.MainActivity.drawerLayout</definition>
+        <argsstring></argsstring>
+        <name>drawerLayout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A reference to the Navigation Drawer layout </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="82" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="82" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ac9e15af94bc29b6343dc2ffe24afe995" compoundref="MainActivity_8java" startline="100" endline="181">com.qualoutdoor.recorder.MainActivity.onCreate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ab03934fd9c14fe28a6e5505d41b96cb3" prot="private" static="no" mutable="no">
+        <type>ListView</type>
+        <definition>ListView com.qualoutdoor.recorder.MainActivity.drawerList</definition>
+        <argsstring></argsstring>
+        <name>drawerList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The ListView associated to the Navigation Drawer </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="84" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="84" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ac9e15af94bc29b6343dc2ffe24afe995" compoundref="MainActivity_8java" startline="100" endline="181">com.qualoutdoor.recorder.MainActivity.onCreate</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a70960558ff7463002c78d0f02e654263" compoundref="MainActivity_8java" startline="259" endline="284">com.qualoutdoor.recorder.MainActivity.selectItem</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a6c372005bb6ce12e7204e6e3729b9dab" prot="private" static="no" mutable="no">
+        <type>ActionBarDrawerToggle</type>
+        <definition>ActionBarDrawerToggle com.qualoutdoor.recorder.MainActivity.drawerToggle</definition>
+        <argsstring></argsstring>
+        <name>drawerToggle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A DrawerListener that integrate well with the ActionBar and handle the Navigation Drawer behaviors </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="89" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="89" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ac9e15af94bc29b6343dc2ffe24afe995" compoundref="MainActivity_8java" startline="100" endline="181">com.qualoutdoor.recorder.MainActivity.onCreate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a318bc02d4937447fc88bab0f12a6df64" prot="private" static="no" mutable="no">
+        <type>TextView</type>
+        <definition>TextView com.qualoutdoor.recorder.MainActivity.networkView</definition>
+        <argsstring></argsstring>
+        <name>networkView</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The view located in the action bar which displays the current network type </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="95" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a76c5025a8bcde6c93e3bb320333f5d4a" prot="private" static="no" mutable="no">
+        <type>MenuItem</type>
+        <definition>MenuItem com.qualoutdoor.recorder.MainActivity.recordMenuItem</definition>
+        <argsstring></argsstring>
+        <name>recordMenuItem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The record action from the options menu </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="97" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a7e719523b166c40d53fb8589b04587ab" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.MainActivity.PREVIOUS_TITLE</definition>
+        <argsstring></argsstring>
+        <name>PREVIOUS_TITLE</name>
+        <initializer>= &quot;previous_title&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The previous actionbar title key in the savedInstanceState </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="75" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="75" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ac9e15af94bc29b6343dc2ffe24afe995" compoundref="MainActivity_8java" startline="100" endline="181">com.qualoutdoor.recorder.MainActivity.onCreate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a22bb0c006feea451b77d7df1b3d8a523" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.MainActivity.ACTIVE_SECTION</definition>
+        <argsstring></argsstring>
+        <name>ACTIVE_SECTION</name>
+        <initializer>= &quot;active_section&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The active section key in the savedInstanceState </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="77" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="77" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ac9e15af94bc29b6343dc2ffe24afe995" compoundref="MainActivity_8java" startline="100" endline="181">com.qualoutdoor.recorder.MainActivity.onCreate</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ac9e15af94bc29b6343dc2ffe24afe995" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.MainActivity.onCreate</definition>
+        <argsstring>(Bundle savedInstanceState)</argsstring>
+        <name>onCreate</name>
+        <param>
+          <type>Bundle</type>
+          <declname>savedInstanceState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Called when a drawer has settled in a completely closed state.</para><para>Called when a drawer has settled in a completely open state. </para>        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="100" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="100" bodyend="181"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a22bb0c006feea451b77d7df1b3d8a523" compoundref="MainActivity_8java" startline="77">com.qualoutdoor.recorder.MainActivity.ACTIVE_SECTION</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a198488a2b8d8f4d8d9b9f63939fd4dff" compoundref="MainActivity_8java" startline="72">com.qualoutdoor.recorder.MainActivity.activeSection</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ad37318bd3bb05942c955bc0ccc90935d" compoundref="MainActivity_8java" startline="82">com.qualoutdoor.recorder.MainActivity.drawerLayout</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ab03934fd9c14fe28a6e5505d41b96cb3" compoundref="MainActivity_8java" startline="84">com.qualoutdoor.recorder.MainActivity.drawerList</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a6686ec562cfab0110bd52eddc7e33f54" compoundref="MainActivity_8java" startline="70">com.qualoutdoor.recorder.MainActivity.drawerTitle</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a6c372005bb6ce12e7204e6e3729b9dab" compoundref="MainActivity_8java" startline="89">com.qualoutdoor.recorder.MainActivity.drawerToggle</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a5959b69046a6d1ca238b4bed45b02d26" compoundref="MainActivity_8java" startline="68">com.qualoutdoor.recorder.MainActivity.fragmentTitle</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1aebfe9b8493ba8495d570e4aff04aa98f" compoundref="MainActivity_8java" startline="80">com.qualoutdoor.recorder.MainActivity.navigationTitles</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a7e719523b166c40d53fb8589b04587ab" compoundref="MainActivity_8java" startline="75">com.qualoutdoor.recorder.MainActivity.PREVIOUS_TITLE</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a70960558ff7463002c78d0f02e654263" compoundref="MainActivity_8java" startline="259" endline="284">com.qualoutdoor.recorder.MainActivity.selectItem</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1afdde657fd9139073075a608bd87250c0" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.MainActivity.onPostCreate</definition>
+        <argsstring>(Bundle savedInstanceState)</argsstring>
+        <name>onPostCreate</name>
+        <param>
+          <type>Bundle</type>
+          <declname>savedInstanceState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="184" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="184" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a465de11fed8d5c14a2ac4b458aa3985f" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.MainActivity.onSaveInstanceState</definition>
+        <argsstring>(Bundle outState)</argsstring>
+        <name>onSaveInstanceState</name>
+        <param>
+          <type>Bundle</type>
+          <declname>outState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="198" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="198" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a06e1f42c4fb946ecc3a6615d6c09a7fc" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.MainActivity.onStart</definition>
+        <argsstring>()</argsstring>
+        <name>onStart</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="208" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="208" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a7eb3920b7c54fc3e130c85f7f50f1c87" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.MainActivity.onStop</definition>
+        <argsstring>()</argsstring>
+        <name>onStop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="233" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="233" bodyend="245"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a05cb2528ea012100ef910ab8f594f2cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.MainActivity.onConfigurationChanged</definition>
+        <argsstring>(Configuration newConfig)</argsstring>
+        <name>onConfigurationChanged</name>
+        <param>
+          <type>Configuration</type>
+          <declname>newConfig</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="191" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="191" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a07e8ec713e5d04718cf87497a7cb3dd4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.MainActivity.onCreateOptionsMenu</definition>
+        <argsstring>(Menu menu)</argsstring>
+        <name>onCreateOptionsMenu</name>
+        <param>
+          <type>Menu</type>
+          <declname>menu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="291" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="291" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a03f3d576991fe48076517803a1608e42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.MainActivity.onPrepareOptionsMenu</definition>
+        <argsstring>(Menu menu)</argsstring>
+        <name>onPrepareOptionsMenu</name>
+        <param>
+          <type>Menu</type>
+          <declname>menu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="307" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="307" bodyend="334"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ab00ad5adc5560911e0147f3cb3cdbd50" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.MainActivity.onNetworkChanged</definition>
+        <argsstring>(int currentNetwork, int currentCallState)</argsstring>
+        <name>onNetworkChanged</name>
+        <param>
+          <type>int</type>
+          <declname>currentNetwork</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>currentCallState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="337" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="337" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a0788a0a3c8c1fbc9e410b94483b858b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.MainActivity.onOptionsItemSelected</definition>
+        <argsstring>(MenuItem item)</argsstring>
+        <name>onOptionsItemSelected</name>
+        <param>
+          <type>MenuItem</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="362" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="362" bodyend="397"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a7ab297972634760af9706e6dc8a31c92" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.MainActivity.onBackPressed</definition>
+        <argsstring>()</argsstring>
+        <name>onBackPressed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="400" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="400" bodyend="411"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a70960558ff7463002c78d0f02e654263" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.MainActivity.selectItem</definition>
+        <argsstring>(int position)</argsstring>
+        <name>selectItem</name>
+        <param>
+          <type>int</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Swaps fragments in the main content view on item selection </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="259" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="259" bodyend="284"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a198488a2b8d8f4d8d9b9f63939fd4dff" compoundref="MainActivity_8java" startline="72">com.qualoutdoor.recorder.MainActivity.activeSection</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ab03934fd9c14fe28a6e5505d41b96cb3" compoundref="MainActivity_8java" startline="84">com.qualoutdoor.recorder.MainActivity.drawerList</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a5959b69046a6d1ca238b4bed45b02d26" compoundref="MainActivity_8java" startline="68">com.qualoutdoor.recorder.MainActivity.fragmentTitle</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1aebfe9b8493ba8495d570e4aff04aa98f" compoundref="MainActivity_8java" startline="80">com.qualoutdoor.recorder.MainActivity.navigationTitles</references>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ac9e15af94bc29b6343dc2ffe24afe995" compoundref="MainActivity_8java" startline="100" endline="181">com.qualoutdoor.recorder.MainActivity.onCreate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ae63f4ccd23f5892a3cea9c0c8d4aa852" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.MainActivity.openSettings</definition>
+        <argsstring>()</argsstring>
+        <name>openSettings</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Action associated to the settings option menu item </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="414" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="414" bodyend="419"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a38c1ce314020110983c35515d9f34e48" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.MainActivity.openHelp</definition>
+        <argsstring>()</argsstring>
+        <name>openHelp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Action associated to the help option menu item </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="422" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="422" bodyend="427"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="59">
+        <label>com.qualoutdoor.recorder.MainActivity</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity"/>
+        <childnode refid="60" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>ActionBarActivity</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="78">
+        <label>ServiceConnection</label>
+      </node>
+      <node id="64">
+        <label>ActionBarDrawerToggle</label>
+      </node>
+      <node id="66">
+        <label>Service</label>
+      </node>
+      <node id="82">
+        <label>TextView</label>
+      </node>
+      <node id="81">
+        <label>String</label>
+      </node>
+      <node id="73">
+        <label>com.qualoutdoor.recorder.telephony.ISignalStrength</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ISignalStrength"/>
+      </node>
+      <node id="74">
+        <label>SignalStrength</label>
+      </node>
+      <node id="68">
+        <label>com.qualoutdoor.recorder.telephony.TelephonyService</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService"/>
+        <childnode refid="66" relation="public-inheritance">
+        </childnode>
+        <childnode refid="69" relation="public-inheritance">
+        </childnode>
+        <childnode refid="67" relation="usage">
+          <edgelabel>-mTelephonyBinder</edgelabel>
+        </childnode>
+        <childnode refid="70" relation="usage">
+          <edgelabel>-phoneStateListener</edgelabel>
+        </childnode>
+        <childnode refid="71" relation="usage">
+          <edgelabel>-telephonyManager</edgelabel>
+        </childnode>
+        <childnode refid="72" relation="usage">
+          <edgelabel>-signalStrength</edgelabel>
+        </childnode>
+      </node>
+      <node id="80">
+        <label>ListView</label>
+      </node>
+      <node id="67">
+        <label>IBinder</label>
+      </node>
+      <node id="70">
+        <label>PhoneStateListener</label>
+      </node>
+      <node id="61">
+        <label>com.qualoutdoor.recorder.MainActivity</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity"/>
+        <childnode refid="62" relation="public-inheritance">
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>-drawerLayout</edgelabel>
+        </childnode>
+        <childnode refid="64" relation="usage">
+          <edgelabel>-drawerToggle</edgelabel>
+        </childnode>
+        <childnode refid="65" relation="usage">
+          <edgelabel>-recordingService</edgelabel>
+        </childnode>
+        <childnode refid="68" relation="usage">
+          <edgelabel>-telephonyService</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>-recordMenuItem</edgelabel>
+        </childnode>
+        <childnode refid="76" relation="usage">
+          <edgelabel>-recServiceConnection</edgelabel>
+        </childnode>
+        <childnode refid="79" relation="usage">
+          <edgelabel>-telServiceConnection</edgelabel>
+        </childnode>
+        <childnode refid="80" relation="usage">
+          <edgelabel>-drawerList</edgelabel>
+        </childnode>
+        <childnode refid="81" relation="usage">
+          <edgelabel>-navigationTitles</edgelabel>
+          <edgelabel>-PREVIOUS_TITLE</edgelabel>
+          <edgelabel>-ACTIVE_SECTION</edgelabel>
+        </childnode>
+        <childnode refid="82" relation="usage">
+          <edgelabel>-networkView</edgelabel>
+        </childnode>
+      </node>
+      <node id="79">
+        <label>com.qualoutdoor.recorder.telephony.TelephonyServiceConnection</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection"/>
+        <childnode refid="77" relation="public-inheritance">
+        </childnode>
+        <childnode refid="68" relation="usage">
+          <edgelabel>-service</edgelabel>
+        </childnode>
+      </node>
+      <node id="62">
+        <label>ActionBarActivity</label>
+      </node>
+      <node id="75">
+        <label>MenuItem</label>
+      </node>
+      <node id="69">
+        <label>com.qualoutdoor.recorder.telephony.ITelephony</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony"/>
+      </node>
+      <node id="65">
+        <label>com.qualoutdoor.recorder.recording.RecordingService</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService"/>
+        <childnode refid="66" relation="public-inheritance">
+        </childnode>
+        <childnode refid="67" relation="usage">
+          <edgelabel>-mRecordingBinder</edgelabel>
+        </childnode>
+      </node>
+      <node id="77">
+        <label>com.qualoutdoor.recorder.LocalServiceConnection</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection"/>
+        <childnode refid="78" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>com.qualoutdoor.recorder.telephony.CustomSignalStrength</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength"/>
+        <childnode refid="73" relation="public-inheritance">
+        </childnode>
+        <childnode refid="74" relation="usage">
+          <edgelabel>-ss</edgelabel>
+        </childnode>
+      </node>
+      <node id="76">
+        <label>com.qualoutdoor.recorder.recording.RecordingServiceConnection</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingServiceConnection"/>
+        <childnode refid="77" relation="public-inheritance">
+        </childnode>
+        <childnode refid="78" relation="public-inheritance">
+        </childnode>
+        <childnode refid="65" relation="usage">
+          <edgelabel>-service</edgelabel>
+        </childnode>
+      </node>
+      <node id="71">
+        <label>TelephonyManager</label>
+      </node>
+      <node id="63">
+        <label>DrawerLayout</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" line="35" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/MainActivity.java" bodystart="35" bodyend="429"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a22bb0c006feea451b77d7df1b3d8a523" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>ACTIVE_SECTION</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a198488a2b8d8f4d8d9b9f63939fd4dff" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>activeSection</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ad37318bd3bb05942c955bc0ccc90935d" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>drawerLayout</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ab03934fd9c14fe28a6e5505d41b96cb3" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>drawerList</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a6686ec562cfab0110bd52eddc7e33f54" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>drawerTitle</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a6c372005bb6ce12e7204e6e3729b9dab" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>drawerToggle</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a5959b69046a6d1ca238b4bed45b02d26" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>fragmentTitle</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1aebfe9b8493ba8495d570e4aff04aa98f" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>navigationTitles</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a318bc02d4937447fc88bab0f12a6df64" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>networkView</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a7ab297972634760af9706e6dc8a31c92" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>onBackPressed</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a05cb2528ea012100ef910ab8f594f2cf" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>onConfigurationChanged</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ac9e15af94bc29b6343dc2ffe24afe995" prot="protected" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>onCreate</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a07e8ec713e5d04718cf87497a7cb3dd4" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>onCreateOptionsMenu</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ab00ad5adc5560911e0147f3cb3cdbd50" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>onNetworkChanged</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a0788a0a3c8c1fbc9e410b94483b858b3" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>onOptionsItemSelected</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1afdde657fd9139073075a608bd87250c0" prot="protected" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>onPostCreate</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a03f3d576991fe48076517803a1608e42" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>onPrepareOptionsMenu</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a465de11fed8d5c14a2ac4b458aa3985f" prot="protected" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>onSaveInstanceState</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a06e1f42c4fb946ecc3a6615d6c09a7fc" prot="protected" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>onStart</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a7eb3920b7c54fc3e130c85f7f50f1c87" prot="protected" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>onStop</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a38c1ce314020110983c35515d9f34e48" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>openHelp</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ae63f4ccd23f5892a3cea9c0c8d4aa852" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>openSettings</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a7e719523b166c40d53fb8589b04587ab" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>PREVIOUS_TITLE</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1af38fdbc2c5b036977d4e0c25d817d736" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>recordingService</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a76c5025a8bcde6c93e3bb320333f5d4a" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>recordMenuItem</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a672740db9e6801d1f94786f3cac1ae7a" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>recServiceConnection</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a70960558ff7463002c78d0f02e654263" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>selectItem</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1afa74ca8ca4d439945c9b72e360004f13" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>telephonyService</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1aee67fc3589f9ffcde9bdc275f9cdbac4" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::MainActivity</scope><name>telServiceConnection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

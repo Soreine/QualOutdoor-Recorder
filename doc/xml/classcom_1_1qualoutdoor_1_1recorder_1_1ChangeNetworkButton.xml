@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::ChangeNetworkButton</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Button</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1a1ec861ea067b2f79202f8c2d10a8549b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.ChangeNetworkButton.ChangeNetworkButton</definition>
+        <argsstring>(Context context)</argsstring>
+        <name>ChangeNetworkButton</name>
+        <param>
+          <type>Context</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/ChangeNetworkButton.java" line="13" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/ChangeNetworkButton.java" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1aa5a17b922a1d5b972f13b6c4574af988" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.ChangeNetworkButton.ChangeNetworkButton</definition>
+        <argsstring>(Context context, AttributeSet attrs, int defStyle)</argsstring>
+        <name>ChangeNetworkButton</name>
+        <param>
+          <type>Context</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>AttributeSet</type>
+          <declname>attrs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>defStyle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/ChangeNetworkButton.java" line="18" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/ChangeNetworkButton.java" bodystart="18" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1a0663b052f5164177b6c7e9de01183e35" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.ChangeNetworkButton.ChangeNetworkButton</definition>
+        <argsstring>(Context context, AttributeSet attrs)</argsstring>
+        <name>ChangeNetworkButton</name>
+        <param>
+          <type>Context</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>AttributeSet</type>
+          <declname>attrs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/ChangeNetworkButton.java" line="23" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/ChangeNetworkButton.java" bodystart="23" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1a6a178a0b36b9f27facbb7b591778424c" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.ChangeNetworkButton.onAttachedToWindow</definition>
+        <argsstring>()</argsstring>
+        <name>onAttachedToWindow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/ChangeNetworkButton.java" line="29" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/ChangeNetworkButton.java" bodystart="29" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1a1455cadd6a3ad0cc1a8e2fbcce388bb5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.ChangeNetworkButton.actionChangeNetwork</definition>
+        <argsstring>(View view)</argsstring>
+        <name>actionChangeNetwork</name>
+        <param>
+          <type>View</type>
+          <declname>view</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Change the current network artificially </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/ChangeNetworkButton.java" line="42" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/ChangeNetworkButton.java" bodystart="42" bodyend="67"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>Button</label>
+      </node>
+      <node id="2">
+        <label>com.qualoutdoor.recorder.ChangeNetworkButton</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>Button</label>
+      </node>
+      <node id="4">
+        <label>com.qualoutdoor.recorder.ChangeNetworkButton</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/ChangeNetworkButton.java" line="11" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/ChangeNetworkButton.java" bodystart="11" bodyend="68"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1a1455cadd6a3ad0cc1a8e2fbcce388bb5" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::ChangeNetworkButton</scope><name>actionChangeNetwork</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1a1ec861ea067b2f79202f8c2d10a8549b" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::ChangeNetworkButton</scope><name>ChangeNetworkButton</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1aa5a17b922a1d5b972f13b6c4574af988" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::ChangeNetworkButton</scope><name>ChangeNetworkButton</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1a0663b052f5164177b6c7e9de01183e35" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::ChangeNetworkButton</scope><name>ChangeNetworkButton</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1a6a178a0b36b9f27facbb7b591778424c" prot="protected" virt="non-virtual"><scope>com::qualoutdoor::recorder::ChangeNetworkButton</scope><name>onAttachedToWindow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

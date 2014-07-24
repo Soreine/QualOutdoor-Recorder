@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="TelephonyBinder_8java" kind="file">
+    <compoundname>TelephonyBinder.java</compoundname>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder" prot="public">com::qualoutdoor::recorder::telephony::TelephonyBinder</innerclass>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1telephony">com::qualoutdoor::recorder::telephony</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.qualoutdoor.recorder.telephony;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>android.os.Binder;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder" kindref="compound">TelephonyBinder</ref><sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/>Binder<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1a864035a7cb42e95815445f9d6c345492" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService" kindref="compound">TelephonyService</ref><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1a864035a7cb42e95815445f9d6c345492" kindref="member">myService</ref>;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1afc6a0e5ef46d92a4bf0c9e2ee7df8a33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1afc6a0e5ef46d92a4bf0c9e2ee7df8a33" kindref="member">TelephonyBinder</ref>(<ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService" kindref="compound">TelephonyService</ref><sp/>service)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1a864035a7cb42e95815445f9d6c345492" kindref="member">myService</ref><sp/>=<sp/>service;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1acdfebeb669e80bdf37dec7b4dd65e73b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService" kindref="compound">TelephonyService</ref><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1acdfebeb669e80bdf37dec7b4dd65e73b" kindref="member">getService</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1a864035a7cb42e95815445f9d6c345492" kindref="member">myService</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyBinder.java"/>
+  </compounddef>
+</doxygen>

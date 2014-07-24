@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::NavigationDrawerBehavior</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1a71fe6af02c85ff204a66b60abe212024" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.NavigationDrawerBehavior.OVERVIEW</definition>
+        <argsstring></argsstring>
+        <name>OVERVIEW</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/NavigationDrawerBehavior.java" line="16" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/NavigationDrawerBehavior.java" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1aebe294104d68571c1eb4ce9af9d65178" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.NavigationDrawerBehavior.MAP</definition>
+        <argsstring></argsstring>
+        <name>MAP</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/NavigationDrawerBehavior.java" line="17" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/NavigationDrawerBehavior.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1a8368f632c82d3eff9da1fc2e729c2bce" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.NavigationDrawerBehavior.STATISTICS</definition>
+        <argsstring></argsstring>
+        <name>STATISTICS</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/NavigationDrawerBehavior.java" line="18" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/NavigationDrawerBehavior.java" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1adfb5f8a3ab94d190d16e7dfb5004dc4b" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.NavigationDrawerBehavior.SCRIPTS</definition>
+        <argsstring></argsstring>
+        <name>SCRIPTS</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/NavigationDrawerBehavior.java" line="19" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/NavigationDrawerBehavior.java" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1a56dc43a69769960a5d12f05e0c89abdd" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Fragment</type>
+        <definition>static Fragment com.qualoutdoor.recorder.NavigationDrawerBehavior.getFragment</definition>
+        <argsstring>(int itemPosition)</argsstring>
+        <name>getFragment</name>
+        <param>
+          <type>int</type>
+          <declname>itemPosition</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the fragment corresponding to the given item </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/NavigationDrawerBehavior.java" line="22" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/NavigationDrawerBehavior.java" bodystart="22" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class define the order and the association between items in the Navigation Drawer and their corresponding fragments </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="98">
+        <label>com.qualoutdoor.recorder.NavigationDrawerBehavior</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/NavigationDrawerBehavior.java" line="14" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/NavigationDrawerBehavior.java" bodystart="14" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1a56dc43a69769960a5d12f05e0c89abdd" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::NavigationDrawerBehavior</scope><name>getFragment</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1aebe294104d68571c1eb4ce9af9d65178" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::NavigationDrawerBehavior</scope><name>MAP</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1a71fe6af02c85ff204a66b60abe212024" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::NavigationDrawerBehavior</scope><name>OVERVIEW</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1adfb5f8a3ab94d190d16e7dfb5004dc4b" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::NavigationDrawerBehavior</scope><name>SCRIPTS</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1a8368f632c82d3eff9da1fc2e729c2bce" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::NavigationDrawerBehavior</scope><name>STATISTICS</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::recording::RecordingService</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Service</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1ac19023b61b61f80ce69723f5ac3e78f7" prot="private" static="no" mutable="no">
+        <type>IBinder</type>
+        <definition>IBinder com.qualoutdoor.recorder.recording.RecordingService.mRecordingBinder</definition>
+        <argsstring></argsstring>
+        <name>mRecordingBinder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The interface binder for this service </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" line="20" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1aa44bc8a3d8265952f589faa7ce35d3d4" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.recording.RecordingService.isRecording</definition>
+        <argsstring></argsstring>
+        <name>isRecording</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicates if a recording process is ongoing </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" line="22" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a17aeabbe9a9d27439c297bbf1ff4d3eb" prot="private" static="no" mutable="no">
+        <type>Thread</type>
+        <definition>Thread com.qualoutdoor.recorder.recording.RecordingService.thread</definition>
+        <argsstring></argsstring>
+        <name>thread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A fake recording thread </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" line="25" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" bodystart="25" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1ad1e000af998ea34d8cd646c73b38f12a" compoundref="RecordingService_8java" startline="73" endline="99">com.qualoutdoor.recorder.recording.RecordingService.startRecording</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a51bcaacd57cecbbc192ae10ee0548898" compoundref="RecordingService_8java" startline="102" endline="113">com.qualoutdoor.recorder.recording.RecordingService.stopRecording</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a2e48946d240d2e6fcc41d4046b618321" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.recording.RecordingService.onCreate</definition>
+        <argsstring>()</argsstring>
+        <name>onCreate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" line="28" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" bodystart="28" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a7ab6dab80edc8e3ad2b5a7436534d7f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IBinder</type>
+        <definition>IBinder com.qualoutdoor.recorder.recording.RecordingService.onBind</definition>
+        <argsstring>(Intent intent)</argsstring>
+        <name>onBind</name>
+        <param>
+          <type>Intent</type>
+          <declname>intent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" line="38" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a97c5a5525e4f024ed981f8a4167c0c8f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.recording.RecordingService.isRecording</definition>
+        <argsstring>()</argsstring>
+        <name>isRecording</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicates whether the service is currently recording data </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" line="44" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" bodystart="44" bodyend="46"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1ad1e000af998ea34d8cd646c73b38f12a" compoundref="RecordingService_8java" startline="73" endline="99">com.qualoutdoor.recorder.recording.RecordingService.startRecording</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a51bcaacd57cecbbc192ae10ee0548898" compoundref="RecordingService_8java" startline="102" endline="113">com.qualoutdoor.recorder.recording.RecordingService.stopRecording</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a7a2a7a176fba147bbc3eb753aa819513" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.recording.RecordingService.setSamplingRate</definition>
+        <argsstring>(int millis)</argsstring>
+        <name>setSamplingRate</name>
+        <param>
+          <type>int</type>
+          <declname>millis</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the sampling rate to the specified value in milliseconds </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" line="49" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" bodystart="49" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a9614d87abfd09a76f082d5c37cf06de2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.recording.RecordingService.onStartCommand</definition>
+        <argsstring>(Intent intent, int flags, int startId)</argsstring>
+        <name>onStartCommand</name>
+        <param>
+          <type>Intent</type>
+          <declname>intent</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>startId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" line="53" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" bodystart="53" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1ad97856ad8728cbbc102e664b934982bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.recording.RecordingService.onDestroy</definition>
+        <argsstring>()</argsstring>
+        <name>onDestroy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" line="63" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" bodystart="63" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a51bcaacd57cecbbc192ae10ee0548898" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.recording.RecordingService.stopRecording</definition>
+        <argsstring>()</argsstring>
+        <name>stopRecording</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stop the recording process </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" line="102" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" bodystart="102" bodyend="113"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a97c5a5525e4f024ed981f8a4167c0c8f" compoundref="RecordingService_8java" startline="44" endline="46">com.qualoutdoor.recorder.recording.RecordingService.isRecording</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a17aeabbe9a9d27439c297bbf1ff4d3eb" compoundref="RecordingService_8java" startline="25">com.qualoutdoor.recorder.recording.RecordingService.thread</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1ad1e000af998ea34d8cd646c73b38f12a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.recording.RecordingService.startRecording</definition>
+        <argsstring>()</argsstring>
+        <name>startRecording</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start the recording process. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" line="73" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" bodystart="73" bodyend="99"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a1316ea946cb84d237c20e491c363cd33" compoundref="NotificationCenter_8java" startline="23">com.qualoutdoor.recorder.notifications.NotificationCenter.BACKGROUND_RECORDING</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a97c5a5525e4f024ed981f8a4167c0c8f" compoundref="RecordingService_8java" startline="44" endline="46">com.qualoutdoor.recorder.recording.RecordingService.isRecording</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a17aeabbe9a9d27439c297bbf1ff4d3eb" compoundref="RecordingService_8java" startline="25">com.qualoutdoor.recorder.recording.RecordingService.thread</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This service when started will link to the TelephonyService and begin sampling the phone state. One can bind to this service in order to modify the sampling rate. It is needed to call stopService() on it in order to stop the recording process. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="121">
+        <label>Service</label>
+      </node>
+      <node id="120">
+        <label>com.qualoutdoor.recorder.recording.RecordingService</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService"/>
+        <childnode refid="121" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="123">
+        <label>Service</label>
+      </node>
+      <node id="124">
+        <label>IBinder</label>
+      </node>
+      <node id="122">
+        <label>com.qualoutdoor.recorder.recording.RecordingService</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService"/>
+        <childnode refid="123" relation="public-inheritance">
+        </childnode>
+        <childnode refid="124" relation="usage">
+          <edgelabel>-mRecordingBinder</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" line="17" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingService.java" bodystart="17" bodyend="114"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1aa44bc8a3d8265952f589faa7ce35d3d4" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::recording::RecordingService</scope><name>isRecording</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a97c5a5525e4f024ed981f8a4167c0c8f" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::recording::RecordingService</scope><name>isRecording</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1ac19023b61b61f80ce69723f5ac3e78f7" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::recording::RecordingService</scope><name>mRecordingBinder</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a7ab6dab80edc8e3ad2b5a7436534d7f6" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::recording::RecordingService</scope><name>onBind</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a2e48946d240d2e6fcc41d4046b618321" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::recording::RecordingService</scope><name>onCreate</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1ad97856ad8728cbbc102e664b934982bc" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::recording::RecordingService</scope><name>onDestroy</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a9614d87abfd09a76f082d5c37cf06de2" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::recording::RecordingService</scope><name>onStartCommand</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a7a2a7a176fba147bbc3eb753aa819513" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::recording::RecordingService</scope><name>setSamplingRate</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1ad1e000af998ea34d8cd646c73b38f12a" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::recording::RecordingService</scope><name>startRecording</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a51bcaacd57cecbbc192ae10ee0548898" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::recording::RecordingService</scope><name>stopRecording</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a17aeabbe9a9d27439c297bbf1ff4d3eb" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::recording::RecordingService</scope><name>thread</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

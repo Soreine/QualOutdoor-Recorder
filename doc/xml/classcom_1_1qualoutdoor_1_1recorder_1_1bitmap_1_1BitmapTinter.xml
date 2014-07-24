@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1bitmap_1_1BitmapTinter" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::bitmap::BitmapTinter</compoundname>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1bitmap_1_1BitmapTinter_1a0b4033cb36fdc250f4e067f5c12fc701" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.bitmap.BitmapTinter.BitmapTinter</definition>
+        <argsstring>()</argsstring>
+        <name>BitmapTinter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/bitmap/BitmapTinter.java" line="7" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/bitmap/BitmapTinter.java" bodystart="7" bodyend="7"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1bitmap_1_1BitmapTinter_1ab60b789cdfc3464381385ce85c0dbb78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Bitmap</type>
+        <definition>Bitmap com.qualoutdoor.recorder.bitmap.BitmapTinter.tint</definition>
+        <argsstring>(Bitmap source, int hue, int sat, int alpha)</argsstring>
+        <name>tint</name>
+        <param>
+          <type>Bitmap</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hue</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sat</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>alpha</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/bitmap/BitmapTinter.java" line="9" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/bitmap/BitmapTinter.java" bodystart="9" bodyend="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>com.qualoutdoor.recorder.bitmap.BitmapTinter</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1bitmap_1_1BitmapTinter"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/bitmap/BitmapTinter.java" line="5" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/bitmap/BitmapTinter.java" bodystart="5" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1bitmap_1_1BitmapTinter_1a0b4033cb36fdc250f4e067f5c12fc701" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::bitmap::BitmapTinter</scope><name>BitmapTinter</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1bitmap_1_1BitmapTinter_1ab60b789cdfc3464381385ce85c0dbb78" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::bitmap::BitmapTinter</scope><name>tint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

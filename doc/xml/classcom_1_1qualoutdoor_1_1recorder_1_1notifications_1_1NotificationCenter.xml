@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::notifications::NotificationCenter</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a1316ea946cb84d237c20e491c363cd33" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.notifications.NotificationCenter.BACKGROUND_RECORDING</definition>
+        <argsstring></argsstring>
+        <name>BACKGROUND_RECORDING</name>
+        <initializer>= 1337</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The id of the background recording notification </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/notifications/NotificationCenter.java" line="23" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/notifications/NotificationCenter.java" bodystart="23" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a42f3211ad67cfa311b3d5d81f31f370f" compoundref="NotificationCenter_8java" startline="71" endline="78">com.qualoutdoor.recorder.notifications.NotificationCenter.notifyBackgroundRecording</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1ad1e000af998ea34d8cd646c73b38f12a" compoundref="RecordingService_8java" startline="73" endline="99">com.qualoutdoor.recorder.recording.RecordingService.startRecording</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a212d336ad0b5722e951904316b793b78" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.notifications.NotificationCenter.NotificationCenter</definition>
+        <argsstring>()</argsstring>
+        <name>NotificationCenter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This class is not meant to be instantiated </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/notifications/NotificationCenter.java" line="26" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/notifications/NotificationCenter.java" bodystart="26" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a594d7753e910b1eb8782e2e8a3601ae1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Notification</type>
+        <definition>static Notification com.qualoutdoor.recorder.notifications.NotificationCenter.getRecordingNotification</definition>
+        <argsstring>(Context context)</argsstring>
+        <name>getRecordingNotification</name>
+        <param>
+          <type>Context</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtain a notification corresponding to an ongoing recording process </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/notifications/NotificationCenter.java" line="30" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/notifications/NotificationCenter.java" bodystart="30" bodyend="68"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a42f3211ad67cfa311b3d5d81f31f370f" compoundref="NotificationCenter_8java" startline="71" endline="78">com.qualoutdoor.recorder.notifications.NotificationCenter.notifyBackgroundRecording</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a42f3211ad67cfa311b3d5d81f31f370f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void com.qualoutdoor.recorder.notifications.NotificationCenter.notifyBackgroundRecording</definition>
+        <argsstring>(Context context)</argsstring>
+        <name>notifyBackgroundRecording</name>
+        <param>
+          <type>Context</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Switch on/off the ongoing recording notification </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/notifications/NotificationCenter.java" line="71" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/notifications/NotificationCenter.java" bodystart="71" bodyend="78"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a1316ea946cb84d237c20e491c363cd33" compoundref="NotificationCenter_8java" startline="23">com.qualoutdoor.recorder.notifications.NotificationCenter.BACKGROUND_RECORDING</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a594d7753e910b1eb8782e2e8a3601ae1" compoundref="NotificationCenter_8java" startline="30" endline="68">com.qualoutdoor.recorder.notifications.NotificationCenter.getRecordingNotification</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1ad0032647617b97a891df182533d8fb5c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void com.qualoutdoor.recorder.notifications.NotificationCenter.dismissBackgroundRecording</definition>
+        <argsstring>(Context context)</argsstring>
+        <name>dismissBackgroundRecording</name>
+        <param>
+          <type>Context</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/notifications/NotificationCenter.java" line="80" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/notifications/NotificationCenter.java" bodystart="80" bodyend="86"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This class is a utility class allowing the app to manage user notifications. An exemple of notification is the &quot;ongoing recording&quot; notification which tells the user that the app is currently recording </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="102">
+        <label>com.qualoutdoor.recorder.notifications.NotificationCenter</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/notifications/NotificationCenter.java" line="20" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/notifications/NotificationCenter.java" bodystart="20" bodyend="88"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a1316ea946cb84d237c20e491c363cd33" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::notifications::NotificationCenter</scope><name>BACKGROUND_RECORDING</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1ad0032647617b97a891df182533d8fb5c" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::notifications::NotificationCenter</scope><name>dismissBackgroundRecording</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a594d7753e910b1eb8782e2e8a3601ae1" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::notifications::NotificationCenter</scope><name>getRecordingNotification</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a212d336ad0b5722e951904316b793b78" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::notifications::NotificationCenter</scope><name>NotificationCenter</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a42f3211ad67cfa311b3d5d81f31f370f" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::notifications::NotificationCenter</scope><name>notifyBackgroundRecording</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

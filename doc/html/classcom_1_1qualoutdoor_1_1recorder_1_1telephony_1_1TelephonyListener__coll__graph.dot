@@ -1,0 +1,6 @@
+digraph "com.qualoutdoor.recorder.telephony.TelephonyListener"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{com.qualoutdoor.recorder.telephony.\lTelephonyListener\n|+ LISTEN_CALL_STATE\l+ LISTEN_CELL_INFO\l+ LISTEN_DATA_CONNECTION\l_STATE\l+ LISTEN_LOCATION\l+ LISTEN_NETWORK_TYPE\l+ LISTEN_NONE\l+ LISTEN_SIGNAL_STRENGTHS\l|+ TelephonyListener()\l+ onCallStateChanged()\l+ onCellInfoChanged()\l+ onLocationChanged()\l+ onDataConnectionStateChanged()\l+ onNetworkTypeChanged()\l+ onSignalStrengthsChanged()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+}

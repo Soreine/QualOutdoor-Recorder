@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespacecom_1_1qualoutdoor_1_1recorder" kind="namespace">
+    <compoundname>com::qualoutdoor::recorder</compoundname>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton" prot="public">com::qualoutdoor::recorder::ChangeNetworkButton</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1DisplayHelpActivity" prot="public">com::qualoutdoor::recorder::DisplayHelpActivity</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1GenericFragment" prot="public">com::qualoutdoor::recorder::GenericFragment</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection" prot="public">com::qualoutdoor::recorder::LocalServiceConnection</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity" prot="public">com::qualoutdoor::recorder::MainActivity</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior" prot="public">com::qualoutdoor::recorder::NavigationDrawerBehavior</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1OverviewFragment" prot="public">com::qualoutdoor::recorder::OverviewFragment</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp" prot="public">com::qualoutdoor::recorder::QualOutdoorApp</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton" prot="public">com::qualoutdoor::recorder::SamplingButton</innerclass>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1bitmap">com::qualoutdoor::recorder::bitmap</innernamespace>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1charting">com::qualoutdoor::recorder::charting</innernamespace>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1map">com::qualoutdoor::recorder::map</innernamespace>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1notifications">com::qualoutdoor::recorder::notifications</innernamespace>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1recording">com::qualoutdoor::recorder::recording</innernamespace>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1scripts">com::qualoutdoor::recorder::scripts</innernamespace>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1settings">com::qualoutdoor::recorder::settings</innernamespace>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1statistics">com::qualoutdoor::recorder::statistics</innernamespace>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1telephony">com::qualoutdoor::recorder::telephony</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="[generated]" line="1" column="1"/>
+  </compounddef>
+</doxygen>

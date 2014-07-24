@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_11dfeaabcfe5c5b0982a6e359759e430" kind="dir">
+    <compoundname>src/com/qualoutdoor/recorder/settings</compoundname>
+    <innerfile refid="DisplaySettingsFragment_8java">DisplaySettingsFragment.java</innerfile>
+    <innerfile refid="SettingsActivity_8java">SettingsActivity.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/"/>
+  </compounddef>
+</doxygen>

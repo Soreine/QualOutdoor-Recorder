@@ -1,0 +1,9 @@
+digraph "src/com/qualoutdoor/recorder/charting" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_d27a4643e8f320e40504dd9ecc4e195b {
+    graph [ bgcolor="#ddddee", pencolor="black", label="recorder" fontname="Helvetica", fontsize="10", URL="dir_d27a4643e8f320e40504dd9ecc4e195b.html"]
+  dir_47b55cda22d278590dc79e02895f478c [shape=box, label="charting", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_47b55cda22d278590dc79e02895f478c.html"];
+  }
+}

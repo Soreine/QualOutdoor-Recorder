@@ -1,0 +1,16 @@
+digraph "com.qualoutdoor.recorder.map.DataMapFragment"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{com.qualoutdoor.recorder.map.\lDataMapFragment\n|~ startHue\l~ endHue\l- numMarkers\l- melbLat\l- melbLng\l- lat\l- lng\l|+ onCreate()\l+ onCreateView()\l+ onResume()\l- setUpMapIfNeeded()\l- initMarkers()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node2 [label="{Fragment\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -map" ,arrowhead="odiamond"];
+  Node3 [label="{GoogleMap\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -melbourne" ,arrowhead="odiamond"];
+  Node4 [label="{LatLngBounds\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node5 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -northwest\n-southwest\n-melbournecenter" ,arrowhead="odiamond"];
+  Node5 [label="{LatLng\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node1 [color="grey25",fontsize="10",style="solid",label=" -mapFragment" ,arrowhead="odiamond"];
+  Node6 [label="{SupportMapFragment\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

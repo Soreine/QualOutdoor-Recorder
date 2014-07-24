@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::telephony::TelephonyBinder</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Binder</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1a864035a7cb42e95815445f9d6c345492" prot="private" static="no" mutable="no">
+        <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService" kindref="compound">TelephonyService</ref></type>
+        <definition>TelephonyService com.qualoutdoor.recorder.telephony.TelephonyBinder.myService</definition>
+        <argsstring></argsstring>
+        <name>myService</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The service that provided this binder </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyBinder.java" line="12" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyBinder.java" bodystart="12" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1acdfebeb669e80bdf37dec7b4dd65e73b" compoundref="TelephonyBinder_8java" startline="21" endline="23">com.qualoutdoor.recorder.telephony.TelephonyBinder.getService</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1afc6a0e5ef46d92a4bf0c9e2ee7df8a33" compoundref="TelephonyBinder_8java" startline="15" endline="18">com.qualoutdoor.recorder.telephony.TelephonyBinder.TelephonyBinder</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1afc6a0e5ef46d92a4bf0c9e2ee7df8a33" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.telephony.TelephonyBinder.TelephonyBinder</definition>
+        <argsstring>(TelephonyService service)</argsstring>
+        <name>TelephonyBinder</name>
+        <param>
+          <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService" kindref="compound">TelephonyService</ref></type>
+          <declname>service</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A constructor for the binder to know its service </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyBinder.java" line="15" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyBinder.java" bodystart="15" bodyend="18"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1a864035a7cb42e95815445f9d6c345492" compoundref="TelephonyBinder_8java" startline="12">com.qualoutdoor.recorder.telephony.TelephonyBinder.myService</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1acdfebeb669e80bdf37dec7b4dd65e73b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService" kindref="compound">TelephonyService</ref></type>
+        <definition>TelephonyService com.qualoutdoor.recorder.telephony.TelephonyBinder.getService</definition>
+        <argsstring>()</argsstring>
+        <name>getService</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the service that provided this binder </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyBinder.java" line="21" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyBinder.java" bodystart="21" bodyend="23"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1a864035a7cb42e95815445f9d6c345492" compoundref="TelephonyBinder_8java" startline="12">com.qualoutdoor.recorder.telephony.TelephonyBinder.myService</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The local binder for the <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService" kindref="compound">TelephonyService</ref>. Caution, this works only if the service and the component binding to it are in the same process. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="184">
+        <label>Binder</label>
+      </node>
+      <node id="183">
+        <label>com.qualoutdoor.recorder.telephony.TelephonyBinder</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder"/>
+        <childnode refid="184" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="188">
+        <label>Service</label>
+      </node>
+      <node id="194">
+        <label>com.qualoutdoor.recorder.telephony.ISignalStrength</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ISignalStrength"/>
+      </node>
+      <node id="195">
+        <label>SignalStrength</label>
+      </node>
+      <node id="186">
+        <label>Binder</label>
+      </node>
+      <node id="187">
+        <label>com.qualoutdoor.recorder.telephony.TelephonyService</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService"/>
+        <childnode refid="188" relation="public-inheritance">
+        </childnode>
+        <childnode refid="189" relation="public-inheritance">
+        </childnode>
+        <childnode refid="190" relation="usage">
+          <edgelabel>-mTelephonyBinder</edgelabel>
+        </childnode>
+        <childnode refid="191" relation="usage">
+          <edgelabel>-phoneStateListener</edgelabel>
+        </childnode>
+        <childnode refid="192" relation="usage">
+          <edgelabel>-telephonyManager</edgelabel>
+        </childnode>
+        <childnode refid="193" relation="usage">
+          <edgelabel>-signalStrength</edgelabel>
+        </childnode>
+      </node>
+      <node id="190">
+        <label>IBinder</label>
+      </node>
+      <node id="191">
+        <label>PhoneStateListener</label>
+      </node>
+      <node id="189">
+        <label>com.qualoutdoor.recorder.telephony.ITelephony</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony"/>
+      </node>
+      <node id="193">
+        <label>com.qualoutdoor.recorder.telephony.CustomSignalStrength</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength"/>
+        <childnode refid="194" relation="public-inheritance">
+        </childnode>
+        <childnode refid="195" relation="usage">
+          <edgelabel>-ss</edgelabel>
+        </childnode>
+      </node>
+      <node id="192">
+        <label>TelephonyManager</label>
+      </node>
+      <node id="185">
+        <label>com.qualoutdoor.recorder.telephony.TelephonyBinder</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder"/>
+        <childnode refid="186" relation="public-inheritance">
+        </childnode>
+        <childnode refid="187" relation="usage">
+          <edgelabel>-myService</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyBinder.java" line="9" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyBinder.java" bodystart="9" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1acdfebeb669e80bdf37dec7b4dd65e73b" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyBinder</scope><name>getService</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1a864035a7cb42e95815445f9d6c345492" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyBinder</scope><name>myService</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1afc6a0e5ef46d92a4bf0c9e2ee7df8a33" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::TelephonyBinder</scope><name>TelephonyBinder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

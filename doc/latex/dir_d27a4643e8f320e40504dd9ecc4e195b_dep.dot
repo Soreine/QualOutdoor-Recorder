@@ -1,0 +1,21 @@
+digraph "src/com/qualoutdoor/recorder" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_f93420f317a6717c35b5a42b27e8348a {
+    graph [ bgcolor="#ddddee", pencolor="black", label="qualoutdoor" fontname="Helvetica", fontsize="10", URL="dir_f93420f317a6717c35b5a42b27e8348a.html"]
+  subgraph clusterdir_d27a4643e8f320e40504dd9ecc4e195b {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_d27a4643e8f320e40504dd9ecc4e195b.html"];
+    dir_d27a4643e8f320e40504dd9ecc4e195b [shape=plaintext label="recorder"];
+    dir_0280356e9d6205503aae3224b9f80380 [shape=box label="bitmap" color="black" fillcolor="white" style="filled" URL="dir_0280356e9d6205503aae3224b9f80380.html"];
+    dir_47b55cda22d278590dc79e02895f478c [shape=box label="charting" color="black" fillcolor="white" style="filled" URL="dir_47b55cda22d278590dc79e02895f478c.html"];
+    dir_515bcd2d2b6caa4f4b914b3aad44aaff [shape=box label="map" color="black" fillcolor="white" style="filled" URL="dir_515bcd2d2b6caa4f4b914b3aad44aaff.html"];
+    dir_e990dd1041a52fac9662dcec82099977 [shape=box label="notifications" color="black" fillcolor="white" style="filled" URL="dir_e990dd1041a52fac9662dcec82099977.html"];
+    dir_b65b6accb5fe607f843fcc70d8955f2f [shape=box label="recording" color="black" fillcolor="white" style="filled" URL="dir_b65b6accb5fe607f843fcc70d8955f2f.html"];
+    dir_c625b59f1aa770b80f27d6648b564664 [shape=box label="scripts" color="black" fillcolor="white" style="filled" URL="dir_c625b59f1aa770b80f27d6648b564664.html"];
+    dir_11dfeaabcfe5c5b0982a6e359759e430 [shape=box label="settings" color="black" fillcolor="white" style="filled" URL="dir_11dfeaabcfe5c5b0982a6e359759e430.html"];
+    dir_59ffd5a110eaa56b6642b96337b6f02b [shape=box label="statistics" color="black" fillcolor="white" style="filled" URL="dir_59ffd5a110eaa56b6642b96337b6f02b.html"];
+    dir_981da934d4c6ce4b4cff18166591a4b7 [shape=box label="telephony" color="black" fillcolor="white" style="filled" URL="dir_981da934d4c6ce4b4cff18166591a4b7.html"];
+  }
+  }
+}

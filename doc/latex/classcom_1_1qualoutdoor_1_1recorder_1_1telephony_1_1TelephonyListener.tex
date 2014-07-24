@@ -1,0 +1,186 @@
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener}{\section{com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener Class Reference}
+\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener}\index{com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener@{com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a3d14b9a5603d15201ffef86df42d54f1}{Telephony\-Listener} ()
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a171849910c348658f639011099980d84}{on\-Call\-State\-Changed} (int state, String incoming\-Number)
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_ab93e4cd769a3efeedf3d4bd65de8ad15}{on\-Cell\-Info\-Changed} (List$<$ \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo}{I\-Cell\-Info} $>$ cell\-Info)
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a671048ccc7d961591b47ce714d660436}{on\-Location\-Changed} (\hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ILocation}{I\-Location} location)
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a8b3ff94c072f2d90dc82ae38d390bf62}{on\-Data\-Connection\-State\-Changed} (int state)
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_aa5f922c9142ab0e8c933a1953b384269}{on\-Network\-Type\-Changed} (int state, int network\-Type)
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a560acb91a9cb03ad4e4389cc9393c76b}{on\-Signal\-Strengths\-Changed} (\hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ISignalStrength}{I\-Signal\-Strength} signal\-Strength)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a191d2575b8783002ee3e5d8cbadd6f34}{L\-I\-S\-T\-E\-N\-\_\-\-C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E} = 8
+\item 
+static final int \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_aa73af11a2afc13c7bfb8ce7e58b45f69}{L\-I\-S\-T\-E\-N\-\_\-\-C\-E\-L\-L\-\_\-\-I\-N\-F\-O} = 1024
+\item 
+static final int \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a640f1efa08e7e0869335cfc47c3a2124}{L\-I\-S\-T\-E\-N\-\_\-\-D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-S\-T\-A\-T\-E} = 64
+\item 
+static final int \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a146371faf289ea1d3c019a9da50e6ba2}{L\-I\-S\-T\-E\-N\-\_\-\-L\-O\-C\-A\-T\-I\-O\-N} = 2048
+\item 
+static final int \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_adff97a5ff891440e844b1438c8160ec1}{L\-I\-S\-T\-E\-N\-\_\-\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E} = 4096
+\item 
+static final int \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a5d217cc158268f8c01738b0f51e1ce53}{L\-I\-S\-T\-E\-N\-\_\-\-N\-O\-N\-E} = 0
+\item 
+static final int \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_aab3f3a875e74a3b4d6eab7db23683372}{L\-I\-S\-T\-E\-N\-\_\-\-S\-I\-G\-N\-A\-L\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H\-S} = 256
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A listener class for monitoring changes in specific telephony states. Override the methods for the state that you want to receive updates for, and pass your \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener}{Telephony\-Listener} object, along with bitwise-\/or of the L\-I\-S\-T\-E\-N\-\_\-xxx flags to \hyperlink{interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_a2bf33ee65f59c2100442f6ba33fac113}{I\-Telephony.\-listen()} 
+
+Definition at line 11 of file Telephony\-Listener.\-java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a3d14b9a5603d15201ffef86df42d54f1}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}!Telephony\-Listener@{Telephony\-Listener}}
+\index{Telephony\-Listener@{Telephony\-Listener}!com::qualoutdoor::recorder::telephony::TelephonyListener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}}
+\subsubsection[{Telephony\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener.\-Telephony\-Listener (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a3d14b9a5603d15201ffef86df42d54f1}
+Constructor 
+
+Definition at line 29 of file Telephony\-Listener.\-java.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a171849910c348658f639011099980d84}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}!on\-Call\-State\-Changed@{on\-Call\-State\-Changed}}
+\index{on\-Call\-State\-Changed@{on\-Call\-State\-Changed}!com::qualoutdoor::recorder::telephony::TelephonyListener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}}
+\subsubsection[{on\-Call\-State\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener.\-on\-Call\-State\-Changed (
+\begin{DoxyParamCaption}
+\item[{int}]{state, }
+\item[{String}]{incoming\-Number}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a171849910c348658f639011099980d84}
+Callback invoked when device call state changes. 
+
+Definition at line 33 of file Telephony\-Listener.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_ab93e4cd769a3efeedf3d4bd65de8ad15}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}!on\-Cell\-Info\-Changed@{on\-Cell\-Info\-Changed}}
+\index{on\-Cell\-Info\-Changed@{on\-Cell\-Info\-Changed}!com::qualoutdoor::recorder::telephony::TelephonyListener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}}
+\subsubsection[{on\-Cell\-Info\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener.\-on\-Cell\-Info\-Changed (
+\begin{DoxyParamCaption}
+\item[{List$<$ {\bf I\-Cell\-Info} $>$}]{cell\-Info}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_ab93e4cd769a3efeedf3d4bd65de8ad15}
+Callback invoked when a observed cell info has changed, or new cells have been added or removed. 
+
+Definition at line 40 of file Telephony\-Listener.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a8b3ff94c072f2d90dc82ae38d390bf62}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}!on\-Data\-Connection\-State\-Changed@{on\-Data\-Connection\-State\-Changed}}
+\index{on\-Data\-Connection\-State\-Changed@{on\-Data\-Connection\-State\-Changed}!com::qualoutdoor::recorder::telephony::TelephonyListener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}}
+\subsubsection[{on\-Data\-Connection\-State\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener.\-on\-Data\-Connection\-State\-Changed (
+\begin{DoxyParamCaption}
+\item[{int}]{state}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a8b3ff94c072f2d90dc82ae38d390bf62}
+Callback invoked when connection state changes. 
+
+Definition at line 48 of file Telephony\-Listener.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a671048ccc7d961591b47ce714d660436}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}!on\-Location\-Changed@{on\-Location\-Changed}}
+\index{on\-Location\-Changed@{on\-Location\-Changed}!com::qualoutdoor::recorder::telephony::TelephonyListener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}}
+\subsubsection[{on\-Location\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener.\-on\-Location\-Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf I\-Location}}]{location}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a671048ccc7d961591b47ce714d660436}
+Callback invoked when device location changes. 
+
+Definition at line 44 of file Telephony\-Listener.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_aa5f922c9142ab0e8c933a1953b384269}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}!on\-Network\-Type\-Changed@{on\-Network\-Type\-Changed}}
+\index{on\-Network\-Type\-Changed@{on\-Network\-Type\-Changed}!com::qualoutdoor::recorder::telephony::TelephonyListener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}}
+\subsubsection[{on\-Network\-Type\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener.\-on\-Network\-Type\-Changed (
+\begin{DoxyParamCaption}
+\item[{int}]{state, }
+\item[{int}]{network\-Type}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_aa5f922c9142ab0e8c933a1953b384269}
+Callback invoked when network type changes. 
+
+Definition at line 52 of file Telephony\-Listener.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a560acb91a9cb03ad4e4389cc9393c76b}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}!on\-Signal\-Strengths\-Changed@{on\-Signal\-Strengths\-Changed}}
+\index{on\-Signal\-Strengths\-Changed@{on\-Signal\-Strengths\-Changed}!com::qualoutdoor::recorder::telephony::TelephonyListener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}}
+\subsubsection[{on\-Signal\-Strengths\-Changed}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener.\-on\-Signal\-Strengths\-Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf I\-Signal\-Strength}}]{signal\-Strength}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a560acb91a9cb03ad4e4389cc9393c76b}
+Callback invoked when network signal strengths changes. 
+
+Definition at line 56 of file Telephony\-Listener.\-java.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a191d2575b8783002ee3e5d8cbadd6f34}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}!L\-I\-S\-T\-E\-N\-\_\-\-C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E@{L\-I\-S\-T\-E\-N\-\_\-\-C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E}}
+\index{L\-I\-S\-T\-E\-N\-\_\-\-C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E@{L\-I\-S\-T\-E\-N\-\_\-\-C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E}!com::qualoutdoor::recorder::telephony::TelephonyListener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}}
+\subsubsection[{L\-I\-S\-T\-E\-N\-\_\-\-C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener.\-L\-I\-S\-T\-E\-N\-\_\-\-C\-A\-L\-L\-\_\-\-S\-T\-A\-T\-E = 8\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a191d2575b8783002ee3e5d8cbadd6f34}
+Listen for changes to the device call state. 
+
+Definition at line 14 of file Telephony\-Listener.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_aa73af11a2afc13c7bfb8ce7e58b45f69}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}!L\-I\-S\-T\-E\-N\-\_\-\-C\-E\-L\-L\-\_\-\-I\-N\-F\-O@{L\-I\-S\-T\-E\-N\-\_\-\-C\-E\-L\-L\-\_\-\-I\-N\-F\-O}}
+\index{L\-I\-S\-T\-E\-N\-\_\-\-C\-E\-L\-L\-\_\-\-I\-N\-F\-O@{L\-I\-S\-T\-E\-N\-\_\-\-C\-E\-L\-L\-\_\-\-I\-N\-F\-O}!com::qualoutdoor::recorder::telephony::TelephonyListener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}}
+\subsubsection[{L\-I\-S\-T\-E\-N\-\_\-\-C\-E\-L\-L\-\_\-\-I\-N\-F\-O}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener.\-L\-I\-S\-T\-E\-N\-\_\-\-C\-E\-L\-L\-\_\-\-I\-N\-F\-O = 1024\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_aa73af11a2afc13c7bfb8ce7e58b45f69}
+Listen for changes to observed cell info. 
+
+Definition at line 16 of file Telephony\-Listener.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a640f1efa08e7e0869335cfc47c3a2124}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}!L\-I\-S\-T\-E\-N\-\_\-\-D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-S\-T\-A\-T\-E@{L\-I\-S\-T\-E\-N\-\_\-\-D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-S\-T\-A\-T\-E}}
+\index{L\-I\-S\-T\-E\-N\-\_\-\-D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-S\-T\-A\-T\-E@{L\-I\-S\-T\-E\-N\-\_\-\-D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-S\-T\-A\-T\-E}!com::qualoutdoor::recorder::telephony::TelephonyListener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}}
+\subsubsection[{L\-I\-S\-T\-E\-N\-\_\-\-D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-S\-T\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener.\-L\-I\-S\-T\-E\-N\-\_\-\-D\-A\-T\-A\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-S\-T\-A\-T\-E = 64\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a640f1efa08e7e0869335cfc47c3a2124}
+Listen for changes to the data connection state (cellular). 
+
+Definition at line 18 of file Telephony\-Listener.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a146371faf289ea1d3c019a9da50e6ba2}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}!L\-I\-S\-T\-E\-N\-\_\-\-L\-O\-C\-A\-T\-I\-O\-N@{L\-I\-S\-T\-E\-N\-\_\-\-L\-O\-C\-A\-T\-I\-O\-N}}
+\index{L\-I\-S\-T\-E\-N\-\_\-\-L\-O\-C\-A\-T\-I\-O\-N@{L\-I\-S\-T\-E\-N\-\_\-\-L\-O\-C\-A\-T\-I\-O\-N}!com::qualoutdoor::recorder::telephony::TelephonyListener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}}
+\subsubsection[{L\-I\-S\-T\-E\-N\-\_\-\-L\-O\-C\-A\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener.\-L\-I\-S\-T\-E\-N\-\_\-\-L\-O\-C\-A\-T\-I\-O\-N = 2048\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a146371faf289ea1d3c019a9da50e6ba2}
+Listen for changes to the device location 
+
+Definition at line 20 of file Telephony\-Listener.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_adff97a5ff891440e844b1438c8160ec1}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}!L\-I\-S\-T\-E\-N\-\_\-\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E@{L\-I\-S\-T\-E\-N\-\_\-\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E}}
+\index{L\-I\-S\-T\-E\-N\-\_\-\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E@{L\-I\-S\-T\-E\-N\-\_\-\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E}!com::qualoutdoor::recorder::telephony::TelephonyListener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}}
+\subsubsection[{L\-I\-S\-T\-E\-N\-\_\-\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener.\-L\-I\-S\-T\-E\-N\-\_\-\-N\-E\-T\-W\-O\-R\-K\-\_\-\-T\-Y\-P\-E = 4096\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_adff97a5ff891440e844b1438c8160ec1}
+Listen for changes to the network type 
+
+Definition at line 22 of file Telephony\-Listener.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a5d217cc158268f8c01738b0f51e1ce53}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}!L\-I\-S\-T\-E\-N\-\_\-\-N\-O\-N\-E@{L\-I\-S\-T\-E\-N\-\_\-\-N\-O\-N\-E}}
+\index{L\-I\-S\-T\-E\-N\-\_\-\-N\-O\-N\-E@{L\-I\-S\-T\-E\-N\-\_\-\-N\-O\-N\-E}!com::qualoutdoor::recorder::telephony::TelephonyListener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}}
+\subsubsection[{L\-I\-S\-T\-E\-N\-\_\-\-N\-O\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener.\-L\-I\-S\-T\-E\-N\-\_\-\-N\-O\-N\-E = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_a5d217cc158268f8c01738b0f51e1ce53}
+Stop listening for updates. 
+
+Definition at line 24 of file Telephony\-Listener.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_aab3f3a875e74a3b4d6eab7db23683372}{\index{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}!L\-I\-S\-T\-E\-N\-\_\-\-S\-I\-G\-N\-A\-L\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H\-S@{L\-I\-S\-T\-E\-N\-\_\-\-S\-I\-G\-N\-A\-L\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H\-S}}
+\index{L\-I\-S\-T\-E\-N\-\_\-\-S\-I\-G\-N\-A\-L\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H\-S@{L\-I\-S\-T\-E\-N\-\_\-\-S\-I\-G\-N\-A\-L\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H\-S}!com::qualoutdoor::recorder::telephony::TelephonyListener@{com\-::qualoutdoor\-::recorder\-::telephony\-::\-Telephony\-Listener}}
+\subsubsection[{L\-I\-S\-T\-E\-N\-\_\-\-S\-I\-G\-N\-A\-L\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H\-S}]{\setlength{\rightskip}{0pt plus 5cm}final int com.\-qualoutdoor.\-recorder.\-telephony.\-Telephony\-Listener.\-L\-I\-S\-T\-E\-N\-\_\-\-S\-I\-G\-N\-A\-L\-\_\-\-S\-T\-R\-E\-N\-G\-T\-H\-S = 256\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_aab3f3a875e74a3b4d6eab7db23683372}
+Listen for changes to the network signal strengths (cellular). 
+
+Definition at line 26 of file Telephony\-Listener.\-java.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/com/qualoutdoor/recorder/telephony/Telephony\-Listener.\-java\end{DoxyCompactItemize}

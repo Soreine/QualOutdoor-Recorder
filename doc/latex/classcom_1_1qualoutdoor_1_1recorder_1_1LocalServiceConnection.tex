@@ -1,0 +1,70 @@
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection}{\section{com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection Class Reference}
+\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection}\index{com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection@{com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection}}
+}
+Inheritance diagram for com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.115869cm]{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_a1267eb452e2a476031e0b9e7ca4e2237}{is\-Bound} ()
+\item 
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_ac9fe43df21f203386ff0a1b5ed6d70d8}{void {\bfseries on\-Service\-Disconnected} (Component\-Name service\-Name)}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_ac9fe43df21f203386ff0a1b5ed6d70d8}
+
+\item 
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_aaf7e989ffaf6b728b887d5d11b245af8}{void {\bfseries on\-Service\-Connected} (Component\-Name service\-Name, I\-Binder binder)}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_aaf7e989ffaf6b728b887d5d11b245af8}
+
+\item 
+abstract void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_a54232b34d728f18d75c964438e3c5368}{on\-Service\-Obtained} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_a9583eb2308065d17b5929bb43065fa4b}{is\-Bound} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This Service\-Connection is meant to be used for connecting a component to services within the same process. Indeed we extend 
+
+Definition at line 12 of file Local\-Service\-Connection.\-java.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_a1267eb452e2a476031e0b9e7ca4e2237}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection}!is\-Bound@{is\-Bound}}
+\index{is\-Bound@{is\-Bound}!com::qualoutdoor::recorder::LocalServiceConnection@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection}}
+\subsubsection[{is\-Bound}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection.\-is\-Bound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_a1267eb452e2a476031e0b9e7ca4e2237}
+Are we bound to the service ? 
+
+Definition at line 17 of file Local\-Service\-Connection.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_a54232b34d728f18d75c964438e3c5368}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection}!on\-Service\-Obtained@{on\-Service\-Obtained}}
+\index{on\-Service\-Obtained@{on\-Service\-Obtained}!com::qualoutdoor::recorder::LocalServiceConnection@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection}}
+\subsubsection[{on\-Service\-Obtained}]{\setlength{\rightskip}{0pt plus 5cm}abstract void com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection.\-on\-Service\-Obtained (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [abstract]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_a54232b34d728f18d75c964438e3c5368}
+Called to allow the component to receive an instance of the Service directly. To be overridden in the component's implementation of Local\-Service\-Connected. 
+
+\subsection{Member Data Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_a9583eb2308065d17b5929bb43065fa4b}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection}!is\-Bound@{is\-Bound}}
+\index{is\-Bound@{is\-Bound}!com::qualoutdoor::recorder::LocalServiceConnection@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection}}
+\subsubsection[{is\-Bound}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection.\-is\-Bound = false\hspace{0.3cm}{\ttfamily [protected]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_a9583eb2308065d17b5929bb43065fa4b}
+Indicate if the service is bound or not 
+
+Definition at line 14 of file Local\-Service\-Connection.\-java.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/com/qualoutdoor/recorder/Local\-Service\-Connection.\-java\end{DoxyCompactItemize}

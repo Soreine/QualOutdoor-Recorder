@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::charting::SignalStrengthSampler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Runnable</basecompoundref>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1_1MyObservable" prot="package">com::qualoutdoor::recorder::charting::SignalStrengthSampler::MyObservable</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1_1MyPhoneStateListener" prot="public">com::qualoutdoor::recorder::charting::SignalStrengthSampler::MyPhoneStateListener</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1ac445c3c9fb238f7279991e4fff3ebd0a" prot="private" static="no" mutable="no">
+        <type>SignalStrength</type>
+        <definition>SignalStrength com.qualoutdoor.recorder.charting.SignalStrengthSampler.mySignalStrength</definition>
+        <argsstring></argsstring>
+        <name>mySignalStrength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" line="32" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a8575cdec7c0b13b077d3be1c470019ad" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.charting.SignalStrengthSampler.sampling_rate</definition>
+        <argsstring></argsstring>
+        <name>sampling_rate</name>
+        <initializer>= 500</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" line="33" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1af52d000872841bb9e25e142d8bc88d18" prot="private" static="no" mutable="no">
+        <type>MyObservable</type>
+        <definition>MyObservable com.qualoutdoor.recorder.charting.SignalStrengthSampler.notifier</definition>
+        <argsstring></argsstring>
+        <name>notifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" line="34" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a18c848bbd93ec27fb879b921069610d3" prot="private" static="no" mutable="no">
+        <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1_1MyPhoneStateListener" kindref="compound">MyPhoneStateListener</ref></type>
+        <definition>MyPhoneStateListener com.qualoutdoor.recorder.charting.SignalStrengthSampler.listener</definition>
+        <argsstring></argsstring>
+        <name>listener</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" line="35" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a49109a8e7ef2a4d11e3065aa942e61a5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.charting.SignalStrengthSampler.SignalStrengthSampler</definition>
+        <argsstring>(int samplingRate)</argsstring>
+        <name>SignalStrengthSampler</name>
+        <param>
+          <type>int</type>
+          <declname>samplingRate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" line="37" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" bodystart="37" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a05d2c5bcbcb8cb93b141407aff0c37e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.charting.SignalStrengthSampler.run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" line="44" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" bodystart="44" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a21694fad264b9b83b7e356d6886c80a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>synchronized SignalStrength</type>
+        <definition>synchronized SignalStrength com.qualoutdoor.recorder.charting.SignalStrengthSampler.getSignalStrength</definition>
+        <argsstring>()</argsstring>
+        <name>getSignalStrength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" line="55" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" bodystart="55" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1ab3fea61441f89a891403fcd431059d1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PhoneStateListener</type>
+        <definition>PhoneStateListener com.qualoutdoor.recorder.charting.SignalStrengthSampler.getPhoneStateListener</definition>
+        <argsstring>()</argsstring>
+        <name>getPhoneStateListener</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" line="59" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" bodystart="59" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1ad336868e71d767a2b110c979e3f993c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.charting.SignalStrengthSampler.addObserver</definition>
+        <argsstring>(Observer observer)</argsstring>
+        <name>addObserver</name>
+        <param>
+          <type>Observer</type>
+          <declname>observer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" line="63" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" bodystart="63" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1af13f1fa704f5a0d5156883be1141fbe9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.charting.SignalStrengthSampler.removeObserver</definition>
+        <argsstring>(Observer observer)</argsstring>
+        <name>removeObserver</name>
+        <param>
+          <type>Observer</type>
+          <declname>observer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" line="67" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" bodystart="67" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="163">
+        <label>com.qualoutdoor.recorder.charting.SignalStrengthSampler</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler"/>
+        <childnode refid="164" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="164">
+        <label>Runnable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="168">
+        <label>Observable</label>
+      </node>
+      <node id="171">
+        <label>SignalStrength</label>
+      </node>
+      <node id="165">
+        <label>com.qualoutdoor.recorder.charting.SignalStrengthSampler</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler"/>
+        <childnode refid="166" relation="public-inheritance">
+        </childnode>
+        <childnode refid="167" relation="usage">
+          <edgelabel>-notifier</edgelabel>
+        </childnode>
+        <childnode refid="169" relation="usage">
+          <edgelabel>-listener</edgelabel>
+        </childnode>
+        <childnode refid="171" relation="usage">
+          <edgelabel>-mySignalStrength</edgelabel>
+        </childnode>
+      </node>
+      <node id="170">
+        <label>PhoneStateListener</label>
+      </node>
+      <node id="167">
+        <label>com.qualoutdoor.recorder.charting.SignalStrengthSampler.MyObservable</label>
+        <childnode refid="168" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="166">
+        <label>Runnable</label>
+      </node>
+      <node id="169">
+        <label>com.qualoutdoor.recorder.charting.SignalStrengthSampler.MyPhoneStateListener</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1_1MyPhoneStateListener"/>
+        <childnode refid="170" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" line="10" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/charting/SignalStrengthSampler.java" bodystart="10" bodyend="71"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1ad336868e71d767a2b110c979e3f993c0" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::charting::SignalStrengthSampler</scope><name>addObserver</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1ab3fea61441f89a891403fcd431059d1c" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::charting::SignalStrengthSampler</scope><name>getPhoneStateListener</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a21694fad264b9b83b7e356d6886c80a0" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::charting::SignalStrengthSampler</scope><name>getSignalStrength</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a18c848bbd93ec27fb879b921069610d3" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::charting::SignalStrengthSampler</scope><name>listener</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1ac445c3c9fb238f7279991e4fff3ebd0a" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::charting::SignalStrengthSampler</scope><name>mySignalStrength</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1af52d000872841bb9e25e142d8bc88d18" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::charting::SignalStrengthSampler</scope><name>notifier</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1af13f1fa704f5a0d5156883be1141fbe9" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::charting::SignalStrengthSampler</scope><name>removeObserver</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a05d2c5bcbcb8cb93b141407aff0c37e9" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::charting::SignalStrengthSampler</scope><name>run</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a8575cdec7c0b13b077d3be1c470019ad" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::charting::SignalStrengthSampler</scope><name>sampling_rate</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a49109a8e7ef2a4d11e3065aa942e61a5" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::charting::SignalStrengthSampler</scope><name>SignalStrengthSampler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

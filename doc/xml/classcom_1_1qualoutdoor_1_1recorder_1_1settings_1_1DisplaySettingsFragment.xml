@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1DisplaySettingsFragment" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::settings::DisplaySettingsFragment</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Fragment</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1DisplaySettingsFragment_1a813ba138e436dcda98f91ea5af255c46" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.settings.DisplaySettingsFragment.DisplaySettingsFragment</definition>
+        <argsstring>()</argsstring>
+        <name>DisplaySettingsFragment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/DisplaySettingsFragment.java" line="14" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/DisplaySettingsFragment.java" bodystart="14" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1DisplaySettingsFragment_1aa4ba98386d247cdf2ff30da92bef8b39" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>View</type>
+        <definition>View com.qualoutdoor.recorder.settings.DisplaySettingsFragment.onCreateView</definition>
+        <argsstring>(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</argsstring>
+        <name>onCreateView</name>
+        <param>
+          <type>LayoutInflater</type>
+          <declname>inflater</declname>
+        </param>
+        <param>
+          <type>ViewGroup</type>
+          <declname>container</declname>
+        </param>
+        <param>
+          <type>Bundle</type>
+          <declname>savedInstanceState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/DisplaySettingsFragment.java" line="18" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/DisplaySettingsFragment.java" bodystart="18" bodyend="25"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This fragment give access to the different settings sub-categories </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="30">
+        <label>com.qualoutdoor.recorder.settings.DisplaySettingsFragment</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1DisplaySettingsFragment"/>
+        <childnode refid="31" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>Fragment</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="32">
+        <label>com.qualoutdoor.recorder.settings.DisplaySettingsFragment</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1DisplaySettingsFragment"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>Fragment</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/DisplaySettingsFragment.java" line="12" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/DisplaySettingsFragment.java" bodystart="12" bodyend="27"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1DisplaySettingsFragment_1a813ba138e436dcda98f91ea5af255c46" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::DisplaySettingsFragment</scope><name>DisplaySettingsFragment</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1DisplaySettingsFragment_1aa4ba98386d247cdf2ff30da92bef8b39" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::DisplaySettingsFragment</scope><name>onCreateView</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

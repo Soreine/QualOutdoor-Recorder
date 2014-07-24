@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_0280356e9d6205503aae3224b9f80380" kind="dir">
+    <compoundname>src/com/qualoutdoor/recorder/bitmap</compoundname>
+    <innerfile refid="BitmapTinter_8java">BitmapTinter.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/bitmap/"/>
+  </compounddef>
+</doxygen>

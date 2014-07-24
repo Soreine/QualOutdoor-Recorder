@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::SamplingButton</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Button</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a55589a649bdfe2239dfd393b881ce54f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.SamplingButton.SamplingButton</definition>
+        <argsstring>(Context context)</argsstring>
+        <name>SamplingButton</name>
+        <param>
+          <type>Context</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/SamplingButton.java" line="14" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/SamplingButton.java" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a8b79ac727cf80e71c7645e04c85b43cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.SamplingButton.SamplingButton</definition>
+        <argsstring>(Context context, AttributeSet attrs, int defStyle)</argsstring>
+        <name>SamplingButton</name>
+        <param>
+          <type>Context</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>AttributeSet</type>
+          <declname>attrs</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>defStyle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/SamplingButton.java" line="19" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/SamplingButton.java" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a4b2541d9897473bd79bcc5f5549971d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.SamplingButton.SamplingButton</definition>
+        <argsstring>(Context context, AttributeSet attrs)</argsstring>
+        <name>SamplingButton</name>
+        <param>
+          <type>Context</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>AttributeSet</type>
+          <declname>attrs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/SamplingButton.java" line="24" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/SamplingButton.java" bodystart="24" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a087dee4090dc9aba9ef58b6a419ea128" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.SamplingButton.onAttachedToWindow</definition>
+        <argsstring>()</argsstring>
+        <name>onAttachedToWindow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/SamplingButton.java" line="30" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/SamplingButton.java" bodystart="30" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a7ef3a0d5d2622d8597285e4812e19e22" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.SamplingButton.actionStartStop</definition>
+        <argsstring>(View view)</argsstring>
+        <name>actionStartStop</name>
+        <param>
+          <type>View</type>
+          <declname>view</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/SamplingButton.java" line="42" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/SamplingButton.java" bodystart="42" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A button which starts or stops the background sampling (this only displays notification) </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="134">
+        <label>com.qualoutdoor.recorder.SamplingButton</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton"/>
+        <childnode refid="135" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="135">
+        <label>Button</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="136">
+        <label>com.qualoutdoor.recorder.SamplingButton</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton"/>
+        <childnode refid="137" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="137">
+        <label>Button</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/SamplingButton.java" line="12" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/SamplingButton.java" bodystart="12" bodyend="49"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a7ef3a0d5d2622d8597285e4812e19e22" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::SamplingButton</scope><name>actionStartStop</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a087dee4090dc9aba9ef58b6a419ea128" prot="protected" virt="non-virtual"><scope>com::qualoutdoor::recorder::SamplingButton</scope><name>onAttachedToWindow</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a55589a649bdfe2239dfd393b881ce54f" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::SamplingButton</scope><name>SamplingButton</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a8b79ac727cf80e71c7645e04c85b43cd" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::SamplingButton</scope><name>SamplingButton</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a4b2541d9897473bd79bcc5f5549971d7" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::SamplingButton</scope><name>SamplingButton</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

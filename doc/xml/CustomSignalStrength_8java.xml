@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="CustomSignalStrength_8java" kind="file">
+    <compoundname>CustomSignalStrength.java</compoundname>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength" prot="public">com::qualoutdoor::recorder::telephony::CustomSignalStrength</innerclass>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1telephony">com::qualoutdoor::recorder::telephony</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.qualoutdoor.recorder.telephony;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>android.telephony.SignalStrength;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength" kindref="compound">CustomSignalStrength</ref><sp/></highlight><highlight class="keyword">implements</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ISignalStrength" kindref="compound">ISignalStrength</ref><sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1aa3981bd9454f9a027a9b2f6697da62e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>SignalStrength<sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1aa3981bd9454f9a027a9b2f6697da62e3" kindref="member">ss</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1aef90e4b781dd2f33444bf109b700a618" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1aef90e4b781dd2f33444bf109b700a618" kindref="member">CustomSignalStrength</ref>(SignalStrength<sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1aa3981bd9454f9a027a9b2f6697da62e3" kindref="member">ss</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.ss<sp/>=<sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1aa3981bd9454f9a027a9b2f6697da62e3" kindref="member">ss</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1aef4df56064e24b3442dcb80ec1099b06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1aef4df56064e24b3442dcb80ec1099b06" kindref="member">setSignalStrength</ref>(SignalStrength<sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1aa3981bd9454f9a027a9b2f6697da62e3" kindref="member">ss</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.ss<sp/>=<sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1aa3981bd9454f9a027a9b2f6697da62e3" kindref="member">ss</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>@Override</highlight></codeline>
+<codeline lineno="24" refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1ad36ba58128637b99f41756dfccfe508f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1ad36ba58128637b99f41756dfccfe508f" kindref="member">getDbm</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>check<sp/>which<sp/>type<sp/>of<sp/>signal<sp/>strength<sp/>we<sp/>have</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.getGsmSignalStrength();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomSignalStrength.java"/>
+  </compounddef>
+</doxygen>

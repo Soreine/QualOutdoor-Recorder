@@ -1,0 +1,474 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.6">
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1bitmap_1_1BitmapTinter" kind="class"><name>com::qualoutdoor::recorder::bitmap::BitmapTinter</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1bitmap_1_1BitmapTinter_1a0b4033cb36fdc250f4e067f5c12fc701" kind="function"><name>BitmapTinter</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1bitmap_1_1BitmapTinter_1ab60b789cdfc3464381385ce85c0dbb78" kind="function"><name>tint</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton" kind="class"><name>com::qualoutdoor::recorder::ChangeNetworkButton</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1a1ec861ea067b2f79202f8c2d10a8549b" kind="function"><name>ChangeNetworkButton</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1aa5a17b922a1d5b972f13b6c4574af988" kind="function"><name>ChangeNetworkButton</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1a0663b052f5164177b6c7e9de01183e35" kind="function"><name>ChangeNetworkButton</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1a6a178a0b36b9f27facbb7b591778424c" kind="function"><name>onAttachedToWindow</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1ChangeNetworkButton_1a1455cadd6a3ad0cc1a8e2fbcce388bb5" kind="function"><name>actionChangeNetwork</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale" kind="class"><name>com::qualoutdoor::recorder::map::ColoredScale</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a587907917914f0d1ec452a367a327a70" kind="variable"><name>mText</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1ad44c4a8f10141db919a6c1f023200b6f" kind="variable"><name>mTextColor</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a4188abd3292c87be882a40a1adc507d1" kind="variable"><name>mStartValue</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a5b5033b8ddba63337370fd55a33606da" kind="variable"><name>mEndValue</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a37da9656dfcfcfa61978d4f4689be5e3" kind="variable"><name>mGraduationStep</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a6cf7926b347e1eed939659ea7f1bd320" kind="variable"><name>mStartColor</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1abf24fe5c047b605e6e295dd547046cea" kind="variable"><name>mEndColor</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a1620990b3e64cb7cf4d629e035779e6c" kind="variable"><name>mGraduationStartColor</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a1da3cc13ab28d256b0db3abf714d035a" kind="variable"><name>mGraduationEndColor</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a7947eab323f541a31cd1b0eee694aa3d" kind="variable"><name>mScalePaint</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1af3daf806f487c61997e7b16f3f49aa3c" kind="variable"><name>mGraduationPaint</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1ace9a89e3cf770b47b0f474eca3c8b503" kind="variable"><name>mTextPaint</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1aa9cb5cdbc2354b01553207fc9ea9015a" kind="variable"><name>mShowText</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a84b3e55223428d8643cec8188439e531" kind="variable"><name>mTextX</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1ab569fbf05d637f90977cc654ceea7347" kind="variable"><name>mTextY</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a6b2b1664c8d9e81e37aea2a092938f90" kind="variable"><name>mTextWidth</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a86eef0d17d57905f4816680963300ca3" kind="variable"><name>mTextHeight</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a58b6c932c202e2187af22aeb947f1e23" kind="variable"><name>mGraduationLength</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1adcbf03acb4ab5e83cdf1d0e3bb3dc900" kind="variable"><name>mScaleRect</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1aa55ac3d9ba5be9d14840830681e52e2d" kind="function"><name>ColoredScale</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1ab945cb4bff3bb2bc529197fc9c7ed3d5" kind="function"><name>ColoredScale</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a4fea7eb8fd4576d8ccafea91515848b1" kind="function"><name>getShowText</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a5e8e2c07ea98d8583ada6ce92c69f789" kind="function"><name>setShowText</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a3244dd95dd06a4d1ae7dd73f95509022" kind="function"><name>getTextY</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a4f0ee3e627c89804b6e99cce9a7ca837" kind="function"><name>setTextY</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a0f4b620c63df88430c1bf482872b4f38" kind="function"><name>getTextWidth</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1ad271444a49aeb6230a5f60321826f9b4" kind="function"><name>setTextWidth</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a1c6d7f61f9909fd3d35e12f9c9dfa03a" kind="function"><name>getTextHeight</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1aaebda524aa8726568f1055e31777dece" kind="function"><name>setTextHeight</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a2e15ef8de5c135bc1967e33d7a0095a5" kind="function"><name>init</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a497e3a7f1dd45ff848916b04d31c4e7d" kind="function"><name>compatibleResolveSizeAndState</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a80ca17312e54ae5d8e74c4bdf6d5253a" kind="function"><name>onSizeChanged</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a0b8692a3eed077a960f18ad4a9b04798" kind="function"><name>onDraw</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a79be240a4bfba2b93b88df71ef1035b9" kind="function"><name>getSuggestedMinimumHeight</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1ColoredScale_1a05edef11c21f7dc8aab2c98944c52372" kind="function"><name>onMeasure</name></member>
+  </compound>
+  <compound refid="classCustom" kind="class"><name>Custom</name>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength" kind="class"><name>com::qualoutdoor::recorder::telephony::CustomSignalStrength</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1aa3981bd9454f9a027a9b2f6697da62e3" kind="variable"><name>ss</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1aef90e4b781dd2f33444bf109b700a618" kind="function"><name>CustomSignalStrength</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1aef4df56064e24b3442dcb80ec1099b06" kind="function"><name>setSignalStrength</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomSignalStrength_1ad36ba58128637b99f41756dfccfe508f" kind="function"><name>getDbm</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment" kind="class"><name>com::qualoutdoor::recorder::map::DataMapFragment</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1abf9b8e361549571285cf999f7eadf28c" kind="variable"><name>numMarkers</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1a694479dfe8c0bb25d948eba8b8ef82d3" kind="variable"><name>melbLat</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1afc47dba18d6c9b4b1cf8cf06a6b340ea" kind="variable"><name>melbLng</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1a91e704a9e643164746f185e7b0d7cd20" kind="variable"><name>melbournecenter</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1a3b6230c23fec1713a516ddafdde9a00d" kind="variable"><name>southwest</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1a42c523ffb29115d4c52e3522412feb4a" kind="variable"><name>northwest</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1aed652fd6268de6ddfe8bb36bb0a78762" kind="variable"><name>melbourne</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1ae59f29056fb6c2660a0df13dd97f7104" kind="variable"><name>lat</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1a95712fa0c706d3d5b319708fe9f09e95" kind="variable"><name>lng</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1ac6cebff174e2fc981374c737298599d3" kind="variable"><name>startHue</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1a7bcebe1353f52df9d8fb0acc40a80c2d" kind="variable"><name>endHue</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1a8818a618fb41bd86d8ba8735a87429c1" kind="variable"><name>map</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1acd4640081a80fb7aff45ee8eacd41a26" kind="variable"><name>mapFragment</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1a7b25f2611914b58fc774da31c4a22cbe" kind="function"><name>onCreate</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1a071cc429cc5e4bef51a728d3ca4dd1d6" kind="function"><name>onCreateView</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1a8f9cf3ebd5f2943859294136dc013057" kind="function"><name>onResume</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1aec8e5d7ebd62ebda47d8bcb6469a45c4" kind="function"><name>setUpMapIfNeeded</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1map_1_1DataMapFragment_1ad61100353ce2562e4c09b00158e5a2ac" kind="function"><name>initMarkers</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1DisplayHelpActivity" kind="class"><name>com::qualoutdoor::recorder::DisplayHelpActivity</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1DisplayHelpActivity_1a69a3046becdab5fadc808588c4b28ad2" kind="function"><name>onCreate</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1DisplaySettingsFragment" kind="class"><name>com::qualoutdoor::recorder::settings::DisplaySettingsFragment</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1DisplaySettingsFragment_1a813ba138e436dcda98f91ea5af255c46" kind="function"><name>DisplaySettingsFragment</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1DisplaySettingsFragment_1aa4ba98386d247cdf2ff30da92bef8b39" kind="function"><name>onCreateView</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1_1DrawerItemClickListener" kind="class"><name>com::qualoutdoor::recorder::MainActivity::DrawerItemClickListener</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1_1DrawerItemClickListener_1af8d7abb968131246e1ebafdacde9a9b4" kind="function"><name>onItemClick</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1GenericFragment" kind="class"><name>com::qualoutdoor::recorder::GenericFragment</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1GenericFragment_1a49ec6e272a29d2f83d75597ad4820186" kind="variable"><name>FRAGMENT_NAME</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1GenericFragment_1abd35750acf1a4b68e302201fc4cc3132" kind="variable"><name>name</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1GenericFragment_1a77f2f8d99c328104ab568225f22a7f34" kind="function"><name>GenericFragment</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1GenericFragment_1a6e5febce9c3aee57b19b8f0aa25229cd" kind="function"><name>onCreate</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1GenericFragment_1a0d7034fbb93cf8bfdb55fe5668f63896" kind="function"><name>onCreateView</name></member>
+  </compound>
+  <compound refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo" kind="interface"><name>com::qualoutdoor::recorder::telephony::ICellInfo</name>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1a20aaca32b7aad64bca27b703e4f6dbb5" kind="function"><name>getTimeStamp</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1aced3d6782e7e962ab4a92e2e8af5e280" kind="function"><name>isRegistered</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1a99a2515d30d7a0b7c667e23690fb5d09" kind="function"><name>todo</name></member>
+  </compound>
+  <compound refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ILocation" kind="interface"><name>com::qualoutdoor::recorder::telephony::ILocation</name>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ILocation_1ab5830a326501790c9a62299aa87a8647" kind="function"><name>getTime</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ILocation_1a931dbc3d8450e9eb5b2dbca4353f2f33" kind="function"><name>getAltitude</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ILocation_1aa96b362e0fae13e0ee765d2ec68f11c5" kind="function"><name>getLongitude</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ILocation_1a9f7cc64e71a367c097b4bf247525c670" kind="function"><name>getAccuracy</name></member>
+  </compound>
+  <compound refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ISignalStrength" kind="interface"><name>com::qualoutdoor::recorder::telephony::ISignalStrength</name>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ISignalStrength_1a7afc6c43cd03481de1a10ab7c2770fa1" kind="function"><name>getDbm</name></member>
+  </compound>
+  <compound refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony" kind="interface"><name>com::qualoutdoor::recorder::telephony::ITelephony</name>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1ab2d6e4c2dd160412dda46b26763e8a64" kind="variable"><name>CALL_STATE_IDLE</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a2efb64f0209a5ae97c7cb331827c80a9" kind="variable"><name>CALL_STATE_OFFHOOK</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1aea753bfaf3bdcab76c67409284bd3aab" kind="variable"><name>CALL_STATE_RINGING</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a1d4417783954f4f1a82ade95bf2617b3" kind="variable"><name>DATA_CONNECTED</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a0fed369a5e327ef1100f8bb86ba8283e" kind="variable"><name>DATA_CONNECTING</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a918bc00a6b832ab07926cf77626bbd24" kind="variable"><name>DATA_DISCONNECTED</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1adbd921850a2b4a6558f41dea27e861e0" kind="variable"><name>DATA_SUSPENDED</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a673927b5b9f59f4adfdbbe8403dc3f75" kind="variable"><name>NETWORK_TYPE_UNKNOWN</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a370a400527daeffcf74e59bb8c25783f" kind="variable"><name>NETWORK_TYPE_GPRS</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a24b6cda1c698dedf417e58b3742acf02" kind="variable"><name>NETWORK_TYPE_EDGE</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a8135b29f493e56a852c6938f094e370c" kind="variable"><name>NETWORK_TYPE_UMTS</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a8242847ab2e7f8cd3b9a4ca0af7789aa" kind="variable"><name>NETWORK_TYPE_CDMA</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a17d25ab25bf982026aa45b3f4d29ceb5" kind="variable"><name>NETWORK_TYPE_EVDO_0</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a9ea0965450da41c68810e4e071b2230e" kind="variable"><name>NETWORK_TYPE_EVDO_A</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a4203966c4736f3023fc7940671f058d0" kind="variable"><name>NETWORK_TYPE_1xRTT</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1af03c317a10fcccd01008912fa27b8f25" kind="variable"><name>NETWORK_TYPE_HSDPA</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a8508ef692db2bba21961b1e213b3440d" kind="variable"><name>NETWORK_TYPE_HSUPA</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a90ea3934af7570fac6e9c4787b130d2a" kind="variable"><name>NETWORK_TYPE_HSPA</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1ad7af57643bf08eb193e93557d4c40e53" kind="variable"><name>NETWORK_TYPE_IDEN</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a9c5eee3774b26ae94b26fa7a41dfe75e" kind="variable"><name>NETWORK_TYPE_EVDO_B</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a79e0b4ed8ec3eb9a708f37fd7e9a6316" kind="variable"><name>NETWORK_TYPE_LTE</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1aa6753bbf9b85da56a2319aee7de45cc4" kind="variable"><name>NETWORK_TYPE_EHRPD</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a1fac9f01efb238a6de1a6a7a5fccd304" kind="variable"><name>NETWORK_TYPE_HSPAP</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1ac5f0965e1dfccd7207f49c277593acaa" kind="function"><name>getAllCellInfo</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a1b955c3be64a899274bf112d05c8d41a" kind="function"><name>getCallState</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1ab4135b0c4f01f0169b3a1ea63054b946" kind="function"><name>getDataState</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1af19331bac8e7317958047a5448274a28" kind="function"><name>getNetworkType</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1acb95b0c4243cfca3c56776fc0ae3d18e" kind="function"><name>getLocation</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a3454755b99a36692f8ed113144491760" kind="function"><name>getSignalStrength</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1a2bf33ee65f59c2100442f6ba33fac113" kind="function"><name>listen</name></member>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ITelephony_1aaa52e62dfb4607e2f871e3ad0daeba23" kind="function"><name>setMinimumRefreshRate</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection" kind="class"><name>com::qualoutdoor::recorder::LocalServiceConnection</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_1a9583eb2308065d17b5929bb43065fa4b" kind="variable"><name>isBound</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_1a1267eb452e2a476031e0b9e7ca4e2237" kind="function"><name>isBound</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_1ac9fe43df21f203386ff0a1b5ed6d70d8" kind="function"><name>onServiceDisconnected</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_1aaf7e989ffaf6b728b887d5d11b245af8" kind="function"><name>onServiceConnected</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_1a54232b34d728f18d75c964438e3c5368" kind="function"><name>onServiceObtained</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity" kind="class"><name>com::qualoutdoor::recorder::MainActivity</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1afa74ca8ca4d439945c9b72e360004f13" kind="variable"><name>telephonyService</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1aee67fc3589f9ffcde9bdc275f9cdbac4" kind="variable"><name>telServiceConnection</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1af38fdbc2c5b036977d4e0c25d817d736" kind="variable"><name>recordingService</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a672740db9e6801d1f94786f3cac1ae7a" kind="variable"><name>recServiceConnection</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a5959b69046a6d1ca238b4bed45b02d26" kind="variable"><name>fragmentTitle</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a6686ec562cfab0110bd52eddc7e33f54" kind="variable"><name>drawerTitle</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a198488a2b8d8f4d8d9b9f63939fd4dff" kind="variable"><name>activeSection</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1aebfe9b8493ba8495d570e4aff04aa98f" kind="variable"><name>navigationTitles</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ad37318bd3bb05942c955bc0ccc90935d" kind="variable"><name>drawerLayout</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ab03934fd9c14fe28a6e5505d41b96cb3" kind="variable"><name>drawerList</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a6c372005bb6ce12e7204e6e3729b9dab" kind="variable"><name>drawerToggle</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a318bc02d4937447fc88bab0f12a6df64" kind="variable"><name>networkView</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a76c5025a8bcde6c93e3bb320333f5d4a" kind="variable"><name>recordMenuItem</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a7e719523b166c40d53fb8589b04587ab" kind="variable"><name>PREVIOUS_TITLE</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a22bb0c006feea451b77d7df1b3d8a523" kind="variable"><name>ACTIVE_SECTION</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ac9e15af94bc29b6343dc2ffe24afe995" kind="function"><name>onCreate</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1afdde657fd9139073075a608bd87250c0" kind="function"><name>onPostCreate</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a465de11fed8d5c14a2ac4b458aa3985f" kind="function"><name>onSaveInstanceState</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a06e1f42c4fb946ecc3a6615d6c09a7fc" kind="function"><name>onStart</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a7eb3920b7c54fc3e130c85f7f50f1c87" kind="function"><name>onStop</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a05cb2528ea012100ef910ab8f594f2cf" kind="function"><name>onConfigurationChanged</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a07e8ec713e5d04718cf87497a7cb3dd4" kind="function"><name>onCreateOptionsMenu</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a03f3d576991fe48076517803a1608e42" kind="function"><name>onPrepareOptionsMenu</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ab00ad5adc5560911e0147f3cb3cdbd50" kind="function"><name>onNetworkChanged</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a0788a0a3c8c1fbc9e410b94483b858b3" kind="function"><name>onOptionsItemSelected</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a7ab297972634760af9706e6dc8a31c92" kind="function"><name>onBackPressed</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a70960558ff7463002c78d0f02e654263" kind="function"><name>selectItem</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1ae63f4ccd23f5892a3cea9c0c8d4aa852" kind="function"><name>openSettings</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a38c1ce314020110983c35515d9f34e48" kind="function"><name>openHelp</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1_1MyObservable" kind="class"><name>com::qualoutdoor::recorder::charting::SignalStrengthSampler::MyObservable</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1_1MyObservable_1a6c4b23cea038445c4570fab7c179a449" kind="function"><name>notifyObservers</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1_1MyPhoneStateListener" kind="class"><name>com::qualoutdoor::recorder::charting::SignalStrengthSampler::MyPhoneStateListener</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1_1MyPhoneStateListener_1a688de7dc88ac8f32892425e9c4663aad" kind="function"><name>onSignalStrengthsChanged</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1_1MyPlotUpdater" kind="class"><name>com::qualoutdoor::recorder::charting::SignalStrengthPlotFragment::MyPlotUpdater</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1_1MyPlotUpdater_1a149bb8ef8f5c18f2a96576b038f847bd" kind="variable"><name>plot</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1_1MyPlotUpdater_1a5bcaefd552bbc3e5c4e6d13adcebc4fe" kind="variable"><name>series</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1_1MyPlotUpdater_1acd5730b92572c862a7b2385e1e79ee17" kind="function"><name>MyPlotUpdater</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1_1MyPlotUpdater_1ac8a7043ac6fac3a20c284ba929340e00" kind="function"><name>update</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior" kind="class"><name>com::qualoutdoor::recorder::NavigationDrawerBehavior</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1a71fe6af02c85ff204a66b60abe212024" kind="variable"><name>OVERVIEW</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1aebe294104d68571c1eb4ce9af9d65178" kind="variable"><name>MAP</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1a8368f632c82d3eff9da1fc2e729c2bce" kind="variable"><name>STATISTICS</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1adfb5f8a3ab94d190d16e7dfb5004dc4b" kind="variable"><name>SCRIPTS</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1NavigationDrawerBehavior_1a56dc43a69769960a5d12f05e0c89abdd" kind="function"><name>getFragment</name></member>
+  </compound>
+  <compound refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1_1NetworkChangeListener" kind="interface"><name>com::qualoutdoor::recorder::QualOutdoorApp::NetworkChangeListener</name>
+    <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1_1NetworkChangeListener_1a9c52b2774b1c63474c5eed3ce703e168" kind="function"><name>onNetworkChanged</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter" kind="class"><name>com::qualoutdoor::recorder::notifications::NotificationCenter</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a1316ea946cb84d237c20e491c363cd33" kind="variable"><name>BACKGROUND_RECORDING</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a212d336ad0b5722e951904316b793b78" kind="function"><name>NotificationCenter</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a594d7753e910b1eb8782e2e8a3601ae1" kind="function"><name>getRecordingNotification</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1a42f3211ad67cfa311b3d5d81f31f370f" kind="function"><name>notifyBackgroundRecording</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1notifications_1_1NotificationCenter_1ad0032647617b97a891df182533d8fb5c" kind="function"><name>dismissBackgroundRecording</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1OverviewFragment" kind="class"><name>com::qualoutdoor::recorder::OverviewFragment</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1OverviewFragment_1ab0fd9f82a732308d4e6595d6708c58d7" kind="function"><name>onCreateView</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp" kind="class"><name>com::qualoutdoor::recorder::QualOutdoorApp</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1a355e77531ef176519c95f6d179a97889" kind="variable"><name>networkListeners</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1a723c6a6184bda3f001148ae37fc3f230" kind="variable"><name>currentNetwork</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1a358eaab2d4ac7f4de7bfc440abe1d149" kind="variable"><name>callState</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1a3ccdb482ddb310afd4dcad402c513dae" kind="variable"><name>recording</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1a863e6a3fe7d020d62629cc47049a5618" kind="function"><name>QualOutdoorApp</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1ac9fdf8864e00f880803658ef94e8f20b" kind="function"><name>getCurrentNetwork</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1a8d02d25c00d87540548e55b1de410b60" kind="function"><name>setCurrentNetwork</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1a1d011e7d39b12c3657b5a927fda0ea8f" kind="function"><name>getCallState</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1a195cc6939ad7d5d2dd8aae046ae8fb6a" kind="function"><name>setCallState</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1a829786bb3de92bfc6f38ed85d04aa44e" kind="function"><name>addNetworkChangeListener</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1a34ce4fb04563b6f5f808866ec9156ac8" kind="function"><name>removeNetworkChangeListener</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1a3d9228b4b2a55f80718d82d53fd6ca8c" kind="function"><name>notifyNetworkListeners</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1a9ab899682caf9bc4eafa3bf236f9b4e4" kind="function"><name>isRecording</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1af8b76cf31bccb966036a94a3cbe086e1" kind="function"><name>switchRecording</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1ae1aaa8d84f0e13c8448beb8901a1aafd" kind="function"><name>notifyRecording</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1aaa95acb3101a265a6ecca3479ccd8298" kind="function"><name>stopRecording</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp_1aa6d92737d7715f9b80a8a97c1f3c91b7" kind="function"><name>startRecording</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingBinder" kind="class"><name>com::qualoutdoor::recorder::recording::RecordingBinder</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingBinder_1a7db3901b1d36399d4f7f1c96ee328266" kind="variable"><name>myService</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingBinder_1a0d1cf5218f0acaff5461f1100f3b720d" kind="function"><name>RecordingBinder</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingBinder_1aff514d1f17f94939e98fbdbcbe6f9426" kind="function"><name>getService</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService" kind="class"><name>com::qualoutdoor::recorder::recording::RecordingService</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1ac19023b61b61f80ce69723f5ac3e78f7" kind="variable"><name>mRecordingBinder</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1aa44bc8a3d8265952f589faa7ce35d3d4" kind="variable"><name>isRecording</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a17aeabbe9a9d27439c297bbf1ff4d3eb" kind="variable"><name>thread</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a2e48946d240d2e6fcc41d4046b618321" kind="function"><name>onCreate</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a7ab6dab80edc8e3ad2b5a7436534d7f6" kind="function"><name>onBind</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a97c5a5525e4f024ed981f8a4167c0c8f" kind="function"><name>isRecording</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a7a2a7a176fba147bbc3eb753aa819513" kind="function"><name>setSamplingRate</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a9614d87abfd09a76f082d5c37cf06de2" kind="function"><name>onStartCommand</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1ad97856ad8728cbbc102e664b934982bc" kind="function"><name>onDestroy</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a51bcaacd57cecbbc192ae10ee0548898" kind="function"><name>stopRecording</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1ad1e000af998ea34d8cd646c73b38f12a" kind="function"><name>startRecording</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingServiceConnection" kind="class"><name>com::qualoutdoor::recorder::recording::RecordingServiceConnection</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingServiceConnection_1a8eb8ebee30e9b3f9264935bc7277ae5e" kind="variable"><name>service</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingServiceConnection_1abe2beabc65951ed572b276c726fb0798" kind="function"><name>RecordingServiceConnection</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingServiceConnection_1a150438c50b77f52c96951846a65f0748" kind="function"><name>onServiceConnected</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingServiceConnection_1a10e61e4e5c92174b21264df6c3a1247b" kind="function"><name>getService</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton" kind="class"><name>com::qualoutdoor::recorder::SamplingButton</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a55589a649bdfe2239dfd393b881ce54f" kind="function"><name>SamplingButton</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a8b79ac727cf80e71c7645e04c85b43cd" kind="function"><name>SamplingButton</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a4b2541d9897473bd79bcc5f5549971d7" kind="function"><name>SamplingButton</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a087dee4090dc9aba9ef58b6a419ea128" kind="function"><name>onAttachedToWindow</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1SamplingButton_1a7ef3a0d5d2622d8597285e4812e19e22" kind="function"><name>actionStartStop</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1scripts_1_1ScriptListFragment" kind="class"><name>com::qualoutdoor::recorder::scripts::ScriptListFragment</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1scripts_1_1ScriptListFragment_1adf19ceaee6c2ccc3395ba471f37ea24f" kind="function"><name>onCreateView</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsActivity" kind="class"><name>com::qualoutdoor::recorder::settings::SettingsActivity</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsActivity_1af9a3a25e675b25b179091becbd9c3a28" kind="function"><name>onCreate</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment" kind="class"><name>com::qualoutdoor::recorder::charting::SignalStrengthPlotFragment</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1aa6d119ce9035b9702eb896eca26e2c21" kind="variable"><name>SAMPLE_RATE</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1a5221a8dba9576dce9067909e4b7da1bb" kind="variable"><name>HISTORY_SIZE</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1ad09ee6d037a562b4fcbe7971e8f4c7a8" kind="variable"><name>MIN_SS</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1a5488d5038578b49d6ec52ee159dbcf30" kind="variable"><name>MAX_SS</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1ae8f6b6a16aacf738466b6bf749b58085" kind="variable"><name>telephonyManager</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1ad4c2fb48286d47b1d96c0092b6938c24" kind="variable"><name>ssSampler</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1a5fc7e28e4085e975aa3ab8e3ff180285" kind="variable"><name>thread</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1af5f66cd050b8c3f9a9eca32c1c9ce717" kind="variable"><name>dynamicPlot</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1a4a7d083f0421d83ea983d0e1baef3516" kind="variable"><name>plotUpdater</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1a8343d4d21238d54faf1759c65290b813" kind="variable"><name>ssLvlSeries</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1a6ae8c5a953179150a5fea9316a1357b1" kind="function"><name>onCreateView</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1aa4786952a20f614f230eebba2463ab5c" kind="function"><name>onActivityCreated</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthPlotFragment_1a1dc4240b9f2a8ddb6ba8bf5a1c4c9b21" kind="function"><name>onDestroy</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler" kind="class"><name>com::qualoutdoor::recorder::charting::SignalStrengthSampler</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1ac445c3c9fb238f7279991e4fff3ebd0a" kind="variable"><name>mySignalStrength</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a8575cdec7c0b13b077d3be1c470019ad" kind="variable"><name>sampling_rate</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1af52d000872841bb9e25e142d8bc88d18" kind="variable"><name>notifier</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a18c848bbd93ec27fb879b921069610d3" kind="variable"><name>listener</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a49109a8e7ef2a4d11e3065aa942e61a5" kind="function"><name>SignalStrengthSampler</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a05d2c5bcbcb8cb93b141407aff0c37e9" kind="function"><name>run</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1a21694fad264b9b83b7e356d6886c80a0" kind="function"><name>getSignalStrength</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1ab3fea61441f89a891403fcd431059d1c" kind="function"><name>getPhoneStateListener</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1ad336868e71d767a2b110c979e3f993c0" kind="function"><name>addObserver</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1charting_1_1SignalStrengthSampler_1af13f1fa704f5a0d5156883be1141fbe9" kind="function"><name>removeObserver</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsFragment" kind="class"><name>com::qualoutdoor::recorder::statistics::StatisticsFragment</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsFragment_1ab412cc69f46b3a557a8a87e08a1639f6" kind="variable"><name>statisticsPagerAdapter</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsFragment_1afd41587fab90a4894b03e036dd002525" kind="variable"><name>mViewPager</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsFragment_1ae6e4e41b7d0dc95f59d15c2a0a276f57" kind="function"><name>onCreate</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsFragment_1ac5359d8e9d4bc64beddda84b3bb2aef6" kind="function"><name>onCreateView</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter" kind="class"><name>com::qualoutdoor::recorder::statistics::StatisticsPagerAdapter</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1ab2945fd8047171f62d7424d3e8c40b9b" kind="variable"><name>CELL_INFO</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a0129f5c8b0e2921643fcc7a331d25062" kind="variable"><name>NEIGHBOR</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a379ae4d8a688ca9eb90dd1694a64bcc3" kind="variable"><name>GRAPH</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1adae954e09edc2214d375a1b0c6dd2455" kind="variable"><name>SCRIPT_LOGS</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a1cc9fe41e3f21712e228dfff867910ef" kind="variable"><name>fragmentTitles</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a5513cfb358b309f7bdde954943f6d8c7" kind="function"><name>StatisticsPagerAdapter</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a0ec1243763650f3b047cfde095abb69d" kind="function"><name>getItem</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a9ce894bc0ed657c112da4fec3eb9a982" kind="function"><name>getCount</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1statistics_1_1StatisticsPagerAdapter_1a38adff0033038e48d72f16de75a3bef4" kind="function"><name>getPageTitle</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder" kind="class"><name>com::qualoutdoor::recorder::telephony::TelephonyBinder</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1a864035a7cb42e95815445f9d6c345492" kind="variable"><name>myService</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1afc6a0e5ef46d92a4bf0c9e2ee7df8a33" kind="function"><name>TelephonyBinder</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyBinder_1acdfebeb669e80bdf37dec7b4dd65e73b" kind="function"><name>getService</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener" kind="class"><name>com::qualoutdoor::recorder::telephony::TelephonyListener</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a191d2575b8783002ee3e5d8cbadd6f34" kind="variable"><name>LISTEN_CALL_STATE</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1aa73af11a2afc13c7bfb8ce7e58b45f69" kind="variable"><name>LISTEN_CELL_INFO</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a640f1efa08e7e0869335cfc47c3a2124" kind="variable"><name>LISTEN_DATA_CONNECTION_STATE</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a146371faf289ea1d3c019a9da50e6ba2" kind="variable"><name>LISTEN_LOCATION</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1adff97a5ff891440e844b1438c8160ec1" kind="variable"><name>LISTEN_NETWORK_TYPE</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a5d217cc158268f8c01738b0f51e1ce53" kind="variable"><name>LISTEN_NONE</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1aab3f3a875e74a3b4d6eab7db23683372" kind="variable"><name>LISTEN_SIGNAL_STRENGTHS</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a3d14b9a5603d15201ffef86df42d54f1" kind="function"><name>TelephonyListener</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a171849910c348658f639011099980d84" kind="function"><name>onCallStateChanged</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1ab93e4cd769a3efeedf3d4bd65de8ad15" kind="function"><name>onCellInfoChanged</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a671048ccc7d961591b47ce714d660436" kind="function"><name>onLocationChanged</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a8b3ff94c072f2d90dc82ae38d390bf62" kind="function"><name>onDataConnectionStateChanged</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1aa5f922c9142ab0e8c933a1953b384269" kind="function"><name>onNetworkTypeChanged</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyListener_1a560acb91a9cb03ad4e4389cc9393c76b" kind="function"><name>onSignalStrengthsChanged</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService" kind="class"><name>com::qualoutdoor::recorder::telephony::TelephonyService</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1a1d7f4bd289769acd6c35b25a5ef31aed" kind="variable"><name>mTelephonyBinder</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1a81a6850efcbcff0936ed580cb171ba3d" kind="variable"><name>telephonyManager</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1a506be3a4dee76693c315a0e377c506e5" kind="variable"><name>phoneStateListener</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1a52b73496a64d8a0b34d3635a76c5aadf" kind="variable"><name>signalStrength</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1ab8b427dc82941cff7a38a14300f42f3c" kind="variable"><name>events</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1a103e5234b34bb7dbf1ba8be4a23ac525" kind="function"><name>onCreate</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1a711831c95269c8a1ddf8718e6df105c0" kind="function"><name>onDestroy</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1af093ee2d853356659960e1a1125e594f" kind="function"><name>onBind</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1a7b9d95b5f6c9b8eb9e970f6c7f254677" kind="function"><name>getAllCellInfo</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1ab4452ab5791e52a2a00e7d2ee7626efd" kind="function"><name>getCallState</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1ab75e2767c592cb1c48ccefcbe075ed1b" kind="function"><name>getDataState</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1ab5c56c3345271c1146d0d4da90914b01" kind="function"><name>getNetworkType</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1af3e55e756592010491b87da8927e5cc9" kind="function"><name>getLocation</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1a9360c2f3e55992b06c38d26cbf1768c0" kind="function"><name>getSignalStrength</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1ae688a21a3298fab47e845c0b7ba8065e" kind="function"><name>listen</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyService_1a8c2446484f717c321902b171161b3dbf" kind="function"><name>setMinimumRefreshRate</name></member>
+  </compound>
+  <compound refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection" kind="class"><name>com::qualoutdoor::recorder::telephony::TelephonyServiceConnection</name>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection_1a209be452896315097a33acbe55d27519" kind="variable"><name>service</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection_1a54c19a7cb5e14f493868a3dd302b4aef" kind="function"><name>TelephonyServiceConnection</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection_1acb4ff9183c7f4b7b5f5938a35f97f6c8" kind="function"><name>onServiceConnected</name></member>
+    <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1TelephonyServiceConnection_1ab8017196e7585698b32d6d6766c39f9d" kind="function"><name>getService</name></member>
+  </compound>
+  <compound refid="namespaceandroid_1_1graphics" kind="namespace"><name>android::graphics</name>
+  </compound>
+  <compound refid="namespacecom" kind="namespace"><name>com</name>
+  </compound>
+  <compound refid="namespacecom_1_1qualoutdoor" kind="namespace"><name>com::qualoutdoor</name>
+  </compound>
+  <compound refid="namespacecom_1_1qualoutdoor_1_1recorder" kind="namespace"><name>com::qualoutdoor::recorder</name>
+  </compound>
+  <compound refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1bitmap" kind="namespace"><name>com::qualoutdoor::recorder::bitmap</name>
+  </compound>
+  <compound refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1charting" kind="namespace"><name>com::qualoutdoor::recorder::charting</name>
+  </compound>
+  <compound refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1map" kind="namespace"><name>com::qualoutdoor::recorder::map</name>
+  </compound>
+  <compound refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1notifications" kind="namespace"><name>com::qualoutdoor::recorder::notifications</name>
+  </compound>
+  <compound refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1recording" kind="namespace"><name>com::qualoutdoor::recorder::recording</name>
+  </compound>
+  <compound refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1scripts" kind="namespace"><name>com::qualoutdoor::recorder::scripts</name>
+  </compound>
+  <compound refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1settings" kind="namespace"><name>com::qualoutdoor::recorder::settings</name>
+  </compound>
+  <compound refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1statistics" kind="namespace"><name>com::qualoutdoor::recorder::statistics</name>
+  </compound>
+  <compound refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1telephony" kind="namespace"><name>com::qualoutdoor::recorder::telephony</name>
+  </compound>
+  <compound refid="BitmapTinter_8java" kind="file"><name>BitmapTinter.java</name>
+  </compound>
+  <compound refid="ChangeNetworkButton_8java" kind="file"><name>ChangeNetworkButton.java</name>
+  </compound>
+  <compound refid="SignalStrengthPlotFragment_8java" kind="file"><name>SignalStrengthPlotFragment.java</name>
+  </compound>
+  <compound refid="SignalStrengthSampler_8java" kind="file"><name>SignalStrengthSampler.java</name>
+  </compound>
+  <compound refid="DisplayHelpActivity_8java" kind="file"><name>DisplayHelpActivity.java</name>
+  </compound>
+  <compound refid="GenericFragment_8java" kind="file"><name>GenericFragment.java</name>
+  </compound>
+  <compound refid="LocalServiceConnection_8java" kind="file"><name>LocalServiceConnection.java</name>
+  </compound>
+  <compound refid="MainActivity_8java" kind="file"><name>MainActivity.java</name>
+  </compound>
+  <compound refid="ColoredScale_8java" kind="file"><name>ColoredScale.java</name>
+  </compound>
+  <compound refid="DataMapFragment_8java" kind="file"><name>DataMapFragment.java</name>
+  </compound>
+  <compound refid="NavigationDrawerBehavior_8java" kind="file"><name>NavigationDrawerBehavior.java</name>
+  </compound>
+  <compound refid="NotificationCenter_8java" kind="file"><name>NotificationCenter.java</name>
+  </compound>
+  <compound refid="OverviewFragment_8java" kind="file"><name>OverviewFragment.java</name>
+  </compound>
+  <compound refid="QualOutdoorApp_8java" kind="file"><name>QualOutdoorApp.java</name>
+  </compound>
+  <compound refid="RecordingBinder_8java" kind="file"><name>RecordingBinder.java</name>
+  </compound>
+  <compound refid="RecordingService_8java" kind="file"><name>RecordingService.java</name>
+  </compound>
+  <compound refid="RecordingServiceConnection_8java" kind="file"><name>RecordingServiceConnection.java</name>
+  </compound>
+  <compound refid="SamplingButton_8java" kind="file"><name>SamplingButton.java</name>
+  </compound>
+  <compound refid="ScriptListFragment_8java" kind="file"><name>ScriptListFragment.java</name>
+  </compound>
+  <compound refid="DisplaySettingsFragment_8java" kind="file"><name>DisplaySettingsFragment.java</name>
+  </compound>
+  <compound refid="SettingsActivity_8java" kind="file"><name>SettingsActivity.java</name>
+  </compound>
+  <compound refid="StatisticsFragment_8java" kind="file"><name>StatisticsFragment.java</name>
+  </compound>
+  <compound refid="StatisticsPagerAdapter_8java" kind="file"><name>StatisticsPagerAdapter.java</name>
+  </compound>
+  <compound refid="CustomSignalStrength_8java" kind="file"><name>CustomSignalStrength.java</name>
+  </compound>
+  <compound refid="ICellInfo_8java" kind="file"><name>ICellInfo.java</name>
+  </compound>
+  <compound refid="ILocation_8java" kind="file"><name>ILocation.java</name>
+  </compound>
+  <compound refid="ISignalStrength_8java" kind="file"><name>ISignalStrength.java</name>
+  </compound>
+  <compound refid="ITelephony_8java" kind="file"><name>ITelephony.java</name>
+  </compound>
+  <compound refid="TelephonyBinder_8java" kind="file"><name>TelephonyBinder.java</name>
+  </compound>
+  <compound refid="TelephonyListener_8java" kind="file"><name>TelephonyListener.java</name>
+  </compound>
+  <compound refid="TelephonyService_8java" kind="file"><name>TelephonyService.java</name>
+  </compound>
+  <compound refid="TelephonyServiceConnection_8java" kind="file"><name>TelephonyServiceConnection.java</name>
+  </compound>
+  <compound refid="dir_0280356e9d6205503aae3224b9f80380" kind="dir"><name>src/com/qualoutdoor/recorder/bitmap</name>
+  </compound>
+  <compound refid="dir_47b55cda22d278590dc79e02895f478c" kind="dir"><name>src/com/qualoutdoor/recorder/charting</name>
+  </compound>
+  <compound refid="dir_7a52bc9bbc54818d41b44c4ce6a4b0ae" kind="dir"><name>src/com</name>
+  </compound>
+  <compound refid="dir_515bcd2d2b6caa4f4b914b3aad44aaff" kind="dir"><name>src/com/qualoutdoor/recorder/map</name>
+  </compound>
+  <compound refid="dir_e990dd1041a52fac9662dcec82099977" kind="dir"><name>src/com/qualoutdoor/recorder/notifications</name>
+  </compound>
+  <compound refid="dir_f93420f317a6717c35b5a42b27e8348a" kind="dir"><name>src/com/qualoutdoor</name>
+  </compound>
+  <compound refid="dir_d27a4643e8f320e40504dd9ecc4e195b" kind="dir"><name>src/com/qualoutdoor/recorder</name>
+  </compound>
+  <compound refid="dir_b65b6accb5fe607f843fcc70d8955f2f" kind="dir"><name>src/com/qualoutdoor/recorder/recording</name>
+  </compound>
+  <compound refid="dir_c625b59f1aa770b80f27d6648b564664" kind="dir"><name>src/com/qualoutdoor/recorder/scripts</name>
+  </compound>
+  <compound refid="dir_11dfeaabcfe5c5b0982a6e359759e430" kind="dir"><name>src/com/qualoutdoor/recorder/settings</name>
+  </compound>
+  <compound refid="dir_4890d09e0ca3205488913a6b83a775b6" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_59ffd5a110eaa56b6642b96337b6f02b" kind="dir"><name>src/com/qualoutdoor/recorder/statistics</name>
+  </compound>
+  <compound refid="dir_981da934d4c6ce4b4cff18166591a4b7" kind="dir"><name>src/com/qualoutdoor/recorder/telephony</name>
+  </compound>
+</doxygenindex>
