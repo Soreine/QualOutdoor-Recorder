@@ -3,6 +3,7 @@ package com.qualoutdoor.recorder.telephony;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
@@ -23,46 +24,92 @@ public class TelephonyService extends Service implements ITelephony {
 
 	/** An instance of TelephonyManager */
 	private TelephonyManager telephonyManager;
+
+	/** The events the phone state listener is monitoring */
+	@SuppressLint("InlinedApi")
+	private static int events = PhoneStateListener.LISTEN_SIGNAL_STRENGTHS
+			| PhoneStateListener.LISTEN_CALL_STATE
+			| PhoneStateListener.LISTEN_DATA_CONNECTION_STATE
+			| PhoneStateListener.LISTEN_SERVICE_STATE
+			| PhoneStateListener.LISTEN_CELL_INFO; // TODO support for earlier
+													// version (see
+													// NeighboringCellInfo)
+
 	/** The Android phone state listener */
-	private PhoneStateListener phoneStateListener = new PhoneStateListener() {		
+	private PhoneStateListener phoneStateListener = new PhoneStateListener() {
 		@Override
 		public void onSignalStrengthsChanged(SignalStrength ss) {
-			signalStrength.setSignalStrength(ss);
-			super.onSignalStrengthsChanged(ss);
+			// Update our signal strength instance
+			TelephonyService.this.signalStrength.setSignalStrength(ss);
 		}
+
+		@Override
+		public void onDataConnectionStateChanged(int state, int networkType) {
+			// Update the current data connection state
+			TelephonyService.this.dataState = state;
+			// Update the current network type
+			TelephonyService.this.networkType = networkType;
+		};
+
+		@Override
+		public void onCallStateChanged(int state, String incomingNumber) {
+			// Update the current call state
+			TelephonyService.this.callState = state;
+		};
+
+		@Override
+		public void onCellInfoChanged(List<android.telephony.CellInfo> cellInfo) {
+		};
 	};
-	/** The events the phone state listener is monitoring */
-	private static int events = PhoneStateListener.LISTEN_SIGNAL_STRENGTHS;
-	
+
 	/** The current signal strength value */
 	private CustomSignalStrength signalStrength;
-	
+	/** The current data connection state */
+	private int dataState;
+	/** The current network type */
+	private int networkType;
+	/** The current call state */
+	private int callState;
+
+	/** TODO The current cell infos */
+
 	@Override
 	public void onCreate() {
 		// Initialize a TelephonyBinder that knows this Service
 		mTelephonyBinder = new TelephonyBinder(this);
 
-		// Initialize the current signal strength object
-		signalStrength = new CustomSignalStrength(null);
-		
 		// Retrieve an instance of Telephony Manager
 		telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+		
+		// Initialize the current phone state values
+		{
+			// Initialize the signal strength
+			signalStrength = new CustomSignalStrength(null);
+			// Initialize the call state
+			callState = telephonyManager.getCallState();
+			// Initialize the network type
+			networkType = telephonyManager.getNetworkType();
+			// Initialize the data state
+			dataState = telephonyManager.getDataState();
+		}
+		
 		// Start listening to phone state
 		telephonyManager.listen(phoneStateListener, events);
-		
+
 		super.onCreate();
 	}
 
 	@Override
 	public void onDestroy() {
 		// Unregister our listener from the telephony manager system service
-		telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_NONE);
+		telephonyManager.listen(phoneStateListener,
+				PhoneStateListener.LISTEN_NONE);
 		super.onDestroy();
 	}
-	
+
 	@Override
 	public IBinder onBind(Intent intent) {
-		Log.d("TelephonyService",intent.toString());
+		Log.d("TelephonyService", intent.toString());
 		// Return our interface binder
 		return mTelephonyBinder;
 	}
@@ -79,7 +126,7 @@ public class TelephonyService extends Service implements ITelephony {
 		// We normally should convert the call state code given by
 		// TelephonyManager to the given code in the ITelephony interface. But
 		// as today they are the same.
-		return telephonyManager.getCallState();
+		return callState;
 	}
 
 	@Override
@@ -87,7 +134,7 @@ public class TelephonyService extends Service implements ITelephony {
 		// We normally should convert the data state code given by
 		// TelephonyManager to the given code in the ITelephony interface. But
 		// as today they are the same.
-		return telephonyManager.getDataState();
+		return dataState;
 	}
 
 	@Override
@@ -95,7 +142,7 @@ public class TelephonyService extends Service implements ITelephony {
 		// We normally should convert the network type code given by
 		// TelephonyManager to the given code in the ITelephony interface. But
 		// as today they are the same.
-		return telephonyManager.getNetworkType();
+		return networkType;
 	}
 
 	@Override
@@ -113,7 +160,6 @@ public class TelephonyService extends Service implements ITelephony {
 	@Override
 	public void listen(TelephonyListener listener, int events) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override

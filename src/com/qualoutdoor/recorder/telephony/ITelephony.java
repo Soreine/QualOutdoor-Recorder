@@ -2,6 +2,8 @@ package com.qualoutdoor.recorder.telephony;
 
 import java.util.List;
 
+import com.qualoutdoor.recorder.R;
+
 /**
  * This is an interface for a service that can provide information about network
  * state, location, phone state. It is similar to the TelephonyManager class
@@ -59,7 +61,8 @@ public interface ITelephony {
 	static final int NETWORK_TYPE_EHRPD = 14;
 	/** Current network is HSPA+ */
 	static final int NETWORK_TYPE_HSPAP = 15;
-
+	
+	
 	/**
 	 * Returns all the observed cell information including primary and
 	 * neighboring cells.

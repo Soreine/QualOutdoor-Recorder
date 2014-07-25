@@ -1,16 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent" android:layout_height="match_parent"
-	android:paddingLeft="16dp" android:paddingRight="16dp"
-	android:orientation="vertical">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:layout_height="match_parent">
+	<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent" android:layout_height="match_parent"
+		android:stretchColumns="1">
+		<TableRow>
+			<TextView android:text="@string/signal_strength"
+				style="@style/ListItem" />
+			<TextView android:id="@+id/signal_strength_value"
+				style="@style/ListItem" android:text="" android:gravity="right" />
+		</TableRow>
 
-	<ListView xmlns:android="http://schemas.android.com/apk/res/android"
-		android:id="@+id/listView1" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:entries="@array/overview_array">
-	</ListView>
+		<TableRow>
+			<TextView android:text="@string/gps_location" style="@style/ListItem" />
+			<TextView android:id="@+id/gps_location_value"
+				style="@style/ListItem" android:text="" android:gravity="right" />
+		</TableRow>
 
-	<com.qualoutdoor.recorder.ChangeNetworkButton
-		android:id="@+id/overview_change_network_button" android:text="@string/change_network_button"
-		style="@style/Button" />
+		<TableRow>
+			<TextView android:text="@string/mobile_network_code"
+				style="@style/ListItem" />
+			<TextView android:id="@+id/mobile_network_code_value"
+				style="@style/ListItem" android:text="" android:gravity="right" />
+		</TableRow>
 
-</LinearLayout>
+		<TableRow>
+			<TextView android:text="@string/network_type_code"
+				style="@style/ListItem" />
+			<TextView android:id="@+id/network_type_code_value"
+				style="@style/ListItem" android:text="" android:gravity="right" />
+		</TableRow>
+
+		<TableRow>
+			<TextView android:text="@string/mobile_country_code"
+				style="@style/ListItem" />
+			<TextView android:id="@+id/mobile_country_code_value"
+				style="@style/ListItem" android:text="" android:gravity="right" />
+		</TableRow>
+	</TableLayout>
+</ScrollView>

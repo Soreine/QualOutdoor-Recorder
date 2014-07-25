@@ -19,11 +19,11 @@ public class CustomSignalStrength implements ISignalStrength {
 	public void setSignalStrength(SignalStrength ss) {
 		this.ss = ss;
 	}
-	
+
 	@Override
 	public int getDbm() {
 		// TODO check which type of signal strength we have
-		return ss.getGsmSignalStrength();
+		return 2*ss.getGsmSignalStrength() - 113;
 	}
 
 }

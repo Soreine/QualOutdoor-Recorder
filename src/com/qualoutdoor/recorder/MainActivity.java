@@ -31,8 +31,9 @@ import com.qualoutdoor.recorder.settings.SettingsActivity;
 import com.qualoutdoor.recorder.telephony.ITelephony;
 import com.qualoutdoor.recorder.telephony.TelephonyService;
 import com.qualoutdoor.recorder.telephony.TelephonyServiceConnection;
+import com.qualoutdoor.recorder.telephony.TelephonyServiceConnectionProvider;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements TelephonyServiceConnectionProvider {
 
 	/***********************************************************************/
 	/* Public attributes */
@@ -52,6 +53,11 @@ public class MainActivity extends ActionBarActivity {
 			MainActivity.this.telephonyService = this.getService();
 		}
 	};
+	
+	@Override
+	public TelephonyServiceConnection getTelephonyServiceConnection() {
+		return telServiceConnection;
+	}
 
 	/** A reference to the RecordingService */
 	private RecordingService recordingService;
@@ -425,5 +431,6 @@ public class MainActivity extends ActionBarActivity {
 		// Start the activity
 		startActivity(intent);
 	}
+
 
 }

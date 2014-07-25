@@ -11,7 +11,7 @@ import android.util.Log;
  */
 public abstract class LocalServiceConnection implements ServiceConnection {
 	/** Indicate if the service is bound or not */
-	protected boolean isBound = false;
+	private boolean isBound = false;
 
 	/** Are we bound to the service ? */
 	public boolean isBound() {

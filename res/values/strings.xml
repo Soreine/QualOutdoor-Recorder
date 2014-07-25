@@ -33,14 +33,11 @@
 	</string-array>
 
 	<!-- Overview -->
-	<string-array name="overview_array">
-		<item>Signal Strength</item>
-		<item>GPS Location</item>
-		<item>Mobile Network Code</item>
-		<item>Network Type Code</item>
-		<item>Mobile Country Code</item>
-		<item>Cell Info</item>
-	</string-array>
+	<string name="signal_strength">Signal Strength</string>
+	<string name="gps_location">GPS Location</string>
+	<string name="mobile_network_code">Mobile Network Code</string>
+	<string name="network_type_code">Network Type Code</string>
+	<string name="mobile_country_code">Mobile Country Code</string>
 
 	<!-- Scripts -->
 	<string-array name="scripts_array">
@@ -60,7 +57,8 @@
 
 	<!-- Notifications -->
 	<string name="notification_recording_title">Recording</string>
-	<string name="notification_recording_text">QualOutdoor is currently recording data&#8230; </string>
+	<string name="notification_recording_text">QualOutdoor is currently recording data&#8230;
+	</string>
 
 	<!-- Network Type Names : ordered according to the static values given in 
 		TelephonyManager -->

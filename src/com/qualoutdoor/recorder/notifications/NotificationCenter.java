@@ -49,11 +49,15 @@ public class NotificationCenter {
 		// Creates an explicit intent for the settings activity
 		Intent notificationIntent = new Intent(context, MainActivity.class);
 
+		
 		// The stack builder object will contain an artificial back stack for
 		// the started Activity.
 		// This ensures that navigating backward from the Activity leads out of
 		// the application to the Home screen.
 		TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+
+		// Adds the back stack
+		stackBuilder.addParentStack(MainActivity.class);
 
 		// Adds the Intent that starts the Activity to the top of the stack
 		stackBuilder.addNextIntent(notificationIntent);
