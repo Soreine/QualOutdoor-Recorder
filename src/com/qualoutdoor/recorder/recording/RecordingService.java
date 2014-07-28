@@ -109,6 +109,7 @@ public class RecordingService extends Service {
 		// Stop being foreground as we are no longer recording and remove
 		// notification
 		stopForeground(true);
-
+		// Stop self
+		stopSelf();
 	}
 }

@@ -339,7 +339,6 @@ public class MainActivity extends ActionBarActivity implements TelephonyServiceC
 		return super.onPrepareOptionsMenu(menu);
 	}
 
-	// TODO
 	public void onNetworkChanged(int currentNetwork, int currentCallState) {
 		// Find the network names array
 		String[] networkNames = getResources().getStringArray(

@@ -26,8 +26,8 @@ public class SignalStrengthPlotFragment extends Fragment {
 
 	private static final int SAMPLE_RATE = 1000;
 	private static final int HISTORY_SIZE = 60;
-	private static final int MIN_SS = -113; //< In DBm
-	private static final int MAX_SS = -60; //< In DBm
+	private static final int MIN_SS = 0; //< Asu level
+	private static final int MAX_SS = 31; //< Asu level
 
 	// redraws a plot whenever an update is received:
 	private class MyPlotUpdater implements Observer {
@@ -45,11 +45,11 @@ public class SignalStrengthPlotFragment extends Fragment {
 			if (series.size() > HISTORY_SIZE) {
 				series.removeFirst();
 			}
-			// Get the signal strength and convert it in DBm
-			int ssDBm = ssSampler.getSignalStrength()
-					.getGsmSignalStrength() + MIN_SS;
+			// Get the signal strength as Asu level
+			int ssAsu = ssSampler.getSignalStrength()
+					.getGsmSignalStrength();
 			// add the latest history sample:
-			series.addLast(null, ssDBm);
+			series.addLast(null, ssAsu);
 			plot.redraw();
 		}
 	}
