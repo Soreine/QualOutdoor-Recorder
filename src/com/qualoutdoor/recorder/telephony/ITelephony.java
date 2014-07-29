@@ -2,8 +2,6 @@ package com.qualoutdoor.recorder.telephony;
 
 import java.util.List;
 
-import com.qualoutdoor.recorder.R;
-
 /**
  * This is an interface for a service that can provide information about network
  * state, location, phone state. It is similar to the TelephonyManager class
@@ -96,7 +94,7 @@ public interface ITelephony {
 	void listen(TelephonyListener listener, int events);
 
 	/**
-	 * Set the minimum refresh rate for non event-driven data like AllCellInfos.
+	 * Set the minimum refresh rate for non event-driven data.
 	 * These data can't be monitored through a listener, so they need to be
 	 * refreshed manually by requesting the data provider at a fixed rate.
 	 */

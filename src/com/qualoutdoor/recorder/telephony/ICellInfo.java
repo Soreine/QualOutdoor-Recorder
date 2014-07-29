@@ -3,18 +3,20 @@ package com.qualoutdoor.recorder.telephony;
 /** This is an interface for accessing a cell information */
 public interface ICellInfo {
     
+    /** This cell represent an unknown type of cell */
+    static final int CELL_UNKNOWN = 0;
     /** This cell represent a CDMA cell */
-    static final int CELL_CDMA = 1;
+    static final int CELL_CDMA = 4;
     /** This cell represent a GSM cell */
-    static final int CELL_GSM = 0;
+    static final int CELL_GSM = 1;
     /** This cell represent a LTE cell */
     static final int CELL_LTE = 3;
     /** This cell represent a WCDMA cell */
     static final int CELL_WCDMA = 2;
 
     /** Get the cell type code. The code returned indicates the
-     * technology associated with the cell.
-     * @see CELL_CDMA, CELL_GSM, CELL_LTE, CELL_WCDMA */
+     * technology associated with the cell. 
+     * May return CELL_UNKNOWN, CELL_CDMA, CELL_GSM, CELL_LTE, CELL_WCDMA */
     int getCellType();
 
     /** Approximate time of this cell information in nanoseconds since boot */
