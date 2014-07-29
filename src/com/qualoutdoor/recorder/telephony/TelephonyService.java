@@ -27,7 +27,6 @@ public class TelephonyService extends Service implements ITelephony {
     private TelephonyManager telephonyManager;
 
     /** The events the phone state listener is monitoring */
-    @SuppressLint("InlinedApi")
     private static int events = PhoneStateListener.LISTEN_CALL_STATE
             // | PhoneStateListener.LISTEN_SIGNAL_STRENGTHS we use the cells
             // infos instead
@@ -57,6 +56,10 @@ public class TelephonyService extends Service implements ITelephony {
             // Reset the cell info array list
             allCellInfos.clear();
 
+            // Return if cellInfos is null
+            if(cellInfos == null)
+                return;
+            
             // Declare the variable holding the converted cell
             CustomCellInfo customCell;
             // Update the current ICellInfo list and retrieve the signal
@@ -95,12 +98,10 @@ public class TelephonyService extends Service implements ITelephony {
     private ArrayList<TelephonyListener> listenersCallState = new ArrayList<TelephonyListener>();
     /** Store the listeners listening to LISTEN_CELL_INFO */
     private ArrayList<TelephonyListener> listenersCellInfo = new ArrayList<TelephonyListener>();
-    /** Store the listeners listening to LISTEN_DATA_CONNECTION_STATE */
+    /** Store the listeners listening to LISTEN_DATA_STATE */
     private ArrayList<TelephonyListener> listenersDataState = new ArrayList<TelephonyListener>();
     /** Store the listeners listening to LISTEN_LOCATION */
     private ArrayList<TelephonyListener> listenersLocation = new ArrayList<TelephonyListener>();
-    /** Store the listeners listening to LISTEN_NETWORK_TYPE */
-    private ArrayList<TelephonyListener> listenersNetworkType = new ArrayList<TelephonyListener>();
     /** Store the listeners listening to LISTEN_SIGNAL_STRENGTHS */
     private ArrayList<TelephonyListener> listenersSignalStrength = new ArrayList<TelephonyListener>();
 
@@ -199,7 +200,6 @@ public class TelephonyService extends Service implements ITelephony {
             listenersCellInfo.remove(listener);
             listenersDataState.remove(listener);
             listenersLocation.remove(listener);
-            listenersNetworkType.remove(listener);
             listenersSignalStrength.remove(listener);
         } else {
             // Add the listener to the corresponding list, according to the
@@ -215,17 +215,13 @@ public class TelephonyService extends Service implements ITelephony {
                 // The listener wish to monitor the cells infos, add it to the
                 // list
                 listenersCellInfo.add(listener);
-            } else if ((events & TelephonyListener.LISTEN_DATA_CONNECTION_STATE) == TelephonyListener.LISTEN_DATA_CONNECTION_STATE) {
+            } else if ((events & TelephonyListener.LISTEN_DATA_STATE) == TelephonyListener.LISTEN_DATA_STATE) {
                 // The listener wish to monitor the data state, add it to the
                 // list
                 listenersDataState.add(listener);
             } else if ((events & TelephonyListener.LISTEN_LOCATION) == TelephonyListener.LISTEN_LOCATION) {
                 // The listener wish to monitor the location, add it to the list
                 listenersLocation.add(listener);
-            } else if ((events & TelephonyListener.LISTEN_NETWORK_TYPE) == TelephonyListener.LISTEN_NETWORK_TYPE) {
-                // The listener wish to monitor the network type, add it to the
-                // list
-                listenersNetworkType.add(listener);
             } else if ((events & TelephonyListener.LISTEN_SIGNAL_STRENGTHS) == TelephonyListener.LISTEN_SIGNAL_STRENGTHS) {
                 // The listener wish to monitor the signal strength, add it to
                 // the list

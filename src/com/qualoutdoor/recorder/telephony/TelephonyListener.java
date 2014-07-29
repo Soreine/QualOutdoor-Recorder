@@ -19,11 +19,9 @@ public class TelephonyListener {
     /** Listen for changes to observed cell info. */
     public static final int LISTEN_CELL_INFO = 1024;
     /** Listen for changes to the data connection state (cellular). */
-    public static final int LISTEN_DATA_CONNECTION_STATE = 64; 
+    public static final int LISTEN_DATA_STATE = 64; 
     /** Listen for changes to the device location */
     public static final int LISTEN_LOCATION = 2048;
-    /** Listen for changes to the network type */
-    public static final int LISTEN_NETWORK_TYPE = 4096; 
     /** Stop listening for updates. */
     public static final int LISTEN_NONE = 0;
     /** Listen for changes to the network signal strengths (cellular). */
@@ -44,11 +42,8 @@ public class TelephonyListener {
     /** Callback invoked when device location changes. */
     public void onLocationChanged(ILocation location) {}
 
-    /** Callback invoked when connection state changes. */
-    public void onDataConnectionStateChanged(int state) {}
-
-    /** Callback invoked when network type changes. */
-    public void onNetworkTypeChanged(int state, int networkType) {}
+    /** Callback invoked when network type or data connection state change. */
+    public void onDataStateChanged(int state, int networkType) {}
 
     /** Callback invoked when network signal strengths changes. */
     public void onSignalStrengthsChanged(ISignalStrength signalStrength) {}

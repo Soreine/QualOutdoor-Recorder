@@ -4,12 +4,10 @@ import android.os.Bundle;
 import android.telephony.CellIdentityCdma;
 import android.telephony.CellIdentityGsm;
 import android.telephony.CellIdentityLte;
-import android.telephony.CellIdentityWcdma;
 import android.telephony.CellInfo;
 import android.telephony.CellInfoCdma;
 import android.telephony.CellInfoGsm;
 import android.telephony.CellInfoLte;
-import android.telephony.CellInfoWcdma;
 import android.telephony.CellSignalStrength;
 
 public class CustomCellInfo implements ICellInfo {
@@ -149,7 +147,7 @@ public class CustomCellInfo implements ICellInfo {
      * @param cell
      *            The CellInfoCdma to initialize from.
      */
-    public CustomCellInfo(CellInfoCdma cell) {
+    public CustomCellInfo(CellInfoCdma cell) { 
         // Initialize the the generic fields from the CellInfo class
         this((CellInfo) cell);
         // We have a CDMA type of cell
@@ -172,6 +170,7 @@ public class CustomCellInfo implements ICellInfo {
      * @param cell
      *            The CellInfoWcdma to initialize from.
      */
+    /**
     public CustomCellInfo(CellInfoWcdma cell) {
         // Initialize the the generic fields from the CellInfo class
         this((CellInfo) cell);
@@ -191,7 +190,7 @@ public class CustomCellInfo implements ICellInfo {
             infoBundle.putInt(PSC, cellId.getPsc());
         }
     }
-
+*/
     /** Parse and put the signal strength in the bundle */
     private void putSignalStrength(CellSignalStrength cellSS) {
         // Parse the CellSignalStrength by creating a CustomSignalStrength
@@ -224,9 +223,9 @@ public class CustomCellInfo implements ICellInfo {
         } else if (cell instanceof CellInfoLte) {
             // Call the LTE constructor
             result = new CustomCellInfo((CellInfoLte) cell);
-        } else if (cell instanceof CellInfoWcdma) {
-            // Call the WCDMA constructor
-            result = new CustomCellInfo((CellInfoWcdma) cell);
+//        } else if (cell instanceof CellInfoWcdma) {
+//            // Call the WCDMA constructor
+//            result = new CustomCellInfo((CellInfoWcdma) cell);
         } else {
             // We only have a generic CellInfo...
             result = new CustomCellInfo(cell);
