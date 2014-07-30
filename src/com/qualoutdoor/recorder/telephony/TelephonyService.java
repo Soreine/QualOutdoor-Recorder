@@ -1,6 +1,7 @@
 package com.qualoutdoor.recorder.telephony;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import android.app.Service;
@@ -34,51 +35,6 @@ public class TelephonyService extends Service implements ITelephony {
             | PhoneStateListener.LISTEN_SERVICE_STATE
             | PhoneStateListener.LISTEN_CELL_INFO;
 
-    /** The Android phone state listener */
-    private PhoneStateListener phoneStateListener = new PhoneStateListener() {
-
-        @Override
-        public void onDataConnectionStateChanged(int state, int networkType) {
-            // Update the current data connection state
-            TelephonyService.this.dataState = state;
-            // Update the current network type
-            TelephonyService.this.networkType = networkType;
-        };
-
-        @Override
-        public void onCallStateChanged(int state, String incomingNumber) {
-            // Update the current call state
-            TelephonyService.this.callState = state;
-        };
-
-        @Override
-        public void onCellInfoChanged(List<CellInfo> cellInfos) {
-            // Reset the cell info array list
-            allCellInfos.clear();
-
-            // Return if cellInfos is null
-            if (cellInfos == null)
-                return;
-
-            // Declare the variable holding the converted cell
-            CustomCellInfo customCell;
-            // Update the current ICellInfo list and retrieve the signal
-            // strength at the same time.
-            for (CellInfo cell : cellInfos) {
-                // Create a corresponding ICellInfo and
-                customCell = CustomCellInfo.buildFromCellInfo(cell);
-                // Add it to the list
-                allCellInfos.add(customCell);
-                // Check if this is the primary cell
-                if (cell.isRegistered()) {
-                    // This is the signal strength you are looking for
-                    signalStrength = customCell.getSignalStrength();
-                }
-            }
-
-        };
-    };
-
     /** The current signal strength value */
     private ISignalStrength signalStrength;
     /** The current data connection state */
@@ -107,6 +63,62 @@ public class TelephonyService extends Service implements ITelephony {
     private ArrayList<TelephonyListener> listenersLocation = new ArrayList<TelephonyListener>();
     /** Store the listeners listening to LISTEN_SIGNAL_STRENGTHS */
     private ArrayList<TelephonyListener> listenersSignalStrength = new ArrayList<TelephonyListener>();
+
+    /** The Android phone state listener */
+    private PhoneStateListener phoneStateListener = new PhoneStateListener() {
+
+        @Override
+        public void onDataConnectionStateChanged(int state, int networkType) {
+            // Update the current data connection state
+            TelephonyService.this.dataState = state;
+            // Update the current network type
+            TelephonyService.this.networkType = networkType;
+            // Notify the data state listeners
+            notifyDataStateListeners(state, networkType);
+        };
+
+        @Override
+        public void onCallStateChanged(int state, String incomingNumber) {
+            // Update the current call state
+            TelephonyService.this.callState = state;
+            // Notify the call state listeners
+            notifyCallStateListeners(state, incomingNumber);
+        };
+
+        @Override
+        public void onCellInfoChanged(List<CellInfo> cellInfos) {
+            // Reset the cell info array list
+            allCellInfos.clear();
+
+            // Return if cellInfos is null
+            if (cellInfos == null)
+                return;
+
+            // Declare the variable holding the converted cell
+            CustomCellInfo customCell;
+            // Update the current ICellInfo list and retrieve the signal
+            // strength at the same time.
+            for (CellInfo cell : cellInfos) {
+                // Create a corresponding ICellInfo and
+                customCell = CustomCellInfo.buildFromCellInfo(cell);
+                // Add it to the list
+                allCellInfos.add(customCell);
+                // Check if this is the primary cell
+                if (cell.isRegistered()) {
+                    // This is the signal strength you are looking for
+                    signalStrength = customCell.getSignalStrength();
+                    // Notify the signal strength listeners
+                    notifySignalStrengthListeners(signalStrength);
+                }
+            }
+            // Create a non modifiable ICellInfo list
+            List<ICellInfo> unmodifiableCellInfo = Collections
+                    .unmodifiableList(allCellInfos);
+            // Notify the cell info listeners
+            notifyCellInfoListeners(unmodifiableCellInfo);
+
+        };
+    };
 
     @Override
     public void onCreate() {
@@ -239,4 +251,49 @@ public class TelephonyService extends Service implements ITelephony {
 
     }
 
+    /** Notify each cell info listeners with the current ICellInfo list */
+    private void notifyCellInfoListeners(List<ICellInfo> cellInfos) {
+        for (TelephonyListener listener : listenersCellInfo) {
+            // For each listener, notify
+            listener.onCellInfoChanged(cellInfos);
+        }
+    }
+
+    /**
+     * Notify each signal strength listeners with the current ISignalStrength
+     * value
+     */
+    private void notifySignalStrengthListeners(ISignalStrength signalStrength) {
+        for (TelephonyListener listener : listenersCellInfo) {
+            // For each listener, notifyallCellInfosUnmodifiable
+            listener.onSignalStrengthsChanged(signalStrength);
+        }
+    }
+
+    /**
+     * Notify each call state listeners with the current call state and network
+     * type values
+     */
+    private void notifyCallStateListeners(int state, String incomingNumber) {
+        for (TelephonyListener listener : listenersCellInfo) {
+            // For each listener, notify
+            listener.onCallStateChanged(state, incomingNumber);
+        }
+    }
+
+    /** Notify each location listeners with the current ILocation value */
+    private void notifyDataStateListeners(int state, int networkType) {
+        for (TelephonyListener listener : listenersCellInfo) {
+            // For each listener, notify
+            listener.onDataStateChanged(state, networkType);
+        }
+    }
+
+    /** Notify each location listeners with the current ILocation value */
+    private void notifyLocationListeners(ILocation location) {
+        for (TelephonyListener listener : listenersCellInfo) {
+            // For each listener, notify
+            listener.onLocationChanged(location);
+        }
+    }
 }
