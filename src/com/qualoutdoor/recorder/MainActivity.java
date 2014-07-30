@@ -25,6 +25,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.qualoutdoor.recorder.recording.RecordingContext;
+import com.qualoutdoor.recorder.recording.RecordingListener;
 import com.qualoutdoor.recorder.recording.RecordingService;
 import com.qualoutdoor.recorder.settings.SettingsActivity;
 import com.qualoutdoor.recorder.telephony.ITelephony;
@@ -32,7 +33,8 @@ import com.qualoutdoor.recorder.telephony.TelephonyContext;
 import com.qualoutdoor.recorder.telephony.TelephonyListener;
 import com.qualoutdoor.recorder.telephony.TelephonyService;
 
-public class MainActivity extends ActionBarActivity implements RecordingContext, TelephonyContext{
+public class MainActivity extends ActionBarActivity implements
+        RecordingContext, TelephonyContext {
 
     /**************** State variable *******************/
     /** The current network type code */
@@ -42,7 +44,7 @@ public class MainActivity extends ActionBarActivity implements RecordingContext,
     /** If the app is recording */
     private boolean mIsRecording = false;
 
-    /** The telephony listener for the UI component in MainActivity */
+    /** The telephony listener used to update the UI components in MainActivity */
     private TelephonyListener telephonyListener = new TelephonyListener() {
         @Override
         public void onDataStateChanged(int state, int networkType) {
@@ -56,7 +58,7 @@ public class MainActivity extends ActionBarActivity implements RecordingContext,
             updateDataStateView();
         };
     };
-    
+
     /** The events the telephony listener will monitor */
     private int telephonyEvents = TelephonyListener.LISTEN_DATA_STATE;
     /** The TelephonyServiceConnection used to access the TelephonyService */
@@ -74,6 +76,16 @@ public class MainActivity extends ActionBarActivity implements RecordingContext,
         }
     };
 
+    /** The recording listener used to update the UI components in MainActivity */
+    private RecordingListener recordingListener = new RecordingListener() {
+        public void onRecordingChanged(boolean isRecording) {
+            // Update the recording state
+            mIsRecording = isRecording;
+            // Update the UI
+            updateRecordingButton();
+        };
+    };
+
     /** The TelephonyServiceConnection used to access the TelephonyService */
     private LocalServiceConnection<RecordingService> recServiceConnection = new LocalServiceConnection<RecordingService>(
             RecordingService.class);
@@ -84,7 +96,8 @@ public class MainActivity extends ActionBarActivity implements RecordingContext,
     private ServiceListener<RecordingService> recordingServiceListener = new ServiceListener<RecordingService>() {
         @Override
         public void onServiceAvailable(RecordingService service) {
-            // TODO update the recording button
+            // Register the recording listener
+            service.register(recordingListener);
         }
     };
 
@@ -131,7 +144,7 @@ public class MainActivity extends ActionBarActivity implements RecordingContext,
         // Register the service listeners
         telServiceConnection.register(telephonyServiceListener);
         recServiceConnection.register(recordingServiceListener);
-        
+
         // Initialize the drawer title
         drawerTitle = getResources().getString(R.string.title_activity_main);
         // Retrieve the navigation titles
@@ -249,6 +262,15 @@ public class MainActivity extends ActionBarActivity implements RecordingContext,
     protected void onStop() {
         super.onStop();
         Log.d("MainActivity", "onStop");
+        // Unregister the TelephonyListener
+        if (telServiceConnection.isAvailable()) {
+            telServiceConnection.getService().listen(telephonyListener,
+                    TelephonyListener.LISTEN_NONE);
+        }
+        // Unregister the RecordingListener
+        if (recServiceConnection.isAvailable()) {
+            recServiceConnection.getService().unregister(recordingListener);
+        }
         // Unbind from the TelephonyService if needed
         unbindService(telServiceConnection);
         // Unbind from the RecordingService if needed
@@ -316,16 +338,8 @@ public class MainActivity extends ActionBarActivity implements RecordingContext,
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        { // TODO export in a updateRecordingButton
-          // Check if we are recording
-            if (mIsRecording) {
-                // The icon should represent the stop record action
-                recordMenuItem.setIcon(R.drawable.recording);
-            } else {
-                // The icon should represent the start record action
-                recordMenuItem.setIcon(R.drawable.not_recording);
-            }
-        }
+        // Update the recording button view
+        updateRecordingButton();
         // Update the network view
         updateNetworkView();
         // Update the data state view
@@ -336,42 +350,72 @@ public class MainActivity extends ActionBarActivity implements RecordingContext,
 
     /** Update the data state indicator in the UI */
     private void updateDataStateView() {
-        // Access the UI element from the UI thread
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                // Set the network view style according to the data state
-                if (mDataState == TelephonyManager.DATA_CONNECTED) {
-                    // Data is on
-                    // Change color to highlight the state
-                    networkView.setTextColor(getResources().getColor(
-                            R.color.network_info_highlight));
-                    networkView.setTypeface(null, Typeface.BOLD_ITALIC);
-                } else {
-                    // Data is off
-                    networkView.setTextColor(getResources().getColor(
-                            R.color.normal_text));
-                    networkView.setTypeface(null, Typeface.NORMAL);
+        // Check that the view has been initialized
+        if (networkView != null) {
+            // Access the UI element from the UI thread
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    // Set the network view style according to the data state
+                    if (mDataState == TelephonyManager.DATA_CONNECTED) {
+                        // Data is on
+                        // Change color to highlight the state
+                        networkView.setTextColor(getResources().getColor(
+                                R.color.network_info_highlight));
+                        networkView.setTypeface(null, Typeface.BOLD_ITALIC);
+                    } else {
+                        // Data is off
+                        networkView.setTextColor(getResources().getColor(
+                                R.color.normal_text));
+                        networkView.setTypeface(null, Typeface.NORMAL);
+                    }
+                    networkView.invalidate();
                 }
-                networkView.invalidate();
-            }
-        });
+            });
+        }
     }
 
     /** Update the current network type indicator in the UI */
     private void updateNetworkView() {
-        // Access the UI element from the UI thread
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                // Find the network names array
-                String[] networkNames = getResources().getStringArray(
-                        R.array.network_type_name);
-                // Initialize the text view with the current network type string
-                networkView.setText(networkNames[mNetworkType]);
-                networkView.invalidate();
-            }
-        });
+        // Check that the view has been initialized
+        if (networkView != null) {
+            // Access the UI element from the UI thread
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    // Find the network names array
+                    String[] networkNames = getResources().getStringArray(
+                            R.array.network_type_name);
+                    // Initialize the text view with the current network type
+                    // string
+                    networkView.setText(networkNames[mNetworkType]);
+                    networkView.invalidate();
+                }
+            });
+        }
+    }
+
+    /** Update the recording button view */
+    private void updateRecordingButton() {
+        // Check that the view has been initialized
+        if (recordMenuItem != null) {
+            // Access the UI elements from the UI thread
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    // Check if we are recording
+                    if (mIsRecording) {
+                        // The icon should represent the stop record action
+                        recordMenuItem.setIcon(R.drawable.recording);
+                    } else {
+                        // The icon should represent the start record action
+                        recordMenuItem.setIcon(R.drawable.not_recording);
+                    }
+                    // Tell the option menu its view has been updated
+                    supportInvalidateOptionsMenu();
+                }
+            });
+        }
     }
 
     @Override
@@ -395,10 +439,6 @@ public class MainActivity extends ActionBarActivity implements RecordingContext,
                             RecordingService.class);
                     startService(recordingServiceIntent);
                 }
-
-                // TODO callback from the RecordingService
-                // Update the Options Menu view (for the record icon to change)
-                supportInvalidateOptionsMenu();
             }
             return true;
         case R.id.action_settings:

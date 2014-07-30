@@ -43,7 +43,10 @@ public class TelephonyService extends Service implements ITelephony {
     private int networkType;
     /** The current call state */
     private int callState;
-
+    /** The incomingNumber */
+    private String incomingNumber = "";
+    /** The current location */
+    private ILocation location;
     /** The current visible cells */
     private ArrayList<ICellInfo> allCellInfos;
     /** This is the estimated max size for the cell info array list */
@@ -81,6 +84,8 @@ public class TelephonyService extends Service implements ITelephony {
         public void onCallStateChanged(int state, String incomingNumber) {
             // Update the current call state
             TelephonyService.this.callState = state;
+            // Update the incomingNumber
+            TelephonyService.this.incomingNumber = incomingNumber;
             // Notify the call state listeners
             notifyCallStateListeners(state, incomingNumber);
         };
@@ -226,21 +231,32 @@ public class TelephonyService extends Service implements ITelephony {
                 // The listener wish to monitor the call state, add it to the
                 // list
                 listenersCallState.add(listener);
+                // Notify it immediatly with the current data
+                listener.onCallStateChanged(callState, incomingNumber);
             } else if ((events & TelephonyListener.LISTEN_CELL_INFO) == TelephonyListener.LISTEN_CELL_INFO) {
                 // The listener wish to monitor the cells infos, add it to the
                 // list
                 listenersCellInfo.add(listener);
+                // Notify it immediatly with a read only copy of allCellInfos
+                listener.onCellInfoChanged(Collections
+                        .unmodifiableList(allCellInfos));
             } else if ((events & TelephonyListener.LISTEN_DATA_STATE) == TelephonyListener.LISTEN_DATA_STATE) {
                 // The listener wish to monitor the data state, add it to the
                 // list
                 listenersDataState.add(listener);
+                // Notify it immediatly with the current data
+                listener.onDataStateChanged(dataState, networkType);
             } else if ((events & TelephonyListener.LISTEN_LOCATION) == TelephonyListener.LISTEN_LOCATION) {
                 // The listener wish to monitor the location, add it to the list
                 listenersLocation.add(listener);
+                // Notify it immediatly with the current data
+                listener.onLocationChanged(location);
             } else if ((events & TelephonyListener.LISTEN_SIGNAL_STRENGTHS) == TelephonyListener.LISTEN_SIGNAL_STRENGTHS) {
                 // The listener wish to monitor the signal strength, add it to
                 // the list
                 listenersSignalStrength.add(listener);
+                // Notify it immediatly with the current data
+                listener.onSignalStrengthsChanged(signalStrength);
             }
         }
     }

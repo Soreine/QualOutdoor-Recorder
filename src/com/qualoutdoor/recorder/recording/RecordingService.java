@@ -1,5 +1,7 @@
 package com.qualoutdoor.recorder.recording;
 
+import java.util.ArrayList;
+
 import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
@@ -22,6 +24,8 @@ public class RecordingService extends Service {
     /** Indicates if a recording process is ongoing */
     private boolean isRecording = false;
 
+    /** The listeners to the recording state */
+    private ArrayList<RecordingListener> recordingListeners = new ArrayList<RecordingListener>();
     /** A fake recording thread */
     private Thread thread;
 
@@ -30,9 +34,6 @@ public class RecordingService extends Service {
         Log.d("RecordingService", "onCreate");
         // Initialize a RecordingBinder that knows this Service
         mRecordingBinder = new LocalBinder<RecordingService>(this);
-        // Initialize the recording state
-        isRecording = false;
-        super.onCreate();
     }
 
     @Override
@@ -85,17 +86,20 @@ public class RecordingService extends Service {
             public void run() {
                 try {
                     while (true) {
-                        Log.d("Thread", "Tic");
+                        Log.d("Recording Thread", "Tic");
                         sleep(3000);
-                        Log.d("Thread", "Toc");
+                        Log.d("Recording Thread", "Toc");
                         sleep(3000);
                     }
                 } catch (InterruptedException e) {
-                    Log.d("Thread", "Interrupted exception");
+                    Log.d("Recording Thread", "Interrupted exception");
                 }
             }
         };
         thread.start();
+        
+        // Notify the listeners
+        notifyRecording();
     }
 
     /** Stop the recording process */
@@ -106,10 +110,34 @@ public class RecordingService extends Service {
         thread = null;
         // Update the recording state
         isRecording = false;
+        // Notify the listeners
+        notifyRecording();
         // Stop being foreground as we are no longer recording and remove
         // notification
         stopForeground(true);
         // Stop self
         stopSelf();
+    }
+
+    /** Add a recording listener */
+    public void register(RecordingListener listener) {
+        // Add it to the list
+        recordingListeners.add(listener);
+        // Notify it immediatly
+        listener.onRecordingChanged(isRecording);
+    }
+
+    /** Remove a recording listener */
+    public void unregister(RecordingListener listener) {
+        // Remove it from the list
+        recordingListeners.remove(listener);
+    }
+
+    /** Notify all the recording listener */
+    private void notifyRecording() {
+        for (RecordingListener listener : recordingListeners) {
+            // For each listener, notify
+            listener.onRecordingChanged(isRecording);
+        }
     }
 }
