@@ -3,15 +3,15 @@ package com.qualoutdoor.recorder.telephony;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.telephony.CellInfo;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
-import com.qualoutdoor.recorder.telephony.TelephonyListener;
 import android.util.Log;
+
+import com.qualoutdoor.recorder.LocalBinder;
 
 /**
  * This service is an Android implementation of ITelephony, it uses a
@@ -57,9 +57,9 @@ public class TelephonyService extends Service implements ITelephony {
             allCellInfos.clear();
 
             // Return if cellInfos is null
-            if(cellInfos == null)
+            if (cellInfos == null)
                 return;
-            
+
             // Declare the variable holding the converted cell
             CustomCellInfo customCell;
             // Update the current ICellInfo list and retrieve the signal
@@ -87,13 +87,16 @@ public class TelephonyService extends Service implements ITelephony {
     private int networkType;
     /** The current call state */
     private int callState;
-    
+
     /** The current visible cells */
     private ArrayList<ICellInfo> allCellInfos;
     /** This is the estimated max size for the cell info array list */
     private static final int ESTIMATED_MAX_CELLS = 10;
 
     /****** The listeners list ******/
+    // Note : Might use CopyOnWriteArrayList to avoid
+    // ConcurrentModificationExceptions if a
+    // listener attempts to remove itself during event notification.
     /** Store the listeners listening to LISTEN_CALL_STATE */
     private ArrayList<TelephonyListener> listenersCallState = new ArrayList<TelephonyListener>();
     /** Store the listeners listening to LISTEN_CELL_INFO */
@@ -108,7 +111,7 @@ public class TelephonyService extends Service implements ITelephony {
     @Override
     public void onCreate() {
         // Initialize a TelephonyBinder that knows this Service
-        mTelephonyBinder = new TelephonyBinder(this);
+        mTelephonyBinder = new LocalBinder<TelephonyService>(this);
 
         // Retrieve an instance of Telephony Manager
         telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);

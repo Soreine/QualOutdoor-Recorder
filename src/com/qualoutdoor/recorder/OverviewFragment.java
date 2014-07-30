@@ -9,9 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.qualoutdoor.recorder.telephony.TelephonyContext;
 import com.qualoutdoor.recorder.telephony.TelephonyService;
-import com.qualoutdoor.recorder.telephony.TelephonyServiceConnection;
-import com.qualoutdoor.recorder.telephony.TelephonyServiceConnectionProvider;
 
 /**
  * This fragment displays the main informations of the phone state on a single
@@ -21,7 +20,7 @@ import com.qualoutdoor.recorder.telephony.TelephonyServiceConnectionProvider;
 public class OverviewFragment extends Fragment {
 
 	/** The TelephonyServiceConnection used to connect to the TelephonyService */
-	private TelephonyServiceConnection telephonyServCo;
+	private ServiceProvider<TelephonyService> telephonyService;
 
 	/** The signal strength value text view */
 	private TextView viewSignalStrength;
@@ -39,15 +38,15 @@ public class OverviewFragment extends Fragment {
 		super.onAttach(activity);
 		try {
 			// This cast makes sure that the container activity has implemented
-			// TelephonyServiceConnectionProvider
-			TelephonyServiceConnectionProvider serviceProvider = (TelephonyServiceConnectionProvider) getActivity();
+			// TelephonyContext
+			TelephonyContext telephonyContext = (TelephonyContext) getActivity();
 
 			// Retrieve the service connection
-			telephonyServCo = serviceProvider.getTelephonyServiceConnection();
+			telephonyService = telephonyContext.getTelephonyServiceProvider();
 		} catch (ClassCastException e) {
 			throw new ClassCastException(activity.toString()
 					+ " must implement "
-					+ TelephonyServiceConnectionProvider.class.toString());
+					+ TelephonyContext.class.toString());
 		}
 	}
 
@@ -72,8 +71,8 @@ public class OverviewFragment extends Fragment {
 
 	@Override
 	public void onStart() {
-		if(telephonyServCo.isBound()) {
-			TelephonyService service = telephonyServCo.getService();
+		if(telephonyService.isAvailable()) {
+			TelephonyService service = telephonyService.getService();
 			// Fill in the view fields values
 			viewSignalStrength.setText(service.getSignalStrength().getDbm() + " (dBm)");
 		
@@ -82,7 +81,7 @@ public class OverviewFragment extends Fragment {
 			viewNetworkTypeCode.setText(networkNames[service.getNetworkType()]);
 		}
 		else {
-			Log.d(this.getClass().toString(), "not bound :(");
+			Log.d(this.getClass().toString(), "not available :(");
 		}
 		super.onStart();
 	}

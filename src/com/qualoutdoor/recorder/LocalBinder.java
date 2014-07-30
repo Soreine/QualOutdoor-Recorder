@@ -1,24 +1,24 @@
-package com.qualoutdoor.recorder.telephony;
+package com.qualoutdoor.recorder;
 
 import android.os.Binder;
 
 /**
- * The local binder for the TelephonyService. Caution, this works only if the
+ * A local binder for a local service S. Caution, this works only if the
  * service and the component binding to it are in the same process.
  */
-public class TelephonyBinder extends Binder {
+public class LocalBinder<S> extends Binder {
 
 	/** The service that provided this binder */
-	private TelephonyService myService;
+	private S myService;
 
 	/** A constructor for the binder to know its service */
-	public TelephonyBinder(TelephonyService service) {
+	public LocalBinder(S service) {
 		super();
 		myService = service;
 	}
 
 	/** Get the service that provided this binder */
-	public TelephonyService getService() {
+	public S getService() {
 		return myService;
 	}
 }

@@ -3,7 +3,6 @@ package com.qualoutdoor.recorder;
 /***********************************************************************/
 /* Imported packages */
 /***********************************************************************/
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
@@ -25,66 +24,71 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.qualoutdoor.recorder.recording.RecordingContext;
 import com.qualoutdoor.recorder.recording.RecordingService;
-import com.qualoutdoor.recorder.recording.RecordingServiceConnection;
 import com.qualoutdoor.recorder.settings.SettingsActivity;
 import com.qualoutdoor.recorder.telephony.ITelephony;
+import com.qualoutdoor.recorder.telephony.TelephonyContext;
 import com.qualoutdoor.recorder.telephony.TelephonyListener;
 import com.qualoutdoor.recorder.telephony.TelephonyService;
-import com.qualoutdoor.recorder.telephony.TelephonyServiceConnection;
-import com.qualoutdoor.recorder.telephony.TelephonyServiceConnectionProvider;
 
-public class MainActivity extends ActionBarActivity implements
-        TelephonyServiceConnectionProvider {
+public class MainActivity extends ActionBarActivity implements RecordingContext, TelephonyContext{
 
-    /***********************************************************************/
-    /* Public attributes */
-    /***********************************************************************/
+    /**************** State variable *******************/
+    /** The current network type code */
+    private int mNetworkType = ITelephony.NETWORK_TYPE_UNKNOWN;
+    /** The data connection state */
+    private int mDataState = ITelephony.DATA_DISCONNECTED;
+    /** If the app is recording */
+    private boolean mIsRecording = false;
 
-    /***********************************************************************/
-    /* Private attributes */
-    /***********************************************************************/
-
-    /** A reference to the TelephonyService */
-    private TelephonyService telephonyService;
     /** The telephony listener for the UI component in MainActivity */
     private TelephonyListener telephonyListener = new TelephonyListener() {
         @Override
         public void onDataStateChanged(int state, int networkType) {
-            updateNetwork(networkType);
-            updateDataState(state);
+            // Update the network var
+            mNetworkType = networkType;
+            // Update the UI
+            updateNetworkView();
+            // Update the data state var
+            mDataState = state;
+            // Update the UI
+            updateDataStateView();
         };
     };
+    
     /** The events the telephony listener will monitor */
     private int telephonyEvents = TelephonyListener.LISTEN_DATA_STATE;
-    /** The TelephonyServiceConnection used to connect to the TelephonyService */
-    private TelephonyServiceConnection telServiceConnection = new TelephonyServiceConnection() {
+    /** The TelephonyServiceConnection used to access the TelephonyService */
+    private LocalServiceConnection<TelephonyService> telServiceConnection = new LocalServiceConnection<TelephonyService>(
+            TelephonyService.class);
+    /**
+     * This component define the behavior when the TelephonyService becomes
+     * available
+     */
+    private ServiceListener<TelephonyService> telephonyServiceListener = new ServiceListener<TelephonyService>() {
         @Override
-        public void onServiceObtained() {
-            // Give the service to the activity
-            MainActivity.this.telephonyService = this.getService();
-            // Register listener
-            MainActivity.this.telephonyService.listen(telephonyListener,
-                    telephonyEvents);
+        public void onServiceAvailable(TelephonyService service) {
+            // Register the telephony listener
+            service.listen(telephonyListener, telephonyEvents);
         }
     };
 
-    @Override
-    public TelephonyServiceConnection getTelephonyServiceConnection() {
-        return telServiceConnection;
-    }
-
-    /** A reference to the RecordingService */
-    private RecordingService recordingService;
-    /** The TelephonyServiceConnection used to connect to the TelephonyService */
-    private RecordingServiceConnection recServiceConnection = new RecordingServiceConnection() {
+    /** The TelephonyServiceConnection used to access the TelephonyService */
+    private LocalServiceConnection<RecordingService> recServiceConnection = new LocalServiceConnection<RecordingService>(
+            RecordingService.class);
+    /**
+     * This component define the behavior when the RecordingService becomes
+     * available
+     */
+    private ServiceListener<RecordingService> recordingServiceListener = new ServiceListener<RecordingService>() {
         @Override
-        public void onServiceObtained() {
-            // Give the service to the activity
-            MainActivity.this.recordingService = this.getService();
+        public void onServiceAvailable(RecordingService service) {
+            // TODO update the recording button
         }
     };
 
+    /*********** Navigation Drawer ****************/
     /** The current fragment title */
     private CharSequence fragmentTitle;
     /** The drawer title */
@@ -105,9 +109,11 @@ public class MainActivity extends ActionBarActivity implements
     private ListView drawerList;
     /**
      * A DrawerListener that integrate well with the ActionBar and handle the
-     * Navigation Drawer behaviors
+     * Navigation Drawer physical behaviors
      */
     private ActionBarDrawerToggle drawerToggle;
+
+    /*********** Action Bar Menu ****************/
 
     /**
      * The view located in the action bar which displays the current network
@@ -122,6 +128,10 @@ public class MainActivity extends ActionBarActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Register the service listeners
+        telServiceConnection.register(telephonyServiceListener);
+        recServiceConnection.register(recordingServiceListener);
+        
         // Initialize the drawer title
         drawerTitle = getResources().getString(R.string.title_activity_main);
         // Retrieve the navigation titles
@@ -229,40 +239,20 @@ public class MainActivity extends ActionBarActivity implements
     protected void onStart() {
         super.onStart();
         Log.d("MainActivity", "onStart");
-
-        // We do not check if the ServiceConnections are bound already,
-        // because it seems they never are when starting the activity...
-
         // Bind to the TelephonyService
-        {
-            // Create an intent toward TelephonyService
-            Intent intent = new Intent(this, TelephonyService.class);
-            // Bind to TelephonyService through TelephonyServiceConnection
-            bindService(intent, telServiceConnection, Context.BIND_AUTO_CREATE);
-        }
-
+        telServiceConnection.bindToService(this);
         // Bind to the RecordingService
-        {
-            // Create an intent toward TelephonyService
-            Intent intent = new Intent(this, RecordingService.class);
-            // bind to RecordingService through our RecordingServiceConnection
-            bindService(intent, recServiceConnection, Context.BIND_AUTO_CREATE);
-        }
+        recServiceConnection.bindToService(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         Log.d("MainActivity", "onStop");
-
         // Unbind from the TelephonyService if needed
-        if (telServiceConnection.isBound()) {
-            unbindService(telServiceConnection);
-        }
+        unbindService(telServiceConnection);
         // Unbind from the RecordingService if needed
-        if (recServiceConnection.isBound()) {
-            unbindService(recServiceConnection);
-        }
+        unbindService(recServiceConnection);
     }
 
     /** The navigation drawer items click listener */
@@ -326,58 +316,62 @@ public class MainActivity extends ActionBarActivity implements
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        // Check that we are bound to the recording service and if it is
-        // recording
-        if (recServiceConnection.isBound() && recordingService.isRecording()) {
-            // The icon should represent the stop record action
-            recordMenuItem.setIcon(R.drawable.recording);
-        } else {
-            // The icon should represent the start record action
-            recordMenuItem.setIcon(R.drawable.not_recording);
-        }
-
-        // Initialize the network info view
-        {// The current network is unknown
-            int currentNetwork = ITelephony.NETWORK_TYPE_UNKNOWN;
-            // We first assume that data is off
-            int dataState = ITelephony.DATA_DISCONNECTED;
-            // If we can access to the TelephonyService
-            if (telServiceConnection.isBound()) {
-                // Get the current network type
-                currentNetwork = telephonyService.getNetworkType();
-                // Get the phonte state
-                dataState = telephonyService.getDataState();
+        { // TODO export in a updateRecordingButton
+          // Check if we are recording
+            if (mIsRecording) {
+                // The icon should represent the stop record action
+                recordMenuItem.setIcon(R.drawable.recording);
+            } else {
+                // The icon should represent the start record action
+                recordMenuItem.setIcon(R.drawable.not_recording);
             }
-            // Update the network view
-            updateNetwork(currentNetwork);
-            updateDataState(dataState);
         }
+        // Update the network view
+        updateNetworkView();
+        // Update the data state view
+        updateDataStateView();
+
         return super.onPrepareOptionsMenu(menu);
     }
 
     /** Update the data state indicator in the UI */
-    private void updateDataState(int currentDataState) {
-        // Set the network view style according to the data state
-        if (currentDataState == TelephonyManager.DATA_CONNECTED) {
-            // Data is on
-            // Change color to highlight the state
-            networkView.setTextColor(getResources().getColor(
-                    R.color.network_info_highlight));
-            networkView.setTypeface(null, Typeface.BOLD_ITALIC);
-        } else {
-            // Data is off
-            networkView.setTextColor(getResources().getColor(
-                    R.color.normal_text));
-            networkView.setTypeface(null, Typeface.NORMAL);
-        }
+    private void updateDataStateView() {
+        // Access the UI element from the UI thread
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // Set the network view style according to the data state
+                if (mDataState == TelephonyManager.DATA_CONNECTED) {
+                    // Data is on
+                    // Change color to highlight the state
+                    networkView.setTextColor(getResources().getColor(
+                            R.color.network_info_highlight));
+                    networkView.setTypeface(null, Typeface.BOLD_ITALIC);
+                } else {
+                    // Data is off
+                    networkView.setTextColor(getResources().getColor(
+                            R.color.normal_text));
+                    networkView.setTypeface(null, Typeface.NORMAL);
+                }
+                networkView.invalidate();
+            }
+        });
     }
 
-    public void updateNetwork(int currentNetwork) {
-        // Find the network names array
-        String[] networkNames = getResources().getStringArray(
-                R.array.network_type_name);
-        // Initialize the text view with the current network type string
-        networkView.setText(networkNames[currentNetwork]);
+    /** Update the current network type indicator in the UI */
+    private void updateNetworkView() {
+        // Access the UI element from the UI thread
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // Find the network names array
+                String[] networkNames = getResources().getStringArray(
+                        R.array.network_type_name);
+                // Initialize the text view with the current network type string
+                networkView.setText(networkNames[mNetworkType]);
+                networkView.invalidate();
+            }
+        });
     }
 
     @Override
@@ -391,10 +385,10 @@ public class MainActivity extends ActionBarActivity implements
         switch (item.getItemId()) {
         case R.id.action_record:
             // Check that we are bound to the recording service
-            if (recServiceConnection.isBound()) {
-                if (recordingService.isRecording()) {
+            if (recServiceConnection.isAvailable()) {
+                if (recServiceConnection.getService().isRecording()) {
                     // The service is recording, so stop the recording
-                    recordingService.stopRecording();
+                    recServiceConnection.getService().stopRecording();
                 } else {
                     // The service is not recording, so start the service
                     Intent recordingServiceIntent = new Intent(this,
@@ -402,6 +396,7 @@ public class MainActivity extends ActionBarActivity implements
                     startService(recordingServiceIntent);
                 }
 
+                // TODO callback from the RecordingService
                 // Update the Options Menu view (for the record icon to change)
                 supportInvalidateOptionsMenu();
             }
@@ -446,6 +441,16 @@ public class MainActivity extends ActionBarActivity implements
         Intent intent = new Intent(this, DisplayHelpActivity.class);
         // Start the activity
         startActivity(intent);
+    }
+
+    @Override
+    public ServiceProvider<TelephonyService> getTelephonyServiceProvider() {
+        return telServiceConnection;
+    }
+
+    @Override
+    public ServiceProvider<RecordingService> getRecordingServiceProvider() {
+        return recServiceConnection;
     }
 
 }

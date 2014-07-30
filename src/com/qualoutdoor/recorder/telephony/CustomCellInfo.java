@@ -19,33 +19,36 @@ public class CustomCellInfo implements ICellInfo {
      * let us provide partial informations. Plus they are easily passed between
      * activities.
      */
-    private Bundle              infoBundle;
+    private Bundle infoBundle;
 
     /************ The bundle keys ****************/
     /** Stores the cell type code. Holds an int. */
-    public static final String  CELL_TYPE       = "cell_type";
+    public static final String CELL_TYPE = "cell_type";
     /** Stores the timestamp value. Holds a long integer. */
-    public static final String  TIMESTAMP       = "timestamp";
+    public static final String TIMESTAMP = "timestamp";
     /** Stores if the cell is registered. Holds a boolean. */
-    public static final String  IS_REGISTERED   = "is_registered";
+    public static final String IS_REGISTERED = "is_registered";
     /**
      * Stores the signal strength. Holds a bundle containing the signal strength
      * values.
      */
-    public static final String  SIGNAL_STRENGTH = "signal_strength";
+    public static final String SIGNAL_STRENGTH = "signal_strength";
     /** Stores the Cell ID. Holds an int. */
-    public static final String  CID             = "cid";
+    public static final String CID = "cid";
     /** Stores the Location Area Code. Holds an int. */
-    public static final String  LAC             = "lac";
+    public static final String LAC = "lac";
     /** Stores the Mobile Country Code. Holds an int. */
-    public static final String  MCC             = "mcc";
+    public static final String MCC = "mcc";
     /** Stores the Mobile Network Code. Holds an int. */
-    public static final String  MNC             = "mnc";
+    public static final String MNC = "mnc";
     /** Stores the Primary Scrambling Code. Holds an int. */
-    public static final String  PSC             = "psc";
+    public static final String PSC = "psc";
 
-    /** This is a bundle we use to initialize the default values for a CustomCellInfo */
-    private static final Bundle defaultBundle   = new Bundle();
+    /**
+     * This is a bundle we use to initialize the default values for a
+     * CustomCellInfo
+     */
+    private static final Bundle defaultBundle = new Bundle();
     {
         defaultBundle.putInt(CELL_TYPE, CELL_UNKNOWN);
         defaultBundle.putLong(TIMESTAMP, Long.MAX_VALUE);
