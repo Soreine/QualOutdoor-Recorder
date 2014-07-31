@@ -13,7 +13,9 @@ public class TelephonyListener {
     /*********************************************
      * Theses constant are used as bitwise mask, hence the power of two.
      *********************************************/
-
+//    0 0 0 0 0  0  0  0   0   0   0    0
+//    1 2 4 8 16 32 64 128 256 512 1024 2048
+//    0 0 0 1 0  0  1  0   1
     /** Listen for changes to the device call state. */
     public static final int LISTEN_CALL_STATE = 8;
     /** Listen for changes to observed cell info. */

@@ -2,6 +2,7 @@ package com.qualoutdoor.recorder.telephony;
 
 import android.os.Bundle;
 import android.telephony.CellSignalStrength;
+import android.util.Log;
 
 public class CustomSignalStrength implements ISignalStrength {
 

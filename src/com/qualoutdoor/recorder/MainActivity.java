@@ -60,7 +60,7 @@ public class MainActivity extends ActionBarActivity implements
     };
 
     /** The events the telephony listener will monitor */
-    private int telephonyEvents = TelephonyListener.LISTEN_DATA_STATE;
+    private final static int telephonyEvents = TelephonyListener.LISTEN_DATA_STATE;
     /** The TelephonyServiceConnection used to access the TelephonyService */
     private LocalServiceConnection<TelephonyService> telServiceConnection = new LocalServiceConnection<TelephonyService>(
             TelephonyService.class);

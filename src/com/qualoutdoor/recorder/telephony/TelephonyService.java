@@ -29,8 +29,7 @@ public class TelephonyService extends Service implements ITelephony {
 
     /** The events the phone state listener is monitoring */
     private static int events = PhoneStateListener.LISTEN_CALL_STATE
-            // | PhoneStateListener.LISTEN_SIGNAL_STRENGTHS we use the cells
-            // infos instead
+            | PhoneStateListener.LISTEN_SIGNAL_STRENGTHS
             | PhoneStateListener.LISTEN_DATA_CONNECTION_STATE
             | PhoneStateListener.LISTEN_SERVICE_STATE
             | PhoneStateListener.LISTEN_CELL_INFO;
@@ -91,37 +90,32 @@ public class TelephonyService extends Service implements ITelephony {
         };
 
         @Override
-        public void onCellInfoChanged(List<CellInfo> cellInfos) {
-            // Reset the cell info array list
-            allCellInfos.clear();
+        public void onCellInfoChanged(List<CellInfo> newCellInfos) {
+            Log.d("TelephonyService", "onCellInfoChanged");
 
+            // TODO Error log
+            List<CellInfo> cellInfos = newCellInfos;
             // Return if cellInfos is null
-            if (cellInfos == null)
-                return;
-
-            // Declare the variable holding the converted cell
-            CustomCellInfo customCell;
-            // Update the current ICellInfo list and retrieve the signal
-            // strength at the same time.
-            for (CellInfo cell : cellInfos) {
-                // Create a corresponding ICellInfo and
-                customCell = CustomCellInfo.buildFromCellInfo(cell);
-                // Add it to the list
-                allCellInfos.add(customCell);
-                // Check if this is the primary cell
-                if (cell.isRegistered()) {
-                    // This is the signal strength you are looking for
-                    signalStrength = customCell.getSignalStrength();
-                    // Notify the signal strength listeners
-                    notifySignalStrengthListeners(signalStrength);
+            if (cellInfos == null) {
+                Log.d("TelephonyService", "newCellInfo = null");
+                // Try getAllCellInfos
+                cellInfos = telephonyManager.getAllCellInfo();
+                if (cellInfos == null) {
+                    Log.d("TelephonyService", "getAllCellInfo = null");
+                    return;
                 }
             }
-            // Create a non modifiable ICellInfo list
-            List<ICellInfo> unmodifiableCellInfo = Collections
-                    .unmodifiableList(allCellInfos);
-            // Notify the cell info listeners
-            notifyCellInfoListeners(unmodifiableCellInfo);
+            // Update the cell infos and notify
+            updateCellInfos(cellInfos);
+        };
 
+        @Override
+        public void onSignalStrengthsChanged(
+                android.telephony.SignalStrength signalStrength) {
+            // TODO We are not currently able to parse a SignalStrength so we
+            // just update the CellInfo list instead. This has the effect to
+            // update the signal strength value ;)
+            updateCellInfos(telephonyManager.getAllCellInfo());
         };
     };
 
@@ -170,9 +164,7 @@ public class TelephonyService extends Service implements ITelephony {
 
     @Override
     public List<ICellInfo> getAllCellInfo() {
-        // TODO convert the List<CellInfo> from TelephonyManager to a
-        // List<ICellInfo>
-        return new ArrayList<ICellInfo>();
+        return allCellInfos;
     }
 
     @Override
@@ -222,6 +214,7 @@ public class TelephonyService extends Service implements ITelephony {
             listenersLocation.remove(listener);
             listenersSignalStrength.remove(listener);
         } else {
+            Log.d("TelephonyService", "Registering " + events);
             // Add the listener to the corresponding list, according to the
             // events
             // it is subscribing to.
@@ -233,25 +226,29 @@ public class TelephonyService extends Service implements ITelephony {
                 listenersCallState.add(listener);
                 // Notify it immediatly with the current data
                 listener.onCallStateChanged(callState, incomingNumber);
-            } else if ((events & TelephonyListener.LISTEN_CELL_INFO) == TelephonyListener.LISTEN_CELL_INFO) {
+            }
+            if ((events & TelephonyListener.LISTEN_CELL_INFO) == TelephonyListener.LISTEN_CELL_INFO) {
                 // The listener wish to monitor the cells infos, add it to the
                 // list
                 listenersCellInfo.add(listener);
                 // Notify it immediatly with a read only copy of allCellInfos
                 listener.onCellInfoChanged(Collections
                         .unmodifiableList(allCellInfos));
-            } else if ((events & TelephonyListener.LISTEN_DATA_STATE) == TelephonyListener.LISTEN_DATA_STATE) {
+            }
+            if ((events & TelephonyListener.LISTEN_DATA_STATE) == TelephonyListener.LISTEN_DATA_STATE) {
                 // The listener wish to monitor the data state, add it to the
                 // list
                 listenersDataState.add(listener);
                 // Notify it immediatly with the current data
                 listener.onDataStateChanged(dataState, networkType);
-            } else if ((events & TelephonyListener.LISTEN_LOCATION) == TelephonyListener.LISTEN_LOCATION) {
+            }
+            if ((events & TelephonyListener.LISTEN_LOCATION) == TelephonyListener.LISTEN_LOCATION) {
                 // The listener wish to monitor the location, add it to the list
                 listenersLocation.add(listener);
                 // Notify it immediatly with the current data
                 listener.onLocationChanged(location);
-            } else if ((events & TelephonyListener.LISTEN_SIGNAL_STRENGTHS) == TelephonyListener.LISTEN_SIGNAL_STRENGTHS) {
+            }
+            if ((events & TelephonyListener.LISTEN_SIGNAL_STRENGTHS) == TelephonyListener.LISTEN_SIGNAL_STRENGTHS) {
                 // The listener wish to monitor the signal strength, add it to
                 // the list
                 listenersSignalStrength.add(listener);
@@ -267,11 +264,45 @@ public class TelephonyService extends Service implements ITelephony {
 
     }
 
+    /**
+     * Parse a CellInfo list and update the allCellInfo, then notify the
+     * listeners from the changes
+     */
+    private void updateCellInfos(List<CellInfo> cellInfos) {
+        // Reset the cell info array list
+        allCellInfos.clear();
+
+        // Declare the variable holding the converted cell
+        CustomCellInfo customCell;
+        // Update the current ICellInfo list and retrieve the signal
+        // strength at the same time.
+        for (CellInfo cell : cellInfos) {
+            // Create a corresponding ICellInfo and
+            customCell = CustomCellInfo.buildFromCellInfo(cell);
+            // Add it to the list
+            allCellInfos.add(customCell);
+            // Check if this is the primary cell
+            if (customCell.isRegistered()) {
+                Log.d("TelephonyService", "Registered " + cell.toString());
+                // This is the signal strength you are looking for
+                signalStrength = customCell.getSignalStrength();
+                // Notify the signal strength listeners
+                notifySignalStrengthListeners(signalStrength);
+            }
+        }
+        // Create a non modifiable ICellInfo list
+        List<ICellInfo> unmodifiableCellInfo = Collections
+                .unmodifiableList(allCellInfos);
+        // Notify the cell info listeners
+        notifyCellInfoListeners(unmodifiableCellInfo);
+    }
+
     /** Notify each cell info listeners with the current ICellInfo list */
     private void notifyCellInfoListeners(List<ICellInfo> cellInfos) {
         for (TelephonyListener listener : listenersCellInfo) {
             // For each listener, notify
             listener.onCellInfoChanged(cellInfos);
+            Log.d("TelephonyService", "notify " + listener.toString());
         }
     }
 
@@ -280,7 +311,10 @@ public class TelephonyService extends Service implements ITelephony {
      * value
      */
     private void notifySignalStrengthListeners(ISignalStrength signalStrength) {
+        Log.d("TelephonyService", "notifySignalStrengthListeners");
         for (TelephonyListener listener : listenersCellInfo) {
+            Log.d("TelephonyService", "listener.onSignalStrengthChanged "
+                    + listener.toString());
             // For each listener, notifyallCellInfosUnmodifiable
             listener.onSignalStrengthsChanged(signalStrength);
         }
