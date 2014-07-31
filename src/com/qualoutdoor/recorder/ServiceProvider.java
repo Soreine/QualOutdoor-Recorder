@@ -1,10 +1,12 @@
 package com.qualoutdoor.recorder;
 
+import android.app.Service;
+
 /**
  * A component implementing this interface is able to provide a reference to a
  * Service of type 'S'.
  */
-public interface ServiceProvider<S> {
+public interface ServiceProvider<S extends Service> {
 
     /**
      * Get a reference to the service this component provides. Throws an

@@ -3,6 +3,7 @@ package com.qualoutdoor.recorder;
 import java.util.LinkedList;
 import java.util.List;
 
+import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +14,7 @@ import android.os.IBinder;
  * This ServiceConnection is meant to be used for connecting a component to
  * services within the same process. Indeed we cast IBinder to LocalBinder.
  */
-public class LocalServiceConnection<S> implements ServiceProvider<S>,
+public class LocalServiceConnection<S extends Service> implements ServiceProvider<S>,
         ServiceConnection {
     /** The class of the Service S */
     private final Class<S> serviceClass;
@@ -38,7 +39,7 @@ public class LocalServiceConnection<S> implements ServiceProvider<S>,
     /**
      * Bind the given context to a Service S through this ServiceConnection.
      * 
-     * @param context
+     * @param contextS.
      *            The context to bind to the service through this
      *            ServiceConnection
      * @return True if the Service has bound successfully
