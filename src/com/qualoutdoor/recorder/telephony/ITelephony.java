@@ -2,6 +2,8 @@ package com.qualoutdoor.recorder.telephony;
 
 import java.util.List;
 
+import com.qualoutdoor.recorder.location.ILocation;
+
 /**
  * This is an interface for a service that can provide information about network
  * state, location, phone state. It is similar to the TelephonyManager class
@@ -80,9 +82,6 @@ public interface ITelephony {
 	 * connection.
 	 */
 	int getNetworkType();
-
-	/** Returns the most recently observed location */
-	ILocation getLocation();
 
 	/** Return the signal strength of the primary cell */
 	ISignalStrength getSignalStrength();

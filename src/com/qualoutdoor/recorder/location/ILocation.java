@@ -1,4 +1,4 @@
-package com.qualoutdoor.recorder.telephony;
+package com.qualoutdoor.recorder.location;
 
 /** This is an interface for accessing a location details */
 public interface ILocation {

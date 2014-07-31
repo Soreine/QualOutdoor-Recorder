@@ -2,6 +2,8 @@ package com.qualoutdoor.recorder.telephony;
 
 import java.util.List;
 
+import com.qualoutdoor.recorder.location.ILocation;
+
 /**
  * A listener class for monitoring changes in specific telephony states.
  * Override the methods for the state that you want to receive updates for, and

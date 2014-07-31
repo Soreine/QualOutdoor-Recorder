@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.qualoutdoor.recorder.location.ILocation;
 import com.qualoutdoor.recorder.telephony.ICellInfo;
-import com.qualoutdoor.recorder.telephony.ILocation;
 import com.qualoutdoor.recorder.telephony.ISignalStrength;
 import com.qualoutdoor.recorder.telephony.TelephonyContext;
 import com.qualoutdoor.recorder.telephony.TelephonyListener;

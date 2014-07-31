@@ -6,20 +6,12 @@ import java.util.List;
 
 import android.app.Service;
 import android.content.Intent;
-import android.location.Location;
-import android.os.Bundle;
 import android.os.IBinder;
 import android.telephony.CellInfo;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesClient;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.location.LocationClient;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
 import com.qualoutdoor.recorder.LocalBinder;
 
 /**
@@ -27,14 +19,7 @@ import com.qualoutdoor.recorder.LocalBinder;
  * TelephonyManager to access phone state informations. An app component can
  * bind to it anytime in order to monitor the phone state.
  */
-public class TelephonyService extends Service implements ITelephony,
-        GooglePlayServicesClient.ConnectionCallbacks,
-        GooglePlayServicesClient.OnConnectionFailedListener, LocationListener {
-
-    /** The default value asked for location update (millis) */
-    private static final int DEFAULT_LOCATION_UPDATE_INTERVAL = 2000;
-    /** The fastest location update interval we can handle (millis) */
-    private static final int FASTEST_LOCATION_INTERVAL = 1000;
+public class TelephonyService extends Service implements ITelephony {
 
     /** This is the estimated max size for the cell info array list */
     private static final int ESTIMATED_MAX_CELLS = 10;
@@ -52,8 +37,6 @@ public class TelephonyService extends Service implements ITelephony,
     private int callState;
     /** The incomingNumber */
     private String incomingNumber = "";
-    /** The current location */
-    private ILocation location;
     /** The current visible cells */
     private ArrayList<ICellInfo> allCellInfos;
 
@@ -67,8 +50,6 @@ public class TelephonyService extends Service implements ITelephony,
     private ArrayList<TelephonyListener> listenersCellInfo = new ArrayList<TelephonyListener>();
     /** Store the listeners listening to LISTEN_DATA_STATE */
     private ArrayList<TelephonyListener> listenersDataState = new ArrayList<TelephonyListener>();
-    /** Store the listeners listening to LISTEN_LOCATION */
-    private ArrayList<TelephonyListener> listenersLocation = new ArrayList<TelephonyListener>();
     /** Store the listeners listening to LISTEN_SIGNAL_STRENGTHS */
     private ArrayList<TelephonyListener> listenersSignalStrength = new ArrayList<TelephonyListener>();
 
@@ -135,62 +116,30 @@ public class TelephonyService extends Service implements ITelephony,
         };
     };
 
-    /** Our location request reference */
-    private final LocationRequest locationRequest;
-    {
-        // Create a location request object
-        locationRequest = LocationRequest.create();
-        // Set accuracy to high
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        // Set the update interval equal to default
-        locationRequest.setInterval(DEFAULT_LOCATION_UPDATE_INTERVAL);
-        // Set the fastest update interval
-        locationRequest.setFastestInterval(FASTEST_LOCATION_INTERVAL);
-    }
-
-    /** Flag that indicates if a location request is underway */
-    private boolean locationInProgress;
-
-    /** Our location client reference */
-    private LocationClient locationClient;
-
     @Override
     public void onCreate() {
-        // Initialize telephony objects
+        // Initialize a TelephonyBinder linked to this Service
+        mTelephonyBinder = new LocalBinder<TelephonyService>(this);
+
+        // Retrieve an instance of Telephony Manager
+        telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+
+        // Initialize the current phone state values
         {
-            // Initialize a TelephonyBinder linked to this Service
-            mTelephonyBinder = new LocalBinder<TelephonyService>(this);
-
-            // Retrieve an instance of Telephony Manager
-            telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-
-            // Initialize the current phone state values
-            {
-                // Initialize the signal strength
-                signalStrength = new CustomSignalStrength();
-                // Initialize the call state
-                callState = telephonyManager.getCallState();
-                // Initialize the network type
-                networkType = telephonyManager.getNetworkType();
-                // Initialize the data state
-                dataState = telephonyManager.getDataState();
-                // Initialize the cell list
-                allCellInfos = new ArrayList<ICellInfo>(ESTIMATED_MAX_CELLS);
-            }
-
-            // Start listening to phone state
-            telephonyManager.listen(phoneStateListener, events);
+            // Initialize the signal strength
+            signalStrength = new CustomSignalStrength();
+            // Initialize the call state
+            callState = telephonyManager.getCallState();
+            // Initialize the network type
+            networkType = telephonyManager.getNetworkType();
+            // Initialize the data state
+            dataState = telephonyManager.getDataState();
+            // Initialize the cell list
+            allCellInfos = new ArrayList<ICellInfo>(ESTIMATED_MAX_CELLS);
         }
 
-        // Initialize locations objects
-        {
-            // No location request is underway
-            locationInProgress = false;
-            // Create a new location client using this class to handle callbacks
-            locationClient = new LocationClient(this, this, this);
-            
-            
-        }
+        // Start listening to phone state
+        telephonyManager.listen(phoneStateListener, events);
         super.onCreate();
     }
 
@@ -238,12 +187,6 @@ public class TelephonyService extends Service implements ITelephony,
     }
 
     @Override
-    public ILocation getLocation() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
     public ISignalStrength getSignalStrength() {
         // Return the current signal strength
         return signalStrength;
@@ -257,7 +200,6 @@ public class TelephonyService extends Service implements ITelephony,
             listenersCallState.remove(listener);
             listenersCellInfo.remove(listener);
             listenersDataState.remove(listener);
-            listenersLocation.remove(listener);
             listenersSignalStrength.remove(listener);
         } else {
             Log.d("TelephonyService", "Registering " + events);
@@ -287,12 +229,6 @@ public class TelephonyService extends Service implements ITelephony,
                 listenersDataState.add(listener);
                 // Notify it immediatly with the current data
                 listener.onDataStateChanged(dataState, networkType);
-            }
-            if ((events & TelephonyListener.LISTEN_LOCATION) == TelephonyListener.LISTEN_LOCATION) {
-                // The listener wish to monitor the location, add it to the list
-                listenersLocation.add(listener);
-                // Notify it immediatly with the current data
-                listener.onLocationChanged(location);
             }
             if ((events & TelephonyListener.LISTEN_SIGNAL_STRENGTHS) == TelephonyListener.LISTEN_SIGNAL_STRENGTHS) {
                 // The listener wish to monitor the signal strength, add it to
@@ -358,7 +294,7 @@ public class TelephonyService extends Service implements ITelephony,
      */
     private void notifySignalStrengthListeners(ISignalStrength signalStrength) {
         Log.d("TelephonyService", "notifySignalStrengthListeners");
-        for (TelephonyListener listener : listenersCellInfo) {
+        for (TelephonyListener listener : listenersSignalStrength) {
             Log.d("TelephonyService", "listener.onSignalStrengthChanged "
                     + listener.toString());
             // For each listener, notifyallCellInfosUnmodifiable
@@ -371,7 +307,7 @@ public class TelephonyService extends Service implements ITelephony,
      * type values
      */
     private void notifyCallStateListeners(int state, String incomingNumber) {
-        for (TelephonyListener listener : listenersCellInfo) {
+        for (TelephonyListener listener : listenersCallState) {
             // For each listener, notify
             listener.onCallStateChanged(state, incomingNumber);
         }
@@ -379,47 +315,10 @@ public class TelephonyService extends Service implements ITelephony,
 
     /** Notify each location listeners with the current ILocation value */
     private void notifyDataStateListeners(int state, int networkType) {
-        for (TelephonyListener listener : listenersCellInfo) {
+        for (TelephonyListener listener : listenersDataState) {
             // For each listener, notify
             listener.onDataStateChanged(state, networkType);
         }
     }
 
-    /** Notify each location listeners with the current ILocation value */
-    private void notifyLocationListeners(ILocation location) {
-        for (TelephonyListener listener : listenersCellInfo) {
-            // For each listener, notify
-            listener.onLocationChanged(location);
-        }
-    }
-
-    /************ Location related method ****************/
-
-    @Override
-    public void onLocationChanged(Location arg0) {
-        // TODO Auto-generated method stub
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult arg0) {
-        // TODO Auto-generated method stub
-    }
-
-    @Override
-    public void onConnected(Bundle arg0) {
-        // TODO Auto-generated method stub
-    }
-
-    @Override
-    public void onDisconnected() {
-        // TODO Auto-generated method stub
-    }
-
-    /** Check whether the Google Play Services are available */
-    private boolean areServicesConnected() {
-        // Check that Google Play services are available
-        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-        // Return if Google Play services are available
-        return (ConnectionResult.SUCCESS == resultCode);
-    }
 }
