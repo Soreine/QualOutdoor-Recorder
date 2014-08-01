@@ -24,7 +24,7 @@
         map:mapType="normal"
         map:uiCompass="true"
         tools:ignore="MissingPrefix" /--> <!-- This is for the map prefix bug -->
-
+<!-- 
     <com.qualoutdoor.recorder.map.ColoredScale
         android:id="@+id/scale"
         android:background="@color/android_vdarkgray"
@@ -37,5 +37,5 @@
         custom:showText="true" 
         custom:startColor="@color/alsett_blue"
         custom:endColor="@color/alsett_lightblue"/>
-
+-->
 </LinearLayout>

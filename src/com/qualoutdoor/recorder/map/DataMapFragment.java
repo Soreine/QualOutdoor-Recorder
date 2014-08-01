@@ -1,7 +1,6 @@
 package com.qualoutdoor.recorder.map;
 
-import java.util.Random;
-
+import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,162 +14,219 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.qualoutdoor.recorder.R;
+import com.qualoutdoor.recorder.ServiceListener;
+import com.qualoutdoor.recorder.ServiceProvider;
+import com.qualoutdoor.recorder.location.ILocation;
+import com.qualoutdoor.recorder.location.ILocationListener;
+import com.qualoutdoor.recorder.location.LocationContext;
+import com.qualoutdoor.recorder.location.LocationService;
+import com.qualoutdoor.recorder.telephony.ISignalStrength;
+import com.qualoutdoor.recorder.telephony.TelephonyContext;
+import com.qualoutdoor.recorder.telephony.TelephonyListener;
+import com.qualoutdoor.recorder.telephony.TelephonyService;
 
-public class DataMapFragment extends Fragment {
+public class DataMapFragment extends Fragment implements ILocationListener {
 
-	private static int numMarkers = 25;
-	private static double melbLat = -37.813;
-	private static double melbLng = 144.962;
-	private static LatLng melbournecenter = new LatLng(melbLat, melbLng);
-	private static LatLng southwest = new LatLng(melbLat - 0.015,
-			melbLng - 0.015);
-	private static LatLng northwest = new LatLng(melbLat + 0.015,
-			melbLng + 0.015);
-	private static LatLngBounds melbourne = new LatLngBounds(southwest,
-			northwest);
-	private static double lat = northwest.latitude - southwest.latitude;
-	private static double lng = northwest.longitude - southwest.longitude;
+    private static final float startHue = 0;
+    private static final float endHue = 120;
 
-	float startHue = 233;
-	float endHue = 170;
+    private ISignalStrength signalStrength;
 
-	// Reference to the Map object
-	private GoogleMap map;
-	// Reference to the MapFragment
-	private SupportMapFragment mapFragment;
+    // Reference to the Map object
+    private GoogleMap map;
+    // Reference to the MapFragment
+    private SupportMapFragment mapFragment;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    private ServiceProvider<TelephonyService> telephonyService;
 
-		// Check if we're being restored from a previous state (in which
-		// case the Fragment is already initialized)
-		if (savedInstanceState != null) {
-			// Do nothing, otherwise we could end up with overlapping
-			// fragments
-			return;
-		}
+    private ServiceProvider<LocationService> locationService;
 
-		// Create options for the Google Map
-		GoogleMapOptions options = new GoogleMapOptions();
-		options.tiltGesturesEnabled(false)
-				.mapType(GoogleMap.MAP_TYPE_TERRAIN)
-				.compassEnabled(false)
-				.camera(new CameraPosition.Builder().target(melbournecenter)
-						.zoom(15).build());
+    private ServiceListener<TelephonyService> telServiceListener = new ServiceListener<TelephonyService>() {
+        @Override
+        public void onServiceAvailable(TelephonyService service) {
+            // Register the telephony listener
+            service.listen(telListener, events);
+        };
+    };
 
-		// Create a new MapFragment to be placed in the fragment layout
-		mapFragment = SupportMapFragment.newInstance(options);
-		
-		// TODO : see what does mapFragment.setRetainInstance(true);
-		// Add the fragment to the 'fragment_container' FrameLayout
-		getFragmentManager().beginTransaction()
-				.add(R.id.map_container, mapFragment).commit();
+    private static final int events = TelephonyListener.LISTEN_SIGNAL_STRENGTHS;
+    private TelephonyListener telListener = new TelephonyListener() {
+        @Override
+        public void onSignalStrengthsChanged(ISignalStrength signalStrength) {
+            // Update signal strength
+            DataMapFragment.this.signalStrength = signalStrength;
+        };
+    };
 
-	}
+    private ServiceListener<LocationService> locServiceListener = new ServiceListener<LocationService>() {
+        @Override
+        public void onServiceAvailable(LocationService service) {
+            // Register as a listener
+            service.register(DataMapFragment.this);
+        }
+    };
+    private ILocation location;
 
-	// Called when the fragment has to instantiate its own view
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		// Inflate the view from the xml layout file
-		View rootView = inflater.inflate(R.layout.fragment_map, container,
-				false);
-		return rootView;
-	}
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            // This cast makes sure that the container activity has implemented
+            // TelephonyContext
+            TelephonyContext telephonyContext = (TelephonyContext) activity;
 
-	@Override
-	public void onResume() {
-		super.onResume();
-		// Check that the map is available
-		if (setUpMapIfNeeded()) {
-			Log.d("Map", "Map available");
-		} else {
-			Log.d("Map", "NO MAP AVAILABLE");
-		}
-	}
+            // Retrieve the service connection
+            telephonyService = telephonyContext.getTelephonyServiceProvider();
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement " + TelephonyContext.class.toString());
+        }
+        try {
+            // This cast makes sure that the container activity has implemented
+            // LocationContext
+            LocationContext locationContext = (LocationContext) activity;
 
-	/**
-	 * Instantiate the Map object from the MapFragment if needed. This is called
-	 * from onCreate and onResume to ensure that the map is always available.
-	 * Returns true if the map is available.
-	 */
-	private boolean setUpMapIfNeeded() {
-		// Do a null check to confirm that we have not already instantiated the
-		// map.
-		if (map == null) {
-			// Obtain the Map object from the MapFragment
-			if (mapFragment == null) {
-				mapFragment = (SupportMapFragment) getFragmentManager()
-						.findFragmentById(R.id.map_container);
-			}
-			map = mapFragment.getMap();
-			// Check if we were successful in obtaining the map.
-			if (map == null) {
-				// Unsuccesful
-				return false;
-			} else {
-				// Initialize markers
-				initMarkers();
-			}
-		}
-		return true;
-	}
+            // Retrieve the service connection
+            locationService = locationContext.getLocationServiceProvider();
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement " + LocationContext.class.toString());
+        }
+    }
 
-	/**
-	 * Add the markers to the map
-	 */
-	private void initMarkers() {
-		Log.d("Map", "InitMarkers");
-		// Center the camera on Melbourne
-		CameraUpdate update = CameraUpdateFactory.newLatLng(melbourne
-				.getCenter());
-		map.moveCamera(update);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		// holding the markers pictures
-		BitmapDescriptor[] icons = new BitmapDescriptor[20];
-		for (int i = 0; i < 20; i++) {
-			icons[i] = BitmapDescriptorFactory.defaultMarker(startHue
-					+ (float) i / 20 * (endHue - startHue));
-		}
+        // Check if we're being restored from a previous state (in which
+        // case the Fragment is already initialized)
+        if (savedInstanceState != null) {
+            // Do nothing, otherwise we could end up with overlapping
+            // fragments
+            return;
+        }
 
-		Random rnd = new Random();
-		// Instantiates a new CircleOptions object and defines the radius in
-		// meters
-		CircleOptions circleOptions = new CircleOptions().radius(20)
-				.strokeColor(0x00000000);
+        // Create options for the Google Map
+        GoogleMapOptions options = new GoogleMapOptions();
+        options.tiltGesturesEnabled(false).mapType(GoogleMap.MAP_TYPE_SATELLITE)
+                .compassEnabled(false);// .camera(new
+                                       // CameraPosition.Builder().zoom(15).build());
 
-		float[] hsv = new float[3];
-		hsv[1] = 255f;
-		hsv[2] = 255f;
+        // Create a new MapFragment to be placed in the fragment layout
+        mapFragment = SupportMapFragment.newInstance(options);
 
-		int sqrtnum = (int) Math.sqrt(numMarkers);
-		for (int x = 0; x < sqrtnum; x++) {
-			for (int y = 0; y < sqrtnum; y++) {
-				float relativeStrength = rnd.nextFloat();
-				float signalStrength = relativeStrength * -20 - 80;
-				LatLng position = new LatLng(southwest.latitude
-						+ ((float) x / sqrtnum) * lat, southwest.longitude
-						+ ((float) y / sqrtnum) * lng);
+        // TODO : see what does mapFragment.setRetainInstance(true);
+        // Add the fragment to the 'fragment_container' FrameLayout
+        getFragmentManager().beginTransaction()
+                .add(R.id.map_container, mapFragment).commit();
 
-				hsv[0] = startHue + relativeStrength * (endHue - startHue);
-				circleOptions.center(position).fillColor(Color.HSVToColor(hsv));
+    }
 
-				// map.addCircle(circleOptions);
+    // Called when the fragment has to instantiate its own view
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        // Inflate the view from the xml layout file
+        View rootView = inflater.inflate(R.layout.fragment_map, container,
+                false);
+        return rootView;
+    }
 
-				map.addMarker(new MarkerOptions().position(position)
-						.icon(icons[(int) (20 * relativeStrength)])
-						.title("Mesure")
-						.snippet("SignalStrength : " + signalStrength + " DBm"));
-			}
-		}
-	}
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Check that the map is available
+        if (setUpMapIfNeeded()) {
+            Log.d("Map", "Map available");
+        } else {
+            Log.d("Map", "NO MAP AVAILABLE");
+        }
+
+        // Tell we want to be informed when services become available
+        telephonyService.register(telServiceListener);
+        locationService.register(locServiceListener);
+    }
+
+    @Override
+    public void onPause() {
+        // If needed unregister our telephony listener
+        if (telephonyService.isAvailable()) {
+            telephonyService.getService().listen(telListener,
+                    TelephonyListener.LISTEN_NONE);
+        }
+        // Unregister location listener
+        if (locationService.isAvailable()) {
+            locationService.getService().unregister(this);
+        }
+        // Unregister the services listeners
+        telephonyService.unregister(telServiceListener);
+        locationService.unregister(locServiceListener);
+        super.onPause();
+    }
+
+    /**
+     * Instantiate the Map object from the MapFragment if needed. This is called
+     * from onCreate and onResume to ensure that the map is always available.
+     * Returns true if the map is available.
+     */
+    private boolean setUpMapIfNeeded() {
+        // Do a null check to confirm that we have not already instantiated the
+        // map.
+        if (map == null) {
+            // Obtain the Map object from the MapFragment
+            if (mapFragment == null) {
+                mapFragment = (SupportMapFragment) getFragmentManager()
+                        .findFragmentById(R.id.map_container);
+            }
+            map = mapFragment.getMap();
+            // Check if we were successful in obtaining the map.
+            if (map == null) {
+                // Unsuccesful
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onLocationChanged(ILocation location) {
+        // Update location
+        this.location = location;
+        if (map != null) {
+
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    LatLng latlng = new LatLng(DataMapFragment.this.location.getLatitude(),
+                            DataMapFragment.this.location.getLongitude());
+                    // Center the camera on the new location
+                    CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latlng, 19);
+                    
+                    // Move the camera
+                    map.animateCamera(update);
+
+                    // Add a marker
+                    createMarker(latlng);
+
+                }
+            });
+        }
+    }
+
+    private void createMarker(LatLng latlng) {
+        float[] hsv = new float[3];
+        hsv[1] = 255f;
+        hsv[2] = 255f;
+        float relativeAsu = ((float) signalStrength.getAsuLevel()) / 31; // MAX_ASU
+        hsv[0] = startHue + relativeAsu * (endHue - startHue);
+        // Instantiates a new CircleOptions object and defines the radius in
+        // meters
+        CircleOptions circleOptions = new CircleOptions().radius(1)
+                .strokeColor(0x00000000).center(latlng)
+                .fillColor(Color.HSVToColor(hsv));
+        map.addCircle(circleOptions);
+    }
 }

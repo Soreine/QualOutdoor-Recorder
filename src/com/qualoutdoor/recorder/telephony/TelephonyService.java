@@ -273,6 +273,9 @@ public class TelephonyService extends Service implements ITelephony {
         // Create a non modifiable ICellInfo list
         List<ICellInfo> unmodifiableCellInfo = Collections
                 .unmodifiableList(allCellInfos);
+        for(ICellInfo cell : unmodifiableCellInfo) {
+            Log.d("TelephonyService",((CustomCellInfo)cell).getBundle().toString());
+        }
         // Notify the cell info listeners
         notifyCellInfoListeners(unmodifiableCellInfo);
     }
