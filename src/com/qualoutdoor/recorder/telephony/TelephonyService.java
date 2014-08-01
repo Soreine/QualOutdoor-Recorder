@@ -82,7 +82,7 @@ public class TelephonyService extends Service implements ITelephony {
             TelephonyService.this.callState = state;
             // Update the incomingNumber
             TelephonyService.this.incomingNumber = incomingNumber;
-            // Notify ththat knowse call state listeners
+            // Notify the call state listeners
             notifyCallStateListeners(state, incomingNumber);
         };
 
@@ -202,7 +202,6 @@ public class TelephonyService extends Service implements ITelephony {
             listenersDataState.remove(listener);
             listenersSignalStrength.remove(listener);
         } else {
-            Log.d("TelephonyService", "Registering " + events);
             // Add the listener to the corresponding list, according to the
             // events
             // it is subscribing to.
@@ -265,7 +264,6 @@ public class TelephonyService extends Service implements ITelephony {
             allCellInfos.add(customCell);
             // Check if this is the primary cell
             if (customCell.isRegistered()) {
-                Log.d("TelephonyService", "Registered " + cell.toString());
                 // This is the signal strength you are looking for
                 signalStrength = customCell.getSignalStrength();
                 // Notify the signal strength listeners
@@ -284,7 +282,6 @@ public class TelephonyService extends Service implements ITelephony {
         for (TelephonyListener listener : listenersCellInfo) {
             // For each listener, notify
             listener.onCellInfoChanged(cellInfos);
-            Log.d("TelephonyService", "notify " + listener.toString());
         }
     }
 
@@ -293,11 +290,8 @@ public class TelephonyService extends Service implements ITelephony {
      * value
      */
     private void notifySignalStrengthListeners(ISignalStrength signalStrength) {
-        Log.d("TelephonyService", "notifySignalStrengthListeners");
         for (TelephonyListener listener : listenersSignalStrength) {
-            Log.d("TelephonyService", "listener.onSignalStrengthChanged "
-                    + listener.toString());
-            // For each listener, notifyallCellInfosUnmodifiable
+            // For each listener, notify
             listener.onSignalStrengthsChanged(signalStrength);
         }
     }

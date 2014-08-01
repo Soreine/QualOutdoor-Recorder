@@ -24,8 +24,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.qualoutdoor.recorder.location.LocationContext;
+import com.qualoutdoor.recorder.location.LocationService;
+import com.qualoutdoor.recorder.recording.IRecordingListener;
 import com.qualoutdoor.recorder.recording.RecordingContext;
-import com.qualoutdoor.recorder.recording.RecordingListener;
 import com.qualoutdoor.recorder.recording.RecordingService;
 import com.qualoutdoor.recorder.settings.SettingsActivity;
 import com.qualoutdoor.recorder.telephony.ITelephony;
@@ -34,7 +36,7 @@ import com.qualoutdoor.recorder.telephony.TelephonyListener;
 import com.qualoutdoor.recorder.telephony.TelephonyService;
 
 public class MainActivity extends ActionBarActivity implements
-        RecordingContext, TelephonyContext {
+        RecordingContext, TelephonyContext, LocationContext {
 
     /**************** State variable *******************/
     /** The current network type code */
@@ -77,7 +79,7 @@ public class MainActivity extends ActionBarActivity implements
     };
 
     /** The recording listener used to update the UI components in MainActivity */
-    private RecordingListener recordingListener = new RecordingListener() {
+    private IRecordingListener recordingListener = new IRecordingListener() {
         public void onRecordingChanged(boolean isRecording) {
             // Update the recording state
             mIsRecording = isRecording;
@@ -101,6 +103,10 @@ public class MainActivity extends ActionBarActivity implements
         }
     };
 
+    /** The LocationServiceConnection used to access the LocationService */
+    private LocalServiceConnection<LocationService> locServiceConnection = new LocalServiceConnection<LocationService>(
+            LocationService.class);
+    
     /*********** Navigation Drawer ****************/
     /** The current fragment title */
     private CharSequence fragmentTitle;
@@ -251,11 +257,13 @@ public class MainActivity extends ActionBarActivity implements
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("MainActivity", "onStart");
         // Bind to the TelephonyService
         telServiceConnection.bindToService(this);
         // Bind to the RecordingService
         recServiceConnection.bindToService(this);
+        // Bind to the LocationService
+        Log.d("MainActivity", "bindLocation");
+        locServiceConnection.bindToService(this);
     }
 
     @Override
@@ -275,6 +283,8 @@ public class MainActivity extends ActionBarActivity implements
         unbindService(telServiceConnection);
         // Unbind from the RecordingService if needed
         unbindService(recServiceConnection);
+        // Unbind from the LocationService if needed
+        unbindService(locServiceConnection);
     }
 
     /** The navigation drawer items click listener */
@@ -491,6 +501,11 @@ public class MainActivity extends ActionBarActivity implements
     @Override
     public ServiceProvider<RecordingService> getRecordingServiceProvider() {
         return recServiceConnection;
+    }
+
+    @Override
+    public ServiceProvider<LocationService> getLocationServiceProvider() {
+        return locServiceConnection;
     }
 
 }

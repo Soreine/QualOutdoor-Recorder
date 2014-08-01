@@ -20,9 +20,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- Access a precise location (from the GPS services for example) -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<!-- Access cell infos ?  TODO-->
-   	<uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES"/>
-   	
+    <!-- Access cell infos ?  TODO -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
+
     <!--
     Indicate to other applications (such as Google Play Store) 
     that OpenGL ES 2 is required because of Google Maps API
@@ -52,8 +52,8 @@
         <!-- ACTIVITIES -->
         <activity
             android:name="com.qualoutdoor.recorder.MainActivity"
-            android:label="@string/title_activity_main" 
-            android:launchMode="singleTask">
+            android:label="@string/title_activity_main"
+            android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -88,6 +88,9 @@
             android:exported="false" />
         <service
             android:name="com.qualoutdoor.recorder.telephony.TelephonyService"
+            android:exported="false" />
+        <service
+            android:name="com.qualoutdoor.recorder.location.LocationService"
             android:exported="false" />
     </application>
 

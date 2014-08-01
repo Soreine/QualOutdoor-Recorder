@@ -1,17 +1,12 @@
 package com.qualoutdoor.recorder.location;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import android.app.Service;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.telephony.CellInfo;
-import android.telephony.PhoneStateListener;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -21,7 +16,6 @@ import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.qualoutdoor.recorder.LocalBinder;
-import com.qualoutdoor.recorder.location.ILocation;
 
 /**
  * This service is an Android implementation of ITelephony, it uses a
@@ -47,7 +41,7 @@ public class LocationService extends Service implements
     // ConcurrentModificationExceptions if a
     // listener attempts to remove itself during event notification.
     /** Store the listeners listening to LISTEN_LOCATION */
-    private ArrayList<LocationListener> listenersLocation = new ArrayList<LocationListener>();
+    private ArrayList<ILocationListener> listenersLocation = new ArrayList<ILocationListener>();
 
     /** Our location request reference */
     private final LocationRequest locationRequest;
@@ -62,42 +56,70 @@ public class LocationService extends Service implements
         locationRequest.setFastestInterval(FASTEST_LOCATION_INTERVAL);
     }
 
-    /** Flag that indicates if a location request is underway */
-    private boolean locationInProgress;
+    /** Indicates if Google Play Services are available */
+    private boolean servicesAvailable;
 
     /** Our location client reference */
     private LocationClient locationClient;
 
     @Override
     public void onCreate() {
-        // No location request is underway
-        locationInProgress = false;
+        Log.d("LocationService", "onCreate");
+        // Initialize the binder
+        mBinder = new LocalBinder<LocationService>(this);
+
         // Create a new location client using this class to handle callbacks
         locationClient = new LocationClient(this, this, this);
+        // Test if Google Play Services is available
+        servicesAvailable = areServicesConnected();
+        // TODO launch activity or dialog if not available
+        if (!servicesAvailable) {
+            Log.d("LocationService", "servicesAvailable = false");
+            super.onCreate();
+        }
+        // Connect the client
+        locationClient.connect();
+        Log.d("LocationService", "connecting the client");
+
         super.onCreate();
     }
 
     @Override
     public void onDestroy() {
+        if (servicesAvailable && locationClient != null) {
+            locationClient.removeLocationUpdates(this);
+            // Destroy the current location client
+            locationClient = null;
+        }
         super.onDestroy();
     }
 
     @Override
     public IBinder onBind(Intent intent) {
         // Return our interface binder
+        Log.d("LocationService", "onBind");
         return mBinder;
     }
 
     public ILocation getLocation() {
-        // TODO Auto-generated method stub
-        return null;
+        return location;
     }
 
     /** Register the given LocationListener to receive location updates */
-    public void listen(LocationListener listener) {
-                // The listener wish to monitor the location, add it to the list
-                listenersLocation.add(listener);
-                // TODO Notify it immediatly with the current data
+    public void register(ILocationListener listener) {
+        // The listener wish to monitor the location, add it to the list
+        listenersLocation.add(listener);
+        // If we have a previous known location
+        if (location != null) {
+            // Notify it immediatly with the current data
+            listener.onLocationChanged(location);
+        }
+    }
+
+    /** Unregister the given listener */
+    public void unregister(ILocationListener listener) {
+        // Remove it from the list
+        listenersLocation.remove(listener);
     }
 
     // TODO
@@ -106,31 +128,64 @@ public class LocationService extends Service implements
     }
 
     /** Notify each location listeners with the current ILocation value */
-    private void notifyLocationListeners(ILocation location) {
-        for (ILocationListener listener : listenersCellInfo) {
+    private void notifyLocationListeners() {
+        for (ILocationListener listener : listenersLocation) {
             // For each listener, notify
             listener.onLocationChanged(location);
         }
     }
 
+    /** Android callbacks */
     @Override
-    public void onLocationChanged(Location arg0) {
-        // TODO Auto-generated method stub
+    public void onLocationChanged(Location newLocation) {
+        // Update our ILocation
+        location = new CustomLocation(newLocation);
+        // Notify the listeners that a new location is available
+        notifyLocationListeners();
     }
 
     @Override
-    public void onConnectionFailed(ConnectionResult arg0) {
-        // TODO Auto-generated method stub
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+        /*
+         * Google Play services can resolve some errors it detects. If the error
+         * has a resolution, try sending an Intent to start a Google Play
+         * services activity that can resolve error.
+         */
+        // TODO inform the activities
+        // if (connectionResult.hasResolution()) {
+        // try {
+        // // Start an Activity that tries to resolve the error
+        // connectionResult.startResolutionForResult(
+        // this,
+        // CONNECTION_FAILURE_RESOLUTION_REQUEST);
+        // /*
+        // * Thrown if Google Play services canceled the original
+        // * PendingIntent
+        // */
+        // } catch (IntentSender.SendIntentException e) {
+        // // Log the error
+        // e.printStackTrace();
+        // }
+        // } else {
+        // /*
+        // * If no resolution is available, display a dialog to the
+        // * user with the error.
+        // */
+        // }
+
     }
 
     @Override
-    public void onConnected(Bundle arg0) {
-        // TODO Auto-generated method stub
+    public void onConnected(Bundle bundle) {
+        Log.d("LocationService", "onConnected services");
+        // Request location updates with locationRequest settings
+        locationClient.requestLocationUpdates(locationRequest, this);
     }
 
     @Override
     public void onDisconnected() {
-        // TODO Auto-generated method stub
+        // Destroy the current location client (we will start anew)
+        locationClient = null;
     }
 
     /** Check whether the Google Play Services are available */

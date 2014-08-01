@@ -1,5 +1,6 @@
 package com.qualoutdoor.recorder;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import android.app.Activity;
@@ -12,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.qualoutdoor.recorder.location.ILocation;
+import com.qualoutdoor.recorder.location.ILocationListener;
+import com.qualoutdoor.recorder.location.LocationContext;
+import com.qualoutdoor.recorder.location.LocationService;
 import com.qualoutdoor.recorder.telephony.ICellInfo;
 import com.qualoutdoor.recorder.telephony.ISignalStrength;
 import com.qualoutdoor.recorder.telephony.TelephonyContext;
@@ -22,7 +26,7 @@ import com.qualoutdoor.recorder.telephony.TelephonyService;
  * This fragment displays the main informations of the phone state on a single
  * screen. Its parent activity must implements the interface TelephonyContext.
  */
-public class OverviewFragment extends Fragment {
+public class OverviewFragment extends Fragment implements ILocationListener {
 
     /** The events monitored by the Telephony Listener */
     private static final int events = TelephonyListener.LISTEN_CELL_INFO
@@ -34,7 +38,6 @@ public class OverviewFragment extends Fragment {
      */
     private TelephonyListener telListener = new TelephonyListener() {
         public void onSignalStrengthsChanged(ISignalStrength signalStrength) {
-            Log.d("OverviewFragment", "OnSignalStrengthChanged");
             // Update the signal strength
             OverviewFragment.this.signalStrength = signalStrength;
             // Update the UI
@@ -62,7 +65,6 @@ public class OverviewFragment extends Fragment {
         }
 
         public void onDataStateChanged(int state, int networkType) {
-            Log.d("OverviewFragment", "OnDataStateChanged");
             // Update the network type
             network = networkType;
             // Update the UI
@@ -70,19 +72,33 @@ public class OverviewFragment extends Fragment {
         };
     };
 
-    /** The TelephonyServiceConnection used to connect to the TelephonyService */
+    /** The TelephonyService Provider given by the activity */
     private ServiceProvider<TelephonyService> telephonyService;
     /**
      * The service listener defines the behavior when the service becomes
      * available
      */
-    private ServiceListener<TelephonyService> serviceListener = new ServiceListener<TelephonyService>() {
+    private ServiceListener<TelephonyService> telServiceListener = new ServiceListener<TelephonyService>() {
         @Override
         public void onServiceAvailable(TelephonyService service) {
-            Log.d("OverviewFragment", "listen");
-
             // Register the telephony listener
             telephonyService.getService().listen(telListener, events);
+        }
+    };
+
+    /** A reference to the LocationService Provider given by the activity */
+    private ServiceProvider<LocationService> locationService;
+
+    /**
+     * The service listener defines the behavior when the service becomes
+     * available
+     */
+    private ServiceListener<LocationService> locServiceListener = new ServiceListener<LocationService>() {
+        @Override
+        public void onServiceAvailable(LocationService service) {
+            Log.d("OverviewFragment", "onServiceAvailable LocationService");
+            // Register the fragment as a location listener
+            locationService.getService().register(OverviewFragment.this);
         }
     };
 
@@ -132,6 +148,17 @@ public class OverviewFragment extends Fragment {
             throw new ClassCastException(activity.toString()
                     + " must implement " + TelephonyContext.class.toString());
         }
+        try {
+            // This cast makes sure that the container activity has implemented
+            // LocationContext
+            LocationContext locationContext = (LocationContext) getActivity();
+
+            // Retrieve the service connection
+            locationService = locationContext.getLocationServiceProvider();
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement " + LocationContext.class.toString());
+        }
     }
 
     @Override
@@ -139,7 +166,6 @@ public class OverviewFragment extends Fragment {
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_overview, container,
                 false);
-        Log.d("OverviewFragment", "onCreateView");
         // Initialize the views references
         viewSignalStrength = (TextView) view
                 .findViewById(R.id.signal_strength_value);
@@ -155,7 +181,9 @@ public class OverviewFragment extends Fragment {
 
     @Override
     public void onResume() {
-        telephonyService.register(serviceListener);
+        // Tell we want to be informed when services become available
+        telephonyService.register(telServiceListener);
+        locationService.register(locServiceListener);
         super.onStart();
     }
 
@@ -166,8 +194,13 @@ public class OverviewFragment extends Fragment {
             telephonyService.getService().listen(telListener,
                     TelephonyListener.LISTEN_NONE);
         }
-        // Unregister the service listener
-        telephonyService.unregister(serviceListener);
+        // Unregister location listener
+        if (locationService.isAvailable()) {
+            locationService.getService().unregister(this);
+        }
+        // Unregister the services listeners
+        telephonyService.unregister(telServiceListener);
+        locationService.unregister(locServiceListener);
         super.onPause();
     }
 
@@ -235,5 +268,33 @@ public class OverviewFragment extends Fragment {
                 }
             });
         }
+    }
+
+    /** Update the text field with the current GPS location */
+    private void updateGPS() {
+        // Check that the view has been initialized
+        if (viewGPSLocation != null) {
+            // Access the UI from the main thread
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    DecimalFormat format = new DecimalFormat("0.##");
+                    viewGPSLocation.setText(format.format(location
+                            .getLatitude())
+                            + "° "
+                            + format.format(location.getLongitude()) + "°");
+                    // Invalidate the view that changed
+                    viewGPSLocation.invalidate();
+                }
+            });
+        }
+    }
+
+    @Override
+    public void onLocationChanged(ILocation location) {
+        // Update the location
+        this.location = location;
+        // Update the UI
+        updateGPS();
     }
 }

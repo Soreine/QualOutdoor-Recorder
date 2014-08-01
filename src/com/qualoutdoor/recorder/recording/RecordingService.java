@@ -25,13 +25,12 @@ public class RecordingService extends Service {
     private boolean isRecording = false;
 
     /** The listeners to the recording state */
-    private ArrayList<RecordingListener> recordingListeners = new ArrayList<RecordingListener>();
+    private ArrayList<IRecordingListener> recordingListeners = new ArrayList<IRecordingListener>();
     /** A fake recording thread */
     private Thread thread;
 
     @Override
     public void onCreate() {
-        Log.d("RecordingService", "onCreate");
         // Initialize a RecordingBinder that knows this Service
         mRecordingBinder = new LocalBinder<RecordingService>(this);
     }
@@ -52,7 +51,6 @@ public class RecordingService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d("RecordingService", "onStartCommand");
         if (!isRecording) {
             // Start the recording thread
             startRecording();
@@ -62,7 +60,6 @@ public class RecordingService extends Service {
 
     @Override
     public void onDestroy() {
-        Log.d("RecordingService", "onDestroy");
         if (isRecording) {
             // Stop the recording process
             stopRecording();
@@ -72,7 +69,6 @@ public class RecordingService extends Service {
 
     /** Start the recording process. */
     private void startRecording() {
-        Log.d("RecordingService", "startRecording");
         // Update the recording state
         isRecording = true;
         // Create the notification that will be displayed
@@ -97,14 +93,13 @@ public class RecordingService extends Service {
             }
         };
         thread.start();
-        
+
         // Notify the listeners
         notifyRecording();
     }
 
     /** Stop the recording process */
     public void stopRecording() {
-        Log.d("RecordingService", "stopRecording");
         // TODO stop the thread
         thread.interrupt();
         thread = null;
@@ -120,7 +115,7 @@ public class RecordingService extends Service {
     }
 
     /** Add a recording listener */
-    public void register(RecordingListener listener) {
+    public void register(IRecordingListener listener) {
         // Add it to the list
         recordingListeners.add(listener);
         // Notify it immediatly
@@ -128,14 +123,14 @@ public class RecordingService extends Service {
     }
 
     /** Remove a recording listener */
-    public void unregister(RecordingListener listener) {
+    public void unregister(IRecordingListener listener) {
         // Remove it from the list
         recordingListeners.remove(listener);
     }
 
     /** Notify all the recording listener */
     private void notifyRecording() {
-        for (RecordingListener listener : recordingListeners) {
+        for (IRecordingListener listener : recordingListeners) {
             // For each listener, notify
             listener.onRecordingChanged(isRecording);
         }

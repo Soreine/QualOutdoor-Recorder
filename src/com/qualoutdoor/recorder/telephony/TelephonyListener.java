@@ -15,9 +15,6 @@ public class TelephonyListener {
     /*********************************************
      * Theses constant are used as bitwise mask, hence the power of two.
      *********************************************/
-//    0 0 0 0 0  0  0  0   0   0   0    0
-//    1 2 4 8 16 32 64 128 256 512 1024 2048
-//    0 0 0 1 0  0  1  0   1
     /** Listen for changes to the device call state. */
     public static final int LISTEN_CALL_STATE = 8;
     /** Listen for changes to observed cell info. */
@@ -42,9 +39,6 @@ public class TelephonyListener {
      * been added or removed.
      */
     public void onCellInfoChanged(List<ICellInfo> cellInfo) {}
-
-    /** Callback invoked when device location changes. */
-    public void onLocationChanged(ILocation location) {}
 
     /** Callback invoked when network type or data connection state change. */
     public void onDataStateChanged(int state, int networkType) {}

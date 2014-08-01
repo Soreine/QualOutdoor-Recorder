@@ -6,7 +6,7 @@ public interface ILocation {
 	long getTime();
 
 	/** Get the latitude, in degrees */
-	double getAltitude();
+	double getLatitude();
 
 	/** Get the longitude, in degrees */
 	double getLongitude();
