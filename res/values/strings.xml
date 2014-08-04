@@ -14,7 +14,7 @@
 	<string name="action_help">Help</string>
 
 	<!-- Screen titles -->
-	<string name="title_overview">Overview</string>
+	<string name="title_home">@string/app_name</string>
 	<string name="title_map">Map</string>
 	<string name="title_statistics">Statistics</string>
 	<string name="title_scripts">Scripts</string>
@@ -26,13 +26,13 @@
 	<string name="drawer_close">Close navigation drawer</string>
 
 	<string-array name="top_level_navigation_titles">
-		<item>@string/title_overview</item>
+		<item>@string/title_home</item>
 		<item>@string/title_map</item>
 		<item>@string/title_statistics</item>
 		<item>@string/title_scripts</item>
 	</string-array>
 
-	<!-- Overview -->
+	<!-- Network Fragment -->
 	<string name="signal_strength">Signal Strength</string>
 	<string name="gps_location">GPS Location</string>
 	<string name="mobile_network_code">Mobile Network Code</string>

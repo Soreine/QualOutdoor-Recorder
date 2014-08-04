@@ -1,4 +1,4 @@
-package com.qualoutdoor.recorder;
+package com.qualoutdoor.recorder.home;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -14,6 +14,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.android.gms.location.LocationListener;
+import com.qualoutdoor.recorder.R;
+import com.qualoutdoor.recorder.ServiceListener;
+import com.qualoutdoor.recorder.ServiceProvider;
+import com.qualoutdoor.recorder.R.array;
+import com.qualoutdoor.recorder.R.id;
+import com.qualoutdoor.recorder.R.layout;
 import com.qualoutdoor.recorder.location.LocationContext;
 import com.qualoutdoor.recorder.location.LocationService;
 import com.qualoutdoor.recorder.telephony.ICellInfo;
@@ -26,7 +32,7 @@ import com.qualoutdoor.recorder.telephony.TelephonyService;
  * This fragment displays the main informations of the phone state on a single
  * screen. Its parent activity must implements the interface TelephonyContext.
  */
-public class OverviewFragment extends Fragment implements LocationListener {
+public class NetworkFragment extends Fragment implements LocationListener {
 
     /** The events monitored by the Telephony Listener */
     private static final int events = TelephonyListener.LISTEN_CELL_INFO
@@ -39,14 +45,14 @@ public class OverviewFragment extends Fragment implements LocationListener {
     private TelephonyListener telListener = new TelephonyListener() {
         public void onSignalStrengthsChanged(ISignalStrength signalStrength) {
             // Update the signal strength
-            OverviewFragment.this.signalStrength = signalStrength;
+            NetworkFragment.this.signalStrength = signalStrength;
             // Update the UI
             updateSignalStrengthView();
         };
 
         @Override
         public void onCellInfoChanged(List<ICellInfo> cellInfos) {
-            Log.d("OverviewFragment", "OnCellInfoChanged");
+            Log.d("NetworkFragment", "OnCellInfoChanged");
             // Find the first registered cell
             for (ICellInfo cell : cellInfos) {
                 if (cell.isRegistered()) {
@@ -96,9 +102,9 @@ public class OverviewFragment extends Fragment implements LocationListener {
     private ServiceListener<LocationService> locServiceListener = new ServiceListener<LocationService>() {
         @Override
         public void onServiceAvailable(LocationService service) {
-            Log.d("OverviewFragment", "onServiceAvailable LocationService");
+            Log.d("NetworkFragment", "onServiceAvailable LocationService");
             // Register the fragment as a location listener
-            locationService.getService().register(OverviewFragment.this);
+            locationService.getService().register(NetworkFragment.this);
         }
     };
 
@@ -164,7 +170,7 @@ public class OverviewFragment extends Fragment implements LocationListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_overview, container,
+        View view = inflater.inflate(R.layout.fragment_network, container,
                 false);
         // Initialize the views references
         viewSignalStrength = (TextView) view

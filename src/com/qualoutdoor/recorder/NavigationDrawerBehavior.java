@@ -3,6 +3,7 @@ package com.qualoutdoor.recorder;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
+import com.qualoutdoor.recorder.home.HomeFragment;
 import com.qualoutdoor.recorder.map.DataMapFragment;
 import com.qualoutdoor.recorder.scripts.ScriptListFragment;
 import com.qualoutdoor.recorder.statistics.StatisticsFragment;
@@ -13,7 +14,7 @@ import com.qualoutdoor.recorder.statistics.StatisticsFragment;
  */
 public class NavigationDrawerBehavior {
 	// / The items positions
-	public static final int OVERVIEW = 0;
+	public static final int HOME = 0;
 	public static final int MAP = 1;
 	public static final int STATISTICS = 2;
 	public static final int SCRIPTS = 3;
@@ -28,9 +29,8 @@ public class NavigationDrawerBehavior {
 
 		// Assign the correct fragment depending on the item position
 		switch (itemPosition) {
-		case OVERVIEW:
-			// Create a Generic Fragment
-			result = new OverviewFragment();
+		case HOME:
+			result = new HomeFragment();
 			break;
 		case MAP:
 			result = new DataMapFragment();
@@ -39,7 +39,6 @@ public class NavigationDrawerBehavior {
 			result = new StatisticsFragment();
 			break;
 		case SCRIPTS:
-			// Create a Generic Fragment
 			result = new ScriptListFragment();
 			break;
 		}
