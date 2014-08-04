@@ -35,13 +35,13 @@ public class LocationService extends Service implements
     private IBinder mBinder;
 
     /** The current location */
-    private ILocation location;
+    private Location location;
 
     // Note : Might use CopyOnWriteArrayList to avoid
     // ConcurrentModificationExceptions if a
     // listener attempts to remove itself during event notification.
     /** Store the listeners listening to LISTEN_LOCATION */
-    private ArrayList<ILocationListener> listenersLocation = new ArrayList<ILocationListener>();
+    private ArrayList<LocationListener> listenersLocation = new ArrayList<LocationListener>();
 
     /** Our location request reference */
     private final LocationRequest locationRequest;
@@ -101,12 +101,12 @@ public class LocationService extends Service implements
         return mBinder;
     }
 
-    public ILocation getLocation() {
+    public Location getLocation() {
         return location;
     }
 
     /** Register the given LocationListener to receive location updates */
-    public void register(ILocationListener listener) {
+    public void register(LocationListener listener) {
         // The listener wish to monitor the location, add it to the list
         listenersLocation.add(listener);
         // If we have a previous known location
@@ -117,7 +117,7 @@ public class LocationService extends Service implements
     }
 
     /** Unregister the given listener */
-    public void unregister(ILocationListener listener) {
+    public void unregister(LocationListener listener) {
         // Remove it from the list
         listenersLocation.remove(listener);
     }
@@ -129,7 +129,7 @@ public class LocationService extends Service implements
 
     /** Notify each location listeners with the current ILocation value */
     private void notifyLocationListeners() {
-        for (ILocationListener listener : listenersLocation) {
+        for (LocationListener listener : listenersLocation) {
             // For each listener, notify
             listener.onLocationChanged(location);
         }
@@ -138,8 +138,8 @@ public class LocationService extends Service implements
     /** Android callbacks */
     @Override
     public void onLocationChanged(Location newLocation) {
-        // Update our ILocation
-        location = new CustomLocation(newLocation);
+        // Update our Location
+        location = newLocation;
         // Notify the listeners that a new location is available
         notifyLocationListeners();
     }

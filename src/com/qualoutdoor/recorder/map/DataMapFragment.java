@@ -2,6 +2,7 @@ package com.qualoutdoor.recorder.map;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -20,7 +22,6 @@ import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.ServiceListener;
 import com.qualoutdoor.recorder.ServiceProvider;
 import com.qualoutdoor.recorder.location.ILocation;
-import com.qualoutdoor.recorder.location.ILocationListener;
 import com.qualoutdoor.recorder.location.LocationContext;
 import com.qualoutdoor.recorder.location.LocationService;
 import com.qualoutdoor.recorder.telephony.ISignalStrength;
@@ -28,7 +29,7 @@ import com.qualoutdoor.recorder.telephony.TelephonyContext;
 import com.qualoutdoor.recorder.telephony.TelephonyListener;
 import com.qualoutdoor.recorder.telephony.TelephonyService;
 
-public class DataMapFragment extends Fragment implements ILocationListener {
+public class DataMapFragment extends Fragment implements LocationListener {
 
     private static final float startHue = 0;
     private static final float endHue = 120;
@@ -68,7 +69,7 @@ public class DataMapFragment extends Fragment implements ILocationListener {
             service.register(DataMapFragment.this);
         }
     };
-    private ILocation location;
+    private Location location;
 
     @Override
     public void onAttach(Activity activity) {
@@ -111,9 +112,9 @@ public class DataMapFragment extends Fragment implements ILocationListener {
 
         // Create options for the Google Map
         GoogleMapOptions options = new GoogleMapOptions();
-        options.tiltGesturesEnabled(false).mapType(GoogleMap.MAP_TYPE_SATELLITE)
-                .compassEnabled(false);// .camera(new
-                                       // CameraPosition.Builder().zoom(15).build());
+        options.tiltGesturesEnabled(false)
+                .mapType(GoogleMap.MAP_TYPE_SATELLITE).compassEnabled(false);// .camera(new
+                                                                             // CameraPosition.Builder().zoom(15).build());
 
         // Create a new MapFragment to be placed in the fragment layout
         mapFragment = SupportMapFragment.newInstance(options);
@@ -186,13 +187,16 @@ public class DataMapFragment extends Fragment implements ILocationListener {
             if (map == null) {
                 // Unsuccesful
                 return false;
-            }
+            }        // Update the location
+            this.location = location;
+            // Update the UI
+
         }
         return true;
     }
 
     @Override
-    public void onLocationChanged(ILocation location) {
+    public void onLocationChanged(Location location) {
         // Update location
         this.location = location;
         if (map != null) {
@@ -200,11 +204,13 @@ public class DataMapFragment extends Fragment implements ILocationListener {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    LatLng latlng = new LatLng(DataMapFragment.this.location.getLatitude(),
-                            DataMapFragment.this.location.getLongitude());
+                    LatLng latlng = new LatLng(DataMapFragment.this.location
+                            .getLatitude(), DataMapFragment.this.location
+                            .getLongitude());
                     // Center the camera on the new location
-                    CameraUpdate update = CameraUpdateFactory.newLatLngZoom(latlng, 19);
-                    
+                    CameraUpdate update = CameraUpdateFactory.newLatLngZoom(
+                            latlng, 19);
+
                     // Move the camera
                     map.animateCamera(update);
 
@@ -229,4 +235,5 @@ public class DataMapFragment extends Fragment implements ILocationListener {
                 .fillColor(Color.HSVToColor(hsv));
         map.addCircle(circleOptions);
     }
+
 }

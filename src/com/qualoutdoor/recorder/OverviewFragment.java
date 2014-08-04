@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 import android.app.Activity;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -12,8 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.qualoutdoor.recorder.location.ILocation;
-import com.qualoutdoor.recorder.location.ILocationListener;
+import com.google.android.gms.location.LocationListener;
 import com.qualoutdoor.recorder.location.LocationContext;
 import com.qualoutdoor.recorder.location.LocationService;
 import com.qualoutdoor.recorder.telephony.ICellInfo;
@@ -26,7 +26,7 @@ import com.qualoutdoor.recorder.telephony.TelephonyService;
  * This fragment displays the main informations of the phone state on a single
  * screen. Its parent activity must implements the interface TelephonyContext.
  */
-public class OverviewFragment extends Fragment implements ILocationListener {
+public class OverviewFragment extends Fragment implements LocationListener {
 
     /** The events monitored by the Telephony Listener */
     private static final int events = TelephonyListener.LISTEN_CELL_INFO
@@ -105,7 +105,7 @@ public class OverviewFragment extends Fragment implements ILocationListener {
     /** The signal strength value */
     private ISignalStrength signalStrength;
     /** The gps location */
-    private ILocation location;
+    private Location location;
     /** The mobile network code */
     private int mnc;
     /** The network type code */
@@ -291,10 +291,11 @@ public class OverviewFragment extends Fragment implements ILocationListener {
     }
 
     @Override
-    public void onLocationChanged(ILocation location) {
+    public void onLocationChanged(Location location) {
         // Update the location
         this.location = location;
         // Update the UI
         updateGPS();
     }
+
 }

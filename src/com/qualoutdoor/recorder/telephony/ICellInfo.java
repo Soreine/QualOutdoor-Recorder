@@ -16,7 +16,7 @@ public interface ICellInfo {
 
     /** Get the cell type code. The code returned indicates the
      * technology associated with the cell. 
-     * May return CELL_UNKNOWN, CELL_CDMA, CELL_GSM, CELL_LTE, CELL_WCDMA */
+     * @return The Cell Type code : CELL_UNKNOWN, CELL_CDMA, CELL_GSM, CELL_LTE, CELL_WCDMA */
     int getCellType();
 
     /** Approximate time of this cell information in nanoseconds since boot */
@@ -28,11 +28,11 @@ public interface ICellInfo {
     /** Return an object that encapsulate the signal strength from this cell */
     ISignalStrength getSignalStrength();
 
-     /** Get the cell identity.
+     /** Get the Cell Identity.
      * @return The CID. Integer.MAX_VALUE if unknown or not GSM, WCDMA, LTE. */
     int getCid();
 
-     /** Get the location area code.
+     /** Get the Location Area Code.
      * @return The LAC. Integer.MAX_VALUE if unknown or not GSM, WCDMA. */
     int getLac();
 
@@ -48,4 +48,11 @@ public interface ICellInfo {
      * @return The CID. Integer.MAX_VALUE if unknown or not WCDMA. */
     int getPsc();
     
+    /** Get the Physical Cell ID.
+     * @return The PCI. Integer.MAX_VALUE if unknown or not LTE. */
+    int getPci();
+    
+    /** Get the Tracking Area Code.
+     * @return The TAC. Integer.MAX_VALUE if unknown or not LTE. */
+    int getTac();
 }

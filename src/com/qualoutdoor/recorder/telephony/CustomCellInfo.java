@@ -35,14 +35,18 @@ public class CustomCellInfo implements ICellInfo {
     public static final String SIGNAL_STRENGTH = "signal_strength";
     /** Stores the Cell ID. Holds an int. */
     public static final String CID = "cid";
-    /** Stores the Location Area Code. Holds an int. */
+    /** Stores the Location Area Code (GSM, WCDMA). Holds an int. */
     public static final String LAC = "lac";
     /** Stores the Mobile Country Code. Holds an int. */
     public static final String MCC = "mcc";
     /** Stores the Mobile Network Code. Holds an int. */
     public static final String MNC = "mnc";
-    /** Stores the Primary Scrambling Code. Holds an int. */
+    /** Stores the Primary Scrambling Code (WCDMA). Holds an int. */
     public static final String PSC = "psc";
+    /** Stores the Physical Cell ID (LTE). Holds an int. */
+    public static final String PCI = "pci";
+    /** Stores the Tracking Area Code (LTE). Holds an int. */
+    public static final String TAC = "tac";
 
     /**
      * This is a bundle we use to initialize the default values for a
@@ -143,6 +147,8 @@ public class CustomCellInfo implements ICellInfo {
             infoBundle.putInt(CID, cellId.getCi());
             infoBundle.putInt(MCC, cellId.getMcc());
             infoBundle.putInt(MNC, cellId.getMnc());
+            infoBundle.putInt(TAC, cellId.getTac());
+            infoBundle.putInt(PCI, cellId.getPci());
         }
     }
 
@@ -242,11 +248,10 @@ public class CustomCellInfo implements ICellInfo {
         return this.infoBundle;
     }
 
-    // TODO use get...(key, defaultValue)
-
     @Override
     public int getCellType() {
-        return infoBundle.getInt(CELL_TYPE);
+        // Return the cell type, or CELL_UNKNOWN if unknown
+        return infoBundle.getInt(CELL_TYPE, ICellInfo.CELL_UNKNOWN);
     }
 
     @Override
@@ -268,27 +273,37 @@ public class CustomCellInfo implements ICellInfo {
 
     @Override
     public int getCid() {
-        return infoBundle.getInt(CID);
+        return infoBundle.getInt(CID, Integer.MAX_VALUE);
     }
 
     @Override
     public int getLac() {
-        return infoBundle.getInt(LAC);
+        return infoBundle.getInt(LAC, Integer.MAX_VALUE);
     }
 
     @Override
     public int getMcc() {
-        return infoBundle.getInt(MCC);
+        return infoBundle.getInt(MCC, Integer.MAX_VALUE);
     }
 
     @Override
     public int getMnc() {
-        return infoBundle.getInt(MNC);
+        return infoBundle.getInt(MNC, Integer.MAX_VALUE);
     }
 
     @Override
     public int getPsc() {
-        return infoBundle.getInt(PSC);
+        return infoBundle.getInt(PSC, Integer.MAX_VALUE);
+    }
+
+    @Override
+    public int getPci() {
+        return infoBundle.getInt(PCI, Integer.MAX_VALUE);
+    }
+
+    @Override
+    public int getTac() {
+        return infoBundle.getInt(TAC, Integer.MAX_VALUE);
     }
 
 }
