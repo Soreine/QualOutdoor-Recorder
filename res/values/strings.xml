@@ -14,7 +14,7 @@
 	<string name="action_help">Help</string>
 
 	<!-- Screen titles -->
-	<string name="title_home">@string/app_name</string>
+	<string name="title_home">@string/title_activity_main</string>
 	<string name="title_map">Map</string>
 	<string name="title_statistics">Statistics</string>
 	<string name="title_scripts">Scripts</string>
@@ -33,11 +33,20 @@
 	</string-array>
 
 	<!-- Network Fragment -->
+	<string name="cell_id">Cell ID</string>
 	<string name="signal_strength">Signal Strength</string>
-	<string name="gps_location">GPS Location</string>
 	<string name="mobile_network_code">Mobile Network Code</string>
 	<string name="network_type_code">Network Type Code</string>
 	<string name="mobile_country_code">Mobile Country Code</string>
+
+	<!-- ViewCellInfo -->
+	<string name="cell_info_empty">\?</string>
+	<string name="cell_info_mcc">@string/MCC</string>
+	<string name="cell_info_mnc">@string/MNC</string>
+	<string name="cell_info_lac">@string/LAC</string>
+	<string name="cell_info_tac">@string/TAC</string>
+	<string name="cell_info_psc">@string/PSC</string>
+	<string name="cell_info_pci">@string/PCI</string>
 
 	<!-- Scripts -->
 	<string-array name="scripts_array">
@@ -81,5 +90,27 @@
 		<item>HSPA+</item> <!-- 15 -->
 	</string-array>
 
-	<string name="change_network_button">Change Network</string>
+	<!-- Radio types name : ordered according to the static values in ICellInfo -->
+	<string-array name="radio_type_name">
+		<item>Unknown</item>
+		<item>GSM</item>
+		<item>WCDMA</item>
+		<item>LTE</item>
+		<item>CDMA</item>
+	</string-array>
+	<!-- Network Abbreviations -->
+	<string name="MCC">MCC</string>
+	<string name="MNC">MNC</string>
+	<string name="NTC">NTC</string>
+	<string name="CID">CID</string>
+	<string name="LAC">LAC</string>
+	<string name="PSC">PSC</string>
+	<string name="BER">BER</string>
+	<string name="TAC">TAC</string>
+	<string name="RAC">RAC</string>
+	<string name="PCI">PCI</string>
+
+	<!-- Units -->
+	<string name="unit_dbm">dBm</string>
+	<string name="unit_asu">asu</string>
 </resources>

@@ -1,8 +1,10 @@
 package com.qualoutdoor.recorder.home;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,8 +45,14 @@ public class HomeFragment extends Fragment {
         // ViewPager and its adapters use support library fragments, so we must
         // use getSupportFragmentManager.
         homePagerAdapter = new HomePagerAdapter(getChildFragmentManager());
+    
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
@@ -60,6 +68,8 @@ public class HomeFragment extends Fragment {
         // Attaching the adapter
         mViewPager.setAdapter(homePagerAdapter);
 
+        // Select the middle fragment on start
+        mViewPager.setCurrentItem(HomePagerAdapter.NETWORK);
         return view;
     }
 

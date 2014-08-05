@@ -9,56 +9,55 @@ import com.qualoutdoor.recorder.GenericFragment;
 
 public class HomePagerAdapter extends FragmentPagerAdapter {
 
-	/** The order of the fragments */
-	private static final int LOCATIONS = 0;
-	private static final int NETWORK = 1;
-	private static final int NEIGHBORS = 2;
+    /** The order of the fragments */
+    public static final int LOCATIONS = 0;
+    public static final int NETWORK = 1;
+    public static final int NEIGHBORS = 2;
 
-	// TODO put in xml
-	/** The list of the fragment names */
-	private CharSequence[] fragmentTitles = { "Locations", "Network",
-			"Neighbors" };
+    // TODO put in xml
+    /** The list of the fragment names */
+    private CharSequence[] fragmentTitles = {
+            "Locations", "Network", "Neighbors"
+    };
 
-	public HomePagerAdapter(FragmentManager fm) {
-		super(fm);
-	}
+    public HomePagerAdapter(FragmentManager fm) {
+        super(fm);
+    }
 
-	@Override
-	public Fragment getItem(int i) {
-		// Initialize the resulting fragment
-		Fragment result = new GenericFragment();
+    @Override
+    public Fragment getItem(int i) {
+        // Initialize the resulting fragment
+        Fragment result = new GenericFragment();
 
-		// Initialize the arguments bundle
-		Bundle args = new Bundle();
-		args.putCharSequence(GenericFragment.FRAGMENT_NAME, fragmentTitles[i]);
+        // Initialize the arguments bundle
+        Bundle args = new Bundle();
+        args.putCharSequence(GenericFragment.FRAGMENT_NAME, fragmentTitles[i]);
 
-		// Switch on the fragment name
-		switch (i) {
-		case LOCATIONS:
-			break;
+        // Switch on the fragment name
+        switch (i) {
+        case LOCATIONS:
+            break;
         case NETWORK:
             result = new NetworkFragment();
             break;
-		case NEIGHBORS:
-			break;
-		}
+        case NEIGHBORS:
+            break;
+        }
 
-		// Attach the arguments
-		result.setArguments(args);
+        // Attach the arguments
+        result.setArguments(args);
 
-		return result;
-	}
+        return result;
+    }
 
+    @Override
+    public int getCount() {
+        return fragmentTitles.length;
+    }
 
-	@Override
-	public int getCount() {
-		// For this contrived example, we have a 10-object collection.
-		return fragmentTitles.length;
-	}
-
-	@Override
-	public CharSequence getPageTitle(int i) {
-		return fragmentTitles[i];
-	}
+    @Override
+    public CharSequence getPageTitle(int i) {
+        return fragmentTitles[i];
+    }
 
 }

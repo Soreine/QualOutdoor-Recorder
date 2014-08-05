@@ -62,6 +62,8 @@ public class CustomCellInfo implements ICellInfo {
         defaultBundle.putInt(MNC, Integer.MAX_VALUE);
         defaultBundle.putInt(LAC, Integer.MAX_VALUE);
         defaultBundle.putInt(PSC, Integer.MAX_VALUE);
+        defaultBundle.putInt(PCI, Integer.MAX_VALUE);
+        defaultBundle.putInt(TAC, Integer.MAX_VALUE);
     }
 
     /** Create an empty CellInfo */

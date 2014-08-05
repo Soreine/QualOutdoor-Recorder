@@ -1,38 +1,36 @@
 package com.qualoutdoor.recorder.home;
 
-import java.text.DecimalFormat;
 import java.util.List;
 
 import android.app.Activity;
-import android.location.Location;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.telephony.CellInfo;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ScrollView;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.location.LocationListener;
 import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.ServiceListener;
 import com.qualoutdoor.recorder.ServiceProvider;
-import com.qualoutdoor.recorder.R.array;
-import com.qualoutdoor.recorder.R.id;
-import com.qualoutdoor.recorder.R.layout;
-import com.qualoutdoor.recorder.location.LocationContext;
-import com.qualoutdoor.recorder.location.LocationService;
 import com.qualoutdoor.recorder.telephony.ICellInfo;
 import com.qualoutdoor.recorder.telephony.ISignalStrength;
 import com.qualoutdoor.recorder.telephony.TelephonyContext;
 import com.qualoutdoor.recorder.telephony.TelephonyListener;
 import com.qualoutdoor.recorder.telephony.TelephonyService;
+import com.qualoutdoor.recorder.telephony.ViewCellInfo;
 
 /**
  * This fragment displays the main informations of the phone state on a single
  * screen. Its parent activity must implements the interface TelephonyContext.
  */
-public class NetworkFragment extends Fragment implements LocationListener {
+public class NetworkFragment extends Fragment {
 
     /** The events monitored by the Telephony Listener */
     private static final int events = TelephonyListener.LISTEN_CELL_INFO
@@ -56,14 +54,13 @@ public class NetworkFragment extends Fragment implements LocationListener {
             // Find the first registered cell
             for (ICellInfo cell : cellInfos) {
                 if (cell.isRegistered()) {
-                    // We assume this is the primary cell
-                    // Update the MCC
-                    mcc = cell.getMcc();
-                    // Update the MNC
-                    mnc = cell.getMnc();
-                    // Update the UI
+                    // This is the primary cell
+                    cellInfo = cell;
+                    // Update the UI elements
+                    updateCellInfo();
                     updateMCCView();
                     updateMNCView();
+                    updateCIDView();
                     // Stop searching
                     break;
                 }
@@ -92,44 +89,25 @@ public class NetworkFragment extends Fragment implements LocationListener {
         }
     };
 
-    /** A reference to the LocationService Provider given by the activity */
-    private ServiceProvider<LocationService> locationService;
-
-    /**
-     * The service listener defines the behavior when the service becomes
-     * available
-     */
-    private ServiceListener<LocationService> locServiceListener = new ServiceListener<LocationService>() {
-        @Override
-        public void onServiceAvailable(LocationService service) {
-            Log.d("NetworkFragment", "onServiceAvailable LocationService");
-            // Register the fragment as a location listener
-            locationService.getService().register(NetworkFragment.this);
-        }
-    };
-
     /** The signal strength value */
     private ISignalStrength signalStrength;
-    /** The gps location */
-    private Location location;
-    /** The mobile network code */
-    private int mnc;
     /** The network type code */
     private int network;
-    /** The mobile country code */
-    private int mcc;
+    /** The primary cell */
+    private ICellInfo cellInfo;
 
     /** The signal strength value text view */
     private TextView viewSignalStrength;
-    /** The gps location text view */
-    private TextView viewGPSLocation;
+    /** The cell ID text view */
+    private TextView viewCellId;
     /** The mobile network code text view */
     private TextView viewMobileNetworkCode;
     /** The network type code text view */
     private TextView viewNetworkType;
     /** The mobile country code text view */
     private TextView viewMobileCountryCode;
-
+    /** The primary cell view */
+    private ViewCellInfo viewCellInfo;
     /** The network type code strings */
     private String[] networkNames;
 
@@ -154,42 +132,43 @@ public class NetworkFragment extends Fragment implements LocationListener {
             throw new ClassCastException(activity.toString()
                     + " must implement " + TelephonyContext.class.toString());
         }
-        try {
-            // This cast makes sure that the container activity has implemented
-            // LocationContext
-            LocationContext locationContext = (LocationContext) getActivity();
+    }
 
-            // Retrieve the service connection
-            locationService = locationContext.getLocationServiceProvider();
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement " + LocationContext.class.toString());
-        }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        Log.d("NetworkFragment", "onConfigurationChanged");
+
+        super.onConfigurationChanged(newConfig);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_network, container,
-                false);
+        ScrollView view = (ScrollView) inflater.inflate(
+                R.layout.fragment_network, container, false);
         // Initialize the views references
         viewSignalStrength = (TextView) view
                 .findViewById(R.id.signal_strength_value);
-        viewGPSLocation = (TextView) view.findViewById(R.id.gps_location_value);
+        viewCellId = (TextView) view.findViewById(R.id.cell_id_value);
         viewMobileNetworkCode = (TextView) view
                 .findViewById(R.id.mobile_network_code_value);
         viewNetworkType = (TextView) view
                 .findViewById(R.id.network_type_code_value);
         viewMobileCountryCode = (TextView) view
                 .findViewById(R.id.mobile_country_code_value);
+
+        viewCellInfo = (ViewCellInfo) view.findViewById(R.id.fragment_network_cell_info);
+
         return view;
     }
+
+    TableLayout table;
+    Button button;
 
     @Override
     public void onResume() {
         // Tell we want to be informed when services become available
         telephonyService.register(telServiceListener);
-        locationService.register(locServiceListener);
         super.onStart();
     }
 
@@ -200,13 +179,8 @@ public class NetworkFragment extends Fragment implements LocationListener {
             telephonyService.getService().listen(telListener,
                     TelephonyListener.LISTEN_NONE);
         }
-        // Unregister location listener
-        if (locationService.isAvailable()) {
-            locationService.getService().unregister(this);
-        }
         // Unregister the services listeners
         telephonyService.unregister(telServiceListener);
-        locationService.unregister(locServiceListener);
         super.onPause();
     }
 
@@ -219,8 +193,8 @@ public class NetworkFragment extends Fragment implements LocationListener {
                 @Override
                 public void run() {
                     // Fill in the view fields values
-                    viewSignalStrength.setText(signalStrength.getAsuLevel()
-                            + " (asu)");
+                    viewSignalStrength.setText(signalStrength.getDbm()
+                            + " (dBm)");
                     // Invalidate the view that changed
                     viewSignalStrength.invalidate();
                 }
@@ -252,7 +226,7 @@ public class NetworkFragment extends Fragment implements LocationListener {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    viewMobileNetworkCode.setText(mnc + "");
+                    viewMobileNetworkCode.setText(cellInfo.getMnc() + "");
                     // Invalidate the view that changed
                     viewMobileNetworkCode.invalidate();
                 }
@@ -268,7 +242,7 @@ public class NetworkFragment extends Fragment implements LocationListener {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    viewMobileCountryCode.setText(mcc + "");
+                    viewMobileCountryCode.setText(cellInfo.getMcc() + "");
                     // Invalidate the view that changed
                     viewMobileCountryCode.invalidate();
                 }
@@ -276,32 +250,32 @@ public class NetworkFragment extends Fragment implements LocationListener {
         }
     }
 
-    /** Update the text field with the current GPS location */
-    private void updateGPS() {
+    /** Update the text field with the current value of CID */
+    private void updateCIDView() {
         // Check that the view has been initialized
-        if (viewGPSLocation != null) {
+        if (viewCellId != null) {
             // Access the UI from the main thread
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    DecimalFormat format = new DecimalFormat("0.##");
-                    viewGPSLocation.setText(format.format(location
-                            .getLatitude())
-                            + "° "
-                            + format.format(location.getLongitude()) + "°");
+                    viewCellId.setText(cellInfo.getCid() + "");
                     // Invalidate the view that changed
-                    viewGPSLocation.invalidate();
+                    viewCellId.invalidate();
                 }
             });
         }
     }
 
-    @Override
-    public void onLocationChanged(Location location) {
-        // Update the location
-        this.location = location;
-        // Update the UI
-        updateGPS();
+    /** Update the Cell Info view */
+    private void updateCellInfo() {
+        // Check that the view has been initialized
+        if (viewCellInfo != null)
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    viewCellInfo.updateCellInfo(cellInfo);
+                }
+            });
     }
 
 }
