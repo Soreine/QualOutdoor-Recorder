@@ -2,48 +2,55 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent" android:layout_height="match_parent">
 	<LinearLayout android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:orientation="vertical">
+		android:layout_height="wrap_content" android:orientation="vertical">
 
 		<TableLayout android:layout_width="match_parent"
 			android:id="@+id/table" android:layout_height="match_parent"
 			android:stretchColumns="1">
 
+			<!-- Latitude -->
 			<TableRow>
-				<TextView android:text="@string/cell_id" style="@style/ListItem" />
-				<TextView android:id="@+id/cell_id_value" style="@style/ListItem"
-					android:text="" android:gravity="right" />
-			</TableRow>
-
-			<TableRow>
-				<TextView android:text="@string/mobile_country_code" style="@style/ListItem" />
-				<TextView android:id="@+id/mobile_country_code_value"
+				<TextView android:text="@string/latitude" style="@style/ListItem" />
+				<TextView android:id="@+id/fragment_location_latitude"
 					style="@style/ListItem" android:text="" android:gravity="right" />
 			</TableRow>
-
+			<!-- Longitude -->
 			<TableRow>
-				<TextView android:text="@string/mobile_network_code" style="@style/ListItem" />
-				<TextView android:id="@+id/mobile_network_code_value"
+				<TextView android:text="@string/longitude" style="@style/ListItem" />
+				<TextView android:id="@+id/fragment_location_longitude"
 					style="@style/ListItem" android:text="" android:gravity="right" />
 			</TableRow>
-
+			<!-- Altitude -->
 			<TableRow>
-				<TextView android:text="@string/network_type_code" style="@style/ListItem" />
-				<TextView android:id="@+id/network_type_code_value" style="@style/ListItem"
+				<TextView android:text="@string/altitude" style="@style/ListItem" />
+				<TextView android:id="@+id/fragment_location_altitude"
+					style="@style/ListItem" android:text="" android:gravity="right" />
+			</TableRow>
+			<!-- Speed -->
+			<TableRow>
+				<TextView android:text="@string/speed" style="@style/ListItem" />
+				<TextView android:id="@+id/fragment_location_speed" style="@style/ListItem"
 					android:text="" android:gravity="right" />
 			</TableRow>
-
+			<!-- Accuracy -->
 			<TableRow>
-				<TextView android:text="@string/signal_strength" style="@style/ListItem" />
-				<TextView android:id="@+id/signal_strength_value" style="@style/ListItem"
-					android:text="" android:gravity="right" />
+				<TextView android:text="@string/accuracy" style="@style/ListItem" />
+				<TextView android:id="@+id/fragment_location_accuracy"
+					style="@style/ListItem" android:text="" android:gravity="right" />
 			</TableRow>
-
+			<!-- Time -->
+			<TableRow>
+				<TextView android:text="@string/time" style="@style/ListItem" />
+				<TextView android:id="@+id/fragment_location_time"
+					style="@style/ListItem" android:text="" android:gravity="right" />
+			</TableRow>
+			<!-- Provider -->
+			<TableRow>
+				<TextView android:text="@string/provider" style="@style/ListItem" />
+				<TextView android:id="@+id/fragment_location_provider"
+					style="@style/ListItem" android:text="" android:gravity="right" />
+			</TableRow>
 
 		</TableLayout>
-		<com.qualoutdoor.recorder.telephony.ViewCellInfo
-			android:id="@+id/fragment_network_cell_info" android:layout_width="match_parent"
-			android:layout_height="wrap_content">
-		</com.qualoutdoor.recorder.telephony.ViewCellInfo>
 	</LinearLayout>
 </ScrollView>

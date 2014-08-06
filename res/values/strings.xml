@@ -39,6 +39,15 @@
 	<string name="network_type_code">Network Type Code</string>
 	<string name="mobile_country_code">Mobile Country Code</string>
 
+	<!-- Location Fragment -->
+	<string name="accuracy">Accuracy</string>
+	<string name="altitude">Altitude</string>
+	<string name="latitude">Latitude</string>
+	<string name="longitude">Longitude</string>
+	<string name="speed">Speed</string>
+	<string name="provider">Provider</string>
+	<string name="time">Time</string>
+
 	<!-- ViewCellInfo -->
 	<string name="cell_info_empty">\?</string>
 	<string name="cell_info_mcc">@string/MCC</string>

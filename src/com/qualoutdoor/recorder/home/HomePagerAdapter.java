@@ -36,6 +36,7 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
         // Switch on the fragment name
         switch (i) {
         case LOCATIONS:
+            result = new LocationFragment();
             break;
         case NETWORK:
             result = new NetworkFragment();

@@ -3,17 +3,13 @@ package com.qualoutdoor.recorder.home;
 import java.util.List;
 
 import android.app.Activity;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.telephony.CellInfo;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ScrollView;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.qualoutdoor.recorder.R;
@@ -135,13 +131,6 @@ public class NetworkFragment extends Fragment {
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        Log.d("NetworkFragment", "onConfigurationChanged");
-
-        super.onConfigurationChanged(newConfig);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         ScrollView view = (ScrollView) inflater.inflate(
@@ -161,9 +150,6 @@ public class NetworkFragment extends Fragment {
 
         return view;
     }
-
-    TableLayout table;
-    Button button;
 
     @Override
     public void onResume() {
