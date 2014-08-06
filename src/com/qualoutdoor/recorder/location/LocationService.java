@@ -15,6 +15,7 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
+import com.qualoutdoor.recorder.Debug;
 import com.qualoutdoor.recorder.LocalBinder;
 
 /**
@@ -64,7 +65,6 @@ public class LocationService extends Service implements
 
     @Override
     public void onCreate() {
-        Log.d("LocationService", "onCreate");
         // Initialize the binder
         mBinder = new LocalBinder<LocationService>(this);
 
@@ -79,15 +79,16 @@ public class LocationService extends Service implements
         }
         // Connect the client
         locationClient.connect();
-        Log.d("LocationService", "connecting the client");
 
         super.onCreate();
     }
 
     @Override
     public void onDestroy() {
-        if (servicesAvailable && locationClient != null) {
+        Log.d("LocationService","onDestroy");
+        if (servicesAvailable && locationClient != null) { // TODO bug sometimes...
             locationClient.removeLocationUpdates(this);
+            if(Debug.log) Log.d("LocationService","removed location updates");
             // Destroy the current location client
             locationClient = null;
         }
@@ -97,7 +98,6 @@ public class LocationService extends Service implements
     @Override
     public IBinder onBind(Intent intent) {
         // Return our interface binder
-        Log.d("LocationService", "onBind");
         return mBinder;
     }
 
@@ -184,8 +184,11 @@ public class LocationService extends Service implements
 
     @Override
     public void onDisconnected() {
+        if(Debug.log) Log.d("LocationService","onDisconnected");
         // Destroy the current location client (we will start anew)
         locationClient = null;
+        if(Debug.log) Log.d("LocationService","locationClient == null");
+
     }
 
     /** Check whether the Google Play Services are available */

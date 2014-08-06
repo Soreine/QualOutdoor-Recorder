@@ -9,7 +9,7 @@
     <!-- UI dimension -->
     <dimen name="ui_spacing">8dp</dimen>
     <dimen name="ui_spacing_half">4dp</dimen>
-    <dimen name="divider_weight">2dp</dimen>
+    <dimen name="divider_weight">1dp</dimen>
     <dimen name="min_touch_size">48dp</dimen>
     <dimen name="action_bar_icon_size">32dp</dimen>
     <dimen name="action_bar_icon_size_without_padding">24dp</dimen>

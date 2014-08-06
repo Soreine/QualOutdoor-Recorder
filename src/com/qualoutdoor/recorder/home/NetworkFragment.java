@@ -5,7 +5,6 @@ import java.util.List;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,6 @@ import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.ServiceListener;
 import com.qualoutdoor.recorder.ServiceProvider;
 import com.qualoutdoor.recorder.telephony.ICellInfo;
-import com.qualoutdoor.recorder.telephony.ISignalStrength;
 import com.qualoutdoor.recorder.telephony.TelephonyContext;
 import com.qualoutdoor.recorder.telephony.TelephonyListener;
 import com.qualoutdoor.recorder.telephony.TelephonyService;
@@ -30,37 +28,30 @@ public class NetworkFragment extends Fragment {
 
     /** The events monitored by the Telephony Listener */
     private static final int events = TelephonyListener.LISTEN_CELL_INFO
-            | TelephonyListener.LISTEN_SIGNAL_STRENGTHS
             | TelephonyListener.LISTEN_DATA_STATE;
     /**
      * The Telephony Listener, which defines the behavior against telephony
      * state changes
      */
     private TelephonyListener telListener = new TelephonyListener() {
-        public void onSignalStrengthsChanged(ISignalStrength signalStrength) {
-            // Update the signal strength
-            NetworkFragment.this.signalStrength = signalStrength;
-            // Update the UI
-            updateSignalStrengthView();
-        };
-
         @Override
         public void onCellInfoChanged(List<ICellInfo> cellInfos) {
-            Log.d("NetworkFragment", "OnCellInfoChanged");
+            // Find the number of neighbors cells
+            neighborsCount = cellInfos.size();
             // Find the first registered cell
             for (ICellInfo cell : cellInfos) {
                 if (cell.isRegistered()) {
                     // This is the primary cell
                     cellInfo = cell;
-                    // Update the UI elements
-                    updateCellInfo();
-                    updateMCCView();
-                    updateMNCView();
-                    updateCIDView();
+                    // Don't count it in the neighbors count
+                    neighborsCount--;
+
                     // Stop searching
                     break;
                 }
             }
+            // Update the UI elements
+            updateCellInfo();
         }
 
         public void onDataStateChanged(int state, int networkType) {
@@ -85,25 +76,19 @@ public class NetworkFragment extends Fragment {
         }
     };
 
-    /** The signal strength value */
-    private ISignalStrength signalStrength;
     /** The network type code */
     private int network;
     /** The primary cell */
     private ICellInfo cellInfo;
+    /** The number of detected neighboring cells */
+    private int neighborsCount;
 
-    /** The signal strength value text view */
-    private TextView viewSignalStrength;
-    /** The cell ID text view */
-    private TextView viewCellId;
-    /** The mobile network code text view */
-    private TextView viewMobileNetworkCode;
     /** The network type code text view */
     private TextView viewNetworkType;
-    /** The mobile country code text view */
-    private TextView viewMobileCountryCode;
     /** The primary cell view */
     private ViewCellInfo viewCellInfo;
+    /** The view indicating the number of neighboring cells */
+    private TextView viewNeighborsCount;
     /** The network type code strings */
     private String[] networkNames;
 
@@ -111,6 +96,8 @@ public class NetworkFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         // Initialize the network names from the ressources
         networkNames = getResources().getStringArray(R.array.network_type_name);
+        // No neighbors have been detected yet
+        neighborsCount = 0;
         super.onCreate(savedInstanceState);
     }
 
@@ -136,17 +123,13 @@ public class NetworkFragment extends Fragment {
         ScrollView view = (ScrollView) inflater.inflate(
                 R.layout.fragment_network, container, false);
         // Initialize the views references
-        viewSignalStrength = (TextView) view
-                .findViewById(R.id.signal_strength_value);
-        viewCellId = (TextView) view.findViewById(R.id.cell_id_value);
-        viewMobileNetworkCode = (TextView) view
-                .findViewById(R.id.mobile_network_code_value);
         viewNetworkType = (TextView) view
                 .findViewById(R.id.network_type_code_value);
-        viewMobileCountryCode = (TextView) view
-                .findViewById(R.id.mobile_country_code_value);
+        viewNeighborsCount = (TextView) view
+                .findViewById(R.id.neighbors_count_value);
 
-        viewCellInfo = (ViewCellInfo) view.findViewById(R.id.fragment_network_cell_info);
+        viewCellInfo = (ViewCellInfo) view
+                .findViewById(R.id.fragment_network_cell_info);
 
         return view;
     }
@@ -170,24 +153,6 @@ public class NetworkFragment extends Fragment {
         super.onPause();
     }
 
-    /** Update the text field with the current value of signal strength */
-    private void updateSignalStrengthView() {
-        // Check that the view has been initialized
-        if (viewSignalStrength != null) {
-            // Access the UI from the main thread
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    // Fill in the view fields values
-                    viewSignalStrength.setText(signalStrength.getDbm()
-                            + " (dBm)");
-                    // Invalidate the view that changed
-                    viewSignalStrength.invalidate();
-                }
-            });
-        }
-    }
-
     /** Update the text field with the current value of network type */
     private void updateNetworkTypeView() {
         // Check that the view has been initialized
@@ -204,54 +169,6 @@ public class NetworkFragment extends Fragment {
         }
     }
 
-    /** Update the text field with the current value of MNC */
-    private void updateMNCView() {
-        // Check that the view has been initialized
-        if (viewMobileNetworkCode != null) {
-            // Access the UI from the main thread
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    viewMobileNetworkCode.setText(cellInfo.getMnc() + "");
-                    // Invalidate the view that changed
-                    viewMobileNetworkCode.invalidate();
-                }
-            });
-        }
-    }
-
-    /** Update the text field with the current value of MCC */
-    private void updateMCCView() {
-        // Check that the view has been initialized
-        if (viewMobileCountryCode != null) {
-            // Access the UI from the main thread
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    viewMobileCountryCode.setText(cellInfo.getMcc() + "");
-                    // Invalidate the view that changed
-                    viewMobileCountryCode.invalidate();
-                }
-            });
-        }
-    }
-
-    /** Update the text field with the current value of CID */
-    private void updateCIDView() {
-        // Check that the view has been initialized
-        if (viewCellId != null) {
-            // Access the UI from the main thread
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    viewCellId.setText(cellInfo.getCid() + "");
-                    // Invalidate the view that changed
-                    viewCellId.invalidate();
-                }
-            });
-        }
-    }
-
     /** Update the Cell Info view */
     private void updateCellInfo() {
         // Check that the view has been initialized
@@ -259,7 +176,10 @@ public class NetworkFragment extends Fragment {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    // Update the ViewCellInfo
                     viewCellInfo.updateCellInfo(cellInfo);
+                    // Update the number of neighbors
+                    viewNeighborsCount.setText("" + neighborsCount);
                 }
             });
     }

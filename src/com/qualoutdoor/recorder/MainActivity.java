@@ -15,7 +15,6 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -262,14 +261,12 @@ public class MainActivity extends ActionBarActivity implements
         // Bind to the RecordingService
         recServiceConnection.bindToService(this);
         // Bind to the LocationService
-        Log.d("MainActivity", "bindLocation");
         locServiceConnection.bindToService(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d("MainActivity", "onStop");
         // Unregister the TelephonyListener
         if (telServiceConnection.isAvailable()) {
             telServiceConnection.getService().listen(telephonyListener,

@@ -42,6 +42,7 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
             result = new NetworkFragment();
             break;
         case NEIGHBORS:
+            result = new NeighborsFragment();
             break;
         }
 

@@ -2,6 +2,8 @@
 <!-- Version: 2 Organized by: Willie Tsang -->
 <resources>
 
+    <color name="blue_transparent">#4D33B5E5</color>
+    
     <color name="transparent">#00000000</color>
 
     <!-- Application -->

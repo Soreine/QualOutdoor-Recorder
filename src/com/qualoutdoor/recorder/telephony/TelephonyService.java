@@ -11,8 +11,6 @@ import android.telephony.CellInfo;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.qualoutdoor.recorder.LocalBinder;
 
@@ -96,7 +94,7 @@ public class TelephonyService extends Service implements ITelephony {
             List<CellInfo> cellInfos = newCellInfos;
             // Return if cellInfos is null
             if (cellInfos == null) {
-                Log.d("TelephonyService", "newCellInfo = null");
+                // Log.d("TelephonyService", "newCellInfo = null");
                 // Try getAllCellInfos
                 cellInfos = telephonyManager.getAllCellInfo();
                 if (cellInfos == null) {
@@ -104,6 +102,7 @@ public class TelephonyService extends Service implements ITelephony {
                     return;
                 }
             }
+            
             // Update the cell infos and notify
             updateCellInfos(cellInfos);
         };
@@ -111,6 +110,7 @@ public class TelephonyService extends Service implements ITelephony {
         @Override
         public void onSignalStrengthsChanged(
                 android.telephony.SignalStrength signalStrength) {
+            Log.d("TelephonyService", "onSignalStrengthsChanged");
             // TODO We are not currently able to parse a SignalStrength so we
             // just update the CellInfo list instead. This has the effect to
             // update the signal strength value ;)

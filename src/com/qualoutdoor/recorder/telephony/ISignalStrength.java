@@ -1,6 +1,5 @@
 package com.qualoutdoor.recorder.telephony;
 
-import android.os.Bundle;
 
 /** This is an interface for accessing a signal strength information */
 public interface ISignalStrength {

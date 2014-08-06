@@ -33,6 +33,7 @@
 	</string-array>
 
 	<!-- Network Fragment -->
+	<string name="neighbors_count">Number of neighbors</string>
 	<string name="cell_id">Cell ID</string>
 	<string name="signal_strength">Signal Strength</string>
 	<string name="mobile_network_code">Mobile Network Code</string>
@@ -49,7 +50,7 @@
 	<string name="time">Time</string>
 
 	<!-- ViewCellInfo -->
-	<string name="cell_info_empty">\?</string>
+	<string name="cell_info_empty">-</string>
 	<string name="cell_info_mcc">@string/MCC</string>
 	<string name="cell_info_mnc">@string/MNC</string>
 	<string name="cell_info_lac">@string/LAC</string>
@@ -75,8 +76,7 @@
 
 	<!-- Notifications -->
 	<string name="notification_recording_title">Recording</string>
-	<string name="notification_recording_text">QualOutdoor is currently recording data&#8230;
-	</string>
+	<string name="notification_recording_text">QualOutdoor is currently recording data&#8230; </string>
 
 	<!-- Network Type Names : ordered according to the static values given in 
 		TelephonyManager -->
