@@ -63,14 +63,27 @@
     <string name="pref_title_ftp_upload">FTP upload</string>
     <string name="pref_title_mail_upload">Email upload</string>
     <string name="pref_summary_notification">Display a notification when sampling</string>
-    <string name="pref_summary_display_refresh_rate">Refresh every 1 sec</string>
-    <string name="pref_summary_display_sampling_rate">When recording, sample every 1 sec</string>
-    <string name="pref_summary_minimum_upload_size">Only upload if collected at least 10KB</string>
-    <string name="pref_summary_network_policy">Only use Wi-Fi</string>
-    <string name="pref_left_description_display_refresh_rate">Refresh every</string>
+    <string name="pref_summary_network_policy_wifi_only">Only use Wi-Fi</string>
+    <string name="pref_summary_network_policy_allow_mobile_data">Allow use of mobile data</string>
+    <string name="pref_left_description_display_refresh_rate">Refresh every </string>
+    <string name="pref_right_description_display_refresh_rate"> sec</string>
     <string name="pref_left_description_sampling_rate">When recording, sample every</string>
-    <string name="pref_left_description_sample_history">Keep the last</string>
-    <string name="pref_right_description_sample_history">samples</string>
+    <string name="pref_right_description_sampling_rate"> sec</string>
+    <string name="pref_left_description_sample_history">Keep the last </string>
+    <string name="pref_right_description_sample_history"> samples</string>
+    <string name="pref_left_description_minimum_upload_size">Only upload if collected at least </string>
+    <string name="pref_right_description_minimum_upload_size">KB</string>
+    <string name="pref_dialog_title_minimum_upload_size">Minimum size (KB)</string>
+
+    <!-- These are the list preference entry values -->
+    <string-array name="pref_list_entries_network_policy">
+        <item>@string/pref_summary_network_policy_wifi_only</item>
+        <item>@string/pref_summary_network_policy_allow_mobile_data</item>
+    </string-array>
+    <string-array name="pref_list_values_network_policy">
+        <item>@string/value_network_policy_wifi_only</item>
+        <item>@string/value_network_policy_allow_3G</item>
+    </string-array>
 
     <!-- ViewCellInfo -->
     <string name="cell_info_empty">-</string>

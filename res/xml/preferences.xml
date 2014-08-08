@@ -5,33 +5,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory android:title="@string/pref_title_sampling_category">
         <CheckBoxPreference
-            android:key="pref_key_notification"
+            android:key="@string/pref_key_notification"
             android:summary="@string/pref_summary_notification"
             android:title="@string/pref_title_notification"
             android:defaultValue="@bool/pref_default_notification"/>
         <CheckBoxPreference
-            android:key="pref_key_force_display_refresh"
+            android:key="@string/pref_key_force_display_refresh"
             android:title="@string/pref_title_force_display_refresh"
             android:defaultValue="@bool/pref_default_force_display_refresh"/>
         <com.qualoutdoor.recorder.settings.SeekBarPreference
-            android:key="pref_key_display_refresh_rate"
+            android:key="@string/pref_key_display_refresh_rate"
             android:title="@string/pref_title_display_refresh_rate"
-            android:dependency="pref_key_force_display_refresh"
+            android:dependency="@string/pref_key_force_display_refresh"
             android:defaultValue="@integer/default_display_refresh_rate"
             app:maxValue="@integer/max_display_refresh_rate"
             app:minValue="@integer/min_display_refresh_rate"
             app:unitsLeft="@string/pref_left_description_display_refresh_rate"
-            app:unitsRight="@string/unit_sec"/>
+            app:unitsRight="@string/pref_right_description_display_refresh_rate"/>
         <com.qualoutdoor.recorder.settings.SeekBarPreference
-            android:key="pref_key_display_sampling_rate"
+            android:key="@string/pref_key_display_sampling_rate"
             android:title="@string/pref_title_sampling_rate"
             android:defaultValue="@integer/default_sampling_rate"
             app:maxValue="@integer/max_sampling_rate"
             app:minValue="@integer/min_sampling_rate"
             app:unitsLeft="@string/pref_left_description_sampling_rate"
-            app:unitsRight="@string/unit_sec"/>
+            app:unitsRight="@string/pref_right_description_sampling_rate"/>
         <com.qualoutdoor.recorder.settings.SeekBarPreference
-            android:key="pref_key_sample_history"
+            android:key="@string/pref_key_sample_history"
             android:title="@string/pref_title_sample_history"
             android:defaultValue="@integer/default_sample_history"
             app:interval="@integer/interval_sample_history"
@@ -42,30 +42,35 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_title_network_category">
         <CheckBoxPreference
-            android:key="pref_key_automatic_data_upload"
+            android:key="@string/pref_key_automatic_data_upload"
             android:title="@string/pref_title_automatic_data_upload"
             android:defaultValue="@bool/pref_default_automatic_data_upload"/>
-        <Preference
-            android:key="pref_key_minimum_upload_size"
-            android:dependency="pref_key_automatic_data_upload"
-            android:summary="@string/pref_summary_minimum_upload_size"
-            android:title="@string/pref_title_minimum_upload_size"/>
-        <Preference
-            android:key="pref_key_network_policy"
-            android:dependency="pref_key_automatic_data_upload"
-            android:summary="@string/pref_summary_network_policy"
-            android:title="@string/pref_title_network_policy"/>
-        <PreferenceScreen android:key="pref_screen_protocols">
+
+        <EditTextPreference
+            android:key="@string/pref_key_minimum_upload_size"
+            android:title="@string/pref_title_minimum_upload_size"
+            android:dialogTitle="@string/pref_dialog_title_minimum_upload_size"
+            android:dependency="@string/pref_key_automatic_data_upload"
+            android:defaultValue="@integer/default_minimum_upload_size"
+            android:inputType="number"/>
+        <ListPreference
+            android:key="@string/pref_key_network_policy"
+            android:dependency="@string/pref_key_automatic_data_upload"
+            android:title="@string/pref_title_network_policy"
+            android:defaultValue="@string/pref_default_network_policy"
+            android:entries="@array/pref_list_entries_network_policy"
+            android:entryValues="@array/pref_list_values_network_policy"/>
+        <PreferenceScreen android:title="@string/pref_title_screen_protocols">
             <CheckBoxPreference
-                android:key="pref_key_http_upload"
+                android:key="@string/pref_key_http_upload"
                 android:title="@string/pref_title_http_upload"
                 android:defaultValue="@bool/pref_default_http_upload"/>
             <CheckBoxPreference
-                android:key="pref_key_ftp_upload"
+                android:key="@string/pref_key_ftp_upload"
                 android:title="@string/pref_title_ftp_upload"
                 android:defaultValue="@bool/pref_default_ftp_upload"/>
             <CheckBoxPreference
-                android:key="pref_key_mail_upload"
+                android:key="@string/pref_key_mail_upload"
                 android:title="@string/pref_title_mail_upload"
                 android:defaultValue="@bool/pref_default_mail_upload"/>
         </PreferenceScreen>
