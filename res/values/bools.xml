@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="pref_default_force_display_refresh">false</bool>
+    <bool name="pref_default_automatic_data_upload">false</bool>
+    <bool name="pref_default_notification">true</bool>
+    <bool name="pref_default_http_upload">true</bool>
+    <bool name="pref_default_ftp_upload">true</bool>
+    <bool name="pref_default_mail_upload">false</bool>
+</resources>

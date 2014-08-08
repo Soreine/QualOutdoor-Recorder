@@ -1,0 +1,19 @@
+<resources>
+
+    <!-- Display refresh rate -->
+    <integer name="max_display_refresh_rate">10</integer>
+    <integer name="min_display_refresh_rate">1</integer>
+    <integer name="default_display_refresh_rate">4</integer>
+
+    <!-- Sampling rate -->
+    <integer name="max_sampling_rate">60</integer>
+    <integer name="min_sampling_rate">1</integer>
+    <integer name="default_sampling_rate">10</integer>
+
+    <!-- Sample History -->
+    <integer name="max_sample_history">1000</integer>
+    <integer name="min_sample_history">50</integer>
+    <integer name="default_sample_history">50</integer>
+    <integer name="interval_sample_history">50</integer>
+
+</resources>

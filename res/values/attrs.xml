@@ -14,5 +14,12 @@
         <attr name="graduationStep" format="float" />
         <attr name="showText" format="boolean" />
     </declare-styleable>
+    <declare-styleable name="SeekBarPreference">
+        <attr name="minValue" format="reference|integer"></attr>
+        <attr name="maxValue" format="reference|integer"></attr>
+        <attr name="unitsRight" format="reference|string"></attr>
+        <attr name="unitsLeft" format="reference|string"></attr>
+        <attr name="interval" format="reference|integer"></attr>
+    </declare-styleable>
 
 </resources>

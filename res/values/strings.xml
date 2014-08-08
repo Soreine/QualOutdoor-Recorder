@@ -1,125 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">QualOutdoor Recorder</string>
-	<string name="title_activity_select_display">SelectDisplayActivity</string>
-	<string name="title_activity_time">TimeActivity</string>
-	<string name="title_activity_main">QualOutdoor</string>
+    <string name="app_name">QualOutdoor Recorder</string>
+    <string name="title_activity_main">QualOutdoor</string>
 
-	<!-- Action Bar Menu -->
-	<string name="action_start_record">Start Recording</string>
-	<string name="action_stop_record">Stop Recording</string>
-	<string name="network_info">Network</string>
-	<string name="action_settings">Settings</string>
-	<string name="action_help">Help</string>
+    <!-- Action Bar Menu -->
+    <string name="action_start_record">Start Recording</string>
+    <string name="action_stop_record">Stop Recording</string>
+    <string name="network_info">Network</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_help">Help</string>
 
-	<!-- Screen titles -->
-	<string name="title_home">@string/title_activity_main</string>
-	<string name="title_map">Map</string>
-	<string name="title_statistics">Statistics</string>
-	<string name="title_scripts">Scripts</string>
-	<string name="title_display_settings">Settings</string>
-	<string name="title_display_help">Help</string>
+    <!-- Screen titles -->
+    <string name="title_home">Home</string>
+    <string name="title_map">Map</string>
+    <string name="title_statistics">Statistics</string>
+    <string name="title_scripts">Scripts</string>
+    <string name="title_display_settings">Settings</string>
+    <string name="title_display_help">Help</string>
 
-	<!-- Navigation Drawer -->
-	<string name="drawer_open">Open navigation drawer</string>
-	<string name="drawer_close">Close navigation drawer</string>
+    <!-- Navigation Drawer -->
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 
-	<string-array name="top_level_navigation_titles">
-		<item>@string/title_home</item>
-		<item>@string/title_map</item>
-		<item>@string/title_statistics</item>
-		<item>@string/title_scripts</item>
-	</string-array>
+    <string-array name="top_level_navigation_titles">
+        <item>@string/title_home</item>
+        <item>@string/title_map</item>
+        <item>@string/title_statistics</item>
+        <item>@string/title_scripts</item>
+    </string-array>
 
-	<!-- Network Fragment -->
-	<string name="neighbors_count">Number of neighbors</string>
-	<string name="cell_id">Cell ID</string>
-	<string name="signal_strength">Signal Strength</string>
-	<string name="mobile_network_code">Mobile Network Code</string>
-	<string name="network_type_code">Network Type Code</string>
-	<string name="mobile_country_code">Mobile Country Code</string>
+    <!-- Network Fragment -->
+    <string name="neighbors_count">Number of neighbors</string>
+    <string name="cell_id">Cell ID</string>
+    <string name="signal_strength">Signal Strength</string>
+    <string name="mobile_network_code">Mobile Network Code</string>
+    <string name="network_type_code">Network Type Code</string>
+    <string name="mobile_country_code">Mobile Country Code</string>
 
-	<!-- Location Fragment -->
-	<string name="accuracy">Accuracy</string>
-	<string name="altitude">Altitude</string>
-	<string name="latitude">Latitude</string>
-	<string name="longitude">Longitude</string>
-	<string name="speed">Speed</string>
-	<string name="provider">Provider</string>
-	<string name="time">Time</string>
+    <!-- Location Fragment -->
+    <string name="accuracy">Accuracy</string>
+    <string name="altitude">Altitude</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="speed">Speed</string>
+    <string name="provider">Provider</string>
+    <string name="time">Time</string>
 
-	<!-- ViewCellInfo -->
-	<string name="cell_info_empty">-</string>
-	<string name="cell_info_mcc">@string/MCC</string>
-	<string name="cell_info_mnc">@string/MNC</string>
-	<string name="cell_info_lac">@string/LAC</string>
-	<string name="cell_info_tac">@string/TAC</string>
-	<string name="cell_info_psc">@string/PSC</string>
-	<string name="cell_info_pci">@string/PCI</string>
+    <!-- Preferences Screen -->
+    <string name="pref_title_sampling_category">Sampling</string>
+    <string name="pref_title_notification">Notification</string>
+    <string name="pref_title_force_display_refresh">Force display refresh</string>
+    <string name="pref_title_display_refresh_rate">Display refresh rate</string>
+    <string name="pref_title_sampling_rate">Sampling rate</string>
+    <string name="pref_title_sample_history">Sample history</string>
+    <string name="pref_title_network_category">Network</string>
+    <string name="pref_title_automatic_data_upload">Automatic data upload</string>
+    <string name="pref_title_minimum_upload_size">Minimum size before upload</string>
+    <string name="pref_title_network_policy">Network policy</string>
+    <string name="pref_title_screen_protocols">Protocols</string>
+    <string name="pref_title_http_upload">HTTP upload</string>
+    <string name="pref_title_ftp_upload">FTP upload</string>
+    <string name="pref_title_mail_upload">Email upload</string>
+    <string name="pref_summary_notification">Display a notification when sampling</string>
+    <string name="pref_summary_display_refresh_rate">Refresh every 1 sec</string>
+    <string name="pref_summary_display_sampling_rate">When recording, sample every 1 sec</string>
+    <string name="pref_summary_minimum_upload_size">Only upload if collected at least 10KB</string>
+    <string name="pref_summary_network_policy">Only use Wi-Fi</string>
+    <string name="pref_left_description_display_refresh_rate">Refresh every</string>
+    <string name="pref_left_description_sampling_rate">When recording, sample every</string>
+    <string name="pref_left_description_sample_history">Keep the last</string>
+    <string name="pref_right_description_sample_history">samples</string>
 
-	<!-- Scripts -->
-	<string-array name="scripts_array">
-		<item>Script 1</item>
-		<item>Script 2</item>
-		<item>Script 3</item>
-		<item>Etc.</item>
-	</string-array>
+    <!-- ViewCellInfo -->
+    <string name="cell_info_empty">-</string>
+    <string name="cell_info_mcc">@string/MCC</string>
+    <string name="cell_info_mnc">@string/MNC</string>
+    <string name="cell_info_lac">@string/LAC</string>
+    <string name="cell_info_tac">@string/TAC</string>
+    <string name="cell_info_psc">@string/PSC</string>
+    <string name="cell_info_pci">@string/PCI</string>
 
-	<!-- Settings -->
-	<string name="settings_general_settings">General settings&#8230;</string>
-	<string name="settings_upload_prefs">Upload preferences&#8230;</string>
-	<string name="settings_device_infos">Device informations&#8230;</string>
-	<string name="settings_send_data_button">Send data now</string>
-	<string name="settings_start_stop_button">Start/Stop</string>
+    <!-- Scripts -->
+    <string-array name="scripts_array">
+        <item>Script 1</item>
+        <item>Script 2</item>
+        <item>Script 3</item>
+        <item>Etc.</item>
+    </string-array>
+
+    <!-- Settings -->
+    <string name="settings_general_settings">General settings&#8230;</string>
+    <string name="settings_upload_prefs">Upload preferences&#8230;</string>
+    <string name="settings_device_infos">Device informations&#8230;</string>
+    <string name="settings_send_data_button">Send data now</string>
+    <string name="settings_start_stop_button">Start/Stop</string>
 
 
-	<!-- Notifications -->
-	<string name="notification_recording_title">Recording</string>
-	<string name="notification_recording_text">QualOutdoor is currently recording data&#8230; </string>
+    <!-- Notifications -->
+    <string name="notification_recording_title">Recording</string>
+    <string name="notification_recording_text">QualOutdoor is currently recording data&#8230;
+    </string>
 
-	<!-- Network Type Names : ordered according to the static values given in 
-		TelephonyManager -->
-	<string-array name="network_type_name">
-		<item>Unknown</item> <!-- 00 -->
-		<item>GPRS</item> <!-- 01 -->
-		<item>EDGE</item> <!-- 02 -->
-		<item>UMTS</item> <!-- 03 -->
-		<item>CDMA</item> <!-- 04 -->
-		<item>EVDO-0</item> <!-- 05 -->
-		<item>EVDO-A</item> <!-- 06 -->
-		<item>1xRTT</item> <!-- 07 -->
-		<item>HSDPA</item> <!-- 08 -->
-		<item>HSUPA</item> <!-- 09 -->
-		<item>HSPA</item> <!-- 10 -->
-		<item>iDen</item> <!-- 11 -->
-		<item>EVDO-B</item> <!-- 12 -->
-		<item>LTE</item> <!-- 13 -->
-		<item>eHRPD</item> <!-- 14 -->
-		<item>HSPA+</item> <!-- 15 -->
-	</string-array>
+    <!-- Network Type Names : ordered according to the static values given 
+        in TelephonyManager -->
+    <string-array name="network_type_name">
+        <item>Unknown</item> <!-- 00 -->
+        <item>GPRS</item> <!-- 01 -->
+        <item>EDGE</item> <!-- 02 -->
+        <item>UMTS</item> <!-- 03 -->
+        <item>CDMA</item> <!-- 04 -->
+        <item>EVDO-0</item> <!-- 05 -->
+        <item>EVDO-A</item> <!-- 06 -->
+        <item>1xRTT</item> <!-- 07 -->
+        <item>HSDPA</item> <!-- 08 -->
+        <item>HSUPA</item> <!-- 09 -->
+        <item>HSPA</item> <!-- 10 -->
+        <item>iDen</item> <!-- 11 -->
+        <item>EVDO-B</item> <!-- 12 -->
+        <item>LTE</item> <!-- 13 -->
+        <item>eHRPD</item> <!-- 14 -->
+        <item>HSPA+</item> <!-- 15 -->
+    </string-array>
 
-	<!-- Radio types name : ordered according to the static values in ICellInfo -->
-	<string-array name="radio_type_name">
-		<item>Unknown</item>
-		<item>GSM</item>
-		<item>WCDMA</item>
-		<item>LTE</item>
-		<item>CDMA</item>
-	</string-array>
-	<!-- Network Abbreviations -->
-	<string name="MCC">MCC</string>
-	<string name="MNC">MNC</string>
-	<string name="NTC">NTC</string>
-	<string name="CID">CID</string>
-	<string name="LAC">LAC</string>
-	<string name="PSC">PSC</string>
-	<string name="BER">BER</string>
-	<string name="TAC">TAC</string>
-	<string name="RAC">RAC</string>
-	<string name="PCI">PCI</string>
+    <!-- Radio types name : ordered according to the static values in ICellInfo -->
+    <string-array name="radio_type_name">
+        <item>Unknown</item>
+        <item>GSM</item>
+        <item>WCDMA</item>
+        <item>LTE</item>
+        <item>CDMA</item>
+    </string-array>
+    <!-- Network Abbreviations -->
+    <string name="MCC">MCC</string>
+    <string name="MNC">MNC</string>
+    <string name="NTC">NTC</string>
+    <string name="CID">CID</string>
+    <string name="LAC">LAC</string>
+    <string name="PSC">PSC</string>
+    <string name="BER">BER</string>
+    <string name="TAC">TAC</string>
+    <string name="RAC">RAC</string>
+    <string name="PCI">PCI</string>
 
-	<!-- Units -->
-	<string name="unit_dbm">dBm</string>
-	<string name="unit_asu">asu</string>
+    <!-- Units -->
+    <string name="unit_dbm">dBm</string>
+    <string name="unit_asu">asu</string>
+    <string name="unit_sec">sec</string>
 </resources>

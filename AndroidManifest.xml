@@ -52,9 +52,9 @@
         <!-- ACTIVITIES -->
         <activity
             android:name="com.qualoutdoor.recorder.MainActivity"
+            android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_main"
-            android:launchMode="singleTask"
-            android:configChanges="orientation|screenSize">
+            android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -66,6 +66,12 @@
             android:label="@string/title_display_settings"
             android:parentActivityName="com.qualoutdoor.recorder.MainActivity" >
 
+            <!-- When the user navigate to the network data usage, the system will show a button to start this settings activity -->
+            <intent-filter>
+                <action android:name="android.intent.action.MANAGE_NETWORK_USAGE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
             <!-- Parent activity meta-data to support API level 7+ -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
