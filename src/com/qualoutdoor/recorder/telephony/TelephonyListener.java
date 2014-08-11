@@ -13,18 +13,21 @@ public class TelephonyListener {
     /*********************************************
      * Theses constant are used as bitwise mask, hence the power of two.
      *********************************************/
-    /** Listen for changes to the device call state. */
-    public static final int LISTEN_CALL_STATE = 8;
-    /** Listen for changes to observed cell info. */
-    public static final int LISTEN_CELL_INFO = 1024;
-    /** Listen for changes to the data connection state (cellular). */
-    public static final int LISTEN_DATA_STATE = 64; 
-    /** Listen for changes to the device location */
-    public static final int LISTEN_LOCATION = 2048;
     /** Stop listening for updates. */
     public static final int LISTEN_NONE = 0;
+    /** Listen for changes to the device call state. */
+    public static final int LISTEN_CALL_STATE = 1;
+    /** Listen for changes to the data connection state (cellular). */
+    public static final int LISTEN_DATA_STATE = 2; 
     /** Listen for changes to the network signal strengths (cellular). */
-    public static final int LISTEN_SIGNAL_STRENGTHS = 256;
+    public static final int LISTEN_SIGNAL_STRENGTHS = 4;
+    /** Listen for changes to the Mobile Network Code */
+    public static final int LISTEN_MNC = 8;
+    /** Listen for changes to the Mobile Country Code */
+    public static final int LISTEN_MCC = 16;
+    /** Listen for changes to observed cell info. */
+    public static final int LISTEN_CELL_INFO = 32;
+
 
     /** Constructor */
     public TelephonyListener() {}
@@ -44,4 +47,9 @@ public class TelephonyListener {
     /** Callback invoked when network signal strengths changes. */
     public void onSignalStrengthsChanged(ISignalStrength signalStrength) {}
 
+    /** Callback invoked when the MCC changed. */
+    public void onMCCChanged(int mcc) {}
+    
+    /** Callback invoked when the MNC changed. */
+    public void onMNCChanged(int mnc) {}
 }

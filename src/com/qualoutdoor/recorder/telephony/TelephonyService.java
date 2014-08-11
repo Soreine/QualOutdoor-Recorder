@@ -33,6 +33,10 @@ public class TelephonyService extends Service implements ITelephony {
     private int dataState;
     /** The current network type */
     private int networkType;
+    /** The current mobile country code */
+    private int mcc;
+    /** The current mobile network code */
+    private int mnc;
     /** The current call state */
     private int callState;
     /** The incomingNumber */
@@ -52,6 +56,10 @@ public class TelephonyService extends Service implements ITelephony {
     private ArrayList<TelephonyListener> listenersDataState = new ArrayList<TelephonyListener>();
     /** Store the listeners listening to LISTEN_SIGNAL_STRENGTHS */
     private ArrayList<TelephonyListener> listenersSignalStrength = new ArrayList<TelephonyListener>();
+    /** Store the listeners listening to LISTEN_MCC */
+    private ArrayList<TelephonyListener> listenersMCC = new ArrayList<TelephonyListener>();
+    /** Store the listeners listening to LISTEN_MNC */
+    private ArrayList<TelephonyListener> listenersMNC = new ArrayList<TelephonyListener>();
 
     /** An instance of TelephonyManager */
     private TelephonyManager telephonyManager;
@@ -102,7 +110,7 @@ public class TelephonyService extends Service implements ITelephony {
                     return;
                 }
             }
-            
+
             // Update the cell infos and notify
             updateCellInfos(cellInfos);
         };
@@ -134,6 +142,10 @@ public class TelephonyService extends Service implements ITelephony {
             callState = telephonyManager.getCallState();
             // Initialize the network type
             networkType = telephonyManager.getNetworkType();
+            // Initialize the mobile country code to unknown
+            mcc = Integer.MAX_VALUE;
+            // Initialize the mobile network code to unknown
+            mnc = Integer.MAX_VALUE;
             // Initialize the data state
             dataState = telephonyManager.getDataState();
             // Initialize the cell list
@@ -270,12 +282,24 @@ public class TelephonyService extends Service implements ITelephony {
                 signalStrength = customCell.getSignalStrength();
                 // Notify the signal strength listeners
                 notifySignalStrengthListeners(signalStrength);
+                // Update mcc
+                if (mcc != customCell.getMcc()) {
+                    mcc = customCell.getMcc();
+                    // Notify mcc listeners
+                    notifyMCCListeners(mcc);
+                }
+                // Update mnc
+                if (mnc != customCell.getMnc()) {
+                    mnc = customCell.getMnc();
+                    // Notify mnc listeners
+                    notifyMNCListeners(mnc);
+                }
             }
         }
         // Create a non modifiable ICellInfo list
         List<ICellInfo> unmodifiableCellInfo = Collections
                 .unmodifiableList(allCellInfos);
-        
+
         // Notify the cell info listeners
         notifyCellInfoListeners(unmodifiableCellInfo);
     }
@@ -318,4 +342,19 @@ public class TelephonyService extends Service implements ITelephony {
         }
     }
 
+    /** Notify each MCC listeners with the current MCC value */
+    private void notifyMCCListeners(int mcc) {
+        for (TelephonyListener listener : listenersMCC) {
+            // For each listener, notify
+            listener.onMCCChanged(mcc);
+        }
+    }
+
+    /** Notify each MNC listeners with the current MNC value */
+    private void notifyMNCListeners(int mnc) {
+        for (TelephonyListener listener : listenersMNC) {
+            // For each listener, notify
+            listener.onMNCChanged(mnc);
+        }
+    }
 }
