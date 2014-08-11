@@ -155,7 +155,8 @@ public class NetworkFragment extends Fragment {
 
     /** Update the text field with the current value of network type */
     private void updateNetworkTypeView() {
-        // Check that the view has been initialized and we are attached to the activity
+        // Check that the view has been initialized and we are attached to the
+        // activity
         if (viewNetworkType != null && !isDetached()) {
             // Access the UI from the main thread
             getActivity().runOnUiThread(new Runnable() {
@@ -171,13 +172,15 @@ public class NetworkFragment extends Fragment {
 
     /** Update the Cell Info view */
     private void updateCellInfo() {
-        // Check that the view has been initialized and we are attached to the activity
+        // Check that the view has been initialized and we are attached to the
+        // activity
         if (viewCellInfo != null && !isDetached()) {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    // Update the ViewCellInfo
-                    viewCellInfo.updateCellInfo(cellInfo);
+                    if (cellInfo != null)
+                        // Update the ViewCellInfo
+                        viewCellInfo.updateCellInfo(cellInfo);
                     // Update the number of neighbors
                     viewNeighborsCount.setText("" + neighborsCount);
                 }

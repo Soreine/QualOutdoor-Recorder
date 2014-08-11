@@ -6,13 +6,18 @@ import java.util.List;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Handler;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.telephony.CellInfo;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+import com.qualoutdoor.recorder.Debug;
 import com.qualoutdoor.recorder.LocalBinder;
+import com.qualoutdoor.recorder.R;
 
 /**
  * This service is an Android implementation of ITelephony, it uses a
@@ -21,11 +26,17 @@ import com.qualoutdoor.recorder.LocalBinder;
  */
 public class TelephonyService extends Service implements ITelephony {
 
-    /** This is the estimated max size for the cell info array list */
+    /** This is the initial size for the cell info array list */
     private static final int ESTIMATED_MAX_CELLS = 10;
-
+    /** The number of milliseconds in a seconds */
+    private static final int MILLIS_IN_SECOND = 1000;
     /** The interface binder for this service */
     private IBinder mTelephonyBinder;
+
+    /** Indicates if the datas must be force refreshed regularly */
+    private volatile boolean forceRefresh;
+    /** The minimum refresh rate in milliseconds */
+    private volatile int minimumRefreshRate;
 
     /** The current signal strength value */
     private ISignalStrength signalStrength;
@@ -61,14 +72,37 @@ public class TelephonyService extends Service implements ITelephony {
     /** Store the listeners listening to LISTEN_MNC */
     private ArrayList<TelephonyListener> listenersMNC = new ArrayList<TelephonyListener>();
 
+    /** This handler is used to post regular data refresh task */
+    private final Handler handler = new Handler();
+
+    /** The runnable associated with the Handler */
+    private final Runnable refresher = new Runnable() {
+        @Override
+        public void run() {
+            try {
+                // Refresh all the telephony data
+                refreshData();
+            } catch (Exception exc) {
+                // Log the error
+                Log.e("Refresher", "", exc);
+            } finally {
+                // If forced refresh are active
+                if (forceRefresh) {
+                    // Call again later
+                    handler.postDelayed(this, minimumRefreshRate);
+                }
+            }
+        }
+    };
+
     /** An instance of TelephonyManager */
     private TelephonyManager telephonyManager;
 
     /** The events the phone state listener is monitoring */
     private static int events = PhoneStateListener.LISTEN_CALL_STATE
-            | PhoneStateListener.LISTEN_SIGNAL_STRENGTHS
-            | PhoneStateListener.LISTEN_DATA_CONNECTION_STATE
-            | PhoneStateListener.LISTEN_SERVICE_STATE
+            | PhoneStateListener.LISTEN_DATA_CONNECTION_STATE;
+    /** The events that are disabled when forced refresh is enabled */
+    private static int forcedEvents = PhoneStateListener.LISTEN_SIGNAL_STRENGTHS
             | PhoneStateListener.LISTEN_CELL_INFO;
 
     /** The Android phone state listener */
@@ -76,22 +110,15 @@ public class TelephonyService extends Service implements ITelephony {
 
         @Override
         public void onDataConnectionStateChanged(int state, int networkType) {
-            // Update the current data connection state
-            TelephonyService.this.dataState = state;
-            // Update the current network type
-            TelephonyService.this.networkType = networkType;
-            // Notify the data state listeners
-            notifyDataStateListeners(state, networkType);
+            // Update data state
+            updateDataState(state, networkType);
+
         };
 
         @Override
         public void onCallStateChanged(int state, String incomingNumber) {
-            // Update the current call state
-            TelephonyService.this.callState = state;
-            // Update the incomingNumber
-            TelephonyService.this.incomingNumber = incomingNumber;
-            // Notify the call state listeners
-            notifyCallStateListeners(state, incomingNumber);
+            // Update the call state
+            updateCallState(state, incomingNumber);
         };
 
         @Override
@@ -152,8 +179,32 @@ public class TelephonyService extends Service implements ITelephony {
             allCellInfos = new ArrayList<ICellInfo>(ESTIMATED_MAX_CELLS);
         }
 
-        // Start listening to phone state
-        telephonyManager.listen(phoneStateListener, events);
+        // Get the app preferences
+        SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        // Get the force refresh preference, default to false
+        forceRefresh = prefs.getBoolean(
+                getString(R.string.pref_key_force_display_refresh),
+                getResources().getBoolean(
+                        R.bool.pref_default_force_display_refresh));
+        // Get the refresh rate preference
+        minimumRefreshRate = prefs.getInt(
+                getString(R.string.pref_key_display_refresh_rate),
+                getResources().getInteger(
+                        R.integer.default_display_refresh_rate))
+                * MILLIS_IN_SECOND;
+
+        // If the refresh is forced
+        if (forceRefresh) {
+            // Trigger the refreshing process
+            handler.postDelayed(refresher, minimumRefreshRate);
+            // Start listening to phone state
+            telephonyManager.listen(phoneStateListener, events);
+        } else {
+            // Start listening to phone state including cell infos and signal
+            // strength
+            telephonyManager.listen(phoneStateListener, events + forcedEvents);
+        }
         super.onCreate();
     }
 
@@ -274,6 +325,35 @@ public class TelephonyService extends Service implements ITelephony {
     }
 
     /**
+     * Refresh the cell infos and signal strength data, and trigger the onChange
+     * notifications
+     */
+    private void refreshData() {
+        // Update the cell infos (this update the signal strength too)
+        updateCellInfos(telephonyManager.getAllCellInfo());
+    }
+
+    /** Update the data state */
+    private void updateDataState(int state, int networkType) {
+        // Update the current data connection state
+        this.dataState = state;
+        // Update the current network type
+        this.networkType = networkType;
+        // Notify the data state listeners
+        notifyDataStateListeners(state, networkType);
+    }
+
+    /** Update the call state */
+    private void updateCallState(int state, String incomingNumber) {
+        // Update the current call state
+        this.callState = state;
+        // Update the incomingNumber
+        this.incomingNumber = incomingNumber;
+        // Notify the call state listeners
+        notifyCallStateListeners(state, incomingNumber);
+    }
+
+    /**
      * Parse a CellInfo list and update the allCellInfo, then notify the
      * listeners from the changes
      */
@@ -371,4 +451,5 @@ public class TelephonyService extends Service implements ITelephony {
             listener.onMNCChanged(mnc);
         }
     }
+
 }
