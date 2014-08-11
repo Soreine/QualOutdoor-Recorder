@@ -215,6 +215,8 @@ public class TelephonyService extends Service implements ITelephony {
             listenersCellInfo.remove(listener);
             listenersDataState.remove(listener);
             listenersSignalStrength.remove(listener);
+            listenersMCC.remove(listener);
+            listenersMNC.remove(listener);
         } else {
             // Add the listener to the corresponding list, according to the
             // events
@@ -249,6 +251,18 @@ public class TelephonyService extends Service implements ITelephony {
                 listenersSignalStrength.add(listener);
                 // Notify it immediatly with the current data
                 listener.onSignalStrengthsChanged(signalStrength);
+            }
+            if ((events & TelephonyListener.LISTEN_MCC) == TelephonyListener.LISTEN_MCC) {
+                // Add the listener to the MCC list
+                listenersMCC.add(listener);
+                // Notify immediatly
+                listener.onMCCChanged(mcc);
+            }
+            if ((events & TelephonyListener.LISTEN_MNC) == TelephonyListener.LISTEN_MNC) {
+                // Add the listener to the MNC list
+                listenersMNC.add(listener);
+                // Notify immediatly
+                listener.onMNCChanged(mnc);
             }
         }
     }
