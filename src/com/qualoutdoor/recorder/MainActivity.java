@@ -448,6 +448,12 @@ public class MainActivity extends ActionBarActivity implements
                 }
             }
             return true;
+        case R.id.action_upload :
+            // Upload the data
+            if(recServiceConnection.isAvailable()) {
+                recServiceConnection.getService().uploadDatabase();
+            }
+            return true;
         case R.id.action_settings:
             openSettings();
             return true;

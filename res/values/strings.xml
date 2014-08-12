@@ -9,6 +9,7 @@
     <string name="action_stop_record">Stop Recording</string>
     <string name="network_info">Network</string>
     <string name="action_settings">Settings</string>
+    <string name="action_upload">Upload</string>
     <string name="action_help">Help</string>
 
     <!-- Screen titles -->

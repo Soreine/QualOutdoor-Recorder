@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.SQLException;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
@@ -81,13 +82,6 @@ public class RecordingService extends Service {
                 if (isRecording) {
                     // Refresh all the telephony data
                     sample(metrics);
-                    // Call again later
-                    samplingHandler.postDelayed(this, sampleRate);
-                } else {
-                    // Close the database connector
-                    connector.close();
-                    // The database is no more available
-                    isDBavailable = false;
                 }
             } catch (Exception exc) {
                 // Log the error
@@ -117,7 +111,8 @@ public class RecordingService extends Service {
                 .getDefaultSharedPreferences(this);
         sampleRate = prefs.getInt(
                 getString(R.string.pref_key_display_sampling_rate),
-                getResources().getInteger(R.integer.default_sampling_rate)) * 1000; // TODO
+                getResources().getInteger(R.integer.default_sampling_rate))
+                * MyConstants.MILLIS_IN_SECOND;
         // Get the metrics preferences TODO
         metrics = new ArrayList<Integer>(Arrays.asList(new Integer[] {
                 1, 2, 3
@@ -341,18 +336,57 @@ public class RecordingService extends Service {
                 dataList.put(field, value);
             }
 
-            // Insert the measure in the database
-            try {
-                connector.insertMeasure(databaseContext, dataList,
-                        location.getLatitude(), location.getLongitude());
-                Log.d("SamplingRunnable", "Insertion effectuée : "
-                        + databaseContext.toString() + dataList.toString());
-            } catch (DataBaseException e) {
-                Log.e("SamplingRunnable", "DataBaseException", e);
-            } catch (CollectMeasureException e) {
-                Log.e("SamplingRunnable", "CollectMeasureException", e);
-            }
+            // Create an AsyncTask for insertion and execute (we clone the
+            // MeasureContext for thread separation)
+            new SampleTask().execute(new SampleParam(databaseContext.clone(),
+                    dataList, location.getLatitude(), location.getLongitude()));
 
         }
+    }
+
+    /** A class that encapsulate the parameters for the SampleTask */
+    private class SampleParam {
+        public MeasureContext measureContext;
+        public HashMap<Integer, String> dataList;
+        public double latitude;
+        public double longitude;
+
+        public SampleParam(MeasureContext context,
+                HashMap<Integer, String> data, double lat, double longi) {
+            this.measureContext = context;
+            this.dataList = data;
+            this.latitude = lat;
+            this.longitude = longi;
+        }
+    }
+
+    private class SampleTask extends AsyncTask<SampleParam, Void, Void> {
+        @Override
+        protected Void doInBackground(SampleParam... params) {
+            // Get the passed parameters
+            SampleParam parameters = params[0];
+            // Insert the measure in the database
+            try {
+                connector.insertMeasure(parameters.measureContext,
+                        parameters.dataList, parameters.latitude,
+                        parameters.longitude);
+                Log.d("SampleTask", "Insertion effectuée :\n"
+                        + parameters.dataList.toString());
+            } catch (DataBaseException e) {
+                Log.e("SampleTask", "DataBaseException", e);
+            } catch (CollectMeasureException e) {
+                Log.e("SampleTask", "CollectMeasureException", e);
+            }
+            return null;
+        }
+
+    }
+
+    /**
+     * Convert the whole database to a custom CSV file and upload this file with
+     * the prefered protocols
+     */
+    public void uploadDatabase() {
+        // TODO
     }
 }

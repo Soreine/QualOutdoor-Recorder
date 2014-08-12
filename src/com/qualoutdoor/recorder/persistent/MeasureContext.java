@@ -21,7 +21,7 @@ public class MeasureContext {
     public static final int NTC_INDEX = 4;
     public static final int METRIC_INDEX = TREE_LENGTH - 1;
 
-    private int lenghtTree; // longueur de l'arbre sur lequel le contexte est
+    private int lengthTree; // longueur de l'arbre sur lequel le contexte est
                             // bas�, ici 6: 0_GROUP 1_USER 2_MCC, 3_MNC, 4_NTC,
                             // 5_Metric (on ne compte pas root ni la feuille
                             // (car on ne va pas comparer la valeur des
@@ -32,17 +32,33 @@ public class MeasureContext {
     private int cursor;// curseur qui pointe sur un �tage de la liste.
 
     public MeasureContext() {
-        this.lenghtTree = TREE_LENGTH;
+        this.lengthTree = TREE_LENGTH;
         this.stages = new ArrayList<Integer>();
-        for (int i = 0; i < this.lenghtTree; i++) {
+        for (int i = 0; i < this.lengthTree; i++) {
             this.stages.add(0);// on initialise toutes les valeurs du contexte �
                                // 0
         }
         this.cursor = 0;// on pointe au sommet de l'arbre
     }
+    
+    /** Return a deep copy of this instance */
+    public MeasureContext clone() {
+        // Create a new measure context
+        MeasureContext clone = new MeasureContext();
+        clone.cursor = this.cursor;
+        clone.lengthTree = this.lengthTree;
+        // Clone the stages attribute
+        clone.stages = new ArrayList<Integer>(this.stages.size());
+        // Clone each value
+        for(Integer integer : this.stages) {
+            // Clone the integer value
+            clone.stages.add(integer.intValue());
+        }
+        return clone;
+    }
 
     public int getlength() {
-        return this.lenghtTree;
+        return this.lengthTree;
     }
 
     public int getCursor() {
@@ -66,7 +82,7 @@ public class MeasureContext {
     public boolean isCorrectlySet() {
         int i = 0;
         for (int stage : this.stages) {
-            if (stage == 0 && i != this.lenghtTree - 1) {// on ne v�rifie pas le
+            if (stage == 0 && i != this.lengthTree - 1) {// on ne v�rifie pas le
                                                          // dernier noeud car il
                                                          // est fix� au dernier
                                                          // moment
@@ -111,7 +127,7 @@ public class MeasureContext {
     // on remet l'ensemble des �tages du contexte � zero
     public void reset() {
         Log.d("DEBUG CONTEXTE", "RESET PROCEEDING");
-        for (int i = 0; i < this.lenghtTree; i++) {
+        for (int i = 0; i < this.lengthTree; i++) {
             this.stages.set(i, 0);// on reinitialise toutes les valeurs du
                                   // contexte � 0
         }

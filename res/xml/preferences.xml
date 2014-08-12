@@ -39,6 +39,20 @@
             app:minValue="@integer/min_sample_history"
             app:unitsLeft="@string/pref_left_description_sample_history"
             app:unitsRight="@string/pref_right_description_sample_history"/>
+<!--         <PreferenceScreen android:title="@string/pref_title_screen_sample_details"> -->
+<!--             <CheckBoxPreference -->
+<!--                 android:key="@string/pref_key_" -->
+<!--                 android:title="@string/pref_title_http_upload" -->
+<!--                 android:defaultValue="@bool/pref_default_http_upload"/> -->
+<!--             <CheckBoxPreference -->
+<!--                 android:key="@string/pref_key_ftp_upload" -->
+<!--                 android:title="@string/pref_title_ftp_upload" -->
+<!--                 android:defaultValue="@bool/pref_default_ftp_upload"/> -->
+<!--             <CheckBoxPreference -->
+<!--                 android:key="@string/pref_key_mail_upload" -->
+<!--                 android:title="@string/pref_title_mail_upload" -->
+<!--                 android:defaultValue="@bool/pref_default_mail_upload"/> -->
+<!--         </PreferenceScreen> -->
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_title_network_category">
         <CheckBoxPreference

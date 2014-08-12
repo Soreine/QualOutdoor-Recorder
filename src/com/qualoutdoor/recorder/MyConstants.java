@@ -12,4 +12,6 @@ public class MyConstants {
     public static final int FIELD_UPLOAD = 4;
     public static final int FIELD_DOWNLOAD = 5;
     
+    // Number of milliseconds in a second
+    public static final int MILLIS_IN_SECOND = 1000;
 }
