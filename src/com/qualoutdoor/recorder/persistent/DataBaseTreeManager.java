@@ -26,21 +26,21 @@ public class DataBaseTreeManager {
 	
 	/*Fonction qui permet de trouver la ligne du dernier �l�ment du sous arbre dont le curseur pointe sur la racine*/
 	public int getSubTreeBoundary(){
-		Log.d("debug tree","looking for boudary of sub tree rooted by " +this.cursor.getReference()+" on line "+this.cursor.getLine());
+		//Log.d("debug tree","looking for boudary of sub tree rooted by " +this.cursor.getReference()+" on line "+this.cursor.getLine());
 		int lastChild;
 		String selectQuery = "SELECT line , VALUE , LEVEL  FROM "+table.getName()+" WHERE level <= ? AND line > ?  ORDER BY LINE ASC ";
 		Cursor c = db.rawQuery(selectQuery, new String[] {Integer.toString(this.cursor.level), Integer.toString(this.cursor.line)});
 		if (c.moveToFirst()) {//si un noeud de m�me �tage est trouv�
 			lastChild = c.getInt(0)-1;//on recup�re la ligne correspondant au dernier �l�ment du sous arbre
-			Log.d("debug tree____","sub tree boundary found on line "+lastChild);
-			Log.d("debug tree_____","next brother details are ref: "+c.getInt(1)+" lev: "+c.getInt(2)+" Line:"+c.getInt(0) );
+			//Log.d("debug tree____","sub tree boundary found on line "+lastChild);
+			//Log.d("debug tree_____","next brother details are ref: "+c.getInt(1)+" lev: "+c.getInt(2)+" Line:"+c.getInt(0) );
 		}else{//sinon tous les autres �l�ments de la liste font partie du sous arbre
 			String countQuery = "SELECT Count(*) FROM "+table.getName();//on regarde le nombre d'�l�ments dans la table
 			Cursor c2 = db.rawQuery(countQuery,null);
 			c2.moveToFirst();
 			lastChild = c2.getInt(0)+1;//la ligne du dernier �l�ment de la liste correspond au nombre total de ligne grace � notre convention	 
 			c2.close();
-			Log.d("debug tree____","sub tree boundary not found : considering last node of the whole tree, line is "+lastChild);
+			//Log.d("debug tree____","sub tree boundary not found : considering last node of the whole tree, line is "+lastChild);
 		}  
 		c.close();
 		return lastChild;
@@ -54,16 +54,16 @@ public class DataBaseTreeManager {
 		boolean result;
 		//on rep�re les limites du sous arbre donc le cuseur pointe sur la racine afin de borner l'intervalle de recherche:
 		int boundary = getSubTreeBoundary();
-		Log.d("debug tree____","limite of sub tree rooted by "+this.cursor.getReference()+ "is "+boundary);
+		//Log.d("debug tree____","limite of sub tree rooted by "+this.cursor.getReference()+ "is "+boundary);
 		//on recherche la r�f�rence indiqu� en se limitant au boundary
 		String selectQuery = "SELECT  LINE , VALUE , LEVEL  FROM "+table.getName()+" WHERE VALUE = ? AND line <= ? AND line > ?";
 		Cursor c = db.rawQuery(selectQuery, new String[] {Integer.toString(ref), Integer.toString(boundary),Integer.toString(this.cursor.line)});
 		if (c.moveToFirst()) {//si un noeud de m�me �tage est trouv� on update le curseur et on renvoie true
 			this.cursor.update(c.getInt(0), c.getInt(1), c.getInt(2));
 			result = true;
-			Log.d("____debug tree___","node found "+ref+" , details are line: "+c.getInt(0)+" ref: "+c.getInt(1)+" level:"+c.getInt(2));
+			//Log.d("____debug tree___","node found "+ref+" , details are line: "+c.getInt(0)+" ref: "+c.getInt(1)+" level:"+c.getInt(2));
 		}else{
-			Log.d("____debug tree___","node not found "+ref);
+			//Log.d("____debug tree___","node not found "+ref);
 			result = false; 
 		}
 		c.close();
@@ -98,7 +98,7 @@ public class DataBaseTreeManager {
 	/*fonction qui permet devoir si un noeud existe et s'il n'existe pas, elle le cr��e*/
 	public void findOrCreate(int ref){
 		if(!this.contains(ref)){//Si l'intervalle courant ne contient pas de noeud contenant la r�f�rence indiqu�e
-			Log.d("____debug tree___","node created "+ref);
+			//Log.d("____debug tree___","node created "+ref);
 			this.insert(ref);//alors on le cr�e
 		}//Dans tous les cas le DataBaseTreeManager aura ses bornes mises � jour
 	}
@@ -118,14 +118,14 @@ public class DataBaseTreeManager {
 		     if (c.moveToFirst()) {
 		    	 //on a retrouv� le p�re on met � jour les champs du curseur
 	             this.cursor.update(c.getInt(0), c.getInt(1), c.getInt(2));
-	             Log.d("debug tree","manager now pointing on " + c.getInt(1) +" on level "+ c.getInt(2));
+	           // Log.d("debug tree","manager now pointing on " + c.getInt(1) +" on level "+ c.getInt(2));
 	        }else{
 	        	throw new DataBaseException("TREE MANAGER GET FATHER : can't find node father");
 	        }
 		    c.close();
 		}//si on pointe d�j� sur la racine, on ne fait rien.	
 		else{
-			Log.d("debug tree","manager now pointing on root");
+			//Log.d("debug tree","manager now pointing on root");
 		}
 	}
 	

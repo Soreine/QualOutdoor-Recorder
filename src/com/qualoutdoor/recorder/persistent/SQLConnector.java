@@ -60,13 +60,13 @@ public class SQLConnector {
 		}
 		//si les noeuds sont identiques
 		if(newContext.getStage(newContext.getCursor())==this.oldContext.getStage(this.oldContext.getCursor())){
-			Log.d("****************DEBUG REFERENCE", "Noeuds identiques : "+newContext.getStage(newContext.getCursor()));
+		//	Log.d("****************DEBUG REFERENCE", "Noeuds identiques : "+newContext.getStage(newContext.getCursor()));
 			//si on est � la fin on insere la feuille
 			if(this.oldContext.isAtEnd()){
-				Log.d("****************DEBUG REFERENCE", "on  insere la feuille "+ref);
+			//	Log.d("****************DEBUG REFERENCE", "on  insere la feuille "+ref);
 				this.manager.insertLeaf(ref);
 			}else{//sinon on compare les noeuds fils
-				Log.d("****************DEBUG REFERENCE", "on  passe au noeud FILS");
+			//	Log.d("****************DEBUG REFERENCE", "on  passe au noeud FILS");
 				this.oldContext.moveToChild();//on prend le fils
 				newContext.moveToChild();//on prend le fils
 				insertReference(newContext,ref);//on rappelle la fonction sur les fils
@@ -74,16 +74,16 @@ public class SQLConnector {
 		}else{//si les noeuds ne sont pas identiques
 			//on determine la distance du noeud p�re du noeud de "conflit" � la fin de l'abre pour faire remonter le
 			//manager jusqu'� lui
-			Log.d("****************DEBUG REFERENCE", "Noeuds diff�rents : new : "+newContext.getStage(newContext.getCursor())+" old :"+this.oldContext.getStage(this.oldContext.getCursor()));
+			//Log.d("****************DEBUG REFERENCE", "Noeuds diff�rents : new : "+newContext.getStage(newContext.getCursor())+" old :"+this.oldContext.getStage(this.oldContext.getCursor()));
 			int distFatherLeaf = this.oldContext.getlength()-this.oldContext.getCursor();
 			//on fait remonter le manager
 			for(int i=0;i<distFatherLeaf;i++){
-				Log.d("****************DEBUG REFERENCE","on remonte le manager");
+				//Log.d("****************DEBUG REFERENCE","on remonte le manager");
 				this.manager.getFather();
 			}
 			//on le fait maintenant redescendre en suivant le bon chemin et en mettant � jour oldContext
 			for(int u=0;u<distFatherLeaf;u++){
-				Log.d("****************DEBUG REFERENCE","on descend le manager vers "+newContext.getStage(newContext.getCursor()) );
+				//Log.d("****************DEBUG REFERENCE","on descend le manager vers "+newContext.getStage(newContext.getCursor()) );
 				//on se dirige vers le bon fils
 				manager.findOrCreate(newContext.getStage(newContext.getCursor()));
 				//mise a jour du vieux cuseur
@@ -92,7 +92,7 @@ public class SQLConnector {
 				this.oldContext.moveToChild();
 				newContext.moveToChild();
 			}
-			Log.d("****************DEBUG REFERENCE","FIN DE LA DESCENTE : "+newContext.getStage(newContext.getCursor())  );
+			//Log.d("****************DEBUG REFERENCE","FIN DE LA DESCENTE : "+newContext.getStage(newContext.getCursor())  );
 			//� la fin on est arriv� au bout de l'arbre : on peut inserer la feuille:
 			this.manager.insertLeaf(ref);
 		}
@@ -213,17 +213,17 @@ public class SQLConnector {
 			
 			//TEST
 			
-			String select = "SELECT * FROM "+this.dbCreator.getTableReference().getName() +" ORDER BY LINE ASC" ;
-			Cursor c = this.db.rawQuery(select,null);
-			String str = DatabaseUtils.dumpCursorToString(c);
-			Log.d("DEBUG REFERENCE",str);
-			c.close();
-			
-			String select2 = "SELECT * FROM "+this.dbCreator.getTableMeasure().getName();
-			Cursor c2 = this.db.rawQuery(select2,null);
-			String str2 = DatabaseUtils.dumpCursorToString(c2);
-			Log.d("DEBUG MEASURE",str2);
-			c2.close();
+//			String select = "SELECT * FROM "+this.dbCreator.getTableReference().getName() +" ORDER BY LINE ASC" ;
+//			Cursor c = this.db.rawQuery(select,null);
+//			String str = DatabaseUtils.dumpCursorToString(c);
+//			Log.d("DEBUG REFERENCE",str);
+//			c.close();
+//			
+//			String select2 = "SELECT * FROM "+this.dbCreator.getTableMeasure().getName();
+//			Cursor c2 = this.db.rawQuery(select2,null);
+//			String str2 = DatabaseUtils.dumpCursorToString(c2);
+//			Log.d("DEBUG MEASURE",str2);
+//			c2.close();
 
 		
 		
