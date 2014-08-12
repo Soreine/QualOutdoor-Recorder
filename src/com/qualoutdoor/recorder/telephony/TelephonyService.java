@@ -149,19 +149,19 @@ public class TelephonyService extends Service implements ITelephony {
             // TODO We are not currently able to parse a SignalStrength so we
             // just update the CellInfo list instead. This has the effect to
             // update the signal strength value ;)
-            Log.d("SignalStrength", "CdmaDbm : " + signalStrength.getCdmaDbm());
-            Log.d("SignalStrength",
-                    "CdmaEcio : " + signalStrength.getCdmaEcio());
-            Log.d("SignalStrength", "EvdoDbm : " + signalStrength.getEvdoDbm());
-            Log.d("SignalStrength",
-                    "EvdoEcio : " + signalStrength.getEvdoEcio());
-            Log.d("SignalStrength", "EvdoSnr : " + signalStrength.getEvdoSnr());
-            Log.d("SignalStrength",
-                    "GsmBitErrorRate : " + signalStrength.getGsmBitErrorRate());
-            Log.d("SignalStrength",
-                    "GsmSignalStrength : "
-                            + signalStrength.getGsmSignalStrength());
-            Log.d("SignalStrength", "isGsm : " + signalStrength.isGsm());
+//            Log.d("SignalStrength", "CdmaDbm : " + signalStrength.getCdmaDbm());
+//            Log.d("SignalStrength",
+//                    "CdmaEcio : " + signalStrength.getCdmaEcio());
+//            Log.d("SignalStrength", "EvdoDbm : " + signalStrength.getEvdoDbm());
+//            Log.d("SignalStrength",
+//                    "EvdoEcio : " + signalStrength.getEvdoEcio());
+//            Log.d("SignalStrength", "EvdoSnr : " + signalStrength.getEvdoSnr());
+//            Log.d("SignalStrength",
+//                    "GsmBitErrorRate : " + signalStrength.getGsmBitErrorRate());
+//            Log.d("SignalStrength",
+//                    "GsmSignalStrength : "
+//                            + signalStrength.getGsmSignalStrength());
+//            Log.d("SignalStrength", "isGsm : " + signalStrength.isGsm());
             updateCellInfos(telephonyManager.getAllCellInfo());
         };
     };
@@ -425,7 +425,7 @@ public class TelephonyService extends Service implements ITelephony {
             // Create a corresponding ICellInfo
             customCell = CustomCellInfo.buildFromCellInfo(cell);
             // Add it to the list
-            allCellInfos.add(customCell);
+            result.add(customCell);
         }
         // We parsed the list
         return result;

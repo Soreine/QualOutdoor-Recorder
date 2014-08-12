@@ -45,7 +45,7 @@ public class LocationService extends Service implements
     private ArrayList<LocationListener> listenersLocation = new ArrayList<LocationListener>();
 
     /** Our location request reference */
-    private final LocationRequest locationRequest;
+    private LocationRequest locationRequest;
     {
         // Create a location request object
         locationRequest = LocationRequest.create();
@@ -63,10 +63,19 @@ public class LocationService extends Service implements
     /** Our location client reference */
     private LocationClient locationClient;
 
+    /** The current location update interval */
+    private int updateInterval;
+
+    /** Indicate if the client is connected */
+    private boolean clientConnected = false;
+
     @Override
     public void onCreate() {
         // Initialize the binder
         mBinder = new LocalBinder<LocationService>(this);
+
+        // Initialize the location update interval
+        updateInterval = DEFAULT_LOCATION_UPDATE_INTERVAL;
 
         // Create a new location client using this class to handle callbacks
         locationClient = new LocationClient(this, this, this);
@@ -85,10 +94,12 @@ public class LocationService extends Service implements
 
     @Override
     public void onDestroy() {
-        Log.d("LocationService","onDestroy");
-        if (servicesAvailable && locationClient != null) { // TODO bug sometimes...
+        Log.d("LocationService", "onDestroy");
+        if (servicesAvailable && locationClient != null) { // TODO bug
+                                                           // sometimes...
             locationClient.removeLocationUpdates(this);
-            if(Debug.log) Log.d("LocationService","removed location updates");
+            if (Debug.log)
+                Log.d("LocationService", "removed location updates");
             // Destroy the current location client
             locationClient = null;
         }
@@ -101,6 +112,7 @@ public class LocationService extends Service implements
         return mBinder;
     }
 
+    /** Return the last known location */
     public Location getLocation() {
         return locationClient.getLastLocation();
     }
@@ -122,9 +134,22 @@ public class LocationService extends Service implements
         listenersLocation.remove(listener);
     }
 
-    // TODO
+    /** Reduce the refresh rate to match the given time in milliseconds */
     public void setMinimumRefreshRate(int milliseconds) {
-        // TODO Auto-generated method stub
+        updateInterval = Math.min(milliseconds, updateInterval);
+        // Update the location request
+        updateRequest();
+
+    }
+
+    /** Update the location request */
+    private void updateRequest() {
+        // Update the interval
+        locationRequest.setInterval(updateInterval);
+        // Request again if already running
+        if (clientConnected && locationClient != null && servicesAvailable) {
+            locationClient.requestLocationUpdates(locationRequest, this);
+        }
     }
 
     /** Notify each location listeners with the current ILocation value */
@@ -180,14 +205,20 @@ public class LocationService extends Service implements
         Log.d("LocationService", "onConnected services");
         // Request location updates with locationRequest settings
         locationClient.requestLocationUpdates(locationRequest, this);
+        // Indicate we are connected
+        clientConnected = true;
     }
 
     @Override
     public void onDisconnected() {
-        if(Debug.log) Log.d("LocationService","onDisconnected");
+        if (Debug.log)
+            Log.d("LocationService", "onDisconnected");
         // Destroy the current location client (we will start anew)
         locationClient = null;
-        if(Debug.log) Log.d("LocationService","locationClient == null");
+        // We are no longer connected
+        clientConnected = false;
+        if (Debug.log)
+            Log.d("LocationService", "locationClient == null");
 
     }
 

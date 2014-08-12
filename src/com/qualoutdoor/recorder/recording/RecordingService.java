@@ -77,13 +77,23 @@ public class RecordingService extends Service {
         @Override
         public void run() {
             try {
-                // Refresh all the telephony data
-                sample(metrics);
+                // If we are still recording
+                if (isRecording) {
+                    // Refresh all the telephony data
+                    sample(metrics);
+                    // Call again later
+                    samplingHandler.postDelayed(this, sampleRate);
+                } else {
+                    // Close the database connector
+                    connector.close();
+                    // The database is no more available
+                    isDBavailable = false;
+                }
             } catch (Exception exc) {
                 // Log the error
                 Log.e("SamplingRunnable", "", exc);
             } finally {
-                // If forced refresh are active
+                // If we are still recording
                 if (isRecording) {
                     // Call again later
                     samplingHandler.postDelayed(this, sampleRate);
@@ -178,7 +188,9 @@ public class RecordingService extends Service {
             } else {
                 // Start the recording thread
                 startRecording();
-                // TODO set location refresh rate
+                // Ask for a short enough update rate of location
+                locServiceConnection.getService().setMinimumRefreshRate(
+                        sampleRate);
             }
         }
         return super.onStartCommand(intent, flags, startId);
@@ -253,6 +265,7 @@ public class RecordingService extends Service {
      * Fetch the current telephony data, and make an insertion in the database
      */
     private void sample(List<Integer> fields) {
+        Log.d("SamplingRunnable", "sample()");
         // Check that the services are available
         if (locServiceConnection.isAvailable()
                 && telServiceConnection.isAvailable()) {
@@ -263,9 +276,12 @@ public class RecordingService extends Service {
             // Fetch the location
             Location location = locService.getLocation();
 
-            // Check that the location is not outdated
-            if (System.currentTimeMillis() - location.getTime() > sampleRate) {
+            long now = System.currentTimeMillis();
+            long age = now - location.getTime();
+
+            if (age > 2 * sampleRate) {
                 // The data are too old
+                Log.d("SamplingRunnable", "Too old : " + age);
                 return;
             }
 
@@ -329,6 +345,8 @@ public class RecordingService extends Service {
             try {
                 connector.insertMeasure(databaseContext, dataList,
                         location.getLatitude(), location.getLongitude());
+                Log.d("SamplingRunnable", "Insertion effectuée : "
+                        + databaseContext.toString() + dataList.toString());
             } catch (DataBaseException e) {
                 Log.e("SamplingRunnable", "DataBaseException", e);
             } catch (CollectMeasureException e) {
@@ -337,5 +355,4 @@ public class RecordingService extends Service {
 
         }
     }
-
 }
