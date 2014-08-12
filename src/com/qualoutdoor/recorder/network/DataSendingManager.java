@@ -25,7 +25,6 @@ public class DataSendingManager extends AsyncTask<Void, Void, String> {
 	 */	
 	private String target;//l'addresse du serveur cible
 	private HashMap<String,FileToUpload>  filesToUploadlist;//les fichiers � envoyers
-	private TextView printer;//la vue pour afficher le r�sultat
 	private String protocole;//le protocole � utiliser
 	//Ces param�tres r�pr�sentent donc tous les param�tres communs aux diff�rents types de connexions
 	
@@ -34,10 +33,9 @@ public class DataSendingManager extends AsyncTask<Void, Void, String> {
 	private ProgressDialog progressDialog;	
 	
 	//Constructeur avec lequel on intitalise le DataSendingManager
-	public DataSendingManager(String url, HashMap<String,FileToUpload> filesToUpload,TextView vue,String proto,SendCompleteListener cb){
+	public DataSendingManager(String url, HashMap<String,FileToUpload> filesToUpload,String proto,SendCompleteListener cb){
 		this.target=url;
 		this.filesToUploadlist=filesToUpload;
-		this.printer=vue;
 		this.protocole=proto;
 		this.callback=cb;
 	}
@@ -100,8 +98,6 @@ public class DataSendingManager extends AsyncTask<Void, Void, String> {
      */
     @Override
     protected void onPostExecute(String result) {
-    	//on affiche le r�sultat de l'op�ration dans la vue
-    	this.printer.setText(result);
     	this.callback.onTaskCompleted(this.protocole, this.filesToUploadlist);
     	progressDialog.dismiss();
     }
@@ -112,9 +108,7 @@ public class DataSendingManager extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPreExecute() {
     	//CONFIGURATION DE LA BARRE DE PROGRES
-    	progressDialog= ProgressDialog.show((Context)this.callback, "SENDING DATA","USING "+this.protocole+" PROTOCOLE", true);
-    	//permet d'avoir une interface graphique plus parlante avec remise � zero du code retour
-    	this.printer.setText("transfert en cours");	    
+    	progressDialog= ProgressDialog.show((Context)this.callback, "SENDING DATA","USING "+this.protocole+" PROTOCOLE", true);    
      }
     
 }

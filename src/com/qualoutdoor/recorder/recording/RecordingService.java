@@ -21,16 +21,15 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.projet_qualoutdoor_client.OnTaskCompleted;
-import com.qualoutdoor.recorder.network.DataSendingManager;
-import com.qualoutdoor.recorder.network.EmailFileSender;
-import com.qualoutdoor.recorder.network.FileToUpload;
-import com.qualoutdoor.recorder.network.SendCompleteListener;
 import com.qualoutdoor.recorder.LocalBinder;
 import com.qualoutdoor.recorder.LocalServiceConnection;
 import com.qualoutdoor.recorder.MyConstants;
 import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.location.LocationService;
+import com.qualoutdoor.recorder.network.DataSendingManager;
+import com.qualoutdoor.recorder.network.EmailFileSender;
+import com.qualoutdoor.recorder.network.FileToUpload;
+import com.qualoutdoor.recorder.network.SendCompleteListener;
 import com.qualoutdoor.recorder.notifications.NotificationCenter;
 import com.qualoutdoor.recorder.persistent.CollectMeasureException;
 import com.qualoutdoor.recorder.persistent.DataBaseException;
@@ -57,11 +56,7 @@ public class RecordingService extends Service {
 
     /** The listeners to the recording state */
     private ArrayList<IRecordingListener> recordingListeners = new ArrayList<IRecordingListener>();
-    /** A fake recording thread */
-    private Thread thread;
 
-    /** The events the telephony listener will monitor */
-    private final static int telephonyEvents = TelephonyListener.LISTEN_DATA_STATE;
     /** The TelephonyServiceConnection used to access the TelephonyService */
     private LocalServiceConnection<TelephonyService> telServiceConnection = new LocalServiceConnection<TelephonyService>(
             TelephonyService.class);
@@ -124,9 +119,8 @@ public class RecordingService extends Service {
                 getResources().getInteger(R.integer.default_sampling_rate))
                 * MyConstants.MILLIS_IN_SECOND;
         // Get the metrics preferences TODO
-        metrics = new ArrayList<Integer>(Arrays.asList(new Integer[] {
-                1, 2, 3
-        }));
+        metrics = new ArrayList<Integer>(
+                Arrays.asList(new Integer[] { 1, 2, 3 }));
 
         // The database is not yet available
         isDBavailable = false;
@@ -166,7 +160,8 @@ public class RecordingService extends Service {
 
     // TODO
     /** Set the sampling rate to the specified value in milliseconds */
-    public void setSamplingRate(int millis) {}
+    public void setSamplingRate(int millis) {
+    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -397,80 +392,114 @@ public class RecordingService extends Service {
      * the prefered protocols
      */
     public void uploadDatabase() {
-    		if(!isRecording){
-    			//TODO : stop recording
-   
-	    	FileReadyListener writingCallback = new FileReadyListener() {
-				@Override
-				public void onFileReady(ByteArrayOutputStream file) {
-					
-						//TODO : make recording run again if it was running before calling uploadDatabase()
-					
-					 if(file==null){
-					      	Toast toast = Toast.makeText(getApplicationContext(), "No leaf to be write ", Toast.LENGTH_SHORT);
-							toast.show();
-					 }else{
-						 //Creation of a sending CallBack : called when one sending is done
-						 SendCompleteListener sendingCallback = new SendCompleteListener(){
-							@Override
-							public void onTaskCompleted(String protocole,
-									HashMap<String, FileToUpload> filesSended) {
-								//when a sending is done, the call back triggers the others chosen
-						    	if(){//if http sending is done
-						    		if(){//if ftp sending is desired by user
-						    			String url = "192.168.0.4";
-						    			DataSendingManager managerFTP = new DataSendingManager(url,filesSended,/*tvFtp*/,"ftp",this);
-						    			managerFTP.execute();
-						    		}else if(cbMail.isChecked()){//if mail sending is desired by user
-						    			String url = "";
-						    			EmailFileSender.sendFileByEmail(/*get main Act context*/,url,filesSended);
-						    		}	
-						    	}
-						    	else if(protocole.equals("ftp")){//Sif ftp sending is done
-						    		if(cbMail.isChecked()){//check if mail sending is desired bu user
-						    			String url = "";
-						    			sendFileByEmail(url,filesSended);
-						    		}	
-						    	}								
-							}							 
-						 };
-						 
-						 //Prepartion of the hashmap that contain the file to be sent
-						 HashMap<String,FileToUpload> filesToSend = new HashMap<String,FileToUpload>();
-						 //generating file name with timestamp to preserve unicity
-						 String name = "file"+System.currentTimeMillis();
-						 //getting input stream from the ByteArrayOutputStream recieved
-						 InputStream content = new ByteArrayInputStream(file.toByteArray());
-						 //creating file object
-						 FileToUpload monFichier = new FileToUpload(name,content);
-						 //inserting file into hasmap referenced with a name;
-						 filesToSend.put("uploadedFile", monFichier);
-						
-						 if(/*KNOW IF HTTP IS CHOSEN IN PREFEENCES*/){
-							 //setting server URL : normaly feching if from constant Class
-							 String url = "http://192.168.0.4:8080/upload";
-							 //creation and execution of a DataSendingManager : printing widget has to be resolved
-							 DataSendingManager managerHTTP = new DataSendingManager(url,filesToSend,/*tvHttp*/,"http",sendingCallback);
-							 managerHTTP.execute();
-						 }		
-						 else if(/*KNOW IF FTP IS CHOSEN IN PREFEENCES*/){
-							 //setting server URL : normaly feching if from constant Class
-							 String url = "192.168.0.4";
-							 //creation and execution of a DataSendingManager :  printing widget has to be resolved 
-							 DataSendingManager managerFTP = new DataSendingManager(url,filesToSend,/*tvFtp*/,"ftp",sendingCallback);
-							 managerFTP.execute();
-						 }
-						 else if(/*KNOW IF MAIL IS CHOSEN IN PREFEENCES*/){
-							 //destination address has to be fetched from setting
-							 String url = "";
-							 EmailFileSender.sendFileByEmail(/*MainActivity context*/,url,filesToSend);
-						 }
-					 }
-				}
-			};
-			String comments = "...comments about file...";
-			FileGenerator writer = new FileGenerator(connector,comments,writingCallback);
-    	}
-    }
-   }
+        if (!isRecording) {
+            //TODO : stop recording
+            SharedPreferences prefs = PreferenceManager
+                    .getDefaultSharedPreferences(this);
+            boolean httpDesired = prefs.getString(
+                    getString(R.string.pref_key_http_upload), null) != null;
+            boolean ftpDesired = prefs.getString(
+                    getString(R.string.pref_key_ftp_upload), null) != null;
+            boolean mailDesired = prefs.getString(
+                    getString(R.string.pref_key_mail_upload), null) != null;
 
+            FileReadyListener writingCallback = new WritingCallbackPreferences(
+                    httpDesired, ftpDesired, mailDesired);
+            String comments = "...comments about file...";
+            FileGenerator writer = new FileGenerator(connector, comments,
+                    writingCallback);
+            writer.execute();
+        }
+
+    }
+
+    private class WritingCallbackPreferences implements FileReadyListener {
+
+        private boolean httpDesired;
+        private boolean ftpDesired;
+        private boolean mailDesired;
+
+        public WritingCallbackPreferences(boolean isHttpDesired,
+                boolean isFtpDesired, boolean isMailDesired) {
+            this.httpDesired = isHttpDesired;
+            this.ftpDesired = isFtpDesired;
+            this.mailDesired = isMailDesired;
+        }
+
+        @Override
+        public void onFileReady(ByteArrayOutputStream file) {
+
+            //TODO : make recording run again if it was running before calling uploadDatabase()
+
+            if (file == null) {
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "No leaf to be write ", Toast.LENGTH_SHORT);
+                toast.show();
+            } else {
+                //Creation of a sending CallBack : called when one sending is done
+                SendCompleteListener sendingCallback = new SendCompleteListener() {
+                    @Override
+                    public void onTaskCompleted(String protocole,
+                            HashMap<String, FileToUpload> filesSended) {
+                        //when a sending is done, the call back triggers the others chosen
+                        if (protocole.equals("http")) {//if http sending is done
+                            if (ftpDesired) {//if ftp sending is desired by user
+                                String url = "192.168.0.4";
+                                DataSendingManager managerFTP = new DataSendingManager(
+                                        url, filesSended, "ftp", this);
+                                managerFTP.execute();
+                            } else if (mailDesired) {//if mail sending is desired by user
+                                String url = "";
+                                EmailFileSender
+                                        .sendFileByEmail(RecordingService.this,
+                                                url, filesSended);
+                            }
+                        } else if (protocole.equals("ftp")) {//Sif ftp sending is done
+                            if (mailDesired) {//check if mail sending is desired bu user
+                                String url = "";
+                                EmailFileSender
+                                        .sendFileByEmail(RecordingService.this,
+                                                url, filesSended);
+                            }
+                        }
+                    }
+                };
+
+                //Prepartion of the hashmap that contain the file to be sent
+                HashMap<String, FileToUpload> filesToSend = new HashMap<String, FileToUpload>();
+                //generating file name with timestamp to preserve unicity
+                String name = "file" + System.currentTimeMillis();
+                //getting input stream from the ByteArrayOutputStream recieved
+                InputStream content = new ByteArrayInputStream(
+                        file.toByteArray());
+                //creating file object
+                FileToUpload monFichier = new FileToUpload(name, content);
+                //inserting file into hasmap referenced with a name;
+                filesToSend.put("uploadedFile", monFichier);
+
+                if (httpDesired) {
+                    //setting server URL : normaly feching if from constant Class
+                    String url = "http://192.168.0.4:8080/upload";
+                    //creation and execution of a DataSendingManager : printing widget has to be resolved
+                    DataSendingManager managerHTTP = new DataSendingManager(
+                            url, filesToSend, "http", sendingCallback);
+                    managerHTTP.execute();
+                } else if (ftpDesired) {
+                    //setting server URL : normaly feching if from constant Class
+                    String url = "192.168.0.4";
+                    //creation and execution of a DataSendingManager :  printing widget has to be resolved 
+                    DataSendingManager managerFTP = new DataSendingManager(url,
+                            filesToSend, "ftp", sendingCallback);
+                    managerFTP.execute();
+                } else if (mailDesired) {
+                    //destination address has to be fetched from setting
+                    String url = "";
+                    EmailFileSender.sendFileByEmail(RecordingService.this, url,
+                            filesToSend);
+                }
+            }
+        }
+
+    }
+
+}
