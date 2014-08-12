@@ -149,6 +149,19 @@ public class TelephonyService extends Service implements ITelephony {
             // TODO We are not currently able to parse a SignalStrength so we
             // just update the CellInfo list instead. This has the effect to
             // update the signal strength value ;)
+            Log.d("SignalStrength", "CdmaDbm : " + signalStrength.getCdmaDbm());
+            Log.d("SignalStrength",
+                    "CdmaEcio : " + signalStrength.getCdmaEcio());
+            Log.d("SignalStrength", "EvdoDbm : " + signalStrength.getEvdoDbm());
+            Log.d("SignalStrength",
+                    "EvdoEcio : " + signalStrength.getEvdoEcio());
+            Log.d("SignalStrength", "EvdoSnr : " + signalStrength.getEvdoSnr());
+            Log.d("SignalStrength",
+                    "GsmBitErrorRate : " + signalStrength.getGsmBitErrorRate());
+            Log.d("SignalStrength",
+                    "GsmSignalStrength : "
+                            + signalStrength.getGsmSignalStrength());
+            Log.d("SignalStrength", "isGsm : " + signalStrength.isGsm());
             updateCellInfos(telephonyManager.getAllCellInfo());
         };
     };
@@ -224,7 +237,8 @@ public class TelephonyService extends Service implements ITelephony {
 
     @Override
     public List<ICellInfo> getAllCellInfo() {
-        return allCellInfos;
+        // Get the current cell infos, parse it and return it
+        return parseCellInfos(telephonyManager.getAllCellInfo());
     }
 
     @Override
@@ -232,7 +246,7 @@ public class TelephonyService extends Service implements ITelephony {
         // We normally should convert the call state code given by
         // TelephonyManager to the given code in the ITelephony interface. But
         // they are the same so far.
-        return callState;
+        return telephonyManager.getCallState();
     }
 
     @Override
@@ -240,7 +254,7 @@ public class TelephonyService extends Service implements ITelephony {
         // We normally should convert the data state code given by
         // TelephonyManager to the given code in the ITelephony interface. But
         // they are the same so far.
-        return dataState;
+        return telephonyManager.getDataState();
     }
 
     @Override
@@ -248,7 +262,7 @@ public class TelephonyService extends Service implements ITelephony {
         // We normally should convert the network type code given by
         // TelephonyManager to the given code in the ITelephony interface. But
         // they are the same so far.
-        return networkType;
+        return telephonyManager.getNetworkType();
     }
 
     @Override
@@ -361,30 +375,28 @@ public class TelephonyService extends Service implements ITelephony {
         // Reset the cell info array list
         allCellInfos.clear();
 
-        // Declare the variable holding the converted cell
-        CustomCellInfo customCell;
+        // Parse the cell infos list
+        List<ICellInfo> iCellInfos = parseCellInfos(cellInfos);
         // Update the current ICellInfo list and retrieve the signal
         // strength at the same time.
-        for (CellInfo cell : cellInfos) {
-            // Create a corresponding ICellInfo and
-            customCell = CustomCellInfo.buildFromCellInfo(cell);
+        for (ICellInfo cell : iCellInfos) {
             // Add it to the list
-            allCellInfos.add(customCell);
+            allCellInfos.add(cell);
             // Check if this is the primary cell
-            if (customCell.isRegistered()) {
+            if (cell.isRegistered()) {
                 // This is the signal strength you are looking for
-                signalStrength = customCell.getSignalStrength();
+                signalStrength = cell.getSignalStrength();
                 // Notify the signal strength listeners
                 notifySignalStrengthListeners(signalStrength);
                 // Update mcc
-                if (mcc != customCell.getMcc()) {
-                    mcc = customCell.getMcc();
+                if (mcc != cell.getMcc()) {
+                    mcc = cell.getMcc();
                     // Notify mcc listeners
                     notifyMCCListeners(mcc);
                 }
                 // Update mnc
-                if (mnc != customCell.getMnc()) {
-                    mnc = customCell.getMnc();
+                if (mnc != cell.getMnc()) {
+                    mnc = cell.getMnc();
                     // Notify mnc listeners
                     notifyMNCListeners(mnc);
                 }
@@ -396,6 +408,27 @@ public class TelephonyService extends Service implements ITelephony {
 
         // Notify the cell info listeners
         notifyCellInfoListeners(unmodifiableCellInfo);
+    }
+
+    /**
+     * Parse a CellInfo list and return the ICellInfo list * listeners from the
+     * changes
+     */
+    private List<ICellInfo> parseCellInfos(List<CellInfo> cellInfos) {
+        // Initialize the result list
+        ArrayList<ICellInfo> result = new ArrayList<ICellInfo>(
+                ESTIMATED_MAX_CELLS);
+        // Declare the variable holding the converted cell
+        CustomCellInfo customCell;
+        // Parse the list
+        for (CellInfo cell : cellInfos) {
+            // Create a corresponding ICellInfo
+            customCell = CustomCellInfo.buildFromCellInfo(cell);
+            // Add it to the list
+            allCellInfos.add(customCell);
+        }
+        // We parsed the list
+        return result;
     }
 
     /** Notify each cell info listeners with the current ICellInfo list */

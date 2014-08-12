@@ -102,7 +102,7 @@ public class LocationService extends Service implements
     }
 
     public Location getLocation() {
-        return location;
+        return locationClient.getLastLocation();
     }
 
     /** Register the given LocationListener to receive location updates */
