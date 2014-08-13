@@ -6,4 +6,10 @@
     <bool name="pref_default_http_upload">true</bool>
     <bool name="pref_default_ftp_upload">true</bool>
     <bool name="pref_default_mail_upload">false</bool>
+
+    <bool name="pref_default_sample_cell_id">true</bool>
+    <bool name="pref_default_sample_signal_strength">true</bool>
+    <bool name="pref_default_sample_call">false</bool>
+    <bool name="pref_default_sample_upload">false</bool>
+    <bool name="pref_default_sample_download">false</bool>
 </resources>

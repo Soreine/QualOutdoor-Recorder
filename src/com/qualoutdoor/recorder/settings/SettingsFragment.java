@@ -48,12 +48,12 @@ public class SettingsFragment extends PreferenceFragment {
                 + "";
         // Get the value string
         String value = sharedPreferences.getString(key, defaultValue);
-        // Set summary to be the user-description for the selected value
+        // Set summary to be the description for the user selected value
         uploadSizePref
-                .setSummary(getString(R.string.pref_left_description_minimum_upload_size)
+                .setSummary(getString(R.string.pref_left_text_minimum_upload_size)
                         + " "
                         + value
-                        + getString(R.string.pref_right_description_minimum_upload_size));
+                        + getString(R.string.pref_right_text_minimum_upload_size));
     }
 
     /** Update the network policy summary text. */
@@ -82,7 +82,7 @@ public class SettingsFragment extends PreferenceFragment {
         // Get the corresponding localized string
         String valueString = entries[index];
 
-        // Set summary to be the user-description for the selected value
+        // Set summary to be the description for the selected value
         pref.setSummary(valueString);
     }
 

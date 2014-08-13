@@ -20,16 +20,16 @@
             android:defaultValue="@integer/default_display_refresh_rate"
             app:maxValue="@integer/max_display_refresh_rate"
             app:minValue="@integer/min_display_refresh_rate"
-            app:unitsLeft="@string/pref_left_description_display_refresh_rate"
-            app:unitsRight="@string/pref_right_description_display_refresh_rate"/>
+            app:unitsLeft="@string/pref_left_text_display_refresh_rate"
+            app:unitsRight="@string/pref_right_text_display_refresh_rate"/>
         <com.qualoutdoor.recorder.settings.SeekBarPreference
             android:key="@string/pref_key_display_sampling_rate"
             android:title="@string/pref_title_sampling_rate"
             android:defaultValue="@integer/default_sampling_rate"
             app:maxValue="@integer/max_sampling_rate"
             app:minValue="@integer/min_sampling_rate"
-            app:unitsLeft="@string/pref_left_description_sampling_rate"
-            app:unitsRight="@string/pref_right_description_sampling_rate"/>
+            app:unitsLeft="@string/pref_left_text_sampling_rate"
+            app:unitsRight="@string/pref_right_text_sampling_rate"/>
         <com.qualoutdoor.recorder.settings.SeekBarPreference
             android:key="@string/pref_key_sample_history"
             android:title="@string/pref_title_sample_history"
@@ -37,22 +37,35 @@
             app:interval="@integer/interval_sample_history"
             app:maxValue="@integer/max_sample_history"
             app:minValue="@integer/min_sample_history"
-            app:unitsLeft="@string/pref_left_description_sample_history"
-            app:unitsRight="@string/pref_right_description_sample_history"/>
-<!--         <PreferenceScreen android:title="@string/pref_title_screen_sample_details"> -->
-<!--             <CheckBoxPreference -->
-<!--                 android:key="@string/pref_key_" -->
-<!--                 android:title="@string/pref_title_http_upload" -->
-<!--                 android:defaultValue="@bool/pref_default_http_upload"/> -->
-<!--             <CheckBoxPreference -->
-<!--                 android:key="@string/pref_key_ftp_upload" -->
-<!--                 android:title="@string/pref_title_ftp_upload" -->
-<!--                 android:defaultValue="@bool/pref_default_ftp_upload"/> -->
-<!--             <CheckBoxPreference -->
-<!--                 android:key="@string/pref_key_mail_upload" -->
-<!--                 android:title="@string/pref_title_mail_upload" -->
-<!--                 android:defaultValue="@bool/pref_default_mail_upload"/> -->
-<!--         </PreferenceScreen> -->
+            app:unitsLeft="@string/pref_left_text_sample_history"
+            app:unitsRight="@string/pref_right_text_sample_history"/>
+        <PreferenceScreen android:title="@string/pref_title_screen_sample_details">
+            <!-- Descriptive text block -->
+            <Preference
+                android:persistent="false"
+                android:selectable="false"
+                android:summary="@string/pref_description_block_sample_details"/>
+            <CheckBoxPreference
+                android:key="@string/pref_key_sample_cell_id"
+                android:title="@string/pref_title_sample_cell_id"
+                android:defaultValue="@bool/pref_default_sample_cell_id"/>
+            <CheckBoxPreference
+                android:key="@string/pref_key_sample_signal_strength"
+                android:title="@string/pref_title_sample_signal_strength"
+                android:defaultValue="@bool/pref_default_sample_signal_strength"/>
+            <CheckBoxPreference
+                android:key="@string/pref_key_sample_call"
+                android:title="@string/pref_title_sample_call"
+                android:defaultValue="@bool/pref_default_sample_call"/>
+            <CheckBoxPreference
+                android:key="@string/pref_key_sample_upload"
+                android:title="@string/pref_title_sample_upload"
+                android:defaultValue="@bool/pref_default_sample_upload"/>
+            <CheckBoxPreference
+                android:key="@string/pref_key_sample_download"
+                android:title="@string/pref_title_sample_download"
+                android:defaultValue="@bool/pref_default_sample_download"/>
+        </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_title_network_category">
         <CheckBoxPreference
@@ -75,6 +88,11 @@
             android:entries="@array/pref_list_entries_network_policy"
             android:entryValues="@array/pref_list_values_network_policy"/>
         <PreferenceScreen android:title="@string/pref_title_screen_protocols">
+            <!-- Descriptive text block -->
+            <Preference
+                android:persistent="false"
+                android:selectable="false"
+                android:summary="@string/pref_description_block_protocols"/>
             <CheckBoxPreference
                 android:key="@string/pref_key_http_upload"
                 android:title="@string/pref_title_http_upload"

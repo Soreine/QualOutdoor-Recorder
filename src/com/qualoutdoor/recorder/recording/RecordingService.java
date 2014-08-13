@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import android.app.Notification;
@@ -23,7 +24,7 @@ import android.widget.Toast;
 
 import com.qualoutdoor.recorder.LocalBinder;
 import com.qualoutdoor.recorder.LocalServiceConnection;
-import com.qualoutdoor.recorder.MyConstants;
+import com.qualoutdoor.recorder.GlobalConstants;
 import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.location.LocationService;
 import com.qualoutdoor.recorder.network.DataSendingManager;
@@ -38,7 +39,6 @@ import com.qualoutdoor.recorder.persistent.FileReadyListener;
 import com.qualoutdoor.recorder.persistent.MeasureContext;
 import com.qualoutdoor.recorder.persistent.SQLConnector;
 import com.qualoutdoor.recorder.telephony.ICellInfo;
-import com.qualoutdoor.recorder.telephony.TelephonyListener;
 import com.qualoutdoor.recorder.telephony.TelephonyService;
 
 /**
@@ -96,11 +96,6 @@ public class RecordingService extends Service {
                 if (isRecording) {
                     // Call again later
                     samplingHandler.postDelayed(this, sampleRate);
-                } else {
-                    // Close the database connector
-                    connector.close();
-                    // The database is no more available
-                    isDBavailable = false;
                 }
             }
         }
@@ -117,34 +112,42 @@ public class RecordingService extends Service {
         sampleRate = prefs.getInt(
                 getString(R.string.pref_key_display_sampling_rate),
                 getResources().getInteger(R.integer.default_sampling_rate))
-                * MyConstants.MILLIS_IN_SECOND;
-        // Get the metrics preferences TODO
-        metrics = new ArrayList<Integer>(
-                Arrays.asList(new Integer[] { 1, 2, 3 }));
+                * GlobalConstants.MILLIS_IN_SECOND;
 
-        // The database is not yet available
+        // Get the metrics preferences
+        metrics = getMetricPreferences(prefs);
+
+        // The database is not available yet
         isDBavailable = false;
+
         // Initialize the data base
         try {
             // Initialize the SQL connector
             this.connector = new SQLConnector(this);
 
-        } catch (DataBaseException exc) {
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "can't initialize SQLConnector : " + exc.toString(),
-                    Toast.LENGTH_SHORT); // TODO string
-            toast.show();
-        }
+            // Open the database
+            this.connector.open();// la bdd est gener�e � partir du cr�ateur
+            // Database is available
+            isDBavailable = true;
 
-        // If initialization succeed
-        if (connector != null) {
             // Initialize the database context
             databaseContext = new MeasureContext();
 
-            // Bind to the telephony and location services
-            telServiceConnection.bindToService(this);
-            locServiceConnection.bindToService(this);
+        } catch (DataBaseException exc) {
+            Log.e("RecordingService", "Can't initialize SQLConnector", exc);
+            // Toast the user that recording won't be available
+            Toast.makeText(this, R.string.error_initialize_sql_connector,
+                    Toast.LENGTH_SHORT).show();
+        } catch (SQLException exc) {
+            Log.e("RecordingService", "Can't open SQLConnector", exc);
+            // Toast the user that recording won't be available
+            Toast.makeText(this, R.string.error_open_sql_connector,
+                    Toast.LENGTH_SHORT).show();
         }
+
+        // Bind to the telephony and location services
+        telServiceConnection.bindToService(this);
+        locServiceConnection.bindToService(this);
     }
 
     @Override
@@ -160,29 +163,17 @@ public class RecordingService extends Service {
 
     // TODO
     /** Set the sampling rate to the specified value in milliseconds */
-    public void setSamplingRate(int millis) {
-    }
+    public void setSamplingRate(int millis) {}
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         // The database is available
         if (!isRecording) {
-            // Open the database
-            try {
-                this.connector.open();// la bdd est gener�e � partir du cr�ateur
-                isDBavailable = true;
-            } catch (SQLException exc) {
-                Toast toast = Toast.makeText(getApplicationContext(),
-                        "can't open SQLConnector : " + exc.toString(),
-                        Toast.LENGTH_SHORT); // TODO string
-                toast.show();
-            }
 
             if (!isDBavailable) {
-                // TODO error string
-                Toast toast = new Toast(this);
-                toast.setText("Database non available");
-                toast.show();
+                // Unable to start recording : toast it
+                Toast.makeText(this, R.string.error_recording_unavailable,
+                        Toast.LENGTH_SHORT).show();
                 // Send a message to stop this service immediatly
                 stopSelf();
             } else {
@@ -202,6 +193,10 @@ public class RecordingService extends Service {
             // Stop the recording process
             stopRecording();
         }
+        // Close the database connector
+        connector.close();
+        // The database is no more available
+        isDBavailable = false;
         // Unbind from the TelephonyService if needed
         unbindService(telServiceConnection);
         // Unbind from the LocationService if needed
@@ -265,7 +260,6 @@ public class RecordingService extends Service {
      * Fetch the current telephony data, and make an insertion in the database
      */
     private void sample(List<Integer> fields) {
-        Log.d("SamplingRunnable", "sample()");
         // Check that the services are available
         if (locServiceConnection.isAvailable()
                 && telServiceConnection.isAvailable()) {
@@ -304,8 +298,10 @@ public class RecordingService extends Service {
             }
 
             // Update the database context
-            databaseContext.set(MeasureContext.GROUP_INDEX, MyConstants.group);
-            databaseContext.set(MeasureContext.USER_INDEX, MyConstants.user);
+            databaseContext.set(MeasureContext.GROUP_INDEX,
+                    GlobalConstants.group);
+            databaseContext
+                    .set(MeasureContext.USER_INDEX, GlobalConstants.user);
             databaseContext.set(MeasureContext.MCC_INDEX, primaryCell.getMcc());
             databaseContext.set(MeasureContext.MNC_INDEX, primaryCell.getMnc());
             databaseContext.set(MeasureContext.NTC_INDEX,
@@ -320,20 +316,20 @@ public class RecordingService extends Service {
             for (Integer field : fields) {
                 String value = "";
                 switch (field) {
-                case MyConstants.FIELD_CALL_RESULT:
+                case GlobalConstants.FIELD_CALL:
                     // Unimplemented
                     value = "unimplemented";
                     break;
-                case MyConstants.FIELD_CELL_ID:
+                case GlobalConstants.FIELD_CELL_ID:
                     value += primaryCell.getCid();
                     break;
-                case MyConstants.FIELD_SIGNAL_STRENGTH:
+                case GlobalConstants.FIELD_SIGNAL_STRENGTH:
                     value += primaryCell.getSignalStrength().getDbm();
                     break;
-                case MyConstants.FIELD_DOWNLOAD:
+                case GlobalConstants.FIELD_DOWNLOAD:
                     value = "unimplemented";
                     break;
-                case MyConstants.FIELD_UPLOAD:
+                case GlobalConstants.FIELD_UPLOAD:
                     value = "unimplemented";
                     break;
                 }
@@ -393,15 +389,18 @@ public class RecordingService extends Service {
      */
     public void uploadDatabase() {
         if (!isRecording) {
-            //TODO : stop recording
+            // TODO : stop recording
+
+            // Get the upload preferences from the SharedPreferences (default to
+            // false)
             SharedPreferences prefs = PreferenceManager
                     .getDefaultSharedPreferences(this);
-            boolean httpDesired = prefs.getString(
-                    getString(R.string.pref_key_http_upload), null) != null;
-            boolean ftpDesired = prefs.getString(
-                    getString(R.string.pref_key_ftp_upload), null) != null;
-            boolean mailDesired = prefs.getString(
-                    getString(R.string.pref_key_mail_upload), null) != null;
+            boolean httpDesired = prefs.getBoolean(
+                    getString(R.string.pref_key_http_upload), false);
+            boolean ftpDesired = prefs.getBoolean(
+                    getString(R.string.pref_key_ftp_upload), false);
+            boolean mailDesired = prefs.getBoolean(
+                    getString(R.string.pref_key_mail_upload), false);
 
             FileReadyListener writingCallback = new WritingCallbackPreferences(
                     httpDesired, ftpDesired, mailDesired);
@@ -429,33 +428,41 @@ public class RecordingService extends Service {
         @Override
         public void onFileReady(ByteArrayOutputStream file) {
 
-            //TODO : make recording run again if it was running before calling uploadDatabase()
+            // TODO : make recording run again if it was running before calling
+            // uploadDatabase()
 
             if (file == null) {
-                Toast toast = Toast.makeText(getApplicationContext(),
-                        "No leaf to be write ", Toast.LENGTH_SHORT);
-                toast.show();
+                // No data waiting to be uploaded : toast it
+                Toast.makeText(RecordingService.this,
+                        R.string.error_no_data_to_upload, Toast.LENGTH_SHORT).show();
             } else {
-                //Creation of a sending CallBack : called when one sending is done
+                // Creation of a sending CallBack : called when one sending is
+                // done
                 SendCompleteListener sendingCallback = new SendCompleteListener() {
                     @Override
                     public void onTaskCompleted(String protocole,
                             HashMap<String, FileToUpload> filesSended) {
-                        //when a sending is done, the call back triggers the others chosen
-                        if (protocole.equals("http")) {//if http sending is done
-                            if (ftpDesired) {//if ftp sending is desired by user
-                                String url = "192.168.0.4";
+                        // when a sending is done, the call back triggers the
+                        // others chosen
+                        if (protocole.equals("http")) {// if http sending is
+                                                       // done
+                            if (ftpDesired) {// if ftp sending is desired by
+                                             // user
+                                String url = GlobalConstants.URL_SERVER_FTP;
                                 DataSendingManager managerFTP = new DataSendingManager(
                                         url, filesSended, "ftp", this);
                                 managerFTP.execute();
-                            } else if (mailDesired) {//if mail sending is desired by user
+                            } else if (mailDesired) {// if mail sending is
+                                                     // desired by user
                                 String url = "";
                                 EmailFileSender
                                         .sendFileByEmail(RecordingService.this,
                                                 url, filesSended);
                             }
-                        } else if (protocole.equals("ftp")) {//Sif ftp sending is done
-                            if (mailDesired) {//check if mail sending is desired bu user
+                        } else if (protocole.equals("ftp")) {// Sif ftp sending
+                                                             // is done
+                            if (mailDesired) {// check if mail sending is
+                                              // desired bu user
                                 String url = "";
                                 EmailFileSender
                                         .sendFileByEmail(RecordingService.this,
@@ -465,41 +472,74 @@ public class RecordingService extends Service {
                     }
                 };
 
-                //Prepartion of the hashmap that contain the file to be sent
+                // Prepartion of the hashmap that contain the file to be sent
                 HashMap<String, FileToUpload> filesToSend = new HashMap<String, FileToUpload>();
-                //generating file name with timestamp to preserve unicity
+                // generating file name with timestamp to preserve unicity
                 String name = "file" + System.currentTimeMillis();
-                //getting input stream from the ByteArrayOutputStream recieved
+                // getting input stream from the ByteArrayOutputStream recieved
                 InputStream content = new ByteArrayInputStream(
                         file.toByteArray());
-                //creating file object
+                // creating file object
                 FileToUpload monFichier = new FileToUpload(name, content);
-                //inserting file into hasmap referenced with a name;
+                // inserting file into hasmap referenced with a name;
                 filesToSend.put("uploadedFile", monFichier);
 
                 if (httpDesired) {
-                    //setting server URL : normaly feching if from constant Class
-                    String url = "http://192.168.0.4:8080/upload";
-                    //creation and execution of a DataSendingManager : printing widget has to be resolved
+                    // setting server URL : normaly feching if from constant
+                    // Class
+                    String url = GlobalConstants.URL_SERVER_HTTP;
+                    // creation and execution of a DataSendingManager : printing
+                    // widget has to be resolved
                     DataSendingManager managerHTTP = new DataSendingManager(
                             url, filesToSend, "http", sendingCallback);
                     managerHTTP.execute();
                 } else if (ftpDesired) {
-                    //setting server URL : normaly feching if from constant Class
-                    String url = "192.168.0.4";
-                    //creation and execution of a DataSendingManager :  printing widget has to be resolved 
+                    // setting server URL : normaly feching if from constant
+                    // Class
+                    String url = GlobalConstants.URL_SERVER_FTP;
+                    // creation and execution of a DataSendingManager : printing
+                    // widget has to be resolved
                     DataSendingManager managerFTP = new DataSendingManager(url,
                             filesToSend, "ftp", sendingCallback);
                     managerFTP.execute();
                 } else if (mailDesired) {
-                    //destination address has to be fetched from setting
+                    // destination address has to be fetched from setting
                     String url = "";
                     EmailFileSender.sendFileByEmail(RecordingService.this, url,
                             filesToSend);
                 }
             }
         }
-
     }
 
+    /**
+     * Parse the given shared preferences and return the list of the metrics to
+     * sample as an integer list
+     */
+    List<Integer> getMetricPreferences(SharedPreferences prefs) {
+        // Create an empty list
+        LinkedList<Integer> result = new LinkedList<Integer>();
+
+        // The preference id list
+        String[] preferenceKeys = {
+                getString(R.string.pref_key_sample_cell_id),
+                getString(R.string.pref_key_sample_signal_strength),
+                getString(R.string.pref_key_sample_call),
+                getString(R.string.pref_key_sample_upload),
+                getString(R.string.pref_key_sample_download)
+        };
+        // The corresponding code
+        int[] codes = {
+                GlobalConstants.FIELD_CELL_ID,
+                GlobalConstants.FIELD_SIGNAL_STRENGTH,
+                GlobalConstants.FIELD_CALL, GlobalConstants.FIELD_UPLOAD,
+                GlobalConstants.FIELD_DOWNLOAD
+        };
+        // For each preference, add the corresponding integer code if true
+        for (int i = 0; i < preferenceKeys.length; i++) {
+            if (prefs.getBoolean(preferenceKeys[i], false))
+                result.add(codes[i]);
+        }
+        return result;
+    }
 }
