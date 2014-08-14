@@ -1,6 +1,5 @@
 package com.qualoutdoor.recorder.network;
 
-import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 
 /*Classe qui permet un call back des taches asynchrones vers l'activit� principale

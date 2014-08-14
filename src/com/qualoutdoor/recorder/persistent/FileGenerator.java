@@ -137,6 +137,7 @@ public class FileGenerator extends AsyncTask<Void, Void, ByteArrayOutputStream> 
                 Log.d("debug writer", "11");
                 this.file.write(("#" + comments + "#").getBytes());// ouverture
                                                                    // du fichier
+                Thread.sleep(2000);
                 Log.d("debug writer", "12");
                 this.tablesRetransciption(managerWriter);
                 Log.d("debug writer", "13");
@@ -148,6 +149,9 @@ public class FileGenerator extends AsyncTask<Void, Void, ByteArrayOutputStream> 
             }
         } catch (IOException e) {// capte les exceptions li�es � l'�criture dans
                                  // le buffer
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

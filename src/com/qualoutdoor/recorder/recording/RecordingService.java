@@ -4,7 +4,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,9 +21,9 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.qualoutdoor.recorder.GlobalConstants;
 import com.qualoutdoor.recorder.LocalBinder;
 import com.qualoutdoor.recorder.LocalServiceConnection;
-import com.qualoutdoor.recorder.GlobalConstants;
 import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.location.LocationService;
 import com.qualoutdoor.recorder.network.DataSendingManager;
@@ -75,8 +74,8 @@ public class RecordingService extends Service {
     /** The list of the measures to record */
     private List<Integer> metrics;
 
-    /** The sampling handler */
-    private final Handler samplingHandler = new Handler();
+    /** The recording handler */
+    private final RecordingHandler handler = new RecordingHandler();
 
     /** This runnable defines the action to do on a sampling event */
     public final Runnable samplingRunnable = new Runnable() {
@@ -95,7 +94,7 @@ public class RecordingService extends Service {
                 // If we are still recording
                 if (isRecording) {
                     // Call again later
-                    samplingHandler.postDelayed(this, sampleRate);
+                    handler.postDelayed(this, sampleRate);
                 }
             }
         }
@@ -215,7 +214,7 @@ public class RecordingService extends Service {
         startForeground(NotificationCenter.BACKGROUND_RECORDING, notification);
 
         // Start the sampling process
-        samplingHandler.post(samplingRunnable);
+        handler.post(samplingRunnable);
 
         // Notify the listeners
         notifyRecording();
@@ -434,7 +433,8 @@ public class RecordingService extends Service {
             if (file == null) {
                 // No data waiting to be uploaded : toast it
                 Toast.makeText(RecordingService.this,
-                        R.string.error_no_data_to_upload, Toast.LENGTH_SHORT).show();
+                        R.string.error_no_data_to_upload, Toast.LENGTH_SHORT)
+                        .show();
             } else {
                 // Creation of a sending CallBack : called when one sending is
                 // done
