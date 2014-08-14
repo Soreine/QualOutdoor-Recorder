@@ -8,7 +8,7 @@ import java.io.InputStream;
  */
 public interface Sender {
 	
-	public  boolean envoyerFichier(String URL,String fileName,InputStream content );
+	public  boolean sendFile(String URL,String fileName,InputStream content );
 	
 
 }

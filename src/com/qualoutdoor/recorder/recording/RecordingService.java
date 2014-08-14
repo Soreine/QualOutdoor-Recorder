@@ -1,15 +1,25 @@
 package com.qualoutdoor.recorder.recording;
 
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import android.app.Notification;
 import android.app.Service;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.SQLException;
@@ -405,7 +415,7 @@ public class RecordingService extends Service {
                     getString(R.string.pref_key_mail_upload), false);
 
             FileReadyListener writingCallback = new WritingCallbackPreferences(
-                    httpDesired, ftpDesired, mailDesired);
+                   0 );//TODO
             String comments = "...comments about file...";
             FileGenerator writer = new FileGenerator(connector, comments,
                     writingCallback);
@@ -416,23 +426,17 @@ public class RecordingService extends Service {
 
     private class WritingCallbackPreferences implements FileReadyListener {
 
-        private boolean httpDesired;
-        private boolean ftpDesired;
-        private boolean mailDesired;
+        private int chosenProtocol;
 
-        public WritingCallbackPreferences(boolean isHttpDesired,
-                boolean isFtpDesired, boolean isMailDesired) {
-            this.httpDesired = isHttpDesired;
-            this.ftpDesired = isFtpDesired;
-            this.mailDesired = isMailDesired;
+
+        public WritingCallbackPreferences(int protocol) {
+            this.chosenProtocol = protocol;
         }
 
         @Override
         public void onFileReady(ByteArrayOutputStream file) {
-
             // TODO : make recording run again if it was running before calling
             // uploadDatabase()
-
             if (file == null) {
                 // No data waiting to be uploaded : toast it
                 Toast.makeText(RecordingService.this,
@@ -440,59 +444,83 @@ public class RecordingService extends Service {
                         .show();
             } else {
                 // Creation of a sending CallBack : called when one sending is
-                // done
+                // done : if file had not been send it is stored into app file systeme
                 SendCompleteListener sendingCallback = new SendCompleteListener() {
                     @Override
                     public void onTaskCompleted(String protocole,
 
-                          HashMap<String, FileToUpload> filesSended, boolean success) {
-                        if(!success){
-                            //TODO : store file ....
+                          File fileSent, boolean success) {
+                        if(!success){//if files can't be send, it's stored into internal storage:
+                            Toast.makeText(RecordingService.this, R.string.error_sending_file,
+                                    Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(RecordingService.this, R.string.information_upload_succeeded,
+                            Toast.LENGTH_SHORT).show();
+                            //TODO : remove archive
                         }
 
                     }
                 };
-
-                // Prepartion of the hashmap that contain the file to be sent
-                HashMap<String, FileToUpload> filesToSend = new HashMap<String, FileToUpload>();
                 // generating file name with timestamp to preserve unicity
                 String name = "file" + System.currentTimeMillis();
-                // getting input stream from the ByteArrayOutputStream recieved
-                InputStream content = new ByteArrayInputStream(
-                        file.toByteArray());
-                // creating file object
-                FileToUpload monFichier = new FileToUpload(name, content);
-                // inserting file into hasmap referenced with a name;
-                filesToSend.put("uploadedFile", monFichier);
-
-                if (httpDesired) {
+                //adding file to archive
+                try {
+                    addFileToArchive(name,file);
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                 
+               
+                //sending archive
+                File archive = new File(RecordingService.this.getFilesDir(),GlobalConstants.ARCHIVE_NAME);
+                if (this.chosenProtocol==GlobalConstants.SENDING_PROTOCOL_HTTP) {
                     // setting server URL : normaly feching if from constant
                     // Class
                     String url = GlobalConstants.URL_SERVER_HTTP;
                     // creation and execution of a DataSendingManager : printing
                     // widget has to be resolved
                     DataSendingManager managerHTTP = new DataSendingManager(
-                            url, filesToSend, "http", sendingCallback);
+                            url, archive , "http", sendingCallback);
                     managerHTTP.execute();
-                } else if (ftpDesired) {
+                } else if (this.chosenProtocol==GlobalConstants.SENDING_PROTOCOL_FTP) {
                     // setting server URL : normaly feching if from constant
                     // Class
                     String url = GlobalConstants.URL_SERVER_FTP;
                     // creation and execution of a DataSendingManager : printing
                     // widget has to be resolved
                     DataSendingManager managerFTP = new DataSendingManager(url,
-                            filesToSend, "ftp", sendingCallback);
+                            archive, "ftp", sendingCallback);
                     managerFTP.execute();
-                } else if (mailDesired) {
-                    // destination address has to be fetched from setting
-                    String url = "";
-                    EmailFileSender.sendFileByEmail(RecordingService.this, url,
-                            filesToSend);
-                }
+                } 
             }
         }
     }
+    
+    
 
+    /**
+     * Add file into pending archive
+     * @throws IOException 
+     */
+    public void addFileToArchive(String fileName,ByteArrayOutputStream fileContent) throws IOException{
+        
+        File archive = new File(RecordingService.this.getFilesDir(),GlobalConstants.ARCHIVE_NAME);
+        FileOutputStream archiveStream;
+        archiveStream = new FileOutputStream(archive);
+        ZipOutputStream zos = new ZipOutputStream(new BufferedOutputStream(archiveStream));
+        String filename = fileName;
+        byte[] bytes = (fileContent.toByteArray());
+        ZipEntry entry = new ZipEntry(filename);
+        zos.putNextEntry(entry);
+        zos.write(bytes);
+        zos.closeEntry();
+        zos.close();
+        
+    }
+    
+    
+    
     /**
      * Parse the given shared preferences and return the list of the metrics to
      * sample as an integer list

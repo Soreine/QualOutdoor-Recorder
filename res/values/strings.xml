@@ -130,11 +130,18 @@
     <string name="notification_recording_title">Recording</string>
     <string name="notification_recording_text">QualOutdoor is currently recording data&#8230; </string>
 
-    <!-- Errors messages -->
+     <!-- Toast messages -->
     <string name="error_recording_unavailable">Recording unavailable</string>
     <string name="error_no_data_to_upload">Nothing to upload</string>
+    <string name="error_upload_failed">Upload failed : saving file</string>
+    <string name="information_upload_succeeded">Upload succeeded!</string>
+    
+    <!-- Errors messages -->
     <string name="error_open_sql_connector">@string/error_recording_unavailable</string>
     <string name="error_initialize_sql_connector">@string/error_recording_unavailable</string>
+    <string name="error_sending_file">@string/error_upload_failed</string>
+    
+    
     <!-- Network Type Names : ordered according to the static values given 
         in TelephonyManager -->
     <string-array name="network_type_name">
