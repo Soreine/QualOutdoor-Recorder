@@ -235,7 +235,8 @@ public class RecordingHandler extends Handler {
                             Toast.makeText(context,
                                     R.string.information_upload_succeeded,
                                     Toast.LENGTH_SHORT).show();
-                            // TODO : remove archive
+                            //archive is deleted
+                            fileSent.delete();
                         }
 
                     }
@@ -254,20 +255,16 @@ public class RecordingHandler extends Handler {
                 File archive = new File(context.getFilesDir(),
                         GlobalConstants.ARCHIVE_NAME);
                 if (this.chosenProtocol == GlobalConstants.SENDING_PROTOCOL_HTTP) {
-                    // setting server URL : normaly feching if from constant
-                    // Class
+                    // setting server URL 
                     String url = GlobalConstants.URL_SERVER_HTTP;
-                    // creation and execution of a DataSendingManager : printing
-                    // widget has to be resolved
+                    // creation and execution of a DataSendingManager 
                     DataSendingManager managerHTTP = new DataSendingManager(
                             url, archive, "http", sendingCallback);
                     managerHTTP.execute();
                 } else if (this.chosenProtocol == GlobalConstants.SENDING_PROTOCOL_FTP) {
-                    // setting server URL : normaly feching if from constant
-                    // Class
+                    // setting server URL 
                     String url = GlobalConstants.URL_SERVER_FTP;
-                    // creation and execution of a DataSendingManager : printing
-                    // widget has to be resolved
+                    // creation and execution of a DataSendingManager
                     DataSendingManager managerFTP = new DataSendingManager(url,
                             archive, "ftp", sendingCallback);
                     managerFTP.execute();

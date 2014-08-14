@@ -129,61 +129,7 @@ public class SQLConnector {
 
     }
 
-    /*
-     * public void insertReference(int MCC, int MNC, int NTC,int metric, int ref
-     * ){ try{
-     * Log.d("DEBUG **** TREE","MCC_OLD : "+this.lastMCC+" MCC_NEW : "+MCC);
-     * Log.d("DEBUG **** TREE","MNC_OLD : "+this.lastMNC+" MNC_NEW : "+MNC);
-     * Log.d("DEBUG **** TREE","NTC_OLD : "+this.lastNTC+" NTC_NEW : "+NTC);
-     * Log.
-     * d("DEBUG **** TREE","METRIC_OLD : "+this.lastMetric+" Metric_NEW : "+
-     * metric );
-     * 
-     * if(this.lastMCC==MCC){//si la nouvelle mesure est dans le MCC actuel
-     * if(this.lastMNC==MNC){//si la nouvelle mesure est dans le MNC actuel
-     * if(this.lastNTC==NTC){//si la nouvelle mesure est dans le NTC actuel
-     * if(this.lastMetric==metric){//si la nouvelle mesure est dans la metrique
-     * actuelle this.manager.insertLeaf(ref); } else{//sinon on remonte au NTC
-     * et on se place sur ou on cr�e l'intervalle correspondant � la metric
-     * this.manager.getFather();//on remonte au NTC
-     * this.manager.findOrCreate(metric);//on redescend dans la bonne metrique
-     * //le manager pointe � pr�sent sur la bonne m�trique: on cr�e donc la
-     * feuille this.manager.insertLeaf(ref); //mise a jour de la vielle metrique
-     * this.lastMetric = metric; } }else{//sinon on remonte au MNC et on se
-     * place sur ou on cr�e l'intervalle correspondant au NTC
-     * this.manager.getFather();//on remonte au NTC
-     * this.manager.getFather();//on remonte au MNC
-     * this.manager.findOrCreate(NTC);//on redescend dans le nouveau NTC
-     * this.manager.findOrCreate(metric);//on redescend dans la nvlle metrique
-     * //le manager pointe a pr�sent sur l'intervalle de la nvlle metrique : on
-     * cr�e donc la feuille this.manager.insertLeaf(ref); //mise a jour du vieux
-     * NTC et de la vielle metrique this.lastNTC=NTC; this.lastMetric = metric;
-     * } }else{//dans de cas on remonte jusqu'au MCC pour chercher ou cr�er le
-     * MNC indiqu� this.manager.getFather();//on remonte au NTC
-     * this.manager.getFather();//on remonte au MNC
-     * this.manager.getFather();//on remonte au MCC
-     * this.manager.findOrCreate(MNC);//on redescend dans le nvx MNC
-     * this.manager.findOrCreate(NTC);//on redescend dans le nvx NTC
-     * this.manager.findOrCreate(metric);//on redescend dans la nvlle metrique
-     * //le manager pointe a pr�sent sur l'intervalle de la nvlle metrique: on
-     * cr�e donc la feuille this.manager.insertLeaf(ref); //Mise � jour des
-     * vieux MNC et NTC et metrique this.lastMNC=MNC; this.lastNTC=NTC;
-     * this.lastMetric = metric; } }else{//dans ce cas il faut remonter � la
-     * racine pour retrouver ou cr�er le MCC indiqu�
-     * this.manager.getFather();//on remonte au NTC
-     * this.manager.getFather();//on remonte au MNC
-     * this.manager.getFather();//on remonte au MCC
-     * this.manager.getFather();//on remonte � la racine
-     * this.manager.findOrCreate(MCC);//on redescend dans le nvx MCC
-     * this.manager.findOrCreate(MNC);//on redescend dans le nvx MNC
-     * this.manager.findOrCreate(NTC);//on redescend dans le nvx NTC
-     * this.manager.findOrCreate(metric);//on redescend dans la nvlle metrique
-     * //le manager pointe a pr�sent sur l'intervalle de la nvlle metrique: on
-     * cr�e donc la feuille this.manager.insertLeaf(ref); //mise a jour des
-     * vieux MCC, MNC et NTC et metrique this.lastMCC=MCC; this.lastMNC=MNC;
-     * this.lastNTC=NTC; this.lastMetric = metric; } }catch(DataBaseException
-     * e){ e.printStackTrace(); } }
-     */
+    
 
     /*
      * Methode qui insere une mesure dans la table des mesures, elle renvoie
