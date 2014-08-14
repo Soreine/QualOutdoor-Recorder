@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.Semaphore;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -50,13 +51,9 @@ public class RecordingHandler extends Handler {
 
     /** The number of ongoing sample task */
     private int sampleTaskCount = 0;
-    /** The maximum number of ongoing sample task */
-    private static final int MAX_SAMPLE_TASK = 1;
 
     /** The number of ongoing upload database task */
     private int uploadTaskCount = 0;
-    /** The maximum number of ongoing sample task */
-    private static final int MAX_UPLOAD_TASK = 1;
 
     /** The delay between samples */
     private int sampleRate;
@@ -69,6 +66,11 @@ public class RecordingHandler extends Handler {
 
     /** The SQLConnector used for all the database operations */
     private SQLConnector connector;
+    /**
+     * The semaphore limiting access to the database to one at a time, with
+     * fairness (FIFO ordering)
+     */
+    private final Semaphore databaseSemaphore = new Semaphore(1, true);
 
     public RecordingHandler(Context context, int sampleRate) {
         this.sampleRate = sampleRate;
@@ -88,6 +90,9 @@ public class RecordingHandler extends Handler {
             stopRecord();
             break;
         case MESSAGE_UPLOAD_DATABASE:
+            // Read the chosen protocol
+            int chosenProtocol = msg.arg1;
+            uploadDatabase(chosenProtocol);
             break;
         case MESSAGE_SAMPLE:
             break;
@@ -191,10 +196,14 @@ public class RecordingHandler extends Handler {
 
     /**
      * Convert the whole database to a custom CSV file and try to upload this
-     * file with the prefered protocols
+     * file with the chosen protocol
+     * 
+     * @param chosenProtocol
+     *            The protocol used for the upload
      */
-    public void uploadDatabase() {
-        FileReadyListener writingCallback = new WritingCallbackPreferences(0); // TODO
+    public void uploadDatabase(int chosenProtocol) {
+        FileReadyListener writingCallback = new WritingCallbackPreferences(
+                chosenProtocol);
         String comments = "...comments about file...";
         FileGenerator writer = new FileGenerator(connector, comments,
                 writingCallback);
@@ -253,7 +262,7 @@ public class RecordingHandler extends Handler {
                 // sending archive
                 File archive = new File(context.getFilesDir(),
                         GlobalConstants.ARCHIVE_NAME);
-                if (this.chosenProtocol == GlobalConstants.SENDING_PROTOCOL_HTTP) {
+                if (this.chosenProtocol == GlobalConstants.UPLOAD_PROTOCOL_HTTP) {
                     // setting server URL : normaly feching if from constant
                     // Class
                     String url = GlobalConstants.URL_SERVER_HTTP;
@@ -262,7 +271,7 @@ public class RecordingHandler extends Handler {
                     DataSendingManager managerHTTP = new DataSendingManager(
                             url, archive, "http", sendingCallback);
                     managerHTTP.execute();
-                } else if (this.chosenProtocol == GlobalConstants.SENDING_PROTOCOL_FTP) {
+                } else if (this.chosenProtocol == GlobalConstants.UPLOAD_PROTOCOL_FTP) {
                     // setting server URL : normaly feching if from constant
                     // Class
                     String url = GlobalConstants.URL_SERVER_FTP;

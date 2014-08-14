@@ -30,6 +30,10 @@ public class SettingsFragment extends PreferenceFragment {
                 // Update the summary
                 updateNetworkPolicySummary(sharedPreferences);
             }
+            if (key.equals(getString(R.string.pref_key_protocol))) {
+                // Update the summary
+                updateProtocolSummary(sharedPreferences);
+            }
 
         }
 
@@ -86,6 +90,35 @@ public class SettingsFragment extends PreferenceFragment {
         pref.setSummary(valueString);
     }
 
+    /** Update the protocol preference summary text */
+    private void updateProtocolSummary(SharedPreferences sharedPreferences) {
+        // Get the protocol preference key
+        String key = getString(R.string.pref_key_network_policy);
+        // Get the corresponding preference
+        Preference pref = findPreference(key);
+        // Get the default value
+        int defaultValue = getResources().getInteger(
+                R.integer.pref_default_protocol);
+        // Get the saved value
+        int value = sharedPreferences.getInt(key, defaultValue);
+        // Get the list of values
+        int values[] = getResources().getIntArray(
+                R.array.pref_list_values_protocol);
+        // Get the list of localized string
+        String entries[] = getResources().getStringArray(
+                R.array.pref_list_entries_network_policy);
+        // Find the corresponding entry
+        int index = 0;
+        for (; index < values.length; index++) {
+            if (values[index] == value)
+                break; // We have found the saved value index
+        }
+        // Get the corresponding localized string
+        String valueString = entries[index];
+        // Set summary to be the description for the selected value
+        pref.setSummary(valueString);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +137,7 @@ public class SettingsFragment extends PreferenceFragment {
             // Update the summary with the saved value
             updateMinimumUploadSizeSummary(prefs);
             updateNetworkPolicySummary(prefs);
+            updateProtocolSummary(prefs);
         }
         // Register the listener
         getPreferenceScreen().getSharedPreferences()

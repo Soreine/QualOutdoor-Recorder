@@ -87,24 +87,11 @@
             android:defaultValue="@string/pref_default_network_policy"
             android:entries="@array/pref_list_entries_network_policy"
             android:entryValues="@array/pref_list_values_network_policy"/>
-        <PreferenceScreen android:title="@string/pref_title_screen_protocols">
-            <!-- Descriptive text block -->
-            <Preference
-                android:persistent="false"
-                android:selectable="false"
-                android:summary="@string/pref_description_block_protocols"/>
-            <CheckBoxPreference
-                android:key="@string/pref_key_http_upload"
-                android:title="@string/pref_title_http_upload"
-                android:defaultValue="@bool/pref_default_http_upload"/>
-            <CheckBoxPreference
-                android:key="@string/pref_key_ftp_upload"
-                android:title="@string/pref_title_ftp_upload"
-                android:defaultValue="@bool/pref_default_ftp_upload"/>
-            <CheckBoxPreference
-                android:key="@string/pref_key_mail_upload"
-                android:title="@string/pref_title_mail_upload"
-                android:defaultValue="@bool/pref_default_mail_upload"/>
-        </PreferenceScreen>
+        <ListPreference
+            android:key="@string/pref_key_protocol"
+            android:title="@string/pref_title_protocol"
+            android:defaultValue="@integer/pref_default_protocol"
+            android:entries="@array/pref_list_entries_protocol"
+            android:entryValues="@array/pref_list_values_protocol"/>
     </PreferenceCategory>
 </PreferenceScreen>

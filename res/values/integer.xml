@@ -18,4 +18,16 @@
 
     <!-- Minimum upload size -->
     <integer name="default_minimum_upload_size">100</integer>
+
+    <!-- Protocols (as defined in GlobalConstants.java) -->
+    <integer name="upload_protocol_http">1</integer>
+    <integer name="upload_protocol_ftp">2</integer>
+    
+    <integer name="pref_default_protocol">@integer/upload_protocol_http</integer>
+
+    <integer-array name="pref_list_values_protocol">
+        <item>@integer/upload_protocol_http</item>
+        <item>@integer/upload_protocol_ftp</item>
+    </integer-array>
+
 </resources>

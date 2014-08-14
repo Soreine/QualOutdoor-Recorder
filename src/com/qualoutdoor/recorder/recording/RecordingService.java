@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.IBinder;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.SparseArray;
@@ -110,7 +111,6 @@ public class RecordingService extends Service {
         super.onDestroy();
     }
 
-
     /** Stop the recording process */
     public void stopRecording() {
         // Send a message to the handler in order to stop recording
@@ -122,12 +122,12 @@ public class RecordingService extends Service {
         stopSelf();
     }
 
-    
     /** Indicates whether the service is currently recording data */
     public boolean isRecording() {
         // Hand over the call
         return isRecording;
     }
+
     /** Add a recording listener */
     public void register(IRecordingListener listener) {
         // Hand over the call to the handler
@@ -229,23 +229,24 @@ public class RecordingService extends Service {
     }
 
     /**
-     * Convert the whole database to a custom CSV file and try to upload this file with
-     * the prefered protocols
+     * Convert the whole database to a custom CSV file and try to upload this
+     * file with the prefered protocols
      */
     public void uploadDatabase() {
         // Get the upload preferences from the SharedPreferences (default to
         // false)
         SharedPreferences prefs = PreferenceManager
                 .getDefaultSharedPreferences(this);
-        // TODO
-        // Send message to the handler
-        handler.sendEmptyMessage(RecordingHandler.MESSAGE_UPLOAD_DATABASE);
+        // Get the chosen upload protocol
+        int chosenProtocol = prefs.getInt(
+                getString(R.string.pref_key_protocol), getResources()
+                        .getInteger(R.integer.pref_default_protocol));
+        // Get a message for the handler containing the chosenProtocol
+        Message msg = handler.obtainMessage(
+                RecordingHandler.MESSAGE_UPLOAD_DATABASE, chosenProtocol, 0);
+        handler.sendMessage(msg);
     }
 
-
-    
-    
-    
     /**
      * Parse the given shared preferences and return the list of the metrics to
      * sample as an integer list
