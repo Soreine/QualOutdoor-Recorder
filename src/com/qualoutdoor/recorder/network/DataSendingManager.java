@@ -91,24 +91,21 @@ public class DataSendingManager extends AsyncTask<Void, Void, Boolean> {
     		boolean result = sender.envoyerFichier(this.target, fileName, content);
     		//envoyer fichier renvoie la r�ponse du serveur, on transfert cette derniere � la fonction de postexecution
     		return result;
+
     }
+
     
-    /* Fonction execut�e apr�s la fonction d'arri�re plan, elle r�cup�re la r�ponse du serveur
-     * et l'affiche dans la vue avec laquelle le dataSendingManager a �t� cr��.
+
+    /*
+     * Fonction execut�e apr�s la fonction d'arri�re plan, elle r�cup�re la
+     * r�ponse du serveur et l'affiche dans la vue avec laquelle le
+     * dataSendingManager a �t� cr��.
      */
     @Override
+
     protected void onPostExecute(Boolean result) {
-    	this.callback.onTaskCompleted(this.protocole, this.filesToUploadlist, result);
-    	progressDialog.dismiss();
+        this.callback.onTaskCompleted(this.protocole, this.filesToUploadlist,result);
+
     }
-    
-    /*Fonction �x�cut�e avant la fonction d'arri�re plan, elle permet juste d'initialiser ou de r�-initialiser
-     * les affichages
-     * */
-    @Override
-    protected void onPreExecute() {
-    	//CONFIGURATION DE LA BARRE DE PROGRES
-    	progressDialog= ProgressDialog.show((Context)this.callback, "SENDING DATA","USING "+this.protocole+" PROTOCOLE", true);    
-     }
-    
+
 }

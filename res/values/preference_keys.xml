@@ -13,11 +13,14 @@
     <string name="pref_key_http_upload">com.qualoutdoor.recorder.PREF_KEY_HTTP_UPLOAD</string>
     <string name="pref_key_ftp_upload">com.qualoutdoor.recorder.PREF_KEY_FTP_UPLOAD</string>
     <string name="pref_key_mail_upload">com.qualoutdoor.recorder.PREF_KEY_MAIL_UPLOAD</string>
-
+    <string name="pref_key_sample_cell_id">com.qualoutdoor.recorder.PREF_KEY_SAMPLE_CELL_ID</string>
+    <string name="pref_key_sample_signal_strength">com.qualoutdoor.recorder.PREF_KEY_SAMPLE_SIGNAL_STRENGTH</string>
+    <string name="pref_key_sample_call">com.qualoutdoor.recorder.PREF_KEY_SAMPLE_CALL</string>
+    <string name="pref_key_sample_upload">com.qualoutdoor.recorder.PREF_KEY_SAMPLE_UPLOAD</string>
+    <string name="pref_key_sample_download">com.qualoutdoor.recorder.PREF_KEY_SAMPLE_DOWNLOAD</string>
     <!-- These are values of some preferences -->
     <string name="value_network_policy_wifi_only">com.qualoutdoor.recorder.VALUE_NETWORK_POLICY_WIFI_ONLY</string>
     <string name="value_network_policy_allow_3G">com.qualoutdoor.recorder.VALUE_NETWORK_POLICY_ALLOW_3G</string>
     <string name="pref_default_network_policy">@string/value_network_policy_wifi_only</string>
-
 
 </resources>

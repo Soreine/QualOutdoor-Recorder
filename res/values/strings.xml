@@ -49,37 +49,52 @@
     <string name="time">Time</string>
 
     <!-- Preferences Screen -->
+    <!-- Sampling category -->
     <string name="pref_title_sampling_category">Sampling</string>
     <string name="pref_title_notification">Notification</string>
+    <string name="pref_summary_notification">Display a notification when sampling</string>
     <string name="pref_title_force_display_refresh">Force display refresh</string>
     <string name="pref_title_display_refresh_rate">Display refresh rate</string>
+    <string name="pref_left_text_display_refresh_rate">Refresh every </string>
+    <string name="pref_right_text_display_refresh_rate"> sec</string>
     <string name="pref_title_sampling_rate">Sampling rate</string>
+    <string name="pref_left_text_sampling_rate">When recording, sample every</string>
+    <string name="pref_right_text_sampling_rate"> sec</string>
     <string name="pref_title_sample_history">Sample history</string>
+    <string name="pref_left_text_sample_history">Keep the last </string>
+    <string name="pref_right_text_sample_history"> samples</string>
+    <!-- Samples details screen -->
+    <string name="pref_title_screen_sample_details">Sample details&#8230;</string>
+    <string name="pref_description_block_sample_details">Select the data you wish to be sampled.</string>
+    <string name="pref_title_sample_cell_id">Cell ID</string>
+    <string name="pref_title_sample_signal_strength">Signal Strength</string>
+    <string name="pref_title_sample_call">Call test</string>
+    <string name="pref_title_sample_upload">Upload test</string>
+    <string name="pref_title_sample_download">Download test</string>
+    <!-- Network category -->
     <string name="pref_title_network_category">Network</string>
     <string name="pref_title_automatic_data_upload">Automatic data upload</string>
     <string name="pref_title_minimum_upload_size">Minimum size before upload</string>
+    <string name="pref_dialog_title_minimum_upload_size">Minimum size (KB)</string>
+    <string name="pref_left_text_minimum_upload_size">Only upload if collected at least </string>
+    <string name="pref_right_text_minimum_upload_size">KB</string>
     <string name="pref_title_network_policy">Network policy</string>
-    <string name="pref_title_screen_protocols">Protocols</string>
+    <string name="pref_summary_network_policy_wifi_only">Only use Wi-Fi</string>
+    <string name="pref_summary_network_policy_allow_mobile_data">Allow use of mobile data</string>
+    <!-- Protocols screen -->
+    <string name="pref_title_screen_protocols">Protocols&#8230;</string>
+    <string name="pref_description_block_protocols">Select the protocols used when uploading
+        samples.</string>
     <string name="pref_title_http_upload">HTTP upload</string>
     <string name="pref_title_ftp_upload">FTP upload</string>
     <string name="pref_title_mail_upload">Email upload</string>
-    <string name="pref_summary_notification">Display a notification when sampling</string>
-    <string name="pref_summary_network_policy_wifi_only">Only use Wi-Fi</string>
-    <string name="pref_summary_network_policy_allow_mobile_data">Allow use of mobile data</string>
-    <string name="pref_left_description_display_refresh_rate">Refresh every </string>
-    <string name="pref_right_description_display_refresh_rate"> sec</string>
-    <string name="pref_left_description_sampling_rate">When recording, sample every</string>
-    <string name="pref_right_description_sampling_rate"> sec</string>
-    <string name="pref_left_description_sample_history">Keep the last </string>
-    <string name="pref_right_description_sample_history"> samples</string>
-    <string name="pref_left_description_minimum_upload_size">Only upload if collected at least </string>
-    <string name="pref_right_description_minimum_upload_size">KB</string>
-    <string name="pref_dialog_title_minimum_upload_size">Minimum size (KB)</string>
+
 
     <!-- These are the list preference entry values -->
     <string-array name="pref_list_entries_network_policy">
         <item>@string/pref_summary_network_policy_wifi_only</item>
-        <item>@string/pref_summary_network_policy_allow_mobile_data</item>
+        <item>@string/pref_summary_network_policy_allow_mobile_data
+        </item>
     </string-array>
     <string-array name="pref_list_values_network_policy">
         <item>@string/value_network_policy_wifi_only</item>
@@ -113,9 +128,13 @@
 
     <!-- Notifications -->
     <string name="notification_recording_title">Recording</string>
-    <string name="notification_recording_text">QualOutdoor is currently recording data&#8230;
-    </string>
+    <string name="notification_recording_text">QualOutdoor is currently recording data&#8230; </string>
 
+    <!-- Errors messages -->
+    <string name="error_recording_unavailable">Recording unavailable</string>
+    <string name="error_no_data_to_upload">Nothing to upload</string>
+    <string name="error_open_sql_connector">@string/error_recording_unavailable</string>
+    <string name="error_initialize_sql_connector">@string/error_recording_unavailable</string>
     <!-- Network Type Names : ordered according to the static values given 
         in TelephonyManager -->
     <string-array name="network_type_name">

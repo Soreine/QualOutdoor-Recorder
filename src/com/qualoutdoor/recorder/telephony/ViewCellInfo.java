@@ -105,16 +105,16 @@ public class ViewCellInfo extends GridLayout {
         // Update this view
         // Get the type of the new cell
         int type = newCellInfo.getCellType();
-
         // If this is the registered cell, highlight with background drawable
-        if(newCellInfo.isRegistered()) {
+        if (newCellInfo.isRegistered()) {
             // Set the registered background
-            this.setBackground(new ColorDrawable(getResources().getColor(R.color.blue_transparent)));
+            this.setBackground(new ColorDrawable(getResources().getColor(
+                    R.color.blue_transparent)));
         } else {
             // Set a transparent background
             this.setBackground(new ColorDrawable(Color.TRANSPARENT));
         }
-        
+
         // Update the CID and type view with the CID and the radio type name
         viewCidType.setText(radioNames[type] + " ("
                 + stringify(newCellInfo.getCid()) + ")");
@@ -178,8 +178,8 @@ public class ViewCellInfo extends GridLayout {
     }
 
     /**
-     * Return a string representing the given value, or a '?' if unknown
-     * (Integer.MAX_VALUE)
+     * Return a string representing the given value, or the cell_info_empty
+     * string if unknown (Integer.MAX_VALUE)
      */
     private String stringify(int value) {
         if (value == Integer.MAX_VALUE) {
@@ -191,7 +191,7 @@ public class ViewCellInfo extends GridLayout {
 
     /**
      * Return a string representing the given value with the given unit string,
-     * or a '?' if unknown (Integer.MAX_VALUE)
+     * or the cell_info_empty string if unknown (Integer.MAX_VALUE)
      */
     private String stringify(int value, String unit) {
         if (value == Integer.MAX_VALUE) {
