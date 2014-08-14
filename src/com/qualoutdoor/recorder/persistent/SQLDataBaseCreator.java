@@ -1,11 +1,7 @@
 package com.qualoutdoor.recorder.persistent;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 /*Classe ayant pour but de cr�er la base de donn�e et de la 
@@ -29,7 +25,7 @@ public class SQLDataBaseCreator extends SQLiteOpenHelper{
 	
 	
 	//Constructeur du createur
-	public SQLDataBaseCreator(Context context) throws DataBaseException {
+	public SQLDataBaseCreator(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 		// TODO Auto-generated constructor stub
 		this.table_reference = new TableDB("recorder_tt",new String[] {"LINE","VALUE","LEVEL"}, new String[] {"INTEGER","INTEGER NOT NULL","INTEGER"});

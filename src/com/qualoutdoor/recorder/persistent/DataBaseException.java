@@ -1,12 +1,15 @@
 package com.qualoutdoor.recorder.persistent;
 
-/*Exeption lanc�e si un probleme dans la manipulation de la base de donn�e est rencontr�*/
+/** Exception thrown if a problem occured when manipulating the database */
 public class DataBaseException extends Exception {
-	
-	private static final long serialVersionUID = 1L;
 
-	public DataBaseException(String message) {
+    /**
+     * Generated serial version UID
+     */
+    private static final long serialVersionUID = -1648154925544028898L;
+
+    public DataBaseException(String message) {
         super(message);
-  }
+    }
 
 }
