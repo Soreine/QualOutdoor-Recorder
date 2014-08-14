@@ -23,4 +23,5 @@
     <string name="value_network_policy_allow_3G">com.qualoutdoor.recorder.VALUE_NETWORK_POLICY_ALLOW_3G</string>
     <string name="pref_default_network_policy">@string/value_network_policy_wifi_only</string>
 
+	
 </resources>

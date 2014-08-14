@@ -61,7 +61,7 @@ public class HttpFileSender implements Sender{
 	 * 
 	 */
 	@Override
-	public boolean envoyerFichier(String url,String fileName,InputStream content){
+	public boolean sendFile(String url,String fileName,InputStream content){
 		try{
 			this.initialize(url);
 			this.UploadTextFile(this.fileFieldName,fileName,content);

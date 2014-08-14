@@ -17,4 +17,12 @@ public class GlobalConstants {
     public static final String URL_SERVER_FTP = "192.168.0.4";
     // Number of milliseconds in a second
     public static final int MILLIS_IN_SECOND = 1000;
+
+    /**Strings identifiers of sending protocol to use*/
+    public static final int SENDING_PROTOCOL_HTTP = 1;
+    public static final int SENDING_PROTOCOL_FTP = 2;
+    
+    /**Archive file name*/
+    public static final String ARCHIVE_NAME = "pendingFiles.zip";
+
 }

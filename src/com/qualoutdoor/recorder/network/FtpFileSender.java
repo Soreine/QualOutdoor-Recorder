@@ -41,7 +41,7 @@ public class FtpFileSender implements Sender{
 	 * les param�tres sont donc les informations necessaires communes
 	 */
 	@Override
-	public boolean envoyerFichier(String url,String fileName,InputStream content){
+	public boolean sendFile(String url,String fileName,InputStream content){
 		//initialisation de la r�ponse � retourner
 		boolean response;
 		try {

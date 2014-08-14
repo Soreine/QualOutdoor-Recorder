@@ -1,19 +1,22 @@
 package com.qualoutdoor.recorder.network;
 
-import java.util.HashMap;
+import java.io.File;
 
-/*Classe qui permet un call back des taches asynchrones vers l'activitï¿½ principale
- * main activity implementera la methode onTaskCompleted, les DataSendingManager
- * auront donc comme paramï¿½tre en plus un objet de type OnTaskListener et appelleront
- * la methode onTaskCompleted dans leur mï¿½thode OnPostExecute */
+
+/**
+ * Callback class, called by DataSendingManager objects when sending is over
+ * @author Lucas
+ *
+ */
 
 public interface SendCompleteListener {
-	/*
-	 * le sender va rappeler sa classe appelante en indiquant son protocole d'envoi,
-	 * la liste des fichiers qu'il a envoyé et un boolean indiquant si l'envoi s'est
-	 * bien passé ou non
-	 * */
-	
-	void onTaskCompleted(String protocole,HashMap<String,FileToUpload> filesSended, boolean result);
+	/**
+	 * Method called by DataSendingManager when it finishes sending file
+	 * 
+	 * @param protocole : protocol used for sending
+	 * @param filesSended : file sent during sending
+	 * @param result : whether sending succeeded or not
+	 */
+	void onTaskCompleted(String protocole,File fileSent, boolean result);
 
 }

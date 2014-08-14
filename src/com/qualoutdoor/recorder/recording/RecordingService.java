@@ -242,6 +242,10 @@ public class RecordingService extends Service {
         handler.sendEmptyMessage(RecordingHandler.MESSAGE_UPLOAD_DATABASE);
     }
 
+
+    
+    
+    
     /**
      * Parse the given shared preferences and return the list of the metrics to
      * sample as an integer list
