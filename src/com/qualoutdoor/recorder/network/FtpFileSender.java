@@ -41,9 +41,9 @@ public class FtpFileSender implements Sender{
 	 * les paramï¿½tres sont donc les informations necessaires communes
 	 */
 	@Override
-	public String envoyerFichier(String url,String fileName,InputStream content){
+	public boolean envoyerFichier(String url,String fileName,InputStream content){
 		//initialisation de la rï¿½ponse ï¿½ retourner
-		String response="";
+		boolean response;
 		try {
 			
 	
@@ -77,19 +77,20 @@ public class FtpFileSender implements Sender{
 			 * si aucune exception a ï¿½tï¿½ levï¿½ lors de la suite d'instruction le transfert s'est bien passï¿½
 			 * (solution optimiste)
 			 */
-        	response = "reponse autogï¿½nï¿½rï¿½e : le transfert s'est bien effectuï¿½";
+			//le transfert s'est bien passé
+        	response = true;
         	os.close();
         	
         	//dans les cas ou il y a eu une exception levï¿½e on l'indique dans la phrase de retour
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
-			response = "reponse autogï¿½nï¿½rï¿½e: mauvais transfert : URL malformï¿½";
+			response = false;
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			
-			response = "reponse autogï¿½nï¿½rï¿½e: probleme avec la cible"+e.toString();
+			response = false;
 		}
 		//ï¿½ la fin, dans chaque cas on renvoie la phrase de retour
 		return response;

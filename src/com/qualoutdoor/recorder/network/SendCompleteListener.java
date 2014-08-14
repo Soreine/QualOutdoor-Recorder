@@ -9,12 +9,12 @@ import java.util.HashMap;
  * la methode onTaskCompleted dans leur mï¿½thode OnPostExecute */
 
 public interface SendCompleteListener {
-	/*le parametre int va permettre de distinguer la provenance du callback
-	 * le parametre de type HashMap va indiquer les fichier que le tache ï¿½ envoyï¿½
-	 * 
-	 * "JE SUIS LA TACHE XX ET J'AI FINI D'ENVOYER LES FICHIERS SUIVANTS XXXX"
+	/*
+	 * le sender va rappeler sa classe appelante en indiquant son protocole d'envoi,
+	 * la liste des fichiers qu'il a envoyé et un boolean indiquant si l'envoi s'est
+	 * bien passé ou non
 	 * */
 	
-	void onTaskCompleted(String protocole,HashMap<String,FileToUpload> filesSended);
+	void onTaskCompleted(String protocole,HashMap<String,FileToUpload> filesSended, boolean result);
 
 }

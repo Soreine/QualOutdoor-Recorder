@@ -77,6 +77,9 @@ public class RecordingService extends Service {
 
     /** The sampling handler */
     private final Handler samplingHandler = new Handler();
+    
+    /**Indicates if file transfer has been correctly done*/
+    private boolean transferState = true;
 
     /** This runnable defines the action to do on a sampling event */
     public final Runnable samplingRunnable = new Runnable() {
@@ -440,28 +443,9 @@ public class RecordingService extends Service {
                 SendCompleteListener sendingCallback = new SendCompleteListener() {
                     @Override
                     public void onTaskCompleted(String protocole,
-                            HashMap<String, FileToUpload> filesSended) {
-                        //when a sending is done, the call back triggers the others chosen
-                        if (protocole.equals("http")) {//if http sending is done
-                            if (ftpDesired) {//if ftp sending is desired by user
-                                String url = "192.168.0.4";
-                                DataSendingManager managerFTP = new DataSendingManager(
-                                        url, filesSended, "ftp", this);
-                                managerFTP.execute();
-                            } else if (mailDesired) {//if mail sending is desired by user
-                                String url = "";
-                                EmailFileSender
-                                        .sendFileByEmail(RecordingService.this,
-                                                url, filesSended);
-                            }
-                        } else if (protocole.equals("ftp")) {//Sif ftp sending is done
-                            if (mailDesired) {//check if mail sending is desired bu user
-                                String url = "";
-                                EmailFileSender
-                                        .sendFileByEmail(RecordingService.this,
-                                                url, filesSended);
-                            }
-                        }
+                            HashMap<String, FileToUpload> filesSended, boolean success) {
+                        //updating transfert state
+                        transferState = success;
                     }
                 };
 

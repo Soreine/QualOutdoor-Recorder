@@ -61,15 +61,17 @@ public class HttpFileSender implements Sender{
 	 * 
 	 */
 	@Override
-	public String envoyerFichier(String url,String fileName,InputStream content){
+	public boolean envoyerFichier(String url,String fileName,InputStream content){
 		try{
 			this.initialize(url);
 			this.UploadTextFile(this.fileFieldName,fileName,content);
 			this.endSending();
 			return this.readResponseStatus();
 		}catch(HttpTransfertException e){
-			return "An exception occured :"+e.toString() ;
-		}
+			return false;
+		}catch(IOException e){
+            return false;
+        }
 	}
 	
 	
@@ -201,40 +203,12 @@ public class HttpFileSender implements Sender{
 		
 	}
 	
-	public String readResponseStatus() throws HttpTransfertException {
-		/*fonction qui permet de lire le code rï¿½ponse du serveur aprï¿½s qu'on 
-		 * lui ai adressï¿½ une requete, cette mï¿½thode doit donc etre appelï¿½
-		 * aprï¿½s avoir terminï¿½ l'ï¿½criture de la requete (aprï¿½s un endSending).
-		 */
-		int response = 0;
-		String response2="";
-		try{
-			Log.d("DEBUG","...trying to read status");
-			//on rï¿½cupere le code retour envoyï¿½ par le serveur 
-			response = this.connection.getResponseCode();
-			//on rï¿½cupï¿½re la rï¿½ponse envoyï¿½ par le serveur:
-			//on commence par ouvrir un flux de lecture
-			InputStream fluxRetour = this.connection.getInputStream();
-			//mise en place d'un mï¿½canisme de lecture-ecriture
-        	int retourLecture2;	        	
-        	StringBuffer buffRecep = new StringBuffer();
-        	while((retourLecture2 = fluxRetour.read())!=-1){
-        		buffRecep.append((char)retourLecture2);
-        	}
-        	//on stocke la rï¿½ponse lue
-        	response2 = buffRecep.toString();
-        	Log.d("reponse","reponse du serveur:"+response2);
-			Log.d("DEBUG","...status read, end of transmission, status"+String.valueOf(response));
-			//Si une exception est levï¿½e on gï¿½nï¿½re un rï¿½ponse en locale
-		}catch(IOException e){
-			Log.d("reading  IO Exception, returned response equals to 0 ", e.toString());
-			e.printStackTrace();
-			throw new HttpTransfertException("readin server response exception :"+e.toString());
+	/*fonction qui indique si le transfert s'est bien déroulé*/
+	public boolean readResponseStatus() throws IOException{
+			int response = this.connection.getResponseCode();
+			return (response==HttpURLConnection.HTTP_OK);
+			
 		}
-		//renvoi de la rï¿½ponse
-		return response2 ;
-		
-	}
 	
 	
 	

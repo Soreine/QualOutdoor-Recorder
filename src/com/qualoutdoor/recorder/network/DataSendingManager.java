@@ -12,7 +12,7 @@ import android.widget.TextView;
  * on utilisera donc simplement une classe asynchrone dans laquelle on 
  * inserera les m�thodes relatives � la transmission de donn�es
  */
-public class DataSendingManager extends AsyncTask<Void, Void, String> {
+public class DataSendingManager extends AsyncTask<Void, Void, Boolean> {
 
 	/*Un DataSendingManager permet d'initialiser des connections de diff�rents types selon
 	 * les param�tres avec lesquels il a �t� initialis� et de les utiliser pour envoyer
@@ -42,7 +42,7 @@ public class DataSendingManager extends AsyncTask<Void, Void, String> {
 	
 	/*Fonction qui prend un temps relativement long par rapport au reste du code, on l'execute donc en arri�re plan
 	 * cette fonction ouvre les connection, effectue le transfert et retourne la r�ponse */
-    protected String doInBackground(Void... params) {
+    protected Boolean doInBackground(Void... params) {
     	/*IMPORTANT: afin de factoriser le code une fonction commmune � tous les sender � �t� cr��e
     	 * et permet d'envoyer un fichier or il existe des connexions qui peuvent supporter un envoie de fichier
     	 * multiples comme les connexions http mais il existes aussi des connexion qui dont l'existence est fond�e 
@@ -88,7 +88,7 @@ public class DataSendingManager extends AsyncTask<Void, Void, String> {
     		*
     		*on peut donc appeler cette methode sans savoir sur quel type de Sender on l'applique.
     		*/
-    		String result = sender.envoyerFichier(this.target, fileName, content);
+    		boolean result = sender.envoyerFichier(this.target, fileName, content);
     		//envoyer fichier renvoie la r�ponse du serveur, on transfert cette derniere � la fonction de postexecution
     		return result;
     }
@@ -97,8 +97,8 @@ public class DataSendingManager extends AsyncTask<Void, Void, String> {
      * et l'affiche dans la vue avec laquelle le dataSendingManager a �t� cr��.
      */
     @Override
-    protected void onPostExecute(String result) {
-    	this.callback.onTaskCompleted(this.protocole, this.filesToUploadlist);
+    protected void onPostExecute(Boolean result) {
+    	this.callback.onTaskCompleted(this.protocole, this.filesToUploadlist, result);
     	progressDialog.dismiss();
     }
     
