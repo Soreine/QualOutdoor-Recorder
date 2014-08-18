@@ -90,7 +90,7 @@
         <ListPreference
             android:key="@string/pref_key_protocol"
             android:title="@string/pref_title_protocol"
-            android:defaultValue="@integer/pref_default_protocol"
+            android:defaultValue="@string/pref_default_protocol"
             android:entries="@array/pref_list_entries_protocol"
             android:entryValues="@array/pref_list_values_protocol"/>
     </PreferenceCategory>

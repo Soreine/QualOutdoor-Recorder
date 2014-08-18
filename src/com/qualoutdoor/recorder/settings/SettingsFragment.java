@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.qualoutdoor.recorder.R;
 
@@ -93,24 +94,24 @@ public class SettingsFragment extends PreferenceFragment {
     /** Update the protocol preference summary text */
     private void updateProtocolSummary(SharedPreferences sharedPreferences) {
         // Get the protocol preference key
-        String key = getString(R.string.pref_key_network_policy);
+        String key = getString(R.string.pref_key_protocol);
         // Get the corresponding preference
         Preference pref = findPreference(key);
         // Get the default value
-        int defaultValue = getResources().getInteger(
-                R.integer.pref_default_protocol);
+        String defaultValue = getResources().getString(
+                R.string.pref_default_protocol);
         // Get the saved value
-        int value = sharedPreferences.getInt(key, defaultValue);
+        String value = sharedPreferences.getString(key, defaultValue);
         // Get the list of values
-        int values[] = getResources().getIntArray(
+        String values[] = getResources().getStringArray(
                 R.array.pref_list_values_protocol);
         // Get the list of localized string
         String entries[] = getResources().getStringArray(
-                R.array.pref_list_entries_network_policy);
+                R.array.pref_list_entries_protocol);
         // Find the corresponding entry
         int index = 0;
         for (; index < values.length; index++) {
-            if (values[index] == value)
+            if (values[index].equals(value))
                 break; // We have found the saved value index
         }
         // Get the corresponding localized string

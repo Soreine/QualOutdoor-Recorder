@@ -73,7 +73,7 @@ public class RecordingService extends Service {
 
         // Initialize the measure context
         databaseContext = new MeasureContext();
-        
+
         // Initialize the RecordingHandler
         handler = new RecordingHandler(this, sampleRate);
 
@@ -241,9 +241,9 @@ public class RecordingService extends Service {
         SharedPreferences prefs = PreferenceManager
                 .getDefaultSharedPreferences(this);
         // Get the chosen upload protocol
-        int chosenProtocol = prefs.getInt(
+        int chosenProtocol = Integer.parseInt(prefs.getString(
                 getString(R.string.pref_key_protocol), getResources()
-                        .getInteger(R.integer.pref_default_protocol));
+                        .getString(R.string.pref_default_protocol)));
         // Get a message for the handler containing the chosenProtocol
         Message msg = handler.obtainMessage(
                 RecordingHandler.MESSAGE_UPLOAD_DATABASE, chosenProtocol, 0);

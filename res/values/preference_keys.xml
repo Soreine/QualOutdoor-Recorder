@@ -20,5 +20,14 @@
     <string name="value_network_policy_wifi_only">com.qualoutdoor.recorder.VALUE_NETWORK_POLICY_WIFI_ONLY</string>
     <string name="value_network_policy_allow_3G">com.qualoutdoor.recorder.VALUE_NETWORK_POLICY_ALLOW_3G</string>
     <string name="pref_default_network_policy">@string/value_network_policy_wifi_only</string>
+    <!-- Protocols (as defined in GlobalConstants.java) -->
+    <string name="upload_protocol_http">1</string>
+    <string name="upload_protocol_ftp">2</string>
+    <string name="pref_default_protocol">@string/upload_protocol_http</string>
+
+    <string-array name="pref_list_values_protocol">
+        <item>@string/upload_protocol_http</item>
+        <item>@string/upload_protocol_ftp</item>
+    </string-array>
 
 </resources>
