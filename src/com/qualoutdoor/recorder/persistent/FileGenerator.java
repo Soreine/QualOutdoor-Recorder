@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.concurrent.Semaphore;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -31,10 +32,15 @@ public class FileGenerator extends AsyncTask<Void, Void, ByteArrayOutputStream> 
     // SOLUTION PROVISOIRE
     private String comments;// les commentaires � inserer dans le fichier
 
-    public FileGenerator(SQLConnector conn, String com, FileReadyListener cb) {
+    /** The semaphore to acquire when accessing the database */
+    private Semaphore databaseSemaphore;
+
+    public FileGenerator(SQLConnector conn, Semaphore databaseSemaphore,
+            String com, FileReadyListener cb) {
         this.file = new ByteArrayOutputStream();
         this.comments = com;
         this.connecteur = conn;
+        this.databaseSemaphore = databaseSemaphore;
         this.callback = cb;
     }
 
@@ -162,12 +168,19 @@ public class FileGenerator extends AsyncTask<Void, Void, ByteArrayOutputStream> 
     protected ByteArrayOutputStream doInBackground(Void... params) {
         try {
             Log.d("debug writer", "1");
+            // Acquire the access to the database
+            databaseSemaphore.acquire();
             completeRetranscription(this.comments,
                     this.connecteur.prepareManager());
+            // We are done with the database
+            databaseSemaphore.release();
             Log.d("debug writer", "2");
             return this.file;
         } catch (DataBaseException e) {// Dans le cas ou il n'y a pas de
                                        // feuilles � �crire
+            e.printStackTrace();
+            return null;
+        } catch (InterruptedException e) {
             e.printStackTrace();
             return null;
         }

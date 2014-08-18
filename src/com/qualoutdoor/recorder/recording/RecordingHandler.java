@@ -50,7 +50,7 @@ public class RecordingHandler extends Handler {
     private boolean isRecording = false;
 
     /** The number of ongoing sample task */
-    private int insertSampleTaskCount = 0;
+    private int pendingSampleTaskCount = 0;
 
     /** The number of ongoing upload database task */
     private int uploadTaskCount = 0;
@@ -91,36 +91,27 @@ public class RecordingHandler extends Handler {
         // Identify the message code
         switch (msg.what) {
         case MESSAGE_START_RECORD:
-            startRecord();
+            actionStartRecord();
             break;
         case MESSAGE_STOP_RECORD:
-            stopRecord();
+            actionStopRecord();
             break;
         case MESSAGE_UPLOAD_DATABASE:
             // Read the chosen protocol
             int chosenProtocol = msg.arg1;
-            uploadDatabase(chosenProtocol);
+            actionUploadDatabase(chosenProtocol);
             break;
         case MESSAGE_SAMPLE:
-            // Try to make a sample
-            try {
-                Sample sample = recordingService.sample();
-                // Insert the sample in the database
-                new InsertSampleTask().execute(sample);
-            } catch (SampleFailedException e) {
-                // The sample failed, sample again later
-                if (isRecording)
-                    this.sendEmptyMessageDelayed(MESSAGE_SAMPLE, sampleRate);
-            }
+            actionSample();
             break;
         }
     }
 
     /**
-     * Action performed when a MESSAGE_START_RECORD is sent. Might fail due to
-     * connector failing to open.
+     * Action performed when a MESSAGE_START_RECORD is received. Might fail due
+     * to connector failing to open.
      */
-    private void startRecord() {
+    private void actionStartRecord() {
         // If not already recording
         if (!isRecording) {
             try {
@@ -129,6 +120,7 @@ public class RecordingHandler extends Handler {
                     connector.open();
                 // Start the sampling now
                 this.sendEmptyMessage(MESSAGE_SAMPLE);
+                pendingSampleTaskCount++;
                 // We are now recording
                 setNotifyRecording(true);
                 // Thus we don't want the database to be closed
@@ -144,9 +136,9 @@ public class RecordingHandler extends Handler {
     }
 
     /**
-     * Action performed when a MESSAGE_STOP_RECORD is sent.
+     * Action performed when a MESSAGE_STOP_RECORD is received.
      */
-    private void stopRecord() {
+    private void actionStopRecord() {
         // If actually recording
         if (isRecording) {
             // We will stop the recording process
@@ -157,13 +149,56 @@ public class RecordingHandler extends Handler {
     }
 
     /**
+     * Action performed when a MESSAGE_UPLOAD_DATABASE is received. Convert the
+     * whole database to a custom CSV file and try to upload this file with the
+     * chosen protocol
+     * 
+     * @param chosenProtocol
+     *            The protocol used for the upload
+     */
+    private void actionUploadDatabase(int chosenProtocol) {
+        // Open database if needed
+        if (!connector.isOpen())
+            connector.open();
+        // Increment the number of upload task
+        uploadTaskCount++;
+        // Create a callback that will upload the generated file when done
+        FileReadyListener writingCallback = new WritingCallbackPreferences(
+                chosenProtocol);
+        // Define the comment added at the beginning of the file
+        String comments = "...comments about file...";
+        // Create a writer that will convert the database into a file
+        FileGenerator writer = new FileGenerator(connector, databaseSemaphore, comments,
+                writingCallback);
+        // Start conversion
+        writer.execute();
+    }
+
+    /** Action performed when a MESSAGE_SAMPLE is received */
+    private void actionSample() {
+        // Try to make a sample
+        try {
+            Sample sample = recordingService.sample();
+            // Insert the sample in the database
+            new InsertSampleTask().execute(sample);
+        } catch (SampleFailedException e) {
+            pendingSampleTaskCount--;
+            // The sample failed, sample again later
+            if (isRecording) {
+                this.sendEmptyMessageDelayed(MESSAGE_SAMPLE, sampleRate);
+                pendingSampleTaskCount++;
+            }
+        }
+    }
+
+    /**
      * Check that no task will use the database in the future and close it if
      * needed
      */
     private void checkCloseDatabase() {
         // Check that no task are remaining and that we should close the
         // database
-        if (shouldClose && (insertSampleTaskCount + uploadTaskCount == 0)) {
+        if (shouldClose && (pendingSampleTaskCount + uploadTaskCount == 0)) {
             // Close the database
             if (connector.isOpen())
                 connector.close();
@@ -209,8 +244,6 @@ public class RecordingHandler extends Handler {
 
         @Override
         protected void onPreExecute() {
-            // Increment the task count
-            insertSampleTaskCount++;
             // Save the date of execution
             startTime = System.currentTimeMillis();
         }
@@ -244,7 +277,7 @@ public class RecordingHandler extends Handler {
         @Override
         protected void onPostExecute(Void result) {
             // Decrement the task count
-            insertSampleTaskCount--;
+            pendingSampleTaskCount--;
             // Should we continue the recording ?
             if (isRecording) {
                 // Get the elapsed time
@@ -266,25 +299,9 @@ public class RecordingHandler extends Handler {
     }
 
     /**
-     * Convert the whole database to a custom CSV file and try to upload this
-     * file with the chosen protocol
-     * 
-     * @param chosenProtocol
-     *            The protocol used for the upload
+     * This object defines the action to be performed when the database has been
+     * converted and it should be uploaded
      */
-    public void uploadDatabase(int chosenProtocol) {
-        // Create a callback that will upload the generated file when done
-        FileReadyListener writingCallback = new WritingCallbackPreferences(
-                chosenProtocol);
-        // Define the comment added at the beginning of the file
-        String comments = "...comments about file...";
-        // Create a writer that will convert the database into a file
-        FileGenerator writer = new FileGenerator(connector, comments,
-                writingCallback);
-        // Start conversion
-        writer.execute();
-    }
-
     private class WritingCallbackPreferences implements FileReadyListener {
 
         private int chosenProtocol;
@@ -308,7 +325,7 @@ public class RecordingHandler extends Handler {
                 // systeme
                 SendCompleteListener sendingCallback = new SendCompleteListener() {
                     @Override
-                    public void onTaskCompleted(String protocole,
+                    public void onTaskCompleted(String protocol,
 
                     File fileSent, boolean success) {
                         if (!success) {// if files can't be send, it's stored
@@ -323,6 +340,10 @@ public class RecordingHandler extends Handler {
                             // TODO : remove archive
                         }
 
+                        // The upload task is over
+                        uploadTaskCount--;
+                        // Check if we should close the database
+                        checkCloseDatabase();
                     }
                 };
                 // generating file name with timestamp to preserve unicity
