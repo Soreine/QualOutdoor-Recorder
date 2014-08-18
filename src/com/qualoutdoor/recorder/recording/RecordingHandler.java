@@ -50,7 +50,7 @@ public class RecordingHandler extends Handler {
     private boolean isRecording = false;
 
     /** The number of ongoing sample task */
-    private int pendingSampleTaskCount = 0;
+    private int sampleTaskCount = 0;
 
     /** The number of ongoing upload database task */
     private int uploadTaskCount = 0;
@@ -120,7 +120,6 @@ public class RecordingHandler extends Handler {
                     connector.open();
                 // Start the sampling now
                 this.sendEmptyMessage(MESSAGE_SAMPLE);
-                pendingSampleTaskCount++;
                 // We are now recording
                 setNotifyRecording(true);
                 // Thus we don't want the database to be closed
@@ -143,8 +142,12 @@ public class RecordingHandler extends Handler {
         if (isRecording) {
             // We will stop the recording process
             setNotifyRecording(false);
-            // Thus we should close the database when done
+            // Thus we should close the database when the task are done
             shouldClose = false;
+            // Clear any remaining sample message
+            removeMessages(MESSAGE_SAMPLE);
+            // Finish recording if
+            onFinishRecording();
         }
     }
 
@@ -176,24 +179,14 @@ public class RecordingHandler extends Handler {
 
     /** Action performed when a MESSAGE_SAMPLE is received */
     private void actionSample() {
-        // If we are still recording
-        if (isRecording) {
-            // Try to make a sample
-            try {
-                Sample sample = recordingService.sample();
-                // Insert the sample in the database
-                new InsertSampleTask().execute(sample);
-            } catch (SampleFailedException e) {
-                // The sample failed, sample again later
-                this.sendEmptyMessageDelayed(MESSAGE_SAMPLE, sampleRate);
-                // Do not modify the sample task count because we asked for
-                // another one
-            }
-        } else {
-            // This is one less sample task
-            pendingSampleTaskCount--;
-            // Perform appropriate action at the end of the recording process
-            onFinishRecording();
+        // Try to make a sample
+        try {
+            Sample sample = recordingService.sample();
+            // Insert the sample in the database
+            new InsertSampleTask().execute(sample);
+        } catch (SampleFailedException e) {
+            // The sample failed, sample again later
+            this.sendEmptyMessageDelayed(MESSAGE_SAMPLE, sampleRate);
         }
     }
 
@@ -204,7 +197,7 @@ public class RecordingHandler extends Handler {
     private void checkCloseDatabase() {
         // Check that no task are remaining and that we should close the
         // database
-        if (shouldClose && (pendingSampleTaskCount + uploadTaskCount == 0)) {
+        if (shouldClose && (sampleTaskCount + uploadTaskCount == 0)) {
             // Close the database
             if (connector.isOpen())
                 connector.close();
@@ -219,7 +212,7 @@ public class RecordingHandler extends Handler {
         // Check and close database
         checkCloseDatabase();
         // If no more sampling task are waiting
-        if (pendingSampleTaskCount == 0) {
+        if (sampleTaskCount == 0) {
             // Indicate that the recording service does not need to run in
             // foreground anymore and remove notification
             recordingService.stopForeground(true);
@@ -267,6 +260,8 @@ public class RecordingHandler extends Handler {
 
         @Override
         protected void onPreExecute() {
+            // Increment the number of sample task
+            sampleTaskCount++;
             // Save the date of execution
             startTime = System.currentTimeMillis();
         }
@@ -299,6 +294,8 @@ public class RecordingHandler extends Handler {
 
         @Override
         protected void onPostExecute(Void result) {
+            // The task is over
+            sampleTaskCount--;
             // Should we continue the recording ?
             if (isRecording) {
                 // Get the elapsed time
@@ -312,10 +309,9 @@ public class RecordingHandler extends Handler {
                     RecordingHandler.this.sendEmptyMessageDelayed(
                             MESSAGE_SAMPLE, sampleRate - elapsedTime);
                 }
-                // We don't modify the sample task count because we are requesting another one
+                // We don't modify the sample task count because we are
+                // requesting another one
             } else {
-                // This task is done
-                pendingSampleTaskCount--;
                 // Finish recording
                 onFinishRecording();
             }
