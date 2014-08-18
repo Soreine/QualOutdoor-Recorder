@@ -23,6 +23,6 @@ public class GlobalConstants {
     public static final int UPLOAD_PROTOCOL_FTP = 2;
     
     /**Archive file name*/
-    public static final String ARCHIVE_NAME = "pendingFiles.zip";
+    public static final String ARCHIVE_NAME = "pendingFiles";
 
 }

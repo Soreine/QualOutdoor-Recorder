@@ -7,6 +7,7 @@ import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.location.Location;
 import android.os.IBinder;
 import android.os.Message;
@@ -261,6 +262,15 @@ public class RecordingService extends Service {
                 getString(R.string.pref_key_sample_upload),
                 getString(R.string.pref_key_sample_download)
         };
+        Resources res = getResources();
+        // The default values list
+        boolean[] defaultValues = {
+                res.getBoolean(R.bool.pref_default_sample_cell_id),
+                res.getBoolean(R.bool.pref_default_sample_signal_strength),
+                res.getBoolean(R.bool.pref_default_sample_call),
+                res.getBoolean(R.bool.pref_default_sample_upload),
+                res.getBoolean(R.bool.pref_default_sample_download)
+        };
         // The corresponding code
         int[] codes = {
                 GlobalConstants.FIELD_CELL_ID,
@@ -270,7 +280,7 @@ public class RecordingService extends Service {
         };
         // For each preference, add the corresponding integer code if true
         for (int i = 0; i < preferenceKeys.length; i++) {
-            if (prefs.getBoolean(preferenceKeys[i], false))
+            if (prefs.getBoolean(preferenceKeys[i], defaultValues[i]))
                 result.add(codes[i]);
         }
         return result;
