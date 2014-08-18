@@ -168,26 +168,32 @@ public class RecordingHandler extends Handler {
         // Define the comment added at the beginning of the file
         String comments = "...comments about file...";
         // Create a writer that will convert the database into a file
-        FileGenerator writer = new FileGenerator(connector, databaseSemaphore, comments,
-                writingCallback);
+        FileGenerator writer = new FileGenerator(connector, databaseSemaphore,
+                comments, writingCallback);
         // Start conversion
         writer.execute();
     }
 
     /** Action performed when a MESSAGE_SAMPLE is received */
     private void actionSample() {
-        // Try to make a sample
-        try {
-            Sample sample = recordingService.sample();
-            // Insert the sample in the database
-            new InsertSampleTask().execute(sample);
-        } catch (SampleFailedException e) {
-            pendingSampleTaskCount--;
-            // The sample failed, sample again later
-            if (isRecording) {
+        // If we are still recording
+        if (isRecording) {
+            // Try to make a sample
+            try {
+                Sample sample = recordingService.sample();
+                // Insert the sample in the database
+                new InsertSampleTask().execute(sample);
+            } catch (SampleFailedException e) {
+                // The sample failed, sample again later
                 this.sendEmptyMessageDelayed(MESSAGE_SAMPLE, sampleRate);
-                pendingSampleTaskCount++;
+                // Do not modify the sample task count because we asked for
+                // another one
             }
+        } else {
+            // This is one less sample task
+            pendingSampleTaskCount--;
+            // Perform appropriate action at the end of the recording process
+            onFinishRecording();
         }
     }
 
@@ -202,6 +208,23 @@ public class RecordingHandler extends Handler {
             // Close the database
             if (connector.isOpen())
                 connector.close();
+        }
+    }
+
+    /**
+     * Called when the recording process is finished and all the sampling tasks
+     * are done
+     */
+    private void onFinishRecording() {
+        // Check and close database
+        checkCloseDatabase();
+        // If no more sampling task are waiting
+        if (pendingSampleTaskCount == 0) {
+            // Indicate that the recording service does not need to run in
+            // foreground anymore and remove notification
+            recordingService.stopForeground(true);
+            // Stop the recording service
+            recordingService.stopSelf();
         }
     }
 
@@ -276,8 +299,6 @@ public class RecordingHandler extends Handler {
 
         @Override
         protected void onPostExecute(Void result) {
-            // Decrement the task count
-            pendingSampleTaskCount--;
             // Should we continue the recording ?
             if (isRecording) {
                 // Get the elapsed time
@@ -291,9 +312,12 @@ public class RecordingHandler extends Handler {
                     RecordingHandler.this.sendEmptyMessageDelayed(
                             MESSAGE_SAMPLE, sampleRate - elapsedTime);
                 }
+                // We don't modify the sample task count because we are requesting another one
             } else {
-                // Close the database if needed
-                checkCloseDatabase();
+                // This task is done
+                pendingSampleTaskCount--;
+                // Finish recording
+                onFinishRecording();
             }
         }
     }

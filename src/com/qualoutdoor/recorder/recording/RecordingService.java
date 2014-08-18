@@ -118,11 +118,6 @@ public class RecordingService extends Service {
     public void stopRecording() {
         // Send a message to the handler in order to stop recording
         handler.sendEmptyMessage(RecordingHandler.MESSAGE_STOP_RECORD);
-        // Stop being foreground as we are no longer recording and remove
-        // notification
-        stopForeground(true);
-        // Stop self
-        stopSelf();
     }
 
     /** Indicates whether the service is currently recording data */

@@ -167,19 +167,22 @@ public class FileGenerator extends AsyncTask<Void, Void, ByteArrayOutputStream> 
     @Override
     protected ByteArrayOutputStream doInBackground(Void... params) {
         try {
-            Log.d("debug writer", "1");
             // Acquire the access to the database
             databaseSemaphore.acquire();
-            completeRetranscription(this.comments,
-                    this.connecteur.prepareManager());
-            // We are done with the database
-            databaseSemaphore.release();
-            Log.d("debug writer", "2");
+            Log.d("FileGenerator","Acquired database");
+            try {
+                completeRetranscription(this.comments,
+                        this.connecteur.prepareManager());
+            } catch (DataBaseException e) {// Dans le cas ou il n'y a pas de
+                // feuilles � �crire
+                e.printStackTrace();
+                return null;
+            } finally {
+                // We are done with the database
+                Log.d("FileGenerator","Release database");
+                databaseSemaphore.release();
+            }
             return this.file;
-        } catch (DataBaseException e) {// Dans le cas ou il n'y a pas de
-                                       // feuilles � �crire
-            e.printStackTrace();
-            return null;
         } catch (InterruptedException e) {
             e.printStackTrace();
             return null;
