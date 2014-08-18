@@ -41,8 +41,8 @@ public class RecordingHandler extends Handler {
     /** Message code for a sample action (used only internally) */
     private static final int MESSAGE_SAMPLE = 104;
 
-    /** The context using this handler */
-    private Context context;
+    /** The recording service using this handler */
+    private RecordingService recordingService;
 
     /** The listeners to the recording state */
     private ArrayList<IRecordingListener> recordingListeners = new ArrayList<IRecordingListener>();
@@ -50,7 +50,7 @@ public class RecordingHandler extends Handler {
     private boolean isRecording = false;
 
     /** The number of ongoing sample task */
-    private int sampleTaskCount = 0;
+    private int insertSampleTaskCount = 0;
 
     /** The number of ongoing upload database task */
     private int uploadTaskCount = 0;
@@ -59,10 +59,9 @@ public class RecordingHandler extends Handler {
     private int sampleRate;
 
     /**
-     * Indicate if the handler is waiting for task to finish before closing the
-     * database
+     * Indicate if the tasks should close the database when done
      */
-    private boolean pendingClose = false;
+    private boolean shouldClose = true;
 
     /** The SQLConnector used for all the database operations */
     private SQLConnector connector;
@@ -72,10 +71,18 @@ public class RecordingHandler extends Handler {
      */
     private final Semaphore databaseSemaphore = new Semaphore(1, true);
 
-    public RecordingHandler(Context context, int sampleRate) {
+    /**
+     * Create a new RecordingHandler with the given sampleRate
+     * 
+     * @param recordingService
+     *            The service using this handler
+     * @param sampleRate
+     *            The initial value of the sample rate
+     */
+    public RecordingHandler(RecordingService recordingService, int sampleRate) {
         this.sampleRate = sampleRate;
-        this.context = context;
-        this.connector = new SQLConnector(context);
+        this.recordingService = recordingService;
+        this.connector = new SQLConnector(recordingService);
     }
 
     @Override
@@ -95,6 +102,16 @@ public class RecordingHandler extends Handler {
             uploadDatabase(chosenProtocol);
             break;
         case MESSAGE_SAMPLE:
+            // Try to make a sample
+            try {
+                Sample sample = recordingService.sample();
+                // Insert the sample in the database
+                new InsertSampleTask().execute(sample);
+            } catch (SampleFailedException e) {
+                // The sample failed, sample again later
+                if (isRecording)
+                    this.sendEmptyMessageDelayed(MESSAGE_SAMPLE, sampleRate);
+            }
             break;
         }
     }
@@ -113,12 +130,15 @@ public class RecordingHandler extends Handler {
                 // Start the sampling now
                 this.sendEmptyMessage(MESSAGE_SAMPLE);
                 // We are now recording
-                isRecording = true;
+                setNotifyRecording(true);
+                // Thus we don't want the database to be closed
+                shouldClose = false;
             } catch (SQLException exc) {
                 Log.e("RecordingService", "Can't open SQLConnector", exc);
                 // Toast the user that recording won't be available
-                Toast.makeText(context, R.string.error_open_sql_connector,
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(recordingService,
+                        R.string.error_open_sql_connector, Toast.LENGTH_SHORT)
+                        .show();
             }
         }
     }
@@ -129,18 +149,24 @@ public class RecordingHandler extends Handler {
     private void stopRecord() {
         // If actually recording
         if (isRecording) {
-            try {
-                // If we need to open the database
-                if (!connector.isOpen())
-                    connector.open();
-                // Start the sampling now
-                this.sendEmptyMessage(MESSAGE_SAMPLE);
-                // We are now recording
-                isRecording = true;
-            } catch (SQLException exc) {
-                // Connector opening failed
-                Log.e(RecordingHandler.class.toString(), "handleMessage", exc);
-            }
+            // We will stop the recording process
+            setNotifyRecording(false);
+            // Thus we should close the database when done
+            shouldClose = false;
+        }
+    }
+
+    /**
+     * Check that no task will use the database in the future and close it if
+     * needed
+     */
+    private void checkCloseDatabase() {
+        // Check that no task are remaining and that we should close the
+        // database
+        if (shouldClose && (insertSampleTaskCount + uploadTaskCount == 0)) {
+            // Close the database
+            if (connector.isOpen())
+                connector.close();
         }
     }
 
@@ -163,8 +189,10 @@ public class RecordingHandler extends Handler {
         recordingListeners.remove(listener);
     }
 
-    /** Notify the recording process state has changed */
-    private void notifyRecording(boolean state) {
+    /** Change and notify that the recording process state has changed */
+    private void setNotifyRecording(boolean state) {
+        // Update the recording state
+        isRecording = state;
         // Notify every listener
         for (IRecordingListener listener : recordingListeners) {
             // For each listener, notify
@@ -172,26 +200,69 @@ public class RecordingHandler extends Handler {
         }
     }
 
-    private class SampleTask extends AsyncTask<Sample, Void, Void> {
+    /**
+     * This task insert a given Sample in the database
+     */
+    private class InsertSampleTask extends AsyncTask<Sample, Void, Void> {
+        /** The start time of this task */
+        private long startTime;
+
+        @Override
+        protected void onPreExecute() {
+            // Increment the task count
+            insertSampleTaskCount++;
+            // Save the date of execution
+            startTime = System.currentTimeMillis();
+        }
+
         @Override
         protected Void doInBackground(Sample... params) {
             // Get the passed parameters
             Sample parameters = params[0];
             // Insert the measure in the database
             try {
+                // Acquire access to database
+                databaseSemaphore.acquire();
+                // Insert the sample data
                 connector.insertMeasure(parameters.measureContext,
                         parameters.data, parameters.latitude,
                         parameters.longitude);
+                // Release access
+                databaseSemaphore.release();
                 Log.d("SampleTask",
                         "Insertion effectuée :\n" + parameters.data.toString());
             } catch (DataBaseException e) {
                 Log.e("SampleTask", "DataBaseException", e);
             } catch (CollectMeasureException e) {
                 Log.e("SampleTask", "CollectMeasureException", e);
+            } catch (InterruptedException e) {
+                Log.e("SampleTaks", "InterruptedException", e);
             }
             return null;
         }
 
+        @Override
+        protected void onPostExecute(Void result) {
+            // Decrement the task count
+            insertSampleTaskCount--;
+            // Should we continue the recording ?
+            if (isRecording) {
+                // Get the elapsed time
+                long elapsedTime = System.currentTimeMillis() - startTime;
+                // Compensate the time taken for the insertion
+                if (elapsedTime > sampleRate) {
+                    // Call again as soon as possible
+                    RecordingHandler.this.sendEmptyMessage(MESSAGE_SAMPLE);
+                } else {
+                    // We are on schedule, call again for the next sample
+                    RecordingHandler.this.sendEmptyMessageDelayed(
+                            MESSAGE_SAMPLE, sampleRate - elapsedTime);
+                }
+            } else {
+                // Close the database if needed
+                checkCloseDatabase();
+            }
+        }
     }
 
     /**
@@ -202,11 +273,15 @@ public class RecordingHandler extends Handler {
      *            The protocol used for the upload
      */
     public void uploadDatabase(int chosenProtocol) {
+        // Create a callback that will upload the generated file when done
         FileReadyListener writingCallback = new WritingCallbackPreferences(
                 chosenProtocol);
+        // Define the comment added at the beginning of the file
         String comments = "...comments about file...";
+        // Create a writer that will convert the database into a file
         FileGenerator writer = new FileGenerator(connector, comments,
                 writingCallback);
+        // Start conversion
         writer.execute();
     }
 
@@ -224,8 +299,9 @@ public class RecordingHandler extends Handler {
             // uploadDatabase()
             if (file == null) {
                 // No data waiting to be uploaded : toast it
-                Toast.makeText(context, R.string.error_no_data_to_upload,
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(recordingService,
+                        R.string.error_no_data_to_upload, Toast.LENGTH_SHORT)
+                        .show();
             } else {
                 // Creation of a sending CallBack : called when one sending is
                 // done : if file had not been send it is stored into app file
@@ -237,11 +313,11 @@ public class RecordingHandler extends Handler {
                     File fileSent, boolean success) {
                         if (!success) {// if files can't be send, it's stored
                                        // into internal storage:
-                            Toast.makeText(context,
+                            Toast.makeText(recordingService,
                                     R.string.error_sending_file,
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(context,
+                            Toast.makeText(recordingService,
                                     R.string.information_upload_succeeded,
                                     Toast.LENGTH_SHORT).show();
                             // TODO : remove archive
@@ -260,7 +336,7 @@ public class RecordingHandler extends Handler {
                 }
 
                 // sending archive
-                File archive = new File(context.getFilesDir(),
+                File archive = new File(recordingService.getFilesDir(),
                         GlobalConstants.ARCHIVE_NAME);
                 if (this.chosenProtocol == GlobalConstants.UPLOAD_PROTOCOL_HTTP) {
                     // setting server URL : normaly feching if from constant
@@ -293,7 +369,7 @@ public class RecordingHandler extends Handler {
     public void addFileToArchive(String fileName,
             ByteArrayOutputStream fileContent) throws IOException {
 
-        File archive = new File(context.getFilesDir(),
+        File archive = new File(recordingService.getFilesDir(),
                 GlobalConstants.ARCHIVE_NAME);
         FileOutputStream archiveStream;
         archiveStream = new FileOutputStream(archive);

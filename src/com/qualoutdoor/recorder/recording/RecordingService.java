@@ -71,6 +71,9 @@ public class RecordingService extends Service {
         // Get the metrics preferences
         metrics = getMetricPreferences(prefs);
 
+        // Initialize the measure context
+        databaseContext = new MeasureContext();
+        
         // Initialize the RecordingHandler
         handler = new RecordingHandler(this, sampleRate);
 
@@ -125,7 +128,7 @@ public class RecordingService extends Service {
     /** Indicates whether the service is currently recording data */
     public boolean isRecording() {
         // Hand over the call
-        return isRecording;
+        return handler.isRecording();
     }
 
     /** Add a recording listener */
