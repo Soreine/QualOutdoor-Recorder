@@ -90,7 +90,6 @@ public class RecordingService extends Service {
         return mRecordingBinder;
     }
 
-    // TODO
     /** Set the sampling rate to the specified value in milliseconds */
     public void setSamplingRate(int millis) {
         // Modify our value

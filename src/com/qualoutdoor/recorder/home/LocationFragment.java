@@ -78,13 +78,6 @@ public class LocationFragment extends Fragment {
     /** Indicate that the views have been initialized */
     private boolean viewsInitialized = false;
 
-    //
-    // @Override
-    // public void onCreate(Bundle savedInstanceState) {
-    // // TODO Auto-generated method stub
-    // super.onCreate(savedInstanceState);
-    // }
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);

@@ -126,7 +126,7 @@ public class TelephonyService extends Service implements ITelephony {
         public void onCellInfoChanged(List<CellInfo> newCellInfos) {
             Log.d("TelephonyService", "onCellInfoChanged");
 
-            // TODO Error log
+            // TODO Keep a log for the phones for which newCellInfos == null
             List<CellInfo> cellInfos = newCellInfos;
             // Return if cellInfos is null
             if (cellInfos == null) {
@@ -134,7 +134,7 @@ public class TelephonyService extends Service implements ITelephony {
                 // Try getAllCellInfos
                 cellInfos = telephonyManager.getAllCellInfo();
                 if (cellInfos == null) {
-                    Log.d("TelephonyService", "getAllCellInfo = null");
+                    Log.e("TelephonyService", "getAllCellInfo = null");
                     return;
                 }
             }
@@ -147,9 +147,7 @@ public class TelephonyService extends Service implements ITelephony {
         public void onSignalStrengthsChanged(
                 android.telephony.SignalStrength signalStrength) {
             Log.d("TelephonyService", "onSignalStrengthsChanged");
-            // TODO We are not currently able to parse a SignalStrength so we
-            // just update the CellInfo list instead. This has the effect to
-            // update the signal strength value ;)
+            // TODO We are not currently able to parse a SignalStrength
             // Log.d("SignalStrength", "CdmaDbm : " +
             // signalStrength.getCdmaDbm());
             // Log.d("SignalStrength",
@@ -166,7 +164,6 @@ public class TelephonyService extends Service implements ITelephony {
             // "GsmSignalStrength : "
             // + signalStrength.getGsmSignalStrength());
             // Log.d("SignalStrength", "isGsm : " + signalStrength.isGsm());
-            updateCellInfos(telephonyManager.getAllCellInfo());
         };
     };
 
@@ -338,8 +335,7 @@ public class TelephonyService extends Service implements ITelephony {
 
     @Override
     public void setMinimumRefreshRate(int milliseconds) {
-        // TODO Auto-generated method stub
-
+        minimumRefreshRate = Math.min(minimumRefreshRate, milliseconds);
     }
 
     /**
