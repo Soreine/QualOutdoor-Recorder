@@ -7,6 +7,8 @@ import java.util.List;
  * Override the methods for the state that you want to receive updates for, and
  * pass your TelephonyListener object, along with bitwise-or of the LISTEN_xxx
  * flags to ITelephony.listen()
+ * 
+ * @author Gaborit Nicolas
  */
 public class TelephonyListener {
 
@@ -18,7 +20,7 @@ public class TelephonyListener {
     /** Listen for changes to the device call state. */
     public static final int LISTEN_CALL_STATE = 1;
     /** Listen for changes to the data connection state (cellular). */
-    public static final int LISTEN_DATA_STATE = 2; 
+    public static final int LISTEN_DATA_STATE = 2;
     /** Listen for changes to the network signal strengths (cellular). */
     public static final int LISTEN_SIGNAL_STRENGTHS = 4;
     /** Listen for changes to the Mobile Network Code */
@@ -27,7 +29,6 @@ public class TelephonyListener {
     public static final int LISTEN_MCC = 16;
     /** Listen for changes to observed cell info. */
     public static final int LISTEN_CELL_INFO = 32;
-
 
     /** Constructor */
     public TelephonyListener() {}
@@ -49,7 +50,7 @@ public class TelephonyListener {
 
     /** Callback invoked when the MCC changed. */
     public void onMCCChanged(int mcc) {}
-    
+
     /** Callback invoked when the MNC changed. */
     public void onMNCChanged(int mnc) {}
 }

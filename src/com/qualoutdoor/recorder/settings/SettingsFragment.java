@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 import com.qualoutdoor.recorder.R;
 
-/** This fragment give access to the different settings sub-categories */
+/**
+ * This fragment give access to the different settings sub-categories
+ * 
+ * @author Gaborit Nicolas
+ */
 public class SettingsFragment extends PreferenceFragment {
 
     /**

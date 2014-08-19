@@ -134,16 +134,18 @@
 
     <!-- Notifications -->
     <string name="notification_recording_title">Recording</string>
-    <string name="notification_recording_text">QualOutdoor is currently recording data&#8230;
-    </string>
+    <string name="notification_recording_text">QualOutdoor is currently recording data&#8230; </string>
 
     <!-- Toast messages -->
     <string name="error_recording_unavailable">Recording unavailable</string>
     <string name="error_no_data_to_upload">Nothing to upload</string>
     <string name="error_upload_failed">Upload failed : saving file</string>
+    <string name="error_location_unavailable">Location service not available</string>
     <string name="information_upload_succeeded">Upload succeeded!</string>
 
     <!-- Errors messages -->
+    <string name="error_location_on_connection_failed">@string/error_location_unavailable</string>
+    <string name="error_location_services_unavailable">@string/error_location_unavailable</string>
     <string name="error_open_sql_connector">@string/error_recording_unavailable</string>
     <string name="error_initialize_sql_connector">@string/error_recording_unavailable</string>
     <string name="error_sending_file">@string/error_upload_failed</string>

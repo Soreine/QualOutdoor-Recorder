@@ -3,17 +3,11 @@ package com.qualoutdoor.recorder.network;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.HashMap;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.TextView;
 
 /**
  * AsyncTask able to send a specified file using a specified sending protocol.
- *
  */
 public class DataSendingManager extends AsyncTask<Void, Void, Boolean> {
 

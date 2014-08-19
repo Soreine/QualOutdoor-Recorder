@@ -13,9 +13,14 @@ import android.os.IBinder;
 /**
  * This ServiceConnection is meant to be used for connecting a component to
  * services within the same process. Indeed we cast IBinder to LocalBinder.
+ * 
+ * @author Gaborit Nicolas
+ * 
+ * @param <S>
+ *            The Service class to which to connect
  */
-public class LocalServiceConnection<S extends Service> implements ServiceProvider<S>,
-        ServiceConnection {
+public class LocalServiceConnection<S extends Service> implements
+        ServiceProvider<S>, ServiceConnection {
     /** The class of the Service S */
     private final Class<S> serviceClass;
 
@@ -39,8 +44,8 @@ public class LocalServiceConnection<S extends Service> implements ServiceProvide
     /**
      * Bind the given context to a Service S through this ServiceConnection.
      * 
-     * @param contextS.
-     *            The context to bind to the service through this
+     * @param contextS
+     *            . The context to bind to the service through this
      *            ServiceConnection
      * @return True if the Service has bound successfully
      */

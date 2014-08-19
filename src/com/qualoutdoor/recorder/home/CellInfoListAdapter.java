@@ -11,7 +11,11 @@ import android.widget.BaseAdapter;
 import com.qualoutdoor.recorder.telephony.ICellInfo;
 import com.qualoutdoor.recorder.telephony.ViewCellInfo;
 
-/** This adapter can feed a ListView with a cell info list. */
+/**
+ * This adapter can feed a ListView with a cell info list.
+ * 
+ * @author Gaborit Nicolas
+ */
 
 public class CellInfoListAdapter extends BaseAdapter {
 

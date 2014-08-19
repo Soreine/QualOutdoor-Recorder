@@ -21,7 +21,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.ServiceListener;
 import com.qualoutdoor.recorder.ServiceProvider;
-import com.qualoutdoor.recorder.location.ILocation;
+import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
 import com.qualoutdoor.recorder.location.LocationContext;
 import com.qualoutdoor.recorder.location.LocationService;
 import com.qualoutdoor.recorder.telephony.ISignalStrength;
@@ -29,6 +29,11 @@ import com.qualoutdoor.recorder.telephony.TelephonyContext;
 import com.qualoutdoor.recorder.telephony.TelephonyListener;
 import com.qualoutdoor.recorder.telephony.TelephonyService;
 
+/**
+ * An demo map fragment that displays signal strengths on a map
+ * 
+ * @author nicolas
+ */
 public class DataMapFragment extends Fragment implements LocationListener {
 
     private static final float startHue = 0;
@@ -154,14 +159,15 @@ public class DataMapFragment extends Fragment implements LocationListener {
     @Override
     public void onPause() {
         // If needed unregister our telephony listener
-        if (telephonyService.isAvailable()) {
+        try {
             telephonyService.getService().listen(telListener,
                     TelephonyListener.LISTEN_NONE);
-        }
+        } catch (ServiceNotBoundException e) {}
         // Unregister location listener
-        if (locationService.isAvailable()) {
+        try {
             locationService.getService().unregister(this);
-        }
+        } catch (ServiceNotBoundException e) {}
+
         // Unregister the services listeners
         telephonyService.unregister(telServiceListener);
         locationService.unregister(locServiceListener);
@@ -187,10 +193,7 @@ public class DataMapFragment extends Fragment implements LocationListener {
             if (map == null) {
                 // Unsuccesful
                 return false;
-            }        // Update the location
-            this.location = location;
-            // Update the UI
-
+            }
         }
         return true;
     }

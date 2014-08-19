@@ -1,6 +1,13 @@
 package com.qualoutdoor.recorder;
 
+/**
+ * This static class holds some global constants that can't be stored in the XML
+ * files.
+ */
 public class GlobalConstants {
+
+    /** Not meant to be instantiated */
+    private GlobalConstants() {}
 
     public static final int user = 11;
     public static final int group = 22;
@@ -15,14 +22,14 @@ public class GlobalConstants {
     /** Server related constants */
     public static final String URL_SERVER_HTTP = "http://192.168.0.4:8080/upload";
     public static final String URL_SERVER_FTP = "192.168.0.4";
-    // Number of milliseconds in a second
+    /** Number of milliseconds in a second */
     public static final int MILLIS_IN_SECOND = 1000;
 
-    /**Strings identifiers of sending protocol to use*/
+    /** Strings identifiers of sending protocol to use */
     public static final int UPLOAD_PROTOCOL_HTTP = 1;
     public static final int UPLOAD_PROTOCOL_FTP = 2;
-    
-    /**Archive file name*/
+
+    /** Archive file name */
     public static final String ARCHIVE_NAME = "pendingFiles";
 
 }

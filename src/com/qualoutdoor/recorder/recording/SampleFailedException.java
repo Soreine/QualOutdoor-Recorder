@@ -1,8 +1,13 @@
 package com.qualoutdoor.recorder.recording;
 
-/** This exception is thrown when a sample request has failed. Reasons are : 
+/**
+ * This exception is thrown when a sample request has failed. 
+ * Reasons are : 
  * - The available data were too old 
- * - The data could not be fetched */
+ * - The data could not be fetched
+ * 
+ * @author Gaborit Nicolas
+ */
 public class SampleFailedException extends Exception {
 
     /**
@@ -12,6 +17,6 @@ public class SampleFailedException extends Exception {
 
     public SampleFailedException(String message) {
         super(message);
-  }
+    }
 
 }

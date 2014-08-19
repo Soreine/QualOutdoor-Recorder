@@ -9,44 +9,49 @@ import com.qualoutdoor.recorder.scripts.ScriptListFragment;
 import com.qualoutdoor.recorder.statistics.StatisticsFragment;
 
 /**
- * This class define the order and the association between items in the
+ * This class defines the order and the association between items in the
  * Navigation Drawer and their corresponding fragments
+ * 
+ * @author Gaborit Nicolas
  */
 public class NavigationDrawerBehavior {
-	// / The items positions
-	public static final int HOME = 0;
-	public static final int MAP = 1;
-	public static final int STATISTICS = 2;
-	public static final int SCRIPTS = 3;
+    /* Not meant to be instantiated */
+    private NavigationDrawerBehavior() {}
 
-	/** Get the fragment corresponding to the given item */
-	public static Fragment getFragment(int itemPosition) {
-		// The fragment that will be returned
-		Fragment result = null;
+    // / The items positions
+    public static final int HOME = 0;
+    public static final int MAP = 1;
+    public static final int STATISTICS = 2;
+    public static final int SCRIPTS = 3;
 
-		// Create the arguments bundle
-		Bundle args = new Bundle();
+    /** Get the fragment corresponding to the given item */
+    public static Fragment getFragment(int itemPosition) {
+        // The fragment that will be returned
+        Fragment result = null;
 
-		// Assign the correct fragment depending on the item position
-		switch (itemPosition) {
-		case HOME:
-			result = new HomeFragment();
-			break;
-		case MAP:
-			result = new DataMapFragment();
-			break;
-		case STATISTICS:
-			result = new StatisticsFragment();
-			break;
-		case SCRIPTS:
-			result = new ScriptListFragment();
-			break;
-		}
+        // Create the arguments bundle
+        Bundle args = new Bundle();
 
-		// Give the arguments bundle to the fragment
-		result.setArguments(args);
+        // Assign the correct fragment depending on the item position
+        switch (itemPosition) {
+        case HOME:
+            result = new HomeFragment();
+            break;
+        case MAP:
+            result = new DataMapFragment();
+            break;
+        case STATISTICS:
+            result = new StatisticsFragment();
+            break;
+        case SCRIPTS:
+            result = new ScriptListFragment();
+            break;
+        }
 
-		return result;
-	}
+        // Give the arguments bundle to the fragment
+        result.setArguments(args);
+
+        return result;
+    }
 
 }

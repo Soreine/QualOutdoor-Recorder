@@ -3,7 +3,11 @@ package com.qualoutdoor.recorder.location;
 import android.location.Location;
 import android.os.Bundle;
 
-/** An Android implementation of the ILocation interface */
+/**
+ * An Android implementation of the ILocation interface
+ * 
+ * @author Gaborit Nicolas
+ */
 public class CustomLocation implements ILocation {
 
     /**
@@ -23,8 +27,12 @@ public class CustomLocation implements ILocation {
     /** Stores the accuracy of the location. Holds a float. */
     public static final String ACCURACY = "accuracy";
 
-    /** Create a custom location with the given location values.
-     * @param location The location from which to take values */
+    /**
+     * Create a custom location with the given location values.
+     * 
+     * @param location
+     *            The location from which to take values
+     */
     public CustomLocation(Location location) {
         // Initialize the bundle
         locationBundle = new Bundle();
@@ -37,12 +45,12 @@ public class CustomLocation implements ILocation {
         // Add the accuracy
         locationBundle.putFloat(ACCURACY, location.getAccuracy());
     }
-    
+
     /** Return this as a bundle */
     public Bundle getBundle() {
         return this.locationBundle;
     }
-    
+
     @Override
     public long getTime() {
         return locationBundle.getLong(TIME);

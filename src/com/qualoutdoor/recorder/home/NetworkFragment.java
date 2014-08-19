@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.ServiceListener;
 import com.qualoutdoor.recorder.ServiceProvider;
+import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
 import com.qualoutdoor.recorder.telephony.ICellInfo;
 import com.qualoutdoor.recorder.telephony.TelephonyContext;
 import com.qualoutdoor.recorder.telephony.TelephonyListener;
@@ -23,6 +24,8 @@ import com.qualoutdoor.recorder.telephony.ViewCellInfo;
 /**
  * This fragment displays the main informations of the phone state on a single
  * screen. Its parent activity must implements the interface TelephonyContext.
+ * 
+ * @author Gaborit Nicolas
  */
 public class NetworkFragment extends Fragment {
 
@@ -144,10 +147,11 @@ public class NetworkFragment extends Fragment {
     @Override
     public void onPause() {
         // If needed unregister our telephony listener
-        if (telephonyService.isAvailable()) {
+        try {
             telephonyService.getService().listen(telListener,
                     TelephonyListener.LISTEN_NONE);
-        }
+        } catch (ServiceNotBoundException e) {}
+
         // Unregister the services listeners
         telephonyService.unregister(telServiceListener);
         super.onPause();

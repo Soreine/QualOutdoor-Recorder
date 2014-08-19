@@ -8,6 +8,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
@@ -17,11 +18,14 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.qualoutdoor.recorder.Debug;
 import com.qualoutdoor.recorder.LocalBinder;
+import com.qualoutdoor.recorder.R;
 
 /**
  * This service is an Android implementation of ITelephony, it uses a
  * TelephonyManager to access phone state informations. An app component can
  * bind to it anytime in order to monitor the phone state.
+ * 
+ * @author Gaborit Nicolas
  */
 public class LocationService extends Service implements
         GooglePlayServicesClient.ConnectionCallbacks,
@@ -81,22 +85,24 @@ public class LocationService extends Service implements
         locationClient = new LocationClient(this, this, this);
         // Test if Google Play Services is available
         servicesAvailable = areServicesConnected();
-        // TODO launch activity or dialog if not available
+        // If not available
         if (!servicesAvailable) {
-            Log.d("LocationService", "servicesAvailable = false");
-            super.onCreate();
+            // Toast something useful
+            Toast.makeText(this,
+                    getString(R.string.error_location_services_unavailable),
+                    Toast.LENGTH_SHORT).show();
+            Log.e("LocationService", "servicesAvailable = false");
+        } else {
+            // Connect the client
+            locationClient.connect();
         }
-        // Connect the client
-        locationClient.connect();
-
         super.onCreate();
     }
 
     @Override
     public void onDestroy() {
         Log.d("LocationService", "onDestroy");
-        if (servicesAvailable && locationClient != null) { // TODO bug
-                                                           // sometimes...
+        if (servicesAvailable && locationClient != null) {
             locationClient.removeLocationUpdates(this);
             if (Debug.log)
                 Log.d("LocationService", "removed location updates");
@@ -160,7 +166,7 @@ public class LocationService extends Service implements
         }
     }
 
-    /** Android callbacks */
+    /* Android callbacks */
     @Override
     public void onLocationChanged(Location newLocation) {
         // Update our Location
@@ -173,31 +179,16 @@ public class LocationService extends Service implements
     public void onConnectionFailed(ConnectionResult connectionResult) {
         /*
          * Google Play services can resolve some errors it detects. If the error
-         * has a resolution, try sending an Intent to start a Google Play
-         * services activity that can resolve error.
+         * has a resolution, it is possible to try sending an Intent to start a
+         * Google Play services activity that can resolve error.
          */
-        // TODO inform the activities
-        // if (connectionResult.hasResolution()) {
-        // try {
-        // // Start an Activity that tries to resolve the error
-        // connectionResult.startResolutionForResult(
-        // this,
-        // CONNECTION_FAILURE_RESOLUTION_REQUEST);
-        // /*
-        // * Thrown if Google Play services canceled the original
-        // * PendingIntent
-        // */
-        // } catch (IntentSender.SendIntentException e) {
-        // // Log the error
-        // e.printStackTrace();
-        // }
-        // } else {
-        // /*
-        // * If no resolution is available, display a dialog to the
-        // * user with the error.
-        // */
-        // }
-
+        /*
+         * But we are not an activity, so just inform the user x(
+         */
+        Toast.makeText(this,
+                getString(R.string.error_location_on_connection_failed),
+                Toast.LENGTH_SHORT).show();
+        Log.e("LocationService", "onConnectionFailed");
     }
 
     @Override

@@ -14,6 +14,7 @@ import android.widget.ListView;
 import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.ServiceListener;
 import com.qualoutdoor.recorder.ServiceProvider;
+import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
 import com.qualoutdoor.recorder.telephony.ICellInfo;
 import com.qualoutdoor.recorder.telephony.TelephonyContext;
 import com.qualoutdoor.recorder.telephony.TelephonyListener;
@@ -22,12 +23,14 @@ import com.qualoutdoor.recorder.telephony.TelephonyService;
 /**
  * This fragment displays the list of the visible cells. Its parent activity
  * must implements the interface TelephonyContext.
+ * 
+ * @author Gaborit Nicolas
  */
 public class NeighborsFragment extends Fragment {
 
     /** The events monitored by the Telephony Listener */
     private static final int events = TelephonyListener.LISTEN_CELL_INFO;
-    
+
     /**
      * The Telephony Listener, which defines the behavior against telephony
      * state changes
@@ -57,11 +60,12 @@ public class NeighborsFragment extends Fragment {
 
     /** The cell info list adapter */
     private CellInfoListAdapter listAdapter;
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         // Initialize the cell info list adapter with an empty cell info list
-        listAdapter = new CellInfoListAdapter(getActivity(), new ArrayList<ICellInfo>());
+        listAdapter = new CellInfoListAdapter(getActivity(),
+                new ArrayList<ICellInfo>());
         super.onCreate(savedInstanceState);
     }
 
@@ -85,7 +89,7 @@ public class NeighborsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         // Inflate the list view
-        ListView view =(ListView) inflater.inflate(
+        ListView view = (ListView) inflater.inflate(
                 R.layout.fragment_neighbors, container, false);
         // Set the adapter for the list
         view.setAdapter(listAdapter);
@@ -103,10 +107,10 @@ public class NeighborsFragment extends Fragment {
     @Override
     public void onPause() {
         // If needed unregister our telephony listener
-        if (telephonyService.isAvailable()) {
+        try {
             telephonyService.getService().listen(telListener,
                     TelephonyListener.LISTEN_NONE);
-        }
+        } catch (ServiceNotBoundException e) {}
         // Unregister the services listeners
         telephonyService.unregister(telServiceListener);
         super.onPause();

@@ -77,7 +77,7 @@ public class FtpFileSender implements Sender{
 			 * si aucune exception a ï¿½tï¿½ levï¿½ lors de la suite d'instruction le transfert s'est bien passï¿½
 			 * (solution optimiste)
 			 */
-			//le transfert s'est bien passé
+			//le transfert s'est bien passï¿½
         	response = true;
         	os.close();
         	

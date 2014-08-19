@@ -13,6 +13,8 @@ import com.qualoutdoor.recorder.R;
 /**
  * This is the main fragment of the application. The first displayed inside the
  * MainActivity.
+ * 
+ * @author Gaborit Nicolas
  */
 public class HomeFragment extends Fragment {
 
@@ -44,19 +46,18 @@ public class HomeFragment extends Fragment {
         // ViewPager and its adapters use support library fragments, so we must
         // use getSupportFragmentManager.
         homePagerAdapter = new HomePagerAdapter(getChildFragmentManager());
-    
+
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
     }
-    
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container,
-                false);
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         // Set up the ViewPager
         mViewPager = (ViewPager) view.findViewById(R.id.pager);

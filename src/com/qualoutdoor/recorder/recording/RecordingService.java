@@ -19,6 +19,7 @@ import com.qualoutdoor.recorder.GlobalConstants;
 import com.qualoutdoor.recorder.LocalBinder;
 import com.qualoutdoor.recorder.LocalServiceConnection;
 import com.qualoutdoor.recorder.R;
+import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
 import com.qualoutdoor.recorder.location.LocationService;
 import com.qualoutdoor.recorder.notifications.NotificationCenter;
 import com.qualoutdoor.recorder.persistent.MeasureContext;
@@ -31,13 +32,13 @@ import com.qualoutdoor.recorder.telephony.TelephonyService;
  * sampling the phone state. One can bind to this service in order to modify the
  * sampling rate. It is needed to call stopService() on it in order to stop the
  * recording process.
+ * 
+ * @author Gaborit Nicolas
  */
 public class RecordingService extends Service {
 
     /** The interface binder for this service */
     private IBinder mRecordingBinder;
-    /** Indicates if a recording process is ongoing */
-    private boolean isRecording = false;
 
     /** The TelephonyServiceConnection used to access the TelephonyService */
     private LocalServiceConnection<TelephonyService> telServiceConnection = new LocalServiceConnection<TelephonyService>(
@@ -91,7 +92,17 @@ public class RecordingService extends Service {
 
     // TODO
     /** Set the sampling rate to the specified value in milliseconds */
-    public void setSamplingRate(int millis) {}
+    public void setSamplingRate(int millis) {
+        // Modify our value
+        sampleRate = millis;
+        // Update the value of the RecordingHandler
+        handler.setSamplingRate(millis);
+        // Ask for adapted update interval
+        try {
+            locServiceConnection.getService().setMinimumRefreshRate(sampleRate);
+        } catch (ServiceNotBoundException e) {}
+
+    }
 
     /** Start the recording process. */
     @Override
@@ -144,16 +155,18 @@ public class RecordingService extends Service {
      * insertion by a SampleTask
      */
     public Sample sample() throws SampleFailedException {
-        // Check that the services are available
-        if (!locServiceConnection.isAvailable()
-                || !telServiceConnection.isAvailable()) {
-            // Not able to sample
+
+        // Get the services
+        TelephonyService telService;
+        LocationService locService;
+        try {
+            telService = telServiceConnection.getService();
+            locService = locServiceConnection.getService();
+        } catch (ServiceNotBoundException e) {
+            // Not able to sample because services are not available
             throw new SampleFailedException(
                     "Telephony services and/or Location services unavailable");
         }
-        // Get the services
-        TelephonyService telService = telServiceConnection.getService();
-        LocationService locService = locServiceConnection.getService();
 
         // Fetch the location
         Location location = locService.getLocation();

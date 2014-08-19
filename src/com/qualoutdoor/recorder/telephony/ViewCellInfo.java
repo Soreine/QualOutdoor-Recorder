@@ -12,12 +12,8 @@ import com.qualoutdoor.recorder.R;
 
 /**
  * This view allows to display dynamically, as a table, the infos of a ICellInfo
- */
-/*
- * Here is the way we display a cellInfo >|CID (Type) | RSSI|
- * ----------------------------------------- collapsible | MCC | MNC | LAC/TAC |
- * PSC/PCI | | 208 | 15 | 65536 | 512 |
- * -----------------------------------------
+ * 
+ * @author Gaborit Nicolas
  */
 
 public class ViewCellInfo extends GridLayout {

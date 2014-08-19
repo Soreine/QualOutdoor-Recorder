@@ -14,11 +14,11 @@ public class EmailFileSender {
 	public static void sendFileByEmail(Context context, String dest, HashMap<String,FileToUpload> filesToUpload){
     	//On se place dans le cas ou un seul fichier est dans la hashmap:
     	
-		//on récupere donc la première entrée de la hashmap
+		//on rï¿½cupere donc la premiï¿½re entrï¿½e de la hashmap
 		String cle = filesToUpload.keySet().iterator().next();
-		//on récupère le nom du fichier
+		//on rï¿½cupï¿½re le nom du fichier
 		String fileName = filesToUpload.get(cle).getFileName();
-		//on récupère le contenu du fichier
+		//on rï¿½cupï¿½re le contenu du fichier
 		InputStream content = filesToUpload.get(cle).getContent();
 		
 		//on verifie le bon format de l'adresse fournier
@@ -34,7 +34,7 @@ public class EmailFileSender {
 			Intent email = new Intent(Intent.ACTION_SEND);
 			email.putExtra(Intent.EXTRA_EMAIL, new String[]{dest});//destinataire		  
 			email.putExtra(Intent.EXTRA_SUBJECT, "my csv file");//sujet
-			String stats;//string qui récupere le fichier pour l'afficher dans le contenu du mail
+			String stats;//string qui rï¿½cupere le fichier pour l'afficher dans le contenu du mail
 			java.util.Scanner s = new java.util.Scanner(content).useDelimiter("\\A");
 	        if(s.hasNext()){
 	        	stats = s.next();

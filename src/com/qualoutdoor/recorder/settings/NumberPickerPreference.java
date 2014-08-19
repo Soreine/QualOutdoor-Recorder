@@ -9,7 +9,11 @@ import android.util.AttributeSet;
 
 import com.qualoutdoor.recorder.R;
 
-/** This custom preference display a dialog to select a numeric value */
+/**
+ * This custom preference display a dialog to select a numeric value
+ * 
+ * @author Gaborit Nicolas
+ */
 public class NumberPickerPreference extends DialogPreference {
 
     /** The setting current value */

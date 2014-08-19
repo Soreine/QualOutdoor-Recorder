@@ -12,6 +12,11 @@ import android.telephony.CellInfoLte;
 import android.telephony.CellInfoWcdma;
 import android.telephony.CellSignalStrength;
 
+/**
+ * Implementation of ICellInfo using a Bundle to store data
+ * 
+ * @author Gaborit Nicolas
+ */
 public class CustomCellInfo implements ICellInfo {
 
     /**

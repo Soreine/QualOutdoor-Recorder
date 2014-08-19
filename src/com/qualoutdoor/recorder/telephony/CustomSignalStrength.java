@@ -3,13 +3,19 @@ package com.qualoutdoor.recorder.telephony;
 import android.os.Bundle;
 import android.telephony.CellSignalStrength;
 
+/**
+ * Implementation of ISignalStrength using a Bundle
+ * 
+ * @author Gaborit Nicolas
+ * 
+ */
 public class CustomSignalStrength implements ISignalStrength {
 
     /**
      * We encapsulate the signal values in a bundle. They are parcelable and all
      * the fields are not required to be filled.
      */
-    private Bundle             valuesBundle;
+    private Bundle valuesBundle;
 
     /************ The bundle keys ****************/
     /** Stores the signal strength dBm value. Holds an int. */

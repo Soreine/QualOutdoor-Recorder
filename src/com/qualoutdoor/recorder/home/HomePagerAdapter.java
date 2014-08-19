@@ -7,6 +7,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.qualoutdoor.recorder.GenericFragment;
 
+/**
+ * This is the pager adapter for the HomeFragment
+ * 
+ * @author Gaborit Nicolas
+ * 
+ */
 public class HomePagerAdapter extends FragmentPagerAdapter {
 
     /** The order of the fragments */

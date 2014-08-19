@@ -17,12 +17,15 @@ import com.google.android.gms.location.LocationListener;
 import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.ServiceListener;
 import com.qualoutdoor.recorder.ServiceProvider;
+import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
 import com.qualoutdoor.recorder.location.LocationContext;
 import com.qualoutdoor.recorder.location.LocationService;
 
 /**
  * This fragment displays all the available information relative to the current
  * location. Its parent activity must implements the interface LocationContext.
+ * 
+ * @author Gaborit Nicolas
  */
 public class LocationFragment extends Fragment {
 
@@ -133,9 +136,10 @@ public class LocationFragment extends Fragment {
     @Override
     public void onPause() {
         // If needed unregister our telephony listener
-        if (locationService.isAvailable()) {
+        try {
             locationService.getService().unregister(locListener);
-        }
+        } catch (ServiceNotBoundException e) {}
+
         // Unregister the services listeners
         locationService.unregister(locServiceListener);
         super.onPause();

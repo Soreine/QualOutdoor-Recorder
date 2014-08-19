@@ -19,16 +19,15 @@ public interface ServiceProvider<S extends Service> {
 
     /** Register to be informed when the service becomes available */
     void register(ServiceListener<S> listener);
-    
+
     /** Unregister the given listener */
     void unregister(ServiceListener<S> listener);
 
-    
     /**
      * This runtime exception is thrown when one tries to access a service while
      * not available.
      */
-    public class ServiceNotBoundException extends RuntimeException {
+    public class ServiceNotBoundException extends RuntimeException{
         /**
          * Generated serial version UID
          */

@@ -10,7 +10,6 @@ import java.util.concurrent.Semaphore;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import android.content.Context;
 import android.database.SQLException;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -29,7 +28,13 @@ import com.qualoutdoor.recorder.persistent.FileReadyListener;
 import com.qualoutdoor.recorder.persistent.SQLConnector;
 import com.qualoutdoor.recorder.persistent.Sample;
 
-/** This Handler is used to manage AsyncTasks related to the database */
+/**
+ * This Handler is used to manage AsyncTask related to the database by sending
+ * messages. The possible actions are starting or stopping a record and
+ * requesting an upload of the local database.
+ * 
+ * @author Gaborit Nicolas
+ */
 public class RecordingHandler extends Handler {
 
     /** Message code for starting recording */
@@ -226,7 +231,12 @@ public class RecordingHandler extends Handler {
         return this.isRecording;
     }
 
-    /** Add a recording listener */
+    /**
+     * Add a recording listener
+     * 
+     * @param listener
+     *            The listener to register
+     */
     public void register(IRecordingListener listener) {
         // Add it to the list
         recordingListeners.add(listener);
@@ -234,13 +244,23 @@ public class RecordingHandler extends Handler {
         listener.onRecordingChanged(isRecording);
     }
 
-    /** Remove a recording listener */
+    /**
+     * Remove a recording listener
+     * 
+     * @param listener
+     *            The listener to remove
+     */
     public void unregister(IRecordingListener listener) {
         // Remove it from the list
         recordingListeners.remove(listener);
     }
 
-    /** Change and notify that the recording process state has changed */
+    /**
+     * Change and notify that the recording process state has changed
+     * 
+     * @param state
+     *            The new recording state
+     */
     private void setNotifyRecording(boolean state) {
         // Update the recording state
         isRecording = state;
@@ -249,6 +269,16 @@ public class RecordingHandler extends Handler {
             // For each listener, notify
             listener.onRecordingChanged(state);
         }
+    }
+
+    /**
+     * Modify the sampling rate of the recording.
+     * 
+     * @param millis
+     *            The number of milliseconds between each sample
+     */
+    public void setSamplingRate(int millis) {
+        sampleRate = millis;
     }
 
     /**
@@ -332,8 +362,6 @@ public class RecordingHandler extends Handler {
 
         @Override
         public void onFileReady(ByteArrayOutputStream file) {
-            // TODO : make recording run again if it was running before calling
-            // uploadDatabase()
             if (file == null) {
                 // No data waiting to be uploaded : toast it
                 Toast.makeText(recordingService,
@@ -372,8 +400,8 @@ public class RecordingHandler extends Handler {
                 try {
                     addFileToArchive(name, file);
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    Log.e(RecordingHandler.class.toString(),
+                            "Add to archive failed", e);
                 }
 
                 // sending archive
@@ -403,8 +431,12 @@ public class RecordingHandler extends Handler {
     }
 
     /**
-     * Add file into pending archive
+     * Add file into the archive destined for the pending uploads
      * 
+     * @param fileName
+     *            The name of the file to add
+     * @param fileContent
+     *            The content of the file to add
      * @throws IOException
      */
     public void addFileToArchive(String fileName,

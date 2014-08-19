@@ -15,14 +15,15 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-import com.qualoutdoor.recorder.Debug;
 import com.qualoutdoor.recorder.LocalBinder;
 import com.qualoutdoor.recorder.R;
 
 /**
  * This service is an Android implementation of ITelephony, it uses a
  * TelephonyManager to access phone state informations. An app component can
- * bind to it anytime in order to monitor the phone state.
+ * bind to it any time in order to monitor the phone state.
+ * 
+ * @author Gaborit Nicolas
  */
 public class TelephonyService extends Service implements ITelephony {
 
@@ -149,19 +150,22 @@ public class TelephonyService extends Service implements ITelephony {
             // TODO We are not currently able to parse a SignalStrength so we
             // just update the CellInfo list instead. This has the effect to
             // update the signal strength value ;)
-//            Log.d("SignalStrength", "CdmaDbm : " + signalStrength.getCdmaDbm());
-//            Log.d("SignalStrength",
-//                    "CdmaEcio : " + signalStrength.getCdmaEcio());
-//            Log.d("SignalStrength", "EvdoDbm : " + signalStrength.getEvdoDbm());
-//            Log.d("SignalStrength",
-//                    "EvdoEcio : " + signalStrength.getEvdoEcio());
-//            Log.d("SignalStrength", "EvdoSnr : " + signalStrength.getEvdoSnr());
-//            Log.d("SignalStrength",
-//                    "GsmBitErrorRate : " + signalStrength.getGsmBitErrorRate());
-//            Log.d("SignalStrength",
-//                    "GsmSignalStrength : "
-//                            + signalStrength.getGsmSignalStrength());
-//            Log.d("SignalStrength", "isGsm : " + signalStrength.isGsm());
+            // Log.d("SignalStrength", "CdmaDbm : " +
+            // signalStrength.getCdmaDbm());
+            // Log.d("SignalStrength",
+            // "CdmaEcio : " + signalStrength.getCdmaEcio());
+            // Log.d("SignalStrength", "EvdoDbm : " +
+            // signalStrength.getEvdoDbm());
+            // Log.d("SignalStrength",
+            // "EvdoEcio : " + signalStrength.getEvdoEcio());
+            // Log.d("SignalStrength", "EvdoSnr : " +
+            // signalStrength.getEvdoSnr());
+            // Log.d("SignalStrength",
+            // "GsmBitErrorRate : " + signalStrength.getGsmBitErrorRate());
+            // Log.d("SignalStrength",
+            // "GsmSignalStrength : "
+            // + signalStrength.getGsmSignalStrength());
+            // Log.d("SignalStrength", "isGsm : " + signalStrength.isGsm());
             updateCellInfos(telephonyManager.getAllCellInfo());
         };
     };

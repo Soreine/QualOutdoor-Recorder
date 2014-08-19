@@ -1,8 +1,5 @@
 package com.qualoutdoor.recorder;
 
-/***********************************************************************/
-/* Imported packages */
-/***********************************************************************/
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
@@ -23,6 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
 import com.qualoutdoor.recorder.location.LocationContext;
 import com.qualoutdoor.recorder.location.LocationService;
 import com.qualoutdoor.recorder.recording.IRecordingListener;
@@ -34,6 +32,14 @@ import com.qualoutdoor.recorder.telephony.TelephonyContext;
 import com.qualoutdoor.recorder.telephony.TelephonyListener;
 import com.qualoutdoor.recorder.telephony.TelephonyService;
 
+/**
+ * The main activity of the application. This is the only entry point to the
+ * application. Uses a NavigationDrawer to switch between different fragment of
+ * the application.
+ * 
+ * @author Gaborit Nicolas
+ * 
+ */
 public class MainActivity extends ActionBarActivity implements
         RecordingContext, TelephonyContext, LocationContext {
 
@@ -105,7 +111,7 @@ public class MainActivity extends ActionBarActivity implements
     /** The LocationServiceConnection used to access the LocationService */
     private LocalServiceConnection<LocationService> locServiceConnection = new LocalServiceConnection<LocationService>(
             LocationService.class);
-    
+
     /*********** Navigation Drawer ****************/
     /** The current fragment title */
     private CharSequence fragmentTitle;
@@ -268,14 +274,16 @@ public class MainActivity extends ActionBarActivity implements
     protected void onStop() {
         super.onStop();
         // Unregister the TelephonyListener
-        if (telServiceConnection.isAvailable()) {
+        try {
             telServiceConnection.getService().listen(telephonyListener,
                     TelephonyListener.LISTEN_NONE);
-        }
+        } catch (ServiceNotBoundException e) {}
+
         // Unregister the RecordingListener
-        if (recServiceConnection.isAvailable()) {
+        try {
             recServiceConnection.getService().unregister(recordingListener);
-        }
+        } catch (ServiceNotBoundException e) {}
+
         // Unbind from the TelephonyService if needed
         unbindService(telServiceConnection);
         // Unbind from the RecordingService if needed
@@ -435,24 +443,26 @@ public class MainActivity extends ActionBarActivity implements
         // Handle the other action bar items...
         switch (item.getItemId()) {
         case R.id.action_record:
-            // Check that we are bound to the recording service
-            if (recServiceConnection.isAvailable()) {
-                if (recServiceConnection.getService().isRecording()) {
+            RecordingService recService;
+            try {
+                recService = recServiceConnection.getService();
+                if (recService.isRecording()) {
                     // The service is recording, so stop the recording
-                    recServiceConnection.getService().stopRecording();
+                    recService.stopRecording();
                 } else {
                     // The service is not recording, so start the service
                     Intent recordingServiceIntent = new Intent(this,
                             RecordingService.class);
                     startService(recordingServiceIntent);
                 }
-            }
+            } catch (ServiceNotBoundException e) {}
+            // Check that we are bound to the recording service
             return true;
-        case R.id.action_upload :
-            // Upload the data
-            if(recServiceConnection.isAvailable()) {
+        case R.id.action_upload:
+            try {
+                // Upload the data
                 recServiceConnection.getService().uploadDatabase();
-            }
+            } catch (ServiceNotBoundException e) {}
             return true;
         case R.id.action_settings:
             openSettings();
