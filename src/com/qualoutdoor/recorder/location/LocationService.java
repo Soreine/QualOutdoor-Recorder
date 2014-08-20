@@ -21,9 +21,9 @@ import com.qualoutdoor.recorder.LocalBinder;
 import com.qualoutdoor.recorder.R;
 
 /**
- * This service is an Android implementation of ITelephony, it uses a
- * TelephonyManager to access phone state informations. An app component can
- * bind to it anytime in order to monitor the phone state.
+ * This service is allows to acces location data, it uses a Google Play Services
+ * LocationClient in order to receive location update. An app component can bind
+ * to it any time in order to monitor location.
  * 
  * @author Gaborit Nicolas
  */

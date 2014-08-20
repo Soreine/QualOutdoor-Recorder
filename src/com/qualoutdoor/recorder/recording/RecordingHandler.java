@@ -22,6 +22,7 @@ import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.network.DataSendingManager;
 import com.qualoutdoor.recorder.network.SendCompleteListener;
 import com.qualoutdoor.recorder.persistent.CollectMeasureException;
+import com.qualoutdoor.recorder.persistent.DBSemaphore;
 import com.qualoutdoor.recorder.persistent.DataBaseException;
 import com.qualoutdoor.recorder.persistent.FileGenerator;
 import com.qualoutdoor.recorder.persistent.FileReadyListener;
@@ -70,11 +71,6 @@ public class RecordingHandler extends Handler {
 
     /** The SQLConnector used for all the database operations */
     private SQLConnector connector;
-    /**
-     * The semaphore limiting access to the database to one at a time, with
-     * fairness (FIFO ordering)
-     */
-    private final Semaphore databaseSemaphore = new Semaphore(1, true);
 
     /**
      * Create a new RecordingHandler with the given sampleRate
@@ -176,8 +172,8 @@ public class RecordingHandler extends Handler {
         // Define the comment added at the beginning of the file
         String comments = "...comments about file...";
         // Create a writer that will convert the database into a file
-        FileGenerator writer = new FileGenerator(connector, databaseSemaphore,
-                comments, writingCallback);
+        FileGenerator writer = new FileGenerator(connector, comments,
+                writingCallback);
         // Start conversion
         writer.execute();
     }
@@ -303,13 +299,13 @@ public class RecordingHandler extends Handler {
             // Insert the measure in the database
             try {
                 // Acquire access to database
-                databaseSemaphore.acquire();
+                DBSemaphore.ref.acquire();
                 // Insert the sample data
                 connector.insertMeasure(parameters.measureContext,
                         parameters.data, parameters.latitude,
                         parameters.longitude);
                 // Release access
-                databaseSemaphore.release();
+                DBSemaphore.ref.release();
                 Log.d("SampleTask",
                         "Insertion effectuée :\n" + parameters.data.toString());
             } catch (DataBaseException e) {

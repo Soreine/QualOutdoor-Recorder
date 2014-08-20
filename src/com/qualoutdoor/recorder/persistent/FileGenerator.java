@@ -32,15 +32,10 @@ public class FileGenerator extends AsyncTask<Void, Void, ByteArrayOutputStream> 
     // SOLUTION PROVISOIRE
     private String comments;// les commentaires � inserer dans le fichier
 
-    /** The semaphore to acquire when accessing the database */
-    private Semaphore databaseSemaphore;
-
-    public FileGenerator(SQLConnector conn, Semaphore databaseSemaphore,
-            String com, FileReadyListener cb) {
+    public FileGenerator(SQLConnector conn, String com, FileReadyListener cb) {
         this.file = new ByteArrayOutputStream();
         this.comments = com;
         this.connecteur = conn;
-        this.databaseSemaphore = databaseSemaphore;
         this.callback = cb;
     }
 
@@ -168,8 +163,8 @@ public class FileGenerator extends AsyncTask<Void, Void, ByteArrayOutputStream> 
     protected ByteArrayOutputStream doInBackground(Void... params) {
         try {
             // Acquire the access to the database
-            databaseSemaphore.acquire();
-            Log.d("FileGenerator","Acquired database");
+            DBSemaphore.ref.acquire();
+            Log.d("FileGenerator", "Acquired database");
             try {
                 completeRetranscription(this.comments,
                         this.connecteur.prepareManager());
@@ -179,8 +174,8 @@ public class FileGenerator extends AsyncTask<Void, Void, ByteArrayOutputStream> 
                 return null;
             } finally {
                 // We are done with the database
-                Log.d("FileGenerator","Release database");
-                databaseSemaphore.release();
+                Log.d("FileGenerator", "Release database");
+                DBSemaphore.ref.release();
             }
             return this.file;
         } catch (InterruptedException e) {
