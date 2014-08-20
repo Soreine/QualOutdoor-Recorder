@@ -21,6 +21,9 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     public static final int LOCATIONS = 0;
     public static final int NETWORK = 1;
     public static final int NEIGHBORS = 2;
+    /** Number of fragments listed */
+    private static CharSequence[] fragmentTitles = Resources.getSystem()
+            .getStringArray(R.array.home_pager_titles);
 
     public HomePagerAdapter(FragmentManager fm) {
         super(fm);
@@ -33,33 +36,24 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
 
         // Initialize the arguments bundle
         Bundle args = new Bundle();
+        // Set the title
+        args.putCharSequence(GenericFragment.FRAGMENT_NAME, fragmentTitles[i]);
 
-        // Load the ressources
-        Resources res = Resources.getSystem();
-
-        // The title string
-        String title = "";
-
-        // Switch on the fragment name
+        // Switch on the fragment correct fragment
         switch (i) {
         case LOCATIONS:
             result = new LocationFragment();
-            title = res.getString(R.string.title_location);
             break;
         case NETWORK:
             result = new NetworkFragment();
-            title = res.getString(R.string.title_network);
             break;
         case NEIGHBORS:
             result = new NeighborsFragment();
-            title = res.getString(R.string.title_neighbors);
             break;
         }
 
         // Attach the arguments
         result.setArguments(args);
-        // Set the title
-        args.putCharSequence(GenericFragment.FRAGMENT_NAME, title);
 
         return result;
     }
