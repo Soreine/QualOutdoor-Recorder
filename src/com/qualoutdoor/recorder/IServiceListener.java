@@ -7,7 +7,7 @@ import android.app.Service;
  * 
  * @author Gaborit Nicolas
  */
-public interface ServiceListener<S extends Service> {
+public interface IServiceListener<S extends Service> {
     /** Callback made when the service becomes available */
     void onServiceAvailable(S service);
 }

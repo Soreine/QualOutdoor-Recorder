@@ -1,6 +1,10 @@
 package com.qualoutdoor.recorder.location;
 
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 import android.app.Service;
 import android.content.Intent;
@@ -29,12 +33,7 @@ import com.qualoutdoor.recorder.R;
  */
 public class LocationService extends Service implements
         GooglePlayServicesClient.ConnectionCallbacks,
-        GooglePlayServicesClient.OnConnectionFailedListener, LocationListener {
-
-    /** The default value asked for location update (millis) */
-    private static final int DEFAULT_LOCATION_UPDATE_INTERVAL = 2000;
-    /** The fastest location update interval we can handle (millis) */
-    private static final int FASTEST_LOCATION_INTERVAL = 1000;
+        GooglePlayServicesClient.OnConnectionFailedListener {
 
     /** The interface binder for this service */
     private IBinder mBinder;
@@ -42,33 +41,31 @@ public class LocationService extends Service implements
     /** The current location */
     private Location location;
 
-    // Note : Might use CopyOnWriteArrayList to avoid
-    // ConcurrentModificationExceptions if a
-    // listener attempts to remove itself during event notification.
-    /** Store the listeners listening to LISTEN_LOCATION */
-    private ArrayList<LocationListener> listenersLocation = new ArrayList<LocationListener>();
+    /**
+     * A structure that stores a reference to a listener along with the update
+     * request it has emitted
+     */
+    private class PendingRequest {
+        LocationRequest request;
+        LocationListener listener;
 
-    /** Our location request reference */
-    private LocationRequest locationRequest;
-    {
-        // Create a location request object
-        locationRequest = LocationRequest.create();
-        // Set accuracy to high
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        // Set the update interval equal to default
-        locationRequest.setInterval(DEFAULT_LOCATION_UPDATE_INTERVAL);
-        // Set the fastest update interval
-        locationRequest.setFastestInterval(FASTEST_LOCATION_INTERVAL);
+        PendingRequest(LocationRequest request, LocationListener listener) {
+            this.request = request;
+            this.listener = listener;
+        }
     }
+
+    /**
+     * Store the locations listeners that asked for updates before the
+     * LocationClient was connected
+     */
+    private LinkedList<PendingRequest> requestQueue = new LinkedList<PendingRequest>();
 
     /** Indicates if Google Play Services are available */
     private boolean servicesAvailable;
 
     /** Our location client reference */
     private LocationClient locationClient;
-
-    /** The current location update interval */
-    private int updateInterval;
 
     /** Indicate if the client is connected */
     private boolean clientConnected = false;
@@ -77,9 +74,6 @@ public class LocationService extends Service implements
     public void onCreate() {
         // Initialize the binder
         mBinder = new LocalBinder<LocationService>(this);
-
-        // Initialize the location update interval
-        updateInterval = DEFAULT_LOCATION_UPDATE_INTERVAL;
 
         // Create a new location client using this class to handle callbacks
         locationClient = new LocationClient(this, this, this);
@@ -103,10 +97,7 @@ public class LocationService extends Service implements
     public void onDestroy() {
         Log.d("LocationService", "onDestroy");
         if (servicesAvailable && locationClient != null) {
-            locationClient.removeLocationUpdates(this);
-            if (Debug.log)
-                Log.d("LocationService", "removed location updates");
-            // Destroy the current location client
+            // Forget the current location client
             locationClient = null;
         }
         super.onDestroy();
@@ -119,60 +110,46 @@ public class LocationService extends Service implements
     }
 
     /** Return the last known location */
-    public Location getLocation() {
+    public Location getLastKnownLocation() {
         return locationClient.getLastLocation();
     }
 
-    /** Register the given LocationListener to receive location updates */
-    public void register(LocationListener listener) {
-        // The listener wish to monitor the location, add it to the list
-        listenersLocation.add(listener);
-        // If we have a previous known location
-        if (location != null) {
-            // Notify it immediatly with the current data
-            listener.onLocationChanged(location);
+    /**
+     * Register the given LocationListener to receive location updates in
+     * respect of the given LocationRequest parameters
+     * 
+     * @param locationRequest
+     *            Parameters for the location updates
+     * @param listener
+     *            The listener that will receive the updates
+     */
+    public void requestLocationUpdates(LocationRequest locationRequest,
+            LocationListener listener) {
+        // If the client is connected already
+        if (clientConnected && locationClient != null) {
+            // Ask for location updates
+            locationClient.requestLocationUpdates(locationRequest, listener);
+        } else {
+            // Add it to the queue
+            requestQueue.offer(new PendingRequest(locationRequest, listener));
         }
     }
 
-    /** Unregister the given listener */
-    public void unregister(LocationListener listener) {
-        // Remove it from the list
-        listenersLocation.remove(listener);
-    }
-
-    /** Reduce the refresh rate to match the given time in milliseconds */
-    public void setMinimumRefreshRate(int milliseconds) {
-        updateInterval = Math.min(milliseconds, updateInterval);
-        // Update the location request
-        updateRequest();
-
-    }
-
-    /** Update the location request */
-    private void updateRequest() {
-        // Update the interval
-        locationRequest.setInterval(updateInterval);
-        // Request again if already running
-        if (clientConnected && locationClient != null && servicesAvailable) {
-            locationClient.requestLocationUpdates(locationRequest, this);
+    /**
+     * Unregister the given listener
+     * 
+     * @param listener
+     *            The listener to remove
+     */
+    public void removeLocationUpdate(LocationListener listener) {
+        // If the client is connected already
+        if (clientConnected && locationClient != null) {
+            // Ask for location updates
+            locationClient.removeLocationUpdates(listener);
+        } else {
+            // Remove all the occurrences from the pending request queue
+            requestQueue.removeAll(Collections.singleton(listener));
         }
-    }
-
-    /** Notify each location listeners with the current ILocation value */
-    private void notifyLocationListeners() {
-        for (LocationListener listener : listenersLocation) {
-            // For each listener, notify
-            listener.onLocationChanged(location);
-        }
-    }
-
-    /* Android callbacks */
-    @Override
-    public void onLocationChanged(Location newLocation) {
-        // Update our Location
-        location = newLocation;
-        // Notify the listeners that a new location is available
-        notifyLocationListeners();
     }
 
     @Override
@@ -194,8 +171,20 @@ public class LocationService extends Service implements
     @Override
     public void onConnected(Bundle bundle) {
         Log.d("LocationService", "onConnected services");
-        // Request location updates with locationRequest settings
-        locationClient.requestLocationUpdates(locationRequest, this);
+        PendingRequest pending;
+        // Issue all the pending request
+        for (;;) {
+            try {
+                // Retrieve and remove the head of the queue
+                pending = requestQueue.remove();
+            } catch (NoSuchElementException exc) {
+                // No more pending request
+                break;
+            }
+            // Issue the request
+            locationClient.requestLocationUpdates(pending.request,
+                    pending.listener);
+        }
         // Indicate we are connected
         clientConnected = true;
     }

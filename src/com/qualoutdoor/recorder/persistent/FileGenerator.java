@@ -2,12 +2,8 @@ package com.qualoutdoor.recorder.persistent;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.concurrent.Semaphore;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 

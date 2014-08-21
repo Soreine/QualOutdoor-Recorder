@@ -1,6 +1,5 @@
 package com.qualoutdoor.recorder.home;
 
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.qualoutdoor.recorder.GenericFragment;
 import com.qualoutdoor.recorder.R;
+import com.qualoutdoor.recorder.QualOutdoorRecorderApp;
 
 /**
  * This is the pager adapter for the HomeFragment
@@ -22,7 +22,8 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     public static final int NETWORK = 1;
     public static final int NEIGHBORS = 2;
     /** Number of fragments listed */
-    private static CharSequence[] fragmentTitles = Resources.getSystem()
+    private static CharSequence[] fragmentTitles = QualOutdoorRecorderApp
+            .getContext().getResources()
             .getStringArray(R.array.home_pager_titles);
 
     public HomePagerAdapter(FragmentManager fm) {

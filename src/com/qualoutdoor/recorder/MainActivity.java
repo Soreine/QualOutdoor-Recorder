@@ -75,7 +75,7 @@ public class MainActivity extends ActionBarActivity implements
      * This component define the behavior when the TelephonyService becomes
      * available
      */
-    private ServiceListener<TelephonyService> telephonyServiceListener = new ServiceListener<TelephonyService>() {
+    private IServiceListener<TelephonyService> telephonyServiceListener = new IServiceListener<TelephonyService>() {
         @Override
         public void onServiceAvailable(TelephonyService service) {
             // Register the telephony listener
@@ -100,7 +100,7 @@ public class MainActivity extends ActionBarActivity implements
      * This component define the behavior when the RecordingService becomes
      * available
      */
-    private ServiceListener<RecordingService> recordingServiceListener = new ServiceListener<RecordingService>() {
+    private IServiceListener<RecordingService> recordingServiceListener = new IServiceListener<RecordingService>() {
         @Override
         public void onServiceAvailable(RecordingService service) {
             // Register the recording listener

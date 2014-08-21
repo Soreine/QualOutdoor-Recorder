@@ -2,7 +2,6 @@ package com.qualoutdoor.recorder.persistent;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 /*Un DataBaseTree Manager va permettre l'insertion ordonn�e des lignes dans la table de reference selon une archiecture
  * arborescente. La nouvelle representation de l'arbre dans la base de donn�es �tant un "applatissage" de l'arbre

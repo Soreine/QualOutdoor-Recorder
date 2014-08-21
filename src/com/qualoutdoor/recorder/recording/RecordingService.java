@@ -15,10 +15,13 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.SparseArray;
 
-import com.qualoutdoor.recorder.GlobalConstants;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
+import com.qualoutdoor.recorder.QualOutdoorRecorderApp;
 import com.qualoutdoor.recorder.LocalBinder;
 import com.qualoutdoor.recorder.LocalServiceConnection;
 import com.qualoutdoor.recorder.R;
+import com.qualoutdoor.recorder.IServiceListener;
 import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
 import com.qualoutdoor.recorder.location.LocationService;
 import com.qualoutdoor.recorder.notifications.NotificationCenter;
@@ -35,7 +38,7 @@ import com.qualoutdoor.recorder.telephony.TelephonyService;
  * 
  * @author Gaborit Nicolas
  */
-public class RecordingService extends Service {
+public class RecordingService extends Service implements LocationListener {
 
     /** The interface binder for this service */
     private IBinder mRecordingBinder;
@@ -46,6 +49,15 @@ public class RecordingService extends Service {
     /** The LocationServiceConnection used to access the LocationService */
     private LocalServiceConnection<LocationService> locServiceConnection = new LocalServiceConnection<LocationService>(
             LocationService.class);
+    /** The Location Service listener */
+    private IServiceListener<LocationService> locServiceListener = new IServiceListener<LocationService>() {
+        @Override
+        public void onServiceAvailable(LocationService service) {
+            // Request location updates
+            service.requestLocationUpdates(locationRequest,
+                    RecordingService.this);
+        }
+    };
 
     /** The database context */
     private MeasureContext databaseContext;
@@ -53,6 +65,10 @@ public class RecordingService extends Service {
     private int sampleRate;
     /** The list of the measures to record */
     private List<Integer> metrics;
+    /** The last known location */
+    private Location location;
+    /** Our location request */
+    private LocationRequest locationRequest;
 
     /** The recording handler */
     private RecordingHandler handler;
@@ -68,7 +84,10 @@ public class RecordingService extends Service {
         sampleRate = prefs.getInt(
                 getString(R.string.pref_key_display_sampling_rate),
                 getResources().getInteger(R.integer.default_sampling_rate))
-                * GlobalConstants.MILLIS_IN_SECOND;
+                * QualOutdoorRecorderApp.MILLIS_IN_SECOND;
+
+        // Initialize the location request
+        locationRequest = new LocationRequest().setInterval(sampleRate);
 
         // Get the metrics preferences
         metrics = getMetricPreferences(prefs);
@@ -81,7 +100,9 @@ public class RecordingService extends Service {
 
         // Bind to the telephony and location services
         telServiceConnection.bindToService(this);
+        locServiceConnection.register(locServiceListener);
         locServiceConnection.bindToService(this);
+
     }
 
     @Override
@@ -96,9 +117,12 @@ public class RecordingService extends Service {
         sampleRate = millis;
         // Update the value of the RecordingHandler
         handler.setSamplingRate(millis);
+        // Update the location request interval
+        locationRequest.setInterval(millis);
         // Ask for adapted update interval
         try {
-            locServiceConnection.getService().setMinimumRefreshRate(sampleRate);
+            locServiceConnection.getService().requestLocationUpdates(
+                    locationRequest, this);
         } catch (ServiceNotBoundException e) {}
 
     }
@@ -118,6 +142,11 @@ public class RecordingService extends Service {
 
     @Override
     public void onDestroy() {
+        // Unregister the LocationService listener
+        try {
+            locServiceConnection.getService().removeLocationUpdate(this);
+        } catch (ServiceNotBoundException e) {}
+
         // Unbind from the TelephonyService if needed
         unbindService(telServiceConnection);
         // Unbind from the LocationService if needed
@@ -149,6 +178,12 @@ public class RecordingService extends Service {
         handler.unregister(listener);
     }
 
+    @Override
+    public void onLocationChanged(Location newLocation) {
+        // Update location
+        this.location = newLocation;
+    }
+
     /**
      * Fetch the current telephony data, and return the Sample object used for
      * insertion by a SampleTask
@@ -167,8 +202,9 @@ public class RecordingService extends Service {
                     "Telephony services and/or Location services unavailable");
         }
 
-        // Fetch the location
-        Location location = locService.getLocation();
+        // Fail if no location is known
+        if (location == null)
+            throw new SampleFailedException("No known location");
 
         long now = System.currentTimeMillis();
         long age = now - location.getTime();
@@ -198,8 +234,8 @@ public class RecordingService extends Service {
         }
 
         // Update the database context
-        databaseContext.set(MeasureContext.GROUP_INDEX, GlobalConstants.group);
-        databaseContext.set(MeasureContext.USER_INDEX, GlobalConstants.user);
+        databaseContext.set(MeasureContext.GROUP_INDEX, QualOutdoorRecorderApp.group);
+        databaseContext.set(MeasureContext.USER_INDEX, QualOutdoorRecorderApp.user);
         databaseContext.set(MeasureContext.MCC_INDEX, primaryCell.getMcc());
         databaseContext.set(MeasureContext.MNC_INDEX, primaryCell.getMnc());
         databaseContext.set(MeasureContext.NTC_INDEX,
@@ -213,20 +249,20 @@ public class RecordingService extends Service {
         for (Integer field : metrics) {
             String value = "";
             switch (field) {
-            case GlobalConstants.FIELD_CALL:
+            case QualOutdoorRecorderApp.FIELD_CALL:
                 // Unimplemented
                 value = "TODO";
                 break;
-            case GlobalConstants.FIELD_CELL_ID:
+            case QualOutdoorRecorderApp.FIELD_CELL_ID:
                 value += primaryCell.getCid();
                 break;
-            case GlobalConstants.FIELD_SIGNAL_STRENGTH:
+            case QualOutdoorRecorderApp.FIELD_SIGNAL_STRENGTH:
                 value += primaryCell.getSignalStrength().getDbm();
                 break;
-            case GlobalConstants.FIELD_DOWNLOAD:
+            case QualOutdoorRecorderApp.FIELD_DOWNLOAD:
                 value = "TODO";
                 break;
-            case GlobalConstants.FIELD_UPLOAD:
+            case QualOutdoorRecorderApp.FIELD_UPLOAD:
                 value = "TODO";
                 break;
             }
@@ -285,10 +321,10 @@ public class RecordingService extends Service {
         };
         // The corresponding code
         int[] codes = {
-                GlobalConstants.FIELD_CELL_ID,
-                GlobalConstants.FIELD_SIGNAL_STRENGTH,
-                GlobalConstants.FIELD_CALL, GlobalConstants.FIELD_UPLOAD,
-                GlobalConstants.FIELD_DOWNLOAD
+                QualOutdoorRecorderApp.FIELD_CELL_ID,
+                QualOutdoorRecorderApp.FIELD_SIGNAL_STRENGTH,
+                QualOutdoorRecorderApp.FIELD_CALL, QualOutdoorRecorderApp.FIELD_UPLOAD,
+                QualOutdoorRecorderApp.FIELD_DOWNLOAD
         };
         // For each preference, add the corresponding integer code if true
         for (int i = 0; i < preferenceKeys.length; i++) {
@@ -297,4 +333,5 @@ public class RecordingService extends Service {
         }
         return result;
     }
+
 }

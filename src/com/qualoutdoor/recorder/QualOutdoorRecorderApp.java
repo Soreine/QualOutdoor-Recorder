@@ -1,13 +1,18 @@
 package com.qualoutdoor.recorder;
 
-/**
- * This static class holds some global constants that can't be stored in the XML
- * files.
- */
-public class GlobalConstants {
+import android.app.Application;
+import android.content.Context;
 
-    /** Not meant to be instantiated */
-    private GlobalConstants() {}
+/**
+ * Extending Application in order to hold some global constants that can't be
+ * stored in the XML files, and giving global access to application resources.
+ * 
+ * @author Gaborit Nicolas
+ */
+public class QualOutdoorRecorderApp extends Application {
+
+    /** Store a reference to this application for global access */
+    private static QualOutdoorRecorderApp thisApp = null;
 
     public static final int user = 11;
     public static final int group = 22;
@@ -32,4 +37,18 @@ public class GlobalConstants {
     /** Archive file name */
     public static final String ARCHIVE_NAME = "pendingFiles";
 
+    @Override
+    public void onCreate() {
+        // Initialize this application reference
+        thisApp = this;
+    }
+
+    /**
+     * Provide a global access to the application context
+     * 
+     * @return The application context
+     */
+    public static Context getContext() {
+        return thisApp.getApplicationContext();
+    }
 }

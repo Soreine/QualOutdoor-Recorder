@@ -29,7 +29,7 @@ public class LocalServiceConnection<S extends Service> implements
     /** Indicate if the service is bound or not */
     private boolean isAvailable = false;
     /** The collection of the registered ServiceListener */
-    private List<ServiceListener<S>> listeners = new LinkedList<ServiceListener<S>>();
+    private List<IServiceListener<S>> listeners = new LinkedList<IServiceListener<S>>();
     /** Indicates if this ServiceConnection is bound to a service or not */
     private boolean isBound = false;
 
@@ -44,8 +44,8 @@ public class LocalServiceConnection<S extends Service> implements
     /**
      * Bind the given context to a Service S through this ServiceConnection.
      * 
-     * @param contextS
-     *            . The context to bind to the service through this
+     * @param context
+     *            The context to bind to the service through this
      *            ServiceConnection
      * @return True if the Service has bound successfully
      */
@@ -112,7 +112,7 @@ public class LocalServiceConnection<S extends Service> implements
     }
 
     @Override
-    public void register(ServiceListener<S> listener) {
+    public void register(IServiceListener<S> listener) {
         // Add the listener to the list of listeners
         listeners.add(listener);
         // If the service is available already, notify now
@@ -121,14 +121,14 @@ public class LocalServiceConnection<S extends Service> implements
     }
 
     @Override
-    public void unregister(ServiceListener<S> listener) {
+    public void unregister(IServiceListener<S> listener) {
         // Remove the listener from the list
         listeners.remove(listener);
     }
 
     private void notifyListeners() {
         // Read through the listeners list
-        for (ServiceListener<S> listener : listeners) {
+        for (IServiceListener<S> listener : listeners) {
             // Notify each
             listener.onServiceAvailable(service);
         }

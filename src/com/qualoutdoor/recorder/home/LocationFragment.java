@@ -14,8 +14,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
 import com.qualoutdoor.recorder.R;
-import com.qualoutdoor.recorder.ServiceListener;
+import com.qualoutdoor.recorder.IServiceListener;
 import com.qualoutdoor.recorder.ServiceProvider;
 import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
 import com.qualoutdoor.recorder.location.LocationContext;
@@ -43,17 +44,23 @@ public class LocationFragment extends Fragment {
         };
     };
 
+    /** Our location update request parameters */
+    private static final LocationRequest locationRequest = new LocationRequest()
+            .setInterval(1000) // Asking for the fastest update interval, YOLO
+            .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY); // With high
+                                                                  // accuracy
+
     /** The LocationService Provider given by the activity */
     private ServiceProvider<LocationService> locationService;
     /**
      * The service listener defines the behavior when the service becomes
      * available
      */
-    private ServiceListener<LocationService> locServiceListener = new ServiceListener<LocationService>() {
+    private IServiceListener<LocationService> locServiceListener = new IServiceListener<LocationService>() {
         @Override
         public void onServiceAvailable(LocationService service) {
             // Register the location listener
-            locationService.getService().register(locListener);
+            service.requestLocationUpdates(locationRequest, locListener);
         }
     };
 
@@ -130,7 +137,7 @@ public class LocationFragment extends Fragment {
     public void onPause() {
         // If needed unregister our telephony listener
         try {
-            locationService.getService().unregister(locListener);
+            locationService.getService().removeLocationUpdate(locListener);
         } catch (ServiceNotBoundException e) {}
 
         // Unregister the services listeners

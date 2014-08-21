@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.qualoutdoor.recorder.R;
-import com.qualoutdoor.recorder.ServiceListener;
+import com.qualoutdoor.recorder.IServiceListener;
 import com.qualoutdoor.recorder.ServiceProvider;
 import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
 import com.qualoutdoor.recorder.telephony.ICellInfo;
@@ -50,7 +50,7 @@ public class NeighborsFragment extends Fragment {
      * The service listener defines the behavior when the service becomes
      * available
      */
-    private ServiceListener<TelephonyService> telServiceListener = new ServiceListener<TelephonyService>() {
+    private IServiceListener<TelephonyService> telServiceListener = new IServiceListener<TelephonyService>() {
         @Override
         public void onServiceAvailable(TelephonyService service) {
             // Register the telephony listener

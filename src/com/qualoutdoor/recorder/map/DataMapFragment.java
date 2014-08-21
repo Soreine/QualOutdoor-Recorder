@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -19,7 +20,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.qualoutdoor.recorder.R;
-import com.qualoutdoor.recorder.ServiceListener;
+import com.qualoutdoor.recorder.IServiceListener;
 import com.qualoutdoor.recorder.ServiceProvider;
 import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
 import com.qualoutdoor.recorder.location.LocationContext;
@@ -32,7 +33,7 @@ import com.qualoutdoor.recorder.telephony.TelephonyService;
 /**
  * An demo map fragment that displays signal strengths on a map
  * 
- * @author nicolas
+ * @author Gaborit Nicolas
  */
 public class DataMapFragment extends Fragment implements LocationListener {
 
@@ -50,7 +51,7 @@ public class DataMapFragment extends Fragment implements LocationListener {
 
     private ServiceProvider<LocationService> locationService;
 
-    private ServiceListener<TelephonyService> telServiceListener = new ServiceListener<TelephonyService>() {
+    private IServiceListener<TelephonyService> telServiceListener = new IServiceListener<TelephonyService>() {
         @Override
         public void onServiceAvailable(TelephonyService service) {
             // Register the telephony listener
@@ -67,11 +68,14 @@ public class DataMapFragment extends Fragment implements LocationListener {
         };
     };
 
-    private ServiceListener<LocationService> locServiceListener = new ServiceListener<LocationService>() {
+    private IServiceListener<LocationService> locServiceListener = new IServiceListener<LocationService>() {
         @Override
         public void onServiceAvailable(LocationService service) {
             // Register as a listener
-            service.register(DataMapFragment.this);
+            LocationRequest locationRequest = new LocationRequest()
+                    .setInterval(2000);
+            service.requestLocationUpdates(locationRequest,
+                    DataMapFragment.this);
         }
     };
     private Location location;
@@ -165,7 +169,7 @@ public class DataMapFragment extends Fragment implements LocationListener {
         } catch (ServiceNotBoundException e) {}
         // Unregister location listener
         try {
-            locationService.getService().unregister(this);
+            locationService.getService().removeLocationUpdate(this);
         } catch (ServiceNotBoundException e) {}
 
         // Unregister the services listeners

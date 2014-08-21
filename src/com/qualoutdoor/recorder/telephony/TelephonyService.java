@@ -35,9 +35,9 @@ public class TelephonyService extends Service implements ITelephony {
     private IBinder mTelephonyBinder;
 
     /** Indicates if the datas must be force refreshed regularly */
-    private volatile boolean forceRefresh;
+    private boolean forceRefresh;
     /** The minimum refresh rate in milliseconds */
-    private volatile int minimumRefreshRate;
+    private int minimumRefreshRate;
 
     /** The current signal strength value */
     private ISignalStrength signalStrength;
@@ -100,7 +100,7 @@ public class TelephonyService extends Service implements ITelephony {
     private TelephonyManager telephonyManager;
 
     /** The events the phone state listener is monitoring */
-    private static int events = PhoneStateListener.LISTEN_CALL_STATE
+    private static int nonForcedEvents = PhoneStateListener.LISTEN_CALL_STATE
             | PhoneStateListener.LISTEN_DATA_CONNECTION_STATE;
     /** The events that are disabled when forced refresh is enabled */
     private static int forcedEvents = PhoneStateListener.LISTEN_SIGNAL_STRENGTHS
@@ -213,11 +213,11 @@ public class TelephonyService extends Service implements ITelephony {
             // Trigger the refreshing process
             handler.postDelayed(refresher, minimumRefreshRate);
             // Start listening to phone state
-            telephonyManager.listen(phoneStateListener, events);
+            telephonyManager.listen(phoneStateListener, nonForcedEvents);
         } else {
             // Start listening to phone state including cell infos and signal
             // strength
-            telephonyManager.listen(phoneStateListener, events + forcedEvents);
+            telephonyManager.listen(phoneStateListener, nonForcedEvents + forcedEvents);
         }
         super.onCreate();
     }

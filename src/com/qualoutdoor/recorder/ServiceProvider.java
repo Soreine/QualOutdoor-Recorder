@@ -18,10 +18,10 @@ public interface ServiceProvider<S extends Service> {
     boolean isAvailable();
 
     /** Register to be informed when the service becomes available */
-    void register(ServiceListener<S> listener);
+    void register(IServiceListener<S> listener);
 
     /** Unregister the given listener */
-    void unregister(ServiceListener<S> listener);
+    void unregister(IServiceListener<S> listener);
 
     /**
      * This runtime exception is thrown when one tries to access a service while

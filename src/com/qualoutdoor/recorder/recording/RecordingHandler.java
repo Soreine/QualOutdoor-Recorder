@@ -17,7 +17,7 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.qualoutdoor.recorder.GlobalConstants;
+import com.qualoutdoor.recorder.QualOutdoorRecorderApp;
 import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.network.DataSendingManager;
 import com.qualoutdoor.recorder.network.SendCompleteListener;
@@ -402,20 +402,20 @@ public class RecordingHandler extends Handler {
 
                 // sending archive
                 File archive = new File(recordingService.getFilesDir(),
-                        GlobalConstants.ARCHIVE_NAME);
-                if (this.chosenProtocol == GlobalConstants.UPLOAD_PROTOCOL_HTTP) {
+                        QualOutdoorRecorderApp.ARCHIVE_NAME);
+                if (this.chosenProtocol == QualOutdoorRecorderApp.UPLOAD_PROTOCOL_HTTP) {
                     // setting server URL : normaly feching if from constant
                     // Class
-                    String url = GlobalConstants.URL_SERVER_HTTP;
+                    String url = QualOutdoorRecorderApp.URL_SERVER_HTTP;
                     // creation and execution of a DataSendingManager : printing
                     // widget has to be resolved
                     DataSendingManager managerHTTP = new DataSendingManager(
                             url, archive, "http", sendingCallback);
                     managerHTTP.execute();
-                } else if (this.chosenProtocol == GlobalConstants.UPLOAD_PROTOCOL_FTP) {
+                } else if (this.chosenProtocol == QualOutdoorRecorderApp.UPLOAD_PROTOCOL_FTP) {
                     // setting server URL : normaly feching if from constant
                     // Class
-                    String url = GlobalConstants.URL_SERVER_FTP;
+                    String url = QualOutdoorRecorderApp.URL_SERVER_FTP;
                     // creation and execution of a DataSendingManager : printing
                     // widget has to be resolved
                     DataSendingManager managerFTP = new DataSendingManager(url,
@@ -439,7 +439,7 @@ public class RecordingHandler extends Handler {
             ByteArrayOutputStream fileContent) throws IOException {
 
         File archive = new File(recordingService.getFilesDir(),
-                GlobalConstants.ARCHIVE_NAME);
+                QualOutdoorRecorderApp.ARCHIVE_NAME);
         FileOutputStream archiveStream;
         archiveStream = new FileOutputStream(archive);
         ZipOutputStream zos = new ZipOutputStream(new BufferedOutputStream(
