@@ -3,8 +3,10 @@ package com.qualoutdoor.recorder;
 import android.os.Binder;
 
 /**
- * A local binder for a local service S. Caution, this works only if the service
- * and the component binding to it are in the same process.
+ * A local binder for a local service S. Allows to directly get a reference to
+ * the bound service. This makes it easy then for the component to access the
+ * service methods. Caution, this works only if the service and the component
+ * binding to it are in the same process.
  * 
  * @author Gaborit Nicolas
  * 

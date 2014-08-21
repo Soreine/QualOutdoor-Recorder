@@ -1,6 +1,6 @@
 package com.qualoutdoor.recorder;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Service;
@@ -9,18 +9,31 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+import android.util.Log;
 
 /**
- * This ServiceConnection is meant to be used for connecting a component to
- * services within the same process. Indeed we cast IBinder to LocalBinder.
+ * This ServiceConnection is used to bind a component to a service within the
+ * same process. Indeed we are assuming the IBinder returned by the service can
+ * be cast to a LocalBinder.
+ * 
+ * The binding process impact the lifecycle of a service. The service should be
+ * kept alive as long as some component are bound to it. When no more components
+ * are bound to it, chances are for it to be destroyed.
+ * 
+ * Note that this class is designed to bind a single context at a time. There
+ * must be as many LocalServiceConnection as component to bind to one service.
+ * That's why it is prefered to keep the number of LocalServiceConnection to the
+ * minimum and share them as ServiceProvider as much as possible between the
+ * components of the application.
  * 
  * @author Gaborit Nicolas
  * 
  * @param <S>
- *            The Service class to which to connect
+ *            The class of the Service to which to connect
  */
 public class LocalServiceConnection<S extends Service> implements
-        ServiceProvider<S>, ServiceConnection {
+        ServiceProvider<S> {
+
     /** The class of the Service S */
     private final Class<S> serviceClass;
 
@@ -29,9 +42,37 @@ public class LocalServiceConnection<S extends Service> implements
     /** Indicate if the service is bound or not */
     private boolean isAvailable = false;
     /** The collection of the registered ServiceListener */
-    private List<IServiceListener<S>> listeners = new LinkedList<IServiceListener<S>>();
+    private List<IServiceListener<S>> listeners = new ArrayList<IServiceListener<S>>();
     /** Indicates if this ServiceConnection is bound to a service or not */
     private boolean isBound = false;
+    /** The reference to the context that has been bound through this connection */
+    private Context context;
+
+    /** This service connection is used to monitor the state of the service */
+    private final ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceDisconnected(ComponentName serviceName) {
+            // The service is no more available
+            isAvailable = false;
+        }
+
+        @SuppressWarnings("unchecked")
+        @Override
+        public void onServiceConnected(ComponentName serviceName, IBinder binder) {
+            try {
+                // Cast the IBinder to a LocalBinder
+                service = ((LocalBinder<S>) binder).getService();
+            } catch (ClassCastException exc) {
+                throw new ClassCastException(
+                        "The bound service must provide the same LocalBinder<S> as declared.");
+            }
+            // We have successfully bound to the service
+            isAvailable = true;
+            // Notifify the listeners
+            notifyListeners();
+
+        }
+    };
 
     /**
      * Create a new LocalServiceConnection, we provide the service class for
@@ -45,25 +86,32 @@ public class LocalServiceConnection<S extends Service> implements
      * Bind the given context to a Service S through this ServiceConnection.
      * 
      * @param context
-     *            The context to bind to the service through this
+     *            The context that needs to be bound to the service through this
      *            ServiceConnection
      * @return True if the Service has bound successfully
      */
     public boolean bindToService(Context context) {
-        // Create an intent toward Service S
-        Intent intent = new Intent(context, serviceClass);
-        // Bind the context to the Service through this ServiceConnection
-        isBound = context.bindService(intent, this, Context.BIND_AUTO_CREATE);
+        // Check that this connection hasn't been bound already
+        if (!isBound) {
+            this.context = context;
+            // Create an intent toward Service S
+            Intent intent = new Intent(context, serviceClass);
+            // Bind the context to the Service through this ServiceConnection
+            isBound = context.bindService(intent, connection,
+                    Context.BIND_AUTO_CREATE);
+        }
         return isBound;
     }
 
     /** Unbind this ServiceConnection if it was bound */
-    public void unbindService(Context context) {
+    public void unbindService() {
         if (isBound) {
             // Unbind the context
-            context.unbindService(this);
+            context.unbindService(connection);
             // We are no longer bound
             isBound = false;
+            // The service may not be available in the future
+            isAvailable = false;
         }
     }
 
@@ -89,35 +137,16 @@ public class LocalServiceConnection<S extends Service> implements
     };
 
     @Override
-    public void onServiceDisconnected(ComponentName serviceName) {
-        // We are not bound to the service anymore
-        isAvailable = false;
-    }
-
-    @SuppressWarnings("unchecked")
-    @Override
-    public void onServiceConnected(ComponentName serviceName, IBinder binder) {
-        try {
-            // Cast the IBinder to a LocalBinder
-            service = ((LocalBinder<S>) binder).getService();
-        } catch (ClassCastException exc) {
-            throw new ClassCastException(
-                    "The bound service must provide the same LocalBinder<S> as declared.");
-        }
-        // We have successfully bound to the service
-        isAvailable = true;
-        // Notifify the listeners
-        notifyListeners();
-
-    }
-
-    @Override
     public void register(IServiceListener<S> listener) {
         // Add the listener to the list of listeners
         listeners.add(listener);
         // If the service is available already, notify now
-        if (isAvailable)
+        if (isAvailable) {
+
+            Log.d("LocalServiceConnection",
+                    "Already available " + listener.toString());
             listener.onServiceAvailable(service);
+        }
     }
 
     @Override
@@ -127,8 +156,12 @@ public class LocalServiceConnection<S extends Service> implements
     }
 
     private void notifyListeners() {
+        Log.d("LocalServiceConnection",
+                "Notifying... " + serviceClass.getName());
+
         // Read through the listeners list
         for (IServiceListener<S> listener : listeners) {
+            Log.d("LocalServiceConnection", "Notify " + listener.toString());
             // Notify each
             listener.onServiceAvailable(service);
         }

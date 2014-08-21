@@ -20,16 +20,7 @@
       <operations public="true" package="false" protected="true" private="false" static="true"/>    
     </display>  
   </interface>  
-  <interface id="3" language="java" name="com.qualoutdoor.recorder.ServiceListener" project="QualOutdoor-Recorder" 
-    file="/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/ServiceListener.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="818" y="266"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="false" protected="true" private="false" static="true"/>      
-      <operations public="true" package="false" protected="true" private="false" static="true"/>    
-    </display>  
-  </interface>  
-  <interface id="4" language="java" name="com.qualoutdoor.recorder.location.LocationContext" 
+  <interface id="3" language="java" name="com.qualoutdoor.recorder.location.LocationContext" 
     project="QualOutdoor-Recorder" 
     file="/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationContext.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -40,7 +31,7 @@
       <operations public="true" package="false" protected="true" private="false" static="true"/>    
     </display>  
   </interface>  
-  <interface id="5" language="java" name="com.qualoutdoor.recorder.recording.RecordingContext" 
+  <interface id="4" language="java" name="com.qualoutdoor.recorder.recording.RecordingContext" 
     project="QualOutdoor-Recorder" 
     file="/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingContext.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -51,7 +42,7 @@
       <operations public="true" package="false" protected="true" private="false" static="true"/>    
     </display>  
   </interface>  
-  <interface id="6" language="java" name="com.qualoutdoor.recorder.telephony.TelephonyContext" 
+  <interface id="5" language="java" name="com.qualoutdoor.recorder.telephony.TelephonyContext" 
     project="QualOutdoor-Recorder" 
     file="/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/TelephonyContext.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -62,15 +53,7 @@
       <operations public="true" package="false" protected="true" private="false" static="true"/>    
     </display>  
   </interface>  
-  <association id="7">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="8" name="listeners"/>      
-      <multiplicity id="9" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="10">    
+  <realization id="6">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  

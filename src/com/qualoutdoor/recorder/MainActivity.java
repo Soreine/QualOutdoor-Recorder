@@ -12,6 +12,7 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -262,6 +263,7 @@ public class MainActivity extends ActionBarActivity implements
     @Override
     protected void onStart() {
         super.onStart();
+        Log.d("MainActivity", "onStart");
         // Bind to the TelephonyService
         telServiceConnection.bindToService(this);
         // Bind to the RecordingService
@@ -273,6 +275,8 @@ public class MainActivity extends ActionBarActivity implements
     @Override
     protected void onStop() {
         super.onStop();
+
+        Log.d("MainActivity", "onStop");
         // Unregister the TelephonyListener
         try {
             telServiceConnection.getService().listen(telephonyListener,
@@ -285,11 +289,11 @@ public class MainActivity extends ActionBarActivity implements
         } catch (ServiceNotBoundException e) {}
 
         // Unbind from the TelephonyService if needed
-        unbindService(telServiceConnection);
+        telServiceConnection.unbindService();
         // Unbind from the RecordingService if needed
-        unbindService(recServiceConnection);
+        recServiceConnection.unbindService();
         // Unbind from the LocationService if needed
-        unbindService(locServiceConnection);
+        locServiceConnection.unbindService();
     }
 
     /** The navigation drawer items click listener */

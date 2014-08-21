@@ -217,7 +217,8 @@ public class TelephonyService extends Service implements ITelephony {
         } else {
             // Start listening to phone state including cell infos and signal
             // strength
-            telephonyManager.listen(phoneStateListener, nonForcedEvents + forcedEvents);
+            telephonyManager.listen(phoneStateListener, nonForcedEvents
+                    + forcedEvents);
         }
         super.onCreate();
     }

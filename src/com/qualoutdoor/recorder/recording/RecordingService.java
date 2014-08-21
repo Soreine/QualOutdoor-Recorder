@@ -148,9 +148,9 @@ public class RecordingService extends Service implements LocationListener {
         } catch (ServiceNotBoundException e) {}
 
         // Unbind from the TelephonyService if needed
-        unbindService(telServiceConnection);
+        telServiceConnection.unbindService();
         // Unbind from the LocationService if needed
-        unbindService(locServiceConnection);
+        locServiceConnection.unbindService();
         super.onDestroy();
     }
 

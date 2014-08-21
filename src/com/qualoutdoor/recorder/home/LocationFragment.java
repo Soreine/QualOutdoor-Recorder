@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,8 @@ import android.widget.TextView;
 
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
-import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.IServiceListener;
+import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.ServiceProvider;
 import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
 import com.qualoutdoor.recorder.location.LocationContext;
@@ -147,12 +148,14 @@ public class LocationFragment extends Fragment {
 
     /** Update the view related to the location */
     private void updateLocationView() {
+        if(true) return;
+        // Check that the views have been initialized and we are not in a
+        // detached state
+        if (viewsInitialized && !isDetached()) {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
 
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                // Check that the views have been initialized
-                if (viewsInitialized) {
                     // Create a formater for float and double values
                     DecimalFormat format = new DecimalFormat("0.###");
                     // Display the accuracy
@@ -175,7 +178,8 @@ public class LocationFragment extends Fragment {
                     viewTime.setText(dateFormat.format(new Date(location
                             .getTime())));
                 }
-            }
-        });
+
+            });
+        }
     }
 }

@@ -5,14 +5,15 @@ import java.util.List;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.IServiceListener;
+import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.ServiceProvider;
 import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
 import com.qualoutdoor.recorder.telephony.ICellInfo;
@@ -75,6 +76,7 @@ public class NetworkFragment extends Fragment {
         @Override
         public void onServiceAvailable(TelephonyService service) {
             // Register the telephony listener
+            Log.d("NetworkFragment", "Listening...");
             telephonyService.getService().listen(telListener, events);
         }
     };
@@ -150,6 +152,7 @@ public class NetworkFragment extends Fragment {
         try {
             telephonyService.getService().listen(telListener,
                     TelephonyListener.LISTEN_NONE);
+            Log.d("NetworkFragment", "Stop listen");
         } catch (ServiceNotBoundException e) {}
 
         // Unregister the services listeners
