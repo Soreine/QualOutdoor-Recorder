@@ -76,7 +76,6 @@ public class NetworkFragment extends Fragment {
         @Override
         public void onServiceAvailable(TelephonyService service) {
             // Register the telephony listener
-            Log.d("NetworkFragment", "Listening...");
             telephonyService.getService().listen(telListener, events);
         }
     };
@@ -152,7 +151,6 @@ public class NetworkFragment extends Fragment {
         try {
             telephonyService.getService().listen(telListener,
                     TelephonyListener.LISTEN_NONE);
-            Log.d("NetworkFragment", "Stop listen");
         } catch (ServiceNotBoundException e) {}
 
         // Unregister the services listeners

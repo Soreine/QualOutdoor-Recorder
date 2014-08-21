@@ -9,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.util.Log;
 
 /**
  * This ServiceConnection is used to bind a component to a service within the
@@ -36,17 +35,20 @@ public class LocalServiceConnection<S extends Service> implements
 
     /** The class of the Service S */
     private final Class<S> serviceClass;
-
     /** A reference to the connected service */
     private S service;
-    /** Indicate if the service is bound or not */
+    
+    /** Indicates if the service is bound or not */
     private boolean isAvailable = false;
-    /** The collection of the registered ServiceListener */
-    private List<IServiceListener<S>> listeners = new ArrayList<IServiceListener<S>>();
     /** Indicates if this ServiceConnection is bound to a service or not */
     private boolean isBound = false;
+    
     /** The reference to the context that has been bound through this connection */
     private Context context;
+    
+    /** The collection of the registered ServiceListener */
+    private List<IServiceListener<S>> listeners = new ArrayList<IServiceListener<S>>();
+
 
     /** This service connection is used to monitor the state of the service */
     private final ServiceConnection connection = new ServiceConnection() {
@@ -142,9 +144,6 @@ public class LocalServiceConnection<S extends Service> implements
         listeners.add(listener);
         // If the service is available already, notify now
         if (isAvailable) {
-
-            Log.d("LocalServiceConnection",
-                    "Already available " + listener.toString());
             listener.onServiceAvailable(service);
         }
     }
@@ -156,12 +155,8 @@ public class LocalServiceConnection<S extends Service> implements
     }
 
     private void notifyListeners() {
-        Log.d("LocalServiceConnection",
-                "Notifying... " + serviceClass.getName());
-
         // Read through the listeners list
         for (IServiceListener<S> listener : listeners) {
-            Log.d("LocalServiceConnection", "Notify " + listener.toString());
             // Notify each
             listener.onServiceAvailable(service);
         }
