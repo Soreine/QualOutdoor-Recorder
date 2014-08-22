@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="interfacecom_1_1qualoutdoor_1_1recorder_1_1recording_1_1IRecordingListener" kind="interface" prot="public">
+    <compoundname>com::qualoutdoor::recorder::recording::IRecordingListener</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1recording_1_1IRecordingListener_1a83822f6d693c3e22c74db48341a6c36c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.recording.IRecordingListener.onRecordingChanged</definition>
+        <argsstring>(boolean isRecording)</argsstring>
+        <name>onRecordingChanged</name>
+        <param>
+          <type>boolean</type>
+          <declname>isRecording</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback invoked when the recording starts or stops. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/IRecordingListener.java" line="11" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A listener interface for monitoring the state/progress of the <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService" kindref="compound">RecordingService</ref>. Override the callback to implements your specific behavior.</para><para><simplesect kind="author"><para>Gaborit Nicolas </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="152">
+        <label>com.qualoutdoor.recorder.recording.IRecordingListener</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1recording_1_1IRecordingListener"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/IRecordingListener.java" line="9" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/IRecordingListener.java" bodystart="9" bodyend="12"/>
+    <listofallmembers>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1recording_1_1IRecordingListener_1a83822f6d693c3e22c74db48341a6c36c" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::recording::IRecordingListener</scope><name>onRecordingChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

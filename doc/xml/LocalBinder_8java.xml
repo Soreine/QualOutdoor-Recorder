@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="LocalBinder_8java" kind="file">
+    <compoundname>LocalBinder.java</compoundname>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalBinder_3_01S_01_4" prot="public">com::qualoutdoor::recorder::LocalBinder&lt; S &gt;</innerclass>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder">com::qualoutdoor::recorder</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.qualoutdoor.recorder;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>android.os.Binder;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalBinder_3_01S_01_4" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">LocalBinder&lt;S&gt;<sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/>Binder<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalBinder_3_01S_01_4_1ac5ec5cb26b7312783a045d98fe2842c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>S<sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalBinder_3_01S_01_4_1ac5ec5cb26b7312783a045d98fe2842c4" kindref="member">myService</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalBinder_3_01S_01_4_1ab48e226df4e040a1cac760c348bcc3c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalBinder_3_01S_01_4_1ab48e226df4e040a1cac760c348bcc3c6" kindref="member">LocalBinder</ref>(S<sp/>service)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>myService<sp/>=<sp/>service;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalBinder_3_01S_01_4_1aed7f31eb91a277b6d7e583926456f094" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>S<sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1LocalBinder_3_01S_01_4_1aed7f31eb91a277b6d7e583926456f094" kindref="member">getService</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>myService;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/LocalBinder.java"/>
+  </compounddef>
+</doxygen>

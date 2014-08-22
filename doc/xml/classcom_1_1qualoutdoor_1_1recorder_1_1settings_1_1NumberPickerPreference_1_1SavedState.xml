@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1NumberPickerPreference_1_1SavedState" kind="class" prot="private">
+    <compoundname>com::qualoutdoor::recorder::settings::NumberPickerPreference::SavedState</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">BaseSavedState</basecompoundref>
+      <sectiondef kind="package-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1NumberPickerPreference_1_1SavedState_1a45ebf6b30b696a39bc0227b5c3ba98b1" prot="package" static="no" mutable="no">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.settings.NumberPickerPreference.SavedState.value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/NumberPickerPreference.java" line="106" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/NumberPickerPreference.java" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1NumberPickerPreference_1_1SavedState_1acdaafe1fd093796818762ec4d8f45d7c" prot="public" static="yes" mutable="no">
+        <type>final Parcelable.Creator&lt; SavedState &gt;</type>
+        <definition>final Parcelable.Creator&lt;SavedState&gt; com.qualoutdoor.recorder.settings.NumberPickerPreference.SavedState.CREATOR</definition>
+        <argsstring></argsstring>
+        <name>CREATOR</name>
+        <initializer>= new Parcelable.Creator&lt;SavedState&gt;() {
+
+            public SavedState createFromParcel(Parcel in) {
+                return new SavedState(in);
+            }
+
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/NumberPickerPreference.java" line="126" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/NumberPickerPreference.java" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1NumberPickerPreference_1_1SavedState_1a7199b9ca9c23d5c9e7ae5e9fceeeee1e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.settings.NumberPickerPreference.SavedState.SavedState</definition>
+        <argsstring>(Parcelable superState)</argsstring>
+        <name>SavedState</name>
+        <param>
+          <type>Parcelable</type>
+          <declname>superState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/NumberPickerPreference.java" line="108" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/NumberPickerPreference.java" bodystart="108" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1NumberPickerPreference_1_1SavedState_1acd019d3ade5db7c2bb86678314423295" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.settings.NumberPickerPreference.SavedState.SavedState</definition>
+        <argsstring>(Parcel source)</argsstring>
+        <name>SavedState</name>
+        <param>
+          <type>Parcel</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/NumberPickerPreference.java" line="112" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/NumberPickerPreference.java" bodystart="112" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1NumberPickerPreference_1_1SavedState_1a1dece57e93e8e7aacd630b6617538362" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.settings.NumberPickerPreference.SavedState.writeToParcel</definition>
+        <argsstring>(Parcel dest, int flags)</argsstring>
+        <name>writeToParcel</name>
+        <param>
+          <type>Parcel</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/NumberPickerPreference.java" line="119" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/NumberPickerPreference.java" bodystart="119" bodyend="123"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="377">
+        <label>BaseSavedState</label>
+      </node>
+      <node id="376">
+        <label>com.qualoutdoor.recorder.settings.NumberPickerPreference.SavedState</label>
+        <childnode refid="377" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="379">
+        <label>BaseSavedState</label>
+      </node>
+      <node id="378">
+        <label>com.qualoutdoor.recorder.settings.NumberPickerPreference.SavedState</label>
+        <childnode refid="379" relation="public-inheritance">
+        </childnode>
+        <childnode refid="380" relation="usage">
+          <edgelabel>+CREATOR</edgelabel>
+        </childnode>
+      </node>
+      <node id="380">
+        <label>Parcelable</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/NumberPickerPreference.java" line="104" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/NumberPickerPreference.java" bodystart="104" bodyend="136"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1NumberPickerPreference_1_1SavedState_1acdaafe1fd093796818762ec4d8f45d7c" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::NumberPickerPreference::SavedState</scope><name>CREATOR</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1NumberPickerPreference_1_1SavedState_1a7199b9ca9c23d5c9e7ae5e9fceeeee1e" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::NumberPickerPreference::SavedState</scope><name>SavedState</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1NumberPickerPreference_1_1SavedState_1acd019d3ade5db7c2bb86678314423295" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::NumberPickerPreference::SavedState</scope><name>SavedState</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1NumberPickerPreference_1_1SavedState_1a45ebf6b30b696a39bc0227b5c3ba98b1" prot="package" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::NumberPickerPreference::SavedState</scope><name>value</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1NumberPickerPreference_1_1SavedState_1a1dece57e93e8e7aacd630b6617538362" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::NumberPickerPreference::SavedState</scope><name>writeToParcel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

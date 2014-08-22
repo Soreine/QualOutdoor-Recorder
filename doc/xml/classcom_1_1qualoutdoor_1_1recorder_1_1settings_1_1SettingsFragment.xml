@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::settings::SettingsFragment</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">PreferenceFragment</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1af4f15ade12aa826f88f38801736010f6" prot="private" static="no" mutable="no">
+        <type>OnSharedPreferenceChangeListener</type>
+        <definition>OnSharedPreferenceChangeListener com.qualoutdoor.recorder.settings.SettingsFragment.listener</definition>
+        <argsstring></argsstring>
+        <name>listener</name>
+        <initializer>= new OnSharedPreferenceChangeListener() {
+
+        @Override
+        public void onSharedPreferenceChanged(
+                SharedPreferences sharedPreferences, String key) {
+
+            if (key.equals(getString(R.string.pref_key_minimum_upload_size))) {
+                
+                <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1a10c070e465872c5cdccf51c7bf975501" kindref="member">updateMinimumUploadSizeSummary</ref>(sharedPreferences);
+            }
+            if (key.equals(getString(R.string.pref_key_network_policy))) {
+                
+                <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1afa4141070c837fc5934be099fcb4ce20" kindref="member">updateNetworkPolicySummary</ref>(sharedPreferences);
+            }
+            if (key.equals(getString(R.string.pref_key_protocol))) {
+                
+                <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1a224b8945815532c1943d515223816d95" kindref="member">updateProtocolSummary</ref>(sharedPreferences);
+            }
+
+        }
+
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The behavior when preferences changed. Used to update the texts and summary on change. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" line="25" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1a10c070e465872c5cdccf51c7bf975501" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.settings.SettingsFragment.updateMinimumUploadSizeSummary</definition>
+        <argsstring>(SharedPreferences sharedPreferences)</argsstring>
+        <name>updateMinimumUploadSizeSummary</name>
+        <param>
+          <type>SharedPreferences</type>
+          <declname>sharedPreferences</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update the minimum upload size summary text. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" line="49" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" bodystart="49" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1afa4141070c837fc5934be099fcb4ce20" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.settings.SettingsFragment.updateNetworkPolicySummary</definition>
+        <argsstring>(SharedPreferences sharedPreferences)</argsstring>
+        <name>updateNetworkPolicySummary</name>
+        <param>
+          <type>SharedPreferences</type>
+          <declname>sharedPreferences</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update the network policy summary text. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" line="70" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" bodystart="70" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1a224b8945815532c1943d515223816d95" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.settings.SettingsFragment.updateProtocolSummary</definition>
+        <argsstring>(SharedPreferences sharedPreferences)</argsstring>
+        <name>updateProtocolSummary</name>
+        <param>
+          <type>SharedPreferences</type>
+          <declname>sharedPreferences</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update the protocol preference summary text </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" line="100" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" bodystart="100" bodyend="126"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1a50fbe47e48a83d6b0995d6bc484876dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.settings.SettingsFragment.onCreate</definition>
+        <argsstring>(Bundle savedInstanceState)</argsstring>
+        <name>onCreate</name>
+        <param>
+          <type>Bundle</type>
+          <declname>savedInstanceState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" line="129" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" bodystart="129" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1a4b519d89b85d934e9e11c13b77d73e89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.settings.SettingsFragment.onResume</definition>
+        <argsstring>()</argsstring>
+        <name>onResume</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" line="136" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" bodystart="136" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1a72ca5659c27c2bc4b4ea38ce91006d53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.settings.SettingsFragment.onPause</definition>
+        <argsstring>()</argsstring>
+        <name>onPause</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" line="154" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" bodystart="154" bodyend="159"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This fragment gives access to the different settings of the application. The essential of the logic is declared in the XML. Only some view updates are done here.</para><para><simplesect kind="author"><para>Gaborit Nicolas </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="391">
+        <label>com.qualoutdoor.recorder.settings.SettingsFragment</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment"/>
+        <childnode refid="392" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="392">
+        <label>PreferenceFragment</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="395">
+        <label>OnSharedPreferenceChangeListener</label>
+      </node>
+      <node id="393">
+        <label>com.qualoutdoor.recorder.settings.SettingsFragment</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment"/>
+        <childnode refid="394" relation="public-inheritance">
+        </childnode>
+        <childnode refid="395" relation="usage">
+          <edgelabel>-listener</edgelabel>
+        </childnode>
+      </node>
+      <node id="394">
+        <label>PreferenceFragment</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" line="19" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/settings/SettingsFragment.java" bodystart="19" bodyend="160"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1af4f15ade12aa826f88f38801736010f6" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::SettingsFragment</scope><name>listener</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1a50fbe47e48a83d6b0995d6bc484876dd" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::SettingsFragment</scope><name>onCreate</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1a72ca5659c27c2bc4b4ea38ce91006d53" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::SettingsFragment</scope><name>onPause</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1a4b519d89b85d934e9e11c13b77d73e89" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::SettingsFragment</scope><name>onResume</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1a10c070e465872c5cdccf51c7bf975501" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::SettingsFragment</scope><name>updateMinimumUploadSizeSummary</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1afa4141070c837fc5934be099fcb4ce20" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::SettingsFragment</scope><name>updateNetworkPolicySummary</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1settings_1_1SettingsFragment_1a224b8945815532c1943d515223816d95" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::settings::SettingsFragment</scope><name>updateProtocolSummary</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,234 @@
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4}{\section{com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$ Class Reference}
+\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4}\index{com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$@{com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$}}
+}
+Inheritance diagram for com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a5ae0ce7ab0e747d1a823192e5287834e}{Local\-Service\-Connection} (Class$<$ S $>$ service\-Type)
+\item 
+boolean \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a185b3af89c80ce8cc2e9b834201d0b12}{bind\-To\-Service} (Context \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a04ac41815a3e3e0bf43f73a207326685}{context})
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_ae0c56eee6adff493c5fc145a287a9be1}{unbind\-Service} ()
+\item 
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a955710bbfdee4966afa21b41e2e63eeb}{boolean {\bfseries is\-Available} ()}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a955710bbfdee4966afa21b41e2e63eeb}
+
+\item 
+boolean \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a02a1a05862cb8ccae8818d02af768d69}{is\-Bound} ()
+\item 
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a65309e1d72141e74011ac307f1f621cf}{S {\bfseries get\-Service} ()  throws Service\-Not\-Bound\-Exception }\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a65309e1d72141e74011ac307f1f621cf}
+
+\item 
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a67a231a0f65c4606ab31f7e9e8483939}{void {\bfseries register} (I\-Service\-Listener$<$ S $>$ listener)}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a67a231a0f65c4606ab31f7e9e8483939}
+
+\item 
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a1eae2498549eb15b4a53f03fc1b7014c}{void {\bfseries unregister} (I\-Service\-Listener$<$ S $>$ listener)}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a1eae2498549eb15b4a53f03fc1b7014c}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_aae893747c6d559605c69a4a4ddaf0f24}{notify\-Listeners} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Class$<$ S $>$ \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_ad5a12d0cd17c4b6335e1a79958132b14}{service\-Class}
+\item 
+S \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a499f27a81f1d6ca28fe96efd7a390694}{service}
+\item 
+boolean \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_add998e9cac132822c3c72265d85aacc8}{is\-Available} = false
+\item 
+boolean \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_adf9f940effc914553eeb998f16c1cb91}{is\-Bound} = false
+\item 
+Context \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a04ac41815a3e3e0bf43f73a207326685}{context}
+\item 
+List$<$ I\-Service\-Listener$<$ S $>$ $>$ \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_ac1fcabe717a95d21e5aa9ec6165222fa}{listeners} = new Array\-List$<$I\-Service\-Listener$<$S$>$$>$()
+\item 
+final Service\-Connection \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_ae4d85a721382a87cb0df327e7fae8722}{connection}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This Service\-Connection is used to bind a component to a service within the same process.
+
+The binding process impact the lifecycle of a service. The service should be kept alive as long as some component are bound to it. When no more components are bound to it, chances are for it to be destroyed.
+
+\subparagraph*{Please note}
+
+The service you are binding to through this connection must return a Local\-Binder in {\ttfamily on\-Bind()}. Indeed we are assuming the I\-Binder returned by the service can be cast to a Local\-Binder. Using a Local\-Binder requires the service to live within the same process as your component.
+
+Note that this class is designed to bind a single context at a time. There must be as many Local\-Service\-Connection as component to bind to one service. That's why it is prefered to keep the number of Local\-Service\-Connection to the minimum and share them as Service\-Provider as much as possible between the components of the application.
+
+\begin{DoxyAuthor}{Author}
+Gaborit Nicolas
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em $<$\-S$>$} & The class of the Service to which to connect \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 39 of file Local\-Service\-Connection.\-java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a5ae0ce7ab0e747d1a823192e5287834e}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}!Local\-Service\-Connection@{Local\-Service\-Connection}}
+\index{Local\-Service\-Connection@{Local\-Service\-Connection}!com::qualoutdoor::recorder::LocalServiceConnection< S extends Service >@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}}
+\subsubsection[{Local\-Service\-Connection}]{\setlength{\rightskip}{0pt plus 5cm}com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$.Local\-Service\-Connection (
+\begin{DoxyParamCaption}
+\item[{Class$<$ S $>$}]{service\-Type}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a5ae0ce7ab0e747d1a823192e5287834e}
+Create a new Local\-Service\-Connection, we provide the service class for later use (see {\ttfamily \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a185b3af89c80ce8cc2e9b834201d0b12}{bind\-To\-Service()}} method). 
+
+Definition at line 88 of file Local\-Service\-Connection.\-java.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a185b3af89c80ce8cc2e9b834201d0b12}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}!bind\-To\-Service@{bind\-To\-Service}}
+\index{bind\-To\-Service@{bind\-To\-Service}!com::qualoutdoor::recorder::LocalServiceConnection< S extends Service >@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}}
+\subsubsection[{bind\-To\-Service}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$.bind\-To\-Service (
+\begin{DoxyParamCaption}
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a185b3af89c80ce8cc2e9b834201d0b12}
+Bind the given context to a Service S through this Service\-Connection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & The context that needs to be bound to the service through this Service\-Connection \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the Service has bound successfully 
+\end{DoxyReturn}
+
+
+Definition at line 100 of file Local\-Service\-Connection.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a02a1a05862cb8ccae8818d02af768d69}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}!is\-Bound@{is\-Bound}}
+\index{is\-Bound@{is\-Bound}!com::qualoutdoor::recorder::LocalServiceConnection< S extends Service >@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}}
+\subsubsection[{is\-Bound}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$.is\-Bound (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a02a1a05862cb8ccae8818d02af768d69}
+Indicates wether this Service\-Connection is bound to a service already 
+
+Definition at line 132 of file Local\-Service\-Connection.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_aae893747c6d559605c69a4a4ddaf0f24}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}!notify\-Listeners@{notify\-Listeners}}
+\index{notify\-Listeners@{notify\-Listeners}!com::qualoutdoor::recorder::LocalServiceConnection< S extends Service >@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}}
+\subsubsection[{notify\-Listeners}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$.notify\-Listeners (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_aae893747c6d559605c69a4a4ddaf0f24}
+Notify all the listeners that the service is now available 
+
+Definition at line 166 of file Local\-Service\-Connection.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_ae0c56eee6adff493c5fc145a287a9be1}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}!unbind\-Service@{unbind\-Service}}
+\index{unbind\-Service@{unbind\-Service}!com::qualoutdoor::recorder::LocalServiceConnection< S extends Service >@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}}
+\subsubsection[{unbind\-Service}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$.unbind\-Service (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_ae0c56eee6adff493c5fc145a287a9be1}
+Unbind this Service\-Connection if it was bound 
+
+Definition at line 115 of file Local\-Service\-Connection.\-java.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_ae4d85a721382a87cb0df327e7fae8722}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}!connection@{connection}}
+\index{connection@{connection}!com::qualoutdoor::recorder::LocalServiceConnection< S extends Service >@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}}
+\subsubsection[{connection}]{\setlength{\rightskip}{0pt plus 5cm}final Service\-Connection com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$.connection\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_ae4d85a721382a87cb0df327e7fae8722}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} ServiceConnection() \{
+        @Override
+        \textcolor{keyword}{public} \textcolor{keywordtype}{void} onServiceDisconnected(ComponentName serviceName) \{
+            
+            \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_add998e9cac132822c3c72265d85aacc8}{isAvailable} = \textcolor{keyword}{false};
+        \}
+
+        @SuppressWarnings(\textcolor{stringliteral}{"unchecked"})
+        @Override
+        \textcolor{keyword}{public} \textcolor{keywordtype}{void} onServiceConnected(ComponentName serviceName, IBinder binder) \{
+            \textcolor{keywordflow}{try} \{
+                
+                \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a499f27a81f1d6ca28fe96efd7a390694}{service} = ((LocalBinder<S>) binder).getService();
+            \} \textcolor{keywordflow}{catch} (ClassCastException exc) \{
+                \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ClassCastException(
+                        \textcolor{stringliteral}{"The bound service must provide the same LocalBinder<S> as declared."});
+            \}
+            
+            \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_add998e9cac132822c3c72265d85aacc8}{isAvailable} = \textcolor{keyword}{true};
+            
+            \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_aae893747c6d559605c69a4a4ddaf0f24}{notifyListeners}();
+
+        \}
+    \}
+\end{DoxyCode}
+This service connection is used to monitor the state of the service 
+
+Definition at line 59 of file Local\-Service\-Connection.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a04ac41815a3e3e0bf43f73a207326685}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}!context@{context}}
+\index{context@{context}!com::qualoutdoor::recorder::LocalServiceConnection< S extends Service >@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}}
+\subsubsection[{context}]{\setlength{\rightskip}{0pt plus 5cm}Context com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$.context\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a04ac41815a3e3e0bf43f73a207326685}
+The reference to the context that has been bound through this connection 
+
+Definition at line 53 of file Local\-Service\-Connection.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_add998e9cac132822c3c72265d85aacc8}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}!is\-Available@{is\-Available}}
+\index{is\-Available@{is\-Available}!com::qualoutdoor::recorder::LocalServiceConnection< S extends Service >@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}}
+\subsubsection[{is\-Available}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$.is\-Available = false\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_add998e9cac132822c3c72265d85aacc8}
+Indicates if the service is bound or not 
+
+Definition at line 48 of file Local\-Service\-Connection.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_adf9f940effc914553eeb998f16c1cb91}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}!is\-Bound@{is\-Bound}}
+\index{is\-Bound@{is\-Bound}!com::qualoutdoor::recorder::LocalServiceConnection< S extends Service >@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}}
+\subsubsection[{is\-Bound}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$.is\-Bound = false\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_adf9f940effc914553eeb998f16c1cb91}
+Indicates if this Service\-Connection is bound to a service or not 
+
+Definition at line 50 of file Local\-Service\-Connection.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_ac1fcabe717a95d21e5aa9ec6165222fa}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}!listeners@{listeners}}
+\index{listeners@{listeners}!com::qualoutdoor::recorder::LocalServiceConnection< S extends Service >@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}}
+\subsubsection[{listeners}]{\setlength{\rightskip}{0pt plus 5cm}List$<$I\-Service\-Listener$<$S$>$ $>$ com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$.listeners = new Array\-List$<$I\-Service\-Listener$<$S$>$$>$()\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_ac1fcabe717a95d21e5aa9ec6165222fa}
+The collection of the registered Service\-Listener 
+
+Definition at line 56 of file Local\-Service\-Connection.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a499f27a81f1d6ca28fe96efd7a390694}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}!service@{service}}
+\index{service@{service}!com::qualoutdoor::recorder::LocalServiceConnection< S extends Service >@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}}
+\subsubsection[{service}]{\setlength{\rightskip}{0pt plus 5cm}S com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$.service\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_a499f27a81f1d6ca28fe96efd7a390694}
+A reference to the connected service 
+
+Definition at line 45 of file Local\-Service\-Connection.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_ad5a12d0cd17c4b6335e1a79958132b14}{\index{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}!service\-Class@{service\-Class}}
+\index{service\-Class@{service\-Class}!com::qualoutdoor::recorder::LocalServiceConnection< S extends Service >@{com\-::qualoutdoor\-::recorder\-::\-Local\-Service\-Connection$<$ S extends Service $>$}}
+\subsubsection[{service\-Class}]{\setlength{\rightskip}{0pt plus 5cm}final Class$<$S$>$ com.\-qualoutdoor.\-recorder.\-Local\-Service\-Connection$<$ S extends Service $>$.service\-Class\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1LocalServiceConnection_3_01S_01extends_01Service_01_4_ad5a12d0cd17c4b6335e1a79958132b14}
+The class of the Service S 
+
+Definition at line 43 of file Local\-Service\-Connection.\-java.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/com/qualoutdoor/recorder/Local\-Service\-Connection.\-java\end{DoxyCompactItemize}

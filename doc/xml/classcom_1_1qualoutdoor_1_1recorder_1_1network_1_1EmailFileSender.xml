@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1EmailFileSender" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::network::EmailFileSender</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1EmailFileSender_1a8bf39db0d24ef61c223b92ecf5688df8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void com.qualoutdoor.recorder.network.EmailFileSender.sendFileByEmail</definition>
+        <argsstring>(Context context, String dest, HashMap&lt; String, FileToUpload &gt; filesToUpload)</argsstring>
+        <name>sendFileByEmail</name>
+        <param>
+          <type>Context</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>HashMap&lt; String, <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload" kindref="compound">FileToUpload</ref> &gt;</type>
+          <declname>filesToUpload</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/EmailFileSender.java" line="14" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/EmailFileSender.java" bodystart="14" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="80">
+        <label>com.qualoutdoor.recorder.network.EmailFileSender</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1EmailFileSender"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/EmailFileSender.java" line="12" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/EmailFileSender.java" bodystart="12" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1EmailFileSender_1a8bf39db0d24ef61c223b92ecf5688df8" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::EmailFileSender</scope><name>sendFileByEmail</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

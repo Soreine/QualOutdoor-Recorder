@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::QualOutdoorRecorderApp</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Application</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a0b1a264b14ed9e6792ec501dead1678b" prot="private" static="yes" mutable="no">
+        <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp" kindref="compound">QualOutdoorRecorderApp</ref></type>
+        <definition>QualOutdoorRecorderApp com.qualoutdoor.recorder.QualOutdoorRecorderApp.thisApp</definition>
+        <argsstring></argsstring>
+        <name>thisApp</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Store a reference to this application for global access </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="22" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1af5cf58d198fba4f691182f9562fbd428" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.QualOutdoorRecorderApp.user</definition>
+        <argsstring></argsstring>
+        <name>user</name>
+        <initializer>= 11</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="33" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a8d8be4bd4b94077dfe787bd4a6dd9bc9" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.QualOutdoorRecorderApp.group</definition>
+        <argsstring></argsstring>
+        <name>group</name>
+        <initializer>= 22</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="34" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1abe439853b2cd271963db8b6f2a1c4891" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.QualOutdoorRecorderApp.FIELD_CELL_ID</definition>
+        <argsstring></argsstring>
+        <name>FIELD_CELL_ID</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Metric index of the cell id </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="38" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a4af1523555b51f952dbaa6698dd9aa02" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.QualOutdoorRecorderApp.FIELD_SIGNAL_STRENGTH</definition>
+        <argsstring></argsstring>
+        <name>FIELD_SIGNAL_STRENGTH</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Metric index of the signal strength </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="40" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a56647485a7e66a2d1c80785e29ae89e7" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.QualOutdoorRecorderApp.FIELD_CALL</definition>
+        <argsstring></argsstring>
+        <name>FIELD_CALL</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Metric index of the call test </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="42" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a21754ac1732eb993a9deff0578d72ebc" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.QualOutdoorRecorderApp.FIELD_UPLOAD</definition>
+        <argsstring></argsstring>
+        <name>FIELD_UPLOAD</name>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Metric index of the upload test </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="44" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a276550e7468a714c591dcba65ec4b772" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.QualOutdoorRecorderApp.FIELD_DOWNLOAD</definition>
+        <argsstring></argsstring>
+        <name>FIELD_DOWNLOAD</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Metric index of the download test </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="46" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a6045fe80259e1789ab9d7806fc8c2178" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.QualOutdoorRecorderApp.URL_SERVER_HTTP</definition>
+        <argsstring></argsstring>
+        <name>URL_SERVER_HTTP</name>
+        <initializer>= &quot;http://192.168.0.4:8080/upload&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>URL of the HTTP server </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="49" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1ac63e83b0eab8b98255d8e7f01eaa9632" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.QualOutdoorRecorderApp.URL_SERVER_FTP</definition>
+        <argsstring></argsstring>
+        <name>URL_SERVER_FTP</name>
+        <initializer>= &quot;192.168.0.4&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>URL of the FTP server </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="51" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a23686d98fcd161d744bd9ed2467562be" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.QualOutdoorRecorderApp.MILLIS_IN_SECOND</definition>
+        <argsstring></argsstring>
+        <name>MILLIS_IN_SECOND</name>
+        <initializer>= 1000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of milliseconds in a second </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="54" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1aeffaab2e4e965b41b3d96a8f04ecb043" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.QualOutdoorRecorderApp.UPLOAD_PROTOCOL_HTTP</definition>
+        <argsstring></argsstring>
+        <name>UPLOAD_PROTOCOL_HTTP</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Strings identifiers of sending protocol to use </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="57" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a6b06dee1b457a802556b6ee4b806db6d" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.QualOutdoorRecorderApp.UPLOAD_PROTOCOL_FTP</definition>
+        <argsstring></argsstring>
+        <name>UPLOAD_PROTOCOL_FTP</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="58" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1afbca072ac6fb09da0983bad3b41c9f55" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.QualOutdoorRecorderApp.ARCHIVE_NAME</definition>
+        <argsstring></argsstring>
+        <name>ARCHIVE_NAME</name>
+        <initializer>= &quot;pendingFiles&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Archive file name </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="61" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="61" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingHandler_1a606dcce90bb96f99f391ea37d3e9b332" compoundref="RecordingHandler_8java" startline="447" endline="464">com.qualoutdoor.recorder.recording.RecordingHandler.addFileToArchive</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a66eba257bf8a5aae2c954a1237230324" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.QualOutdoorRecorderApp.onCreate</definition>
+        <argsstring>()</argsstring>
+        <name>onCreate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="64" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="64" bodyend="67"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a2359bedba32c2d5917d3a083041bf441" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Resources</type>
+        <definition>static Resources com.qualoutdoor.recorder.QualOutdoorRecorderApp.getAppResources</definition>
+        <argsstring>()</argsstring>
+        <name>getAppResources</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Provide a global access to the application resources</para><para><simplesect kind="return"><para>The resources relative to the application context </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="74" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="74" bodyend="76"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Extending Application in order to hold some global constants that can&apos;t be stored in the XML files, and giving global access to application resources.</para><para>It is now possible to access the resources easily from a static context as follows :</para><para><programlisting><codeline><highlight class="keyword">static</highlight><highlight class="normal"><sp/>Resources<sp/>res<sp/>=<sp/>QualOutdoorRecorderApp.getAppResources();</highlight></codeline>
+</programlisting></para><para><simplesect kind="author"><para>Gaborit Nicolas </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="281">
+        <label>Application</label>
+      </node>
+      <node id="280">
+        <label>com.qualoutdoor.recorder.QualOutdoorRecorderApp</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp"/>
+        <childnode refid="281" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="284">
+        <label>String</label>
+      </node>
+      <node id="283">
+        <label>Application</label>
+      </node>
+      <node id="282">
+        <label>com.qualoutdoor.recorder.QualOutdoorRecorderApp</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp"/>
+        <childnode refid="283" relation="public-inheritance">
+        </childnode>
+        <childnode refid="282" relation="usage">
+          <edgelabel>-thisApp</edgelabel>
+        </childnode>
+        <childnode refid="284" relation="usage">
+          <edgelabel>+URL_SERVER_HTTP</edgelabel>
+          <edgelabel>+ARCHIVE_NAME</edgelabel>
+          <edgelabel>+URL_SERVER_FTP</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" line="19" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/QualOutdoorRecorderApp.java" bodystart="19" bodyend="77"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1afbca072ac6fb09da0983bad3b41c9f55" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>ARCHIVE_NAME</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a56647485a7e66a2d1c80785e29ae89e7" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>FIELD_CALL</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1abe439853b2cd271963db8b6f2a1c4891" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>FIELD_CELL_ID</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a276550e7468a714c591dcba65ec4b772" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>FIELD_DOWNLOAD</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a4af1523555b51f952dbaa6698dd9aa02" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>FIELD_SIGNAL_STRENGTH</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a21754ac1732eb993a9deff0578d72ebc" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>FIELD_UPLOAD</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a2359bedba32c2d5917d3a083041bf441" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>getAppResources</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a8d8be4bd4b94077dfe787bd4a6dd9bc9" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>group</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a23686d98fcd161d744bd9ed2467562be" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>MILLIS_IN_SECOND</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a66eba257bf8a5aae2c954a1237230324" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>onCreate</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a0b1a264b14ed9e6792ec501dead1678b" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>thisApp</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a6b06dee1b457a802556b6ee4b806db6d" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>UPLOAD_PROTOCOL_FTP</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1aeffaab2e4e965b41b3d96a8f04ecb043" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>UPLOAD_PROTOCOL_HTTP</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1ac63e83b0eab8b98255d8e7f01eaa9632" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>URL_SERVER_FTP</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1a6045fe80259e1789ab9d7806fc8c2178" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>URL_SERVER_HTTP</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorRecorderApp_1af5cf58d198fba4f691182f9562fbd428" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::QualOutdoorRecorderApp</scope><name>user</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

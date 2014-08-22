@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_556a1e6e0eeccb43a29decec3e450477" kind="dir">
+    <compoundname>src/com/qualoutdoor/recorder/persistent</compoundname>
+    <innerfile refid="CollectMeasureException_8java">CollectMeasureException.java</innerfile>
+    <innerfile refid="DataBaseException_8java">DataBaseException.java</innerfile>
+    <innerfile refid="DataBaseTreeManager_8java">DataBaseTreeManager.java</innerfile>
+    <innerfile refid="DBSemaphore_8java">DBSemaphore.java</innerfile>
+    <innerfile refid="FileGenerator_8java">FileGenerator.java</innerfile>
+    <innerfile refid="FileReadyListener_8java">FileReadyListener.java</innerfile>
+    <innerfile refid="MeasureContext_8java">MeasureContext.java</innerfile>
+    <innerfile refid="Sample_8java">Sample.java</innerfile>
+    <innerfile refid="SQLConnector_8java">SQLConnector.java</innerfile>
+    <innerfile refid="SQLDataBaseCreator_8java">SQLDataBaseCreator.java</innerfile>
+    <innerfile refid="TableDB_8java">TableDB.java</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/"/>
+  </compounddef>
+</doxygen>

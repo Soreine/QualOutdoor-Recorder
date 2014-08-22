@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::location::CustomLocation</compoundname>
+    <basecompoundref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1location_1_1ILocation" prot="public" virt="non-virtual">com.qualoutdoor.recorder.location.ILocation</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1ae6164f889b9fed37331fcbc5df2420f2" prot="private" static="no" mutable="no">
+        <type>Bundle</type>
+        <definition>Bundle com.qualoutdoor.recorder.location.CustomLocation.locationBundle</definition>
+        <argsstring></argsstring>
+        <name>locationBundle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This bundle hold all this location data. We are using bundles because they let us provide partial informations. Plus they are easily passed between activities. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" line="18" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" bodystart="18" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a89981fe330c2dd6278413dce2ce7f15a" compoundref="CustomLocation_8java" startline="36" endline="47">com.qualoutdoor.recorder.location.CustomLocation.CustomLocation</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a4fef2ee705e7d09bc57f473d44907c74" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.location.CustomLocation.TIME</definition>
+        <argsstring></argsstring>
+        <name>TIME</name>
+        <initializer>= &quot;time&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the date of the sample. Holds a long. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" line="22" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" bodystart="22" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a89981fe330c2dd6278413dce2ce7f15a" compoundref="CustomLocation_8java" startline="36" endline="47">com.qualoutdoor.recorder.location.CustomLocation.CustomLocation</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1ad0df54e3c4f4441427b8cad8ff510810" compoundref="CustomLocation_8java" startline="55" endline="57">com.qualoutdoor.recorder.location.CustomLocation.getTime</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a96a2dd85b090a1a1ec5958b707a5bf73" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.location.CustomLocation.LATITUDE</definition>
+        <argsstring></argsstring>
+        <name>LATITUDE</name>
+        <initializer>= &quot;latitude&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the latitude value. Holds a double. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" line="24" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" bodystart="24" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a89981fe330c2dd6278413dce2ce7f15a" compoundref="CustomLocation_8java" startline="36" endline="47">com.qualoutdoor.recorder.location.CustomLocation.CustomLocation</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a550c14b23ce30806eb8f975053b839e7" compoundref="CustomLocation_8java" startline="60" endline="62">com.qualoutdoor.recorder.location.CustomLocation.getLatitude</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1aa0d072cccd2d0a4e23d3de0eff553d42" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.location.CustomLocation.LONGITUDE</definition>
+        <argsstring></argsstring>
+        <name>LONGITUDE</name>
+        <initializer>= &quot;longitude&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the latitude value. Holds a double. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" line="26" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" bodystart="26" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a89981fe330c2dd6278413dce2ce7f15a" compoundref="CustomLocation_8java" startline="36" endline="47">com.qualoutdoor.recorder.location.CustomLocation.CustomLocation</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a30d89fe9fc6fa12b5b02bb5ac2d62975" compoundref="CustomLocation_8java" startline="65" endline="67">com.qualoutdoor.recorder.location.CustomLocation.getLongitude</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a291960c31ad50b5224edbeb9a97b6a27" prot="public" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.location.CustomLocation.ACCURACY</definition>
+        <argsstring></argsstring>
+        <name>ACCURACY</name>
+        <initializer>= &quot;accuracy&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the accuracy of the location. Holds a float. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" line="28" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" bodystart="28" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a89981fe330c2dd6278413dce2ce7f15a" compoundref="CustomLocation_8java" startline="36" endline="47">com.qualoutdoor.recorder.location.CustomLocation.CustomLocation</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1af63857c02e401d203882c31ccbf591e6" compoundref="CustomLocation_8java" startline="70" endline="72">com.qualoutdoor.recorder.location.CustomLocation.getAccuracy</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a89981fe330c2dd6278413dce2ce7f15a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.location.CustomLocation.CustomLocation</definition>
+        <argsstring>(Location location)</argsstring>
+        <name>CustomLocation</name>
+        <param>
+          <type>Location</type>
+          <declname>location</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a custom location with the given location values.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>location</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The location from which to take values </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" line="36" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" bodystart="36" bodyend="47"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a291960c31ad50b5224edbeb9a97b6a27" compoundref="CustomLocation_8java" startline="28">com.qualoutdoor.recorder.location.CustomLocation.ACCURACY</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a96a2dd85b090a1a1ec5958b707a5bf73" compoundref="CustomLocation_8java" startline="24">com.qualoutdoor.recorder.location.CustomLocation.LATITUDE</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1ae6164f889b9fed37331fcbc5df2420f2" compoundref="CustomLocation_8java" startline="18">com.qualoutdoor.recorder.location.CustomLocation.locationBundle</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1aa0d072cccd2d0a4e23d3de0eff553d42" compoundref="CustomLocation_8java" startline="26">com.qualoutdoor.recorder.location.CustomLocation.LONGITUDE</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a4fef2ee705e7d09bc57f473d44907c74" compoundref="CustomLocation_8java" startline="22">com.qualoutdoor.recorder.location.CustomLocation.TIME</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a68f53bfa6a7bf66f5c854c69b2e11356" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Bundle</type>
+        <definition>Bundle com.qualoutdoor.recorder.location.CustomLocation.getBundle</definition>
+        <argsstring>()</argsstring>
+        <name>getBundle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return this as a bundle </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" line="50" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" bodystart="50" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1ad0df54e3c4f4441427b8cad8ff510810" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long com.qualoutdoor.recorder.location.CustomLocation.getTime</definition>
+        <argsstring>()</argsstring>
+        <name>getTime</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1location_1_1ILocation_1aa398571da4c87344e1510f11e735be7d">getTime</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the UTC time of this data, in milliseconds since January 1, 1970 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" line="55" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" bodystart="55" bodyend="57"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a4fef2ee705e7d09bc57f473d44907c74" compoundref="CustomLocation_8java" startline="22">com.qualoutdoor.recorder.location.CustomLocation.TIME</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a550c14b23ce30806eb8f975053b839e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double com.qualoutdoor.recorder.location.CustomLocation.getLatitude</definition>
+        <argsstring>()</argsstring>
+        <name>getLatitude</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1location_1_1ILocation_1ac434141761fb171e19d60744c9e72221">getLatitude</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the latitude, in degrees </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" line="60" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" bodystart="60" bodyend="62"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a96a2dd85b090a1a1ec5958b707a5bf73" compoundref="CustomLocation_8java" startline="24">com.qualoutdoor.recorder.location.CustomLocation.LATITUDE</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a30d89fe9fc6fa12b5b02bb5ac2d62975" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double com.qualoutdoor.recorder.location.CustomLocation.getLongitude</definition>
+        <argsstring>()</argsstring>
+        <name>getLongitude</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1location_1_1ILocation_1a429c80f707714fa60c46d6100df15e3c">getLongitude</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the longitude, in degrees </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" line="65" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" bodystart="65" bodyend="67"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1aa0d072cccd2d0a4e23d3de0eff553d42" compoundref="CustomLocation_8java" startline="26">com.qualoutdoor.recorder.location.CustomLocation.LONGITUDE</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1af63857c02e401d203882c31ccbf591e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float com.qualoutdoor.recorder.location.CustomLocation.getAccuracy</definition>
+        <argsstring>()</argsstring>
+        <name>getAccuracy</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1location_1_1ILocation_1a075e49b863c907a050850671fa9ede6a">getAccuracy</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the estimated accuracy of this location, in meters </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" line="70" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" bodystart="70" bodyend="72"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a291960c31ad50b5224edbeb9a97b6a27" compoundref="CustomLocation_8java" startline="28">com.qualoutdoor.recorder.location.CustomLocation.ACCURACY</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>An Android implementation of the <ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1location_1_1ILocation" kindref="compound">ILocation</ref> interface</para><para><simplesect kind="author"><para>Gaborit Nicolas </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="25">
+        <label>com.qualoutdoor.recorder.location.ILocation</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1location_1_1ILocation"/>
+      </node>
+      <node id="24">
+        <label>com.qualoutdoor.recorder.location.CustomLocation</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="29">
+        <label>String</label>
+      </node>
+      <node id="27">
+        <label>com.qualoutdoor.recorder.location.ILocation</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1location_1_1ILocation"/>
+      </node>
+      <node id="26">
+        <label>com.qualoutdoor.recorder.location.CustomLocation</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+        <childnode refid="28" relation="usage">
+          <edgelabel>-locationBundle</edgelabel>
+        </childnode>
+        <childnode refid="29" relation="usage">
+          <edgelabel>+TIME</edgelabel>
+          <edgelabel>+LATITUDE</edgelabel>
+          <edgelabel>+ACCURACY</edgelabel>
+          <edgelabel>+LONGITUDE</edgelabel>
+        </childnode>
+      </node>
+      <node id="28">
+        <label>Bundle</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" line="11" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/CustomLocation.java" bodystart="11" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a291960c31ad50b5224edbeb9a97b6a27" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::CustomLocation</scope><name>ACCURACY</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a89981fe330c2dd6278413dce2ce7f15a" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::CustomLocation</scope><name>CustomLocation</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1af63857c02e401d203882c31ccbf591e6" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::CustomLocation</scope><name>getAccuracy</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a68f53bfa6a7bf66f5c854c69b2e11356" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::CustomLocation</scope><name>getBundle</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a550c14b23ce30806eb8f975053b839e7" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::CustomLocation</scope><name>getLatitude</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a30d89fe9fc6fa12b5b02bb5ac2d62975" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::CustomLocation</scope><name>getLongitude</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1ad0df54e3c4f4441427b8cad8ff510810" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::CustomLocation</scope><name>getTime</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a96a2dd85b090a1a1ec5958b707a5bf73" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::CustomLocation</scope><name>LATITUDE</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1ae6164f889b9fed37331fcbc5df2420f2" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::CustomLocation</scope><name>locationBundle</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1aa0d072cccd2d0a4e23d3de0eff553d42" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::CustomLocation</scope><name>LONGITUDE</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1CustomLocation_1a4fef2ee705e7d09bc57f473d44907c74" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::CustomLocation</scope><name>TIME</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

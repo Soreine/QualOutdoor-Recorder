@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1HttpTransfertException" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::network::HttpTransfertException</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Exception</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1HttpTransfertException_1ae55153b73cbb539030f76a09bfb6a395" prot="private" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long com.qualoutdoor.recorder.network.HttpTransfertException.serialVersionUID</definition>
+        <argsstring></argsstring>
+        <name>serialVersionUID</name>
+        <initializer>= 1L</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/HttpTransfertException.java" line="12" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/HttpTransfertException.java" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1HttpTransfertException_1a8e66d214d906e1a3f14b41892aa6cc71" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.network.HttpTransfertException.HttpTransfertException</definition>
+        <argsstring>(String message)</argsstring>
+        <name>HttpTransfertException</name>
+        <param>
+          <type>String</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/HttpTransfertException.java" line="14" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/HttpTransfertException.java" bodystart="14" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="140">
+        <label>com.qualoutdoor.recorder.network.HttpTransfertException</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1HttpTransfertException"/>
+        <childnode refid="141" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="141">
+        <label>Exception</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="142">
+        <label>com.qualoutdoor.recorder.network.HttpTransfertException</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1HttpTransfertException"/>
+        <childnode refid="143" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="143">
+        <label>Exception</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/HttpTransfertException.java" line="7" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/HttpTransfertException.java" bodystart="7" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1HttpTransfertException_1a8e66d214d906e1a3f14b41892aa6cc71" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::HttpTransfertException</scope><name>HttpTransfertException</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1HttpTransfertException_1ae55153b73cbb539030f76a09bfb6a395" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::HttpTransfertException</scope><name>serialVersionUID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

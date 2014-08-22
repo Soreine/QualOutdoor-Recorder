@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1CollectMeasureException" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::persistent::CollectMeasureException</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Exception</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1CollectMeasureException_1ae5cbf307ec4186047eeb49b5796fa36c" prot="private" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long com.qualoutdoor.recorder.persistent.CollectMeasureException.serialVersionUID</definition>
+        <argsstring></argsstring>
+        <name>serialVersionUID</name>
+        <initializer>= 1L</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/CollectMeasureException.java" line="9" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/CollectMeasureException.java" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1CollectMeasureException_1aeec8833234a80c3db9e90dfc0d63e63e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.persistent.CollectMeasureException.CollectMeasureException</definition>
+        <argsstring>(String message)</argsstring>
+        <name>CollectMeasureException</name>
+        <param>
+          <type>String</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/CollectMeasureException.java" line="11" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/CollectMeasureException.java" bodystart="11" bodyend="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="7">
+        <label>com.qualoutdoor.recorder.persistent.CollectMeasureException</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1CollectMeasureException"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Exception</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9">
+        <label>com.qualoutdoor.recorder.persistent.CollectMeasureException</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1CollectMeasureException"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Exception</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/CollectMeasureException.java" line="7" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/CollectMeasureException.java" bodystart="7" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1CollectMeasureException_1aeec8833234a80c3db9e90dfc0d63e63e" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::CollectMeasureException</scope><name>CollectMeasureException</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1CollectMeasureException_1ae5cbf307ec4186047eeb49b5796fa36c" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::CollectMeasureException</scope><name>serialVersionUID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

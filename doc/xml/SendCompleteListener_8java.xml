@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="SendCompleteListener_8java" kind="file">
+    <compoundname>SendCompleteListener.java</compoundname>
+    <innerclass refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1network_1_1SendCompleteListener" prot="public">com::qualoutdoor::recorder::network::SendCompleteListener</innerclass>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1network">com::qualoutdoor::recorder::network</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.qualoutdoor.recorder.network;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.File;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1network_1_1SendCompleteListener" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1network_1_1SendCompleteListener" kindref="compound">SendCompleteListener</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1network_1_1SendCompleteListener_1a85686780f0a27a5246a4c2e143c618e9" kindref="member">onTaskCompleted</ref>(String<sp/>protocole,File<sp/>fileSent,<sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>result);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/SendCompleteListener.java"/>
+  </compounddef>
+</doxygen>

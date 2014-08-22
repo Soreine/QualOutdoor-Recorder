@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::persistent::DataBaseTreeManager::TreeCursor</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1a4a0a5f9a2b323cb3df093066d86b8b3f" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.persistent.DataBaseTreeManager.TreeCursor.line</definition>
+        <argsstring></argsstring>
+        <name>line</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" line="159" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1a7275276eeef8593bb0e2a504a5c851f5" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.persistent.DataBaseTreeManager.TreeCursor.reference</definition>
+        <argsstring></argsstring>
+        <name>reference</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" line="160" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1aea0320cf9102a3b3a4f60e54ff32e368" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.persistent.DataBaseTreeManager.TreeCursor.level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" line="161" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1ae0dd02d3f4915adb028af02defc1c0da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.persistent.DataBaseTreeManager.TreeCursor.getLevel</definition>
+        <argsstring>()</argsstring>
+        <name>getLevel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" line="163" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" bodystart="163" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1ae58b6839a912692839c3f75c80f1e66d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.persistent.DataBaseTreeManager.TreeCursor.getReference</definition>
+        <argsstring>()</argsstring>
+        <name>getReference</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" line="167" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" bodystart="167" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1ae0b2d2ca1e3d2661a34e4f05537e01a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.persistent.DataBaseTreeManager.TreeCursor.getLine</definition>
+        <argsstring>()</argsstring>
+        <name>getLine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" line="171" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" bodystart="171" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1a9a96dc75d62639612c3b9e460c3a9cf2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.persistent.DataBaseTreeManager.TreeCursor.init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" line="175" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" bodystart="175" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1ac0b4683f2f2df535c96b5bdf17b6bdc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.persistent.DataBaseTreeManager.TreeCursor.update</definition>
+        <argsstring>(int li, int ref, int lev)</argsstring>
+        <name>update</name>
+        <param>
+          <type>int</type>
+          <declname>li</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lev</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" line="181" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" bodystart="181" bodyend="185"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="481">
+        <label>com.qualoutdoor.recorder.persistent.DataBaseTreeManager.TreeCursor</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" line="158" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseTreeManager.java" bodystart="158" bodyend="186"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1ae0dd02d3f4915adb028af02defc1c0da" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::DataBaseTreeManager::TreeCursor</scope><name>getLevel</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1ae0b2d2ca1e3d2661a34e4f05537e01a4" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::DataBaseTreeManager::TreeCursor</scope><name>getLine</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1ae58b6839a912692839c3f75c80f1e66d" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::DataBaseTreeManager::TreeCursor</scope><name>getReference</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1a9a96dc75d62639612c3b9e460c3a9cf2" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::DataBaseTreeManager::TreeCursor</scope><name>init</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1aea0320cf9102a3b3a4f60e54ff32e368" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::DataBaseTreeManager::TreeCursor</scope><name>level</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1a4a0a5f9a2b323cb3df093066d86b8b3f" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::DataBaseTreeManager::TreeCursor</scope><name>line</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1a7275276eeef8593bb0e2a504a5c851f5" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::DataBaseTreeManager::TreeCursor</scope><name>reference</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor_1ac0b4683f2f2df535c96b5bdf17b6bdc3" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::DataBaseTreeManager::TreeCursor</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

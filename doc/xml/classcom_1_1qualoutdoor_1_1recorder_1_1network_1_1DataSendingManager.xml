@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::network::DataSendingManager</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">android::os::AsyncTask&lt; Void, Void, Boolean &gt;</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a374bd611a2fa799541bafdda13fb442b" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String com.qualoutdoor.recorder.network.DataSendingManager.target</definition>
+        <argsstring></argsstring>
+        <name>target</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>server address to reach </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" line="15" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a04c3eb72f14a6b304204d5995ebc47b5" prot="private" static="no" mutable="no">
+        <type>File</type>
+        <definition>File com.qualoutdoor.recorder.network.DataSendingManager.fileToUpload</definition>
+        <argsstring></argsstring>
+        <name>fileToUpload</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>File to Send to server </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" line="17" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" bodystart="17" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a3c641c980b8e9f2da6034ac440002d90" compoundref="DataSendingManager_8java" startline="40" endline="68">com.qualoutdoor.recorder.network.DataSendingManager.doInBackground</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a48eb8da2edfe089c9685e47b9450910e" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String com.qualoutdoor.recorder.network.DataSendingManager.protocole</definition>
+        <argsstring></argsstring>
+        <name>protocole</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Protocol to use for sending </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" line="19" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" bodystart="19" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a3c641c980b8e9f2da6034ac440002d90" compoundref="DataSendingManager_8java" startline="40" endline="68">com.qualoutdoor.recorder.network.DataSendingManager.doInBackground</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a6792b0b030b25ad8cc338196a3cd43cd" prot="private" static="no" mutable="no">
+        <type><ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1network_1_1SendCompleteListener" kindref="compound">SendCompleteListener</ref></type>
+        <definition>SendCompleteListener com.qualoutdoor.recorder.network.DataSendingManager.callback</definition>
+        <argsstring></argsstring>
+        <name>callback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>object to call when sending is over </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" line="21" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1aa2daaa4cb7108f6eed82d2e16da24cf3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.network.DataSendingManager.DataSendingManager</definition>
+        <argsstring>(String url, File file, String proto, SendCompleteListener cb)</argsstring>
+        <name>DataSendingManager</name>
+        <param>
+          <type>String</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>File</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>proto</declname>
+        </param>
+        <param>
+          <type><ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1network_1_1SendCompleteListener" kindref="compound">SendCompleteListener</ref></type>
+          <declname>cb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor of the class <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>filesToUpload</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>proto</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" line="30" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" bodystart="30" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a3c641c980b8e9f2da6034ac440002d90" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Boolean</type>
+        <definition>Boolean com.qualoutdoor.recorder.network.DataSendingManager.doInBackground</definition>
+        <argsstring>(Void...params)</argsstring>
+        <name>doInBackground</name>
+        <param>
+          <type>Void...</type>
+          <declname>params</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sending action will be executed in a background thread </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" line="40" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" bodystart="40" bodyend="68"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a04c3eb72f14a6b304204d5995ebc47b5" compoundref="DataSendingManager_8java" startline="17">com.qualoutdoor.recorder.network.DataSendingManager.fileToUpload</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a48eb8da2edfe089c9685e47b9450910e" compoundref="DataSendingManager_8java" startline="19">com.qualoutdoor.recorder.network.DataSendingManager.protocole</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a7babe778e41aeb1b91cb94943594e4a4" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.network.DataSendingManager.onPostExecute</definition>
+        <argsstring>(Boolean result)</argsstring>
+        <name>onPostExecute</name>
+        <param>
+          <type>Boolean</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>When sending is over, callback is called in passing the sent file and in indicating if sending was successful or not </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" line="76" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" bodystart="76" bodyend="79"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>AsyncTask able to send a specified file using a specified sending protocol. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="59">
+        <label>com.qualoutdoor.recorder.network.DataSendingManager</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager"/>
+        <childnode refid="60" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>android::os::AsyncTask&lt; Void, Void, Boolean &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="61">
+        <label>com.qualoutdoor.recorder.network.DataSendingManager</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager"/>
+        <childnode refid="62" relation="public-inheritance">
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>-callback</edgelabel>
+        </childnode>
+        <childnode refid="64" relation="usage">
+          <edgelabel>-fileToUpload</edgelabel>
+        </childnode>
+        <childnode refid="65" relation="usage">
+          <edgelabel>-protocole</edgelabel>
+          <edgelabel>-target</edgelabel>
+        </childnode>
+      </node>
+      <node id="65">
+        <label>String</label>
+      </node>
+      <node id="63">
+        <label>com.qualoutdoor.recorder.network.SendCompleteListener</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1network_1_1SendCompleteListener"/>
+      </node>
+      <node id="64">
+        <label>File</label>
+      </node>
+      <node id="62">
+        <label>android::os::AsyncTask&lt; Void, Void, Boolean &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" line="12" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" bodystart="12" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a6792b0b030b25ad8cc338196a3cd43cd" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::DataSendingManager</scope><name>callback</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1aa2daaa4cb7108f6eed82d2e16da24cf3" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::DataSendingManager</scope><name>DataSendingManager</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a3c641c980b8e9f2da6034ac440002d90" prot="protected" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::DataSendingManager</scope><name>doInBackground</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a04c3eb72f14a6b304204d5995ebc47b5" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::DataSendingManager</scope><name>fileToUpload</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a7babe778e41aeb1b91cb94943594e4a4" prot="protected" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::DataSendingManager</scope><name>onPostExecute</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a48eb8da2edfe089c9685e47b9450910e" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::DataSendingManager</scope><name>protocole</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager_1a374bd611a2fa799541bafdda13fb442b" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::DataSendingManager</scope><name>target</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

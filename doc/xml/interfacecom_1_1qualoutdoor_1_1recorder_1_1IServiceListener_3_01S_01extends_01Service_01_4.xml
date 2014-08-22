@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="interfacecom_1_1qualoutdoor_1_1recorder_1_1IServiceListener_3_01S_01extends_01Service_01_4" kind="interface" prot="public">
+    <compoundname>com::qualoutdoor::recorder::IServiceListener&lt; S extends Service &gt;</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1IServiceListener_3_01S_01extends_01Service_01_4_1a8ae86c5db9afafc83bf51b1cfb4e1ea9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.IServiceListener&lt; S extends Service &gt;.onServiceAvailable</definition>
+        <argsstring>(S service)</argsstring>
+        <name>onServiceAvailable</name>
+        <param>
+          <type>S</type>
+          <declname>service</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Callback made when the service becomes available </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/IServiceListener.java" line="14" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A listener class to monitor when a service S becomes available. Implement the method <computeroutput><ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1IServiceListener_3_01S_01extends_01Service_01_4_1a8ae86c5db9afafc83bf51b1cfb4e1ea9" kindref="member">onServiceAvailable()</ref></computeroutput> to define your behavior when the service becomes available.</para><para><simplesect kind="author"><para>Gaborit Nicolas </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="154">
+        <label>com.qualoutdoor.recorder.IServiceListener&lt; S extends Service &gt;</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1IServiceListener_3_01S_01extends_01Service_01_4"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/IServiceListener.java" line="12" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/IServiceListener.java" bodystart="12" bodyend="15"/>
+    <listofallmembers>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1IServiceListener_3_01S_01extends_01Service_01_4_1a8ae86c5db9afafc83bf51b1cfb4e1ea9" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::IServiceListener&lt; S extends Service &gt;</scope><name>onServiceAvailable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

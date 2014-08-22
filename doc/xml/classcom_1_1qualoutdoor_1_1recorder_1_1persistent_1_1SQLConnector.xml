@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::persistent::SQLConnector</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1aa90e660df93d5e81f841238868167bce" prot="private" static="no" mutable="no">
+        <type>SQLiteDatabase</type>
+        <definition>SQLiteDatabase com.qualoutdoor.recorder.persistent.SQLConnector.db</definition>
+        <argsstring></argsstring>
+        <name>db</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="17" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a78e2cb330cd0ce6e7d3b7805d1b50a01" prot="private" static="no" mutable="no">
+        <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLDataBaseCreator" kindref="compound">SQLDataBaseCreator</ref></type>
+        <definition>SQLDataBaseCreator com.qualoutdoor.recorder.persistent.SQLConnector.dbCreator</definition>
+        <argsstring></argsstring>
+        <name>dbCreator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="18" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1ab31ffde14c01c1fb07bc70adc02db978" prot="private" static="no" mutable="no">
+        <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager" kindref="compound">DataBaseTreeManager</ref></type>
+        <definition>DataBaseTreeManager com.qualoutdoor.recorder.persistent.SQLConnector.manager</definition>
+        <argsstring></argsstring>
+        <name>manager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="20" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a992026f34b676a92c8604d33cea1c21c" prot="private" static="no" mutable="no">
+        <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext" kindref="compound">MeasureContext</ref></type>
+        <definition>MeasureContext com.qualoutdoor.recorder.persistent.SQLConnector.oldContext</definition>
+        <argsstring></argsstring>
+        <name>oldContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="29" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a079c07058aa197f5a82f3a858eb3c728" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.persistent.SQLConnector.isOpen</definition>
+        <argsstring></argsstring>
+        <name>isOpen</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicate if this connector is open already </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="32" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="32" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingHandler_1a7ad7623c7ecad92aab0db9be19c3fc49" compoundref="RecordingHandler_8java" startline="124" endline="145">com.qualoutdoor.recorder.recording.RecordingHandler.actionStartRecord</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingHandler_1a721d1a06f78dacaedec28b0e83799935" compoundref="RecordingHandler_8java" startline="172" endline="188">com.qualoutdoor.recorder.recording.RecordingHandler.actionUploadDatabase</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingHandler_1afdf5d85bb9c6cec87994bb8be28d7f7a" compoundref="RecordingHandler_8java" startline="207" endline="215">com.qualoutdoor.recorder.recording.RecordingHandler.checkCloseDatabase</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a728bdb7be51e691a3de92ac80f819e4b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.persistent.SQLConnector.SQLConnector</definition>
+        <argsstring>(Context context)</argsstring>
+        <name>SQLConnector</name>
+        <param>
+          <type>Context</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="35" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a6268906b87698e52bce821ad4f8b9069" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.persistent.SQLConnector.open</definition>
+        <argsstring>()</argsstring>
+        <name>open</name>
+        <exceptions> throws SQLException </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="41" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="41" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a1def5a9d3f9b9a5f34341be0d8f39bf1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.persistent.SQLConnector.close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="55" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="55" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1ad06cc505fd02bc2639090f59c7ba03c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.persistent.SQLConnector.isOpen</definition>
+        <argsstring>()</argsstring>
+        <name>isOpen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicate if this connector is open already </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="62" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="62" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a64c7dc4a0535660bc13d2d0987fbdd28" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.persistent.SQLConnector.insertReference</definition>
+        <argsstring>(MeasureContext newContext, int ref)</argsstring>
+        <name>insertReference</name>
+        <param>
+          <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext" kindref="compound">MeasureContext</ref></type>
+          <declname>newContext</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ref</declname>
+        </param>
+        <exceptions> throws <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1CollectMeasureException" kindref="compound">CollectMeasureException</ref>, <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseException" kindref="compound">DataBaseException</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="70" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="70" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1ac06733a51579efba085681f3e9cdcac4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.persistent.SQLConnector.insertData</definition>
+        <argsstring>(double d, double e, String data)</argsstring>
+        <name>insertData</name>
+        <param>
+          <type>double</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>String</type>
+          <declname>data</declname>
+        </param>
+        <exceptions> throws <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseException" kindref="compound">DataBaseException</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="192" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="192" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1ab154e432eb4da23e3b636d17318f4036" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.persistent.SQLConnector.insertMeasure</definition>
+        <argsstring>(MeasureContext newContext, SparseArray&lt; String &gt; data, double d, double e)</argsstring>
+        <name>insertMeasure</name>
+        <param>
+          <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext" kindref="compound">MeasureContext</ref></type>
+          <declname>newContext</declname>
+        </param>
+        <param>
+          <type>SparseArray&lt; String &gt;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>e</declname>
+        </param>
+        <exceptions> throws <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseException" kindref="compound">DataBaseException</ref>, <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1CollectMeasureException" kindref="compound">CollectMeasureException</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="224" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="224" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a8aac57c04ecf3879e83d25517b9a1be7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ArrayList&lt; String &gt;</type>
+        <definition>ArrayList&lt;String&gt; com.qualoutdoor.recorder.persistent.SQLConnector.getLeafDetails</definition>
+        <argsstring>(int ref)</argsstring>
+        <name>getLeafDetails</name>
+        <param>
+          <type>int</type>
+          <declname>ref</declname>
+        </param>
+        <exceptions> throws <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseException" kindref="compound">DataBaseException</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="298" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="298" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1ac573ef6449cc4767befc3b649000d90a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager" kindref="compound">DataBaseTreeManager</ref></type>
+        <definition>DataBaseTreeManager com.qualoutdoor.recorder.persistent.SQLConnector.prepareManager</definition>
+        <argsstring>()</argsstring>
+        <name>prepareManager</name>
+        <exceptions> throws <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseException" kindref="compound">DataBaseException</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="319" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="319" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1ade0b8395df3765d24c61bd2e926731da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.persistent.SQLConnector.hasLeaf</definition>
+        <argsstring>()</argsstring>
+        <name>hasLeaf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="327" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="327" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1aaf71a75b6263dc353861daf6ad0b4ad8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.persistent.SQLConnector.completeReset</definition>
+        <argsstring>()</argsstring>
+        <name>completeReset</name>
+        <exceptions> throws <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseException" kindref="compound">DataBaseException</ref> </exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="364" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="364" bodyend="375"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="429">
+        <label>HashMap</label>
+      </node>
+      <node id="432">
+        <label>SQLiteOpenHelper</label>
+      </node>
+      <node id="424">
+        <label>com.qualoutdoor.recorder.persistent.DataBaseTreeManager</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager"/>
+        <childnode refid="425" relation="usage">
+          <edgelabel>-cursor</edgelabel>
+        </childnode>
+        <childnode refid="426" relation="usage">
+          <edgelabel>-db</edgelabel>
+        </childnode>
+        <childnode refid="427" relation="usage">
+          <edgelabel>-table</edgelabel>
+        </childnode>
+      </node>
+      <node id="430">
+        <label>String</label>
+      </node>
+      <node id="435">
+        <label>ArrayList</label>
+      </node>
+      <node id="427">
+        <label>com.qualoutdoor.recorder.persistent.TableDB</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1TableDB"/>
+        <childnode refid="428" relation="usage">
+          <edgelabel>-columns</edgelabel>
+        </childnode>
+        <childnode refid="430" relation="usage">
+          <edgelabel>-name</edgelabel>
+        </childnode>
+      </node>
+      <node id="428">
+        <label>HashMap&lt; String, String &gt;</label>
+        <childnode refid="429" relation="template-instance">
+          <edgelabel>&lt; String, String &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="434">
+        <label>ArrayList&lt; Integer &gt;</label>
+        <childnode refid="435" relation="template-instance">
+          <edgelabel>&lt; Integer &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="433">
+        <label>com.qualoutdoor.recorder.persistent.MeasureContext</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext"/>
+        <childnode refid="434" relation="usage">
+          <edgelabel>-stages</edgelabel>
+        </childnode>
+      </node>
+      <node id="423">
+        <label>com.qualoutdoor.recorder.persistent.SQLConnector</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector"/>
+        <childnode refid="424" relation="usage">
+          <edgelabel>-manager</edgelabel>
+        </childnode>
+        <childnode refid="426" relation="usage">
+          <edgelabel>-db</edgelabel>
+        </childnode>
+        <childnode refid="431" relation="usage">
+          <edgelabel>-dbCreator</edgelabel>
+        </childnode>
+        <childnode refid="433" relation="usage">
+          <edgelabel>-oldContext</edgelabel>
+        </childnode>
+      </node>
+      <node id="431">
+        <label>com.qualoutdoor.recorder.persistent.SQLDataBaseCreator</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLDataBaseCreator"/>
+        <childnode refid="432" relation="public-inheritance">
+        </childnode>
+        <childnode refid="430" relation="usage">
+          <edgelabel>-DATABASE_NAME</edgelabel>
+        </childnode>
+        <childnode refid="427" relation="usage">
+          <edgelabel>-table_reference</edgelabel>
+          <edgelabel>-table_measure</edgelabel>
+        </childnode>
+      </node>
+      <node id="426">
+        <label>SQLiteDatabase</label>
+      </node>
+      <node id="425">
+        <label>com.qualoutdoor.recorder.persistent.DataBaseTreeManager.TreeCursor</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseTreeManager_1_1TreeCursor"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" line="15" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/SQLConnector.java" bodystart="15" bodyend="377"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a1def5a9d3f9b9a5f34341be0d8f39bf1" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>close</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1aaf71a75b6263dc353861daf6ad0b4ad8" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>completeReset</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1aa90e660df93d5e81f841238868167bce" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>db</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a78e2cb330cd0ce6e7d3b7805d1b50a01" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>dbCreator</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a8aac57c04ecf3879e83d25517b9a1be7" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>getLeafDetails</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1ade0b8395df3765d24c61bd2e926731da" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>hasLeaf</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1ac06733a51579efba085681f3e9cdcac4" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>insertData</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1ab154e432eb4da23e3b636d17318f4036" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>insertMeasure</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a64c7dc4a0535660bc13d2d0987fbdd28" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>insertReference</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a079c07058aa197f5a82f3a858eb3c728" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>isOpen</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1ad06cc505fd02bc2639090f59c7ba03c2" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>isOpen</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1ab31ffde14c01c1fb07bc70adc02db978" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>manager</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a992026f34b676a92c8604d33cea1c21c" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>oldContext</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a6268906b87698e52bce821ad4f8b9069" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>open</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1ac573ef6449cc4767befc3b649000d90a" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>prepareManager</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1SQLConnector_1a728bdb7be51e691a3de92ac80f819e4b" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::SQLConnector</scope><name>SQLConnector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

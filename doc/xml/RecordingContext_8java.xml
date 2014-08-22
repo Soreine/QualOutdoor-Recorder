@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="RecordingContext_8java" kind="file">
+    <compoundname>RecordingContext.java</compoundname>
+    <innerclass refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingContext" prot="public">com::qualoutdoor::recorder::recording::RecordingContext</innerclass>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1recording">com::qualoutdoor::recorder::recording</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.qualoutdoor.recorder.recording;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>com.qualoutdoor.recorder.ServiceProvider;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingContext" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingContext" kindref="compound">RecordingContext</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>ServiceProvider&lt;RecordingService&gt;<sp/><ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingContext_1a560b42104d884cd2997645172b84dc2b" kindref="member">getRecordingServiceProvider</ref>();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/recording/RecordingContext.java"/>
+  </compounddef>
+</doxygen>

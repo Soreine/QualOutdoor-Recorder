@@ -1,0 +1,116 @@
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample}{\section{com.\-qualoutdoor.\-recorder.\-persistent.\-Sample Class Reference}
+\label{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample}\index{com.\-qualoutdoor.\-recorder.\-persistent.\-Sample@{com.\-qualoutdoor.\-recorder.\-persistent.\-Sample}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_ab6e3377acb6df03cf431064e5c2ed4a2}{Sample} (\hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext}{Measure\-Context} \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_a52c7340819515588f1e6d95ede6e2c4a}{measure\-Context}, Sparse\-Array$<$ String $>$ \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_aa1aae6bf605a0fa9a350dace8a59e4fd}{data}, double \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_a546a9b2be598d117d65a4f716318e882}{latitude}, double longitude)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext}{Measure\-Context} \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_a52c7340819515588f1e6d95ede6e2c4a}{measure\-Context}
+\item 
+Sparse\-Array$<$ String $>$ \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_aa1aae6bf605a0fa9a350dace8a59e4fd}{data}
+\item 
+double \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_a546a9b2be598d117d65a4f716318e882}{latitude}
+\item 
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_a369c29b8f15082eec8ffda8c6048e429}{double {\bfseries longitude}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_a369c29b8f15082eec8ffda8c6048e429}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that encapsulate the data required for inserting a sample in the database.
+
+An instance of this class contains \-:
+
+
+\begin{DoxyItemize}
+\item A latitude and longitude
+\item A measure context (Group, User, M\-C\-C, M\-N\-C, N\-T\-C)
+\item A sparse array of measured data \-: (C\-I\-D, R\-S\-S\-I, Call, Upload, Download)
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Author}
+Gaborit Nicolas 
+\end{DoxyAuthor}
+
+
+Definition at line 19 of file Sample.\-java.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_ab6e3377acb6df03cf431064e5c2ed4a2}{\index{com\-::qualoutdoor\-::recorder\-::persistent\-::\-Sample@{com\-::qualoutdoor\-::recorder\-::persistent\-::\-Sample}!Sample@{Sample}}
+\index{Sample@{Sample}!com::qualoutdoor::recorder::persistent::Sample@{com\-::qualoutdoor\-::recorder\-::persistent\-::\-Sample}}
+\subsubsection[{Sample}]{\setlength{\rightskip}{0pt plus 5cm}com.\-qualoutdoor.\-recorder.\-persistent.\-Sample.\-Sample (
+\begin{DoxyParamCaption}
+\item[{{\bf Measure\-Context}}]{measure\-Context, }
+\item[{Sparse\-Array$<$ String $>$}]{data, }
+\item[{double}]{latitude, }
+\item[{double}]{longitude}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_ab6e3377acb6df03cf431064e5c2ed4a2}
+Create a \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample}{Sample} with the given content.
+
+
+\begin{DoxyParams}{Parameters}
+{\em measure\-Context} & The context of the sample \\
+\hline
+{\em data} & The metrics that were sampled \\
+\hline
+{\em latitude} & The latitude were the sample was made \\
+\hline
+{\em longitude} & The longitude were the sample was made \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 40 of file Sample.\-java.
+
+
+
+References com.\-qualoutdoor.\-recorder.\-persistent.\-Sample.\-data, com.\-qualoutdoor.\-recorder.\-persistent.\-Sample.\-latitude, and com.\-qualoutdoor.\-recorder.\-persistent.\-Sample.\-measure\-Context.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_aa1aae6bf605a0fa9a350dace8a59e4fd}{\index{com\-::qualoutdoor\-::recorder\-::persistent\-::\-Sample@{com\-::qualoutdoor\-::recorder\-::persistent\-::\-Sample}!data@{data}}
+\index{data@{data}!com::qualoutdoor::recorder::persistent::Sample@{com\-::qualoutdoor\-::recorder\-::persistent\-::\-Sample}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}Sparse\-Array$<$String$>$ com.\-qualoutdoor.\-recorder.\-persistent.\-Sample.\-data}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_aa1aae6bf605a0fa9a350dace8a59e4fd}
+The metrics that have been sampled and their values 
+
+Definition at line 23 of file Sample.\-java.
+
+
+
+Referenced by com.\-qualoutdoor.\-recorder.\-persistent.\-Sample.\-Sample().
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_a546a9b2be598d117d65a4f716318e882}{\index{com\-::qualoutdoor\-::recorder\-::persistent\-::\-Sample@{com\-::qualoutdoor\-::recorder\-::persistent\-::\-Sample}!latitude@{latitude}}
+\index{latitude@{latitude}!com::qualoutdoor::recorder::persistent::Sample@{com\-::qualoutdoor\-::recorder\-::persistent\-::\-Sample}}
+\subsubsection[{latitude}]{\setlength{\rightskip}{0pt plus 5cm}double com.\-qualoutdoor.\-recorder.\-persistent.\-Sample.\-latitude}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_a546a9b2be598d117d65a4f716318e882}
+Location of the sample 
+
+Definition at line 25 of file Sample.\-java.
+
+
+
+Referenced by com.\-qualoutdoor.\-recorder.\-persistent.\-Sample.\-Sample().
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_a52c7340819515588f1e6d95ede6e2c4a}{\index{com\-::qualoutdoor\-::recorder\-::persistent\-::\-Sample@{com\-::qualoutdoor\-::recorder\-::persistent\-::\-Sample}!measure\-Context@{measure\-Context}}
+\index{measure\-Context@{measure\-Context}!com::qualoutdoor::recorder::persistent::Sample@{com\-::qualoutdoor\-::recorder\-::persistent\-::\-Sample}}
+\subsubsection[{measure\-Context}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Measure\-Context} com.\-qualoutdoor.\-recorder.\-persistent.\-Sample.\-measure\-Context}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_a52c7340819515588f1e6d95ede6e2c4a}
+The measure context of the sample 
+
+Definition at line 21 of file Sample.\-java.
+
+
+
+Referenced by com.\-qualoutdoor.\-recorder.\-persistent.\-Sample.\-Sample().
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/com/qualoutdoor/recorder/persistent/Sample.\-java\end{DoxyCompactItemize}

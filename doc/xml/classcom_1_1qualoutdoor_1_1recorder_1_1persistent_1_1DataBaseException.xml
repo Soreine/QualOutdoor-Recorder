@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseException" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::persistent::DataBaseException</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Exception</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseException_1ac46ea235d94fa0330db26414b56b3ed2" prot="private" static="yes" mutable="no">
+        <type>final long</type>
+        <definition>final long com.qualoutdoor.recorder.persistent.DataBaseException.serialVersionUID</definition>
+        <argsstring></argsstring>
+        <name>serialVersionUID</name>
+        <initializer>= -1648154925544028898L</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Generated serial version UID </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseException.java" line="9" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseException.java" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseException_1a92c8769073950051e7798ee71fa7ae2d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.persistent.DataBaseException.DataBaseException</definition>
+        <argsstring>(String message)</argsstring>
+        <name>DataBaseException</name>
+        <param>
+          <type>String</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseException.java" line="11" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseException.java" bodystart="11" bodyend="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Exception thrown if a problem occured when manipulating the database </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="31">
+        <label>Exception</label>
+      </node>
+      <node id="30">
+        <label>com.qualoutdoor.recorder.persistent.DataBaseException</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseException"/>
+        <childnode refid="31" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="33">
+        <label>Exception</label>
+      </node>
+      <node id="32">
+        <label>com.qualoutdoor.recorder.persistent.DataBaseException</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseException"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseException.java" line="4" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/DataBaseException.java" bodystart="4" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseException_1a92c8769073950051e7798ee71fa7ae2d" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::DataBaseException</scope><name>DataBaseException</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1DataBaseException_1ac46ea235d94fa0330db26414b56b3ed2" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::DataBaseException</scope><name>serialVersionUID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

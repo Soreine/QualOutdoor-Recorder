@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="interfacecom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationContext" kind="interface" prot="public">
+    <compoundname>com::qualoutdoor::recorder::location::LocationContext</compoundname>
+    <derivedcompoundref refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity" prot="public" virt="non-virtual">com.qualoutdoor.recorder.MainActivity</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="interfacecom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationContext_1ab35cad71c9ca837f4fa5c71f5f579911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ServiceProvider&lt; <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService" kindref="compound">LocationService</ref> &gt;</type>
+        <definition>ServiceProvider&lt;LocationService&gt; com.qualoutdoor.recorder.location.LocationContext.getLocationServiceProvider</definition>
+        <argsstring>()</argsstring>
+        <name>getLocationServiceProvider</name>
+        <reimplementedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity_1a21ad8db0983cea7a91afde93bb2705ac">getLocationServiceProvider</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get a <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService" kindref="compound">LocationService</ref> Provider </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationContext.java" line="17" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Interface for contexts that can hand out a ServiceProvider for <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService" kindref="compound">LocationService</ref>.</para><para>This interface along with other <emphasis>ServiceContext</emphasis> allow to share access to a service, thus limiting the number of LocalConnection used.</para><para><simplesect kind="author"><para>Gaborit Nicolas </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="174">
+        <label>com.qualoutdoor.recorder.MainActivity</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1MainActivity"/>
+        <childnode refid="173" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="173">
+        <label>com.qualoutdoor.recorder.location.LocationContext</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationContext"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="175">
+        <label>com.qualoutdoor.recorder.location.LocationContext</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationContext"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationContext.java" line="14" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationContext.java" bodystart="14" bodyend="18"/>
+    <listofallmembers>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationContext_1ab35cad71c9ca837f4fa5c71f5f579911" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationContext</scope><name>getLocationServiceProvider</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

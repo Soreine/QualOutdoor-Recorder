@@ -1,0 +1,391 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::home::LocationFragment</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Fragment</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1ab494bebfd465bfe1c6e816dd84e7c1b9" prot="private" static="no" mutable="no">
+        <type>final LocationListener</type>
+        <definition>final LocationListener com.qualoutdoor.recorder.home.LocationFragment.locListener</definition>
+        <argsstring></argsstring>
+        <name>locListener</name>
+        <initializer>= new LocationListener() {
+        @Override
+        public void onLocationChanged(Location newLocation) {
+            
+            <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a3dd24810ca51567a5c911196638ead94" kindref="member">location</ref> = newLocation;
+            
+            <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a4fcaa88bffad9aaf7772832f7e9146da" kindref="member">updateLocationView</ref>();
+        };
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The Location Listener, which update location views when the location changes </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="37" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a1a86c1aef13ddcaec231b52af6afe9db" prot="private" static="no" mutable="no">
+        <type>ServiceProvider&lt; <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService" kindref="compound">LocationService</ref> &gt;</type>
+        <definition>ServiceProvider&lt;LocationService&gt; com.qualoutdoor.recorder.home.LocationFragment.locationService</definition>
+        <argsstring></argsstring>
+        <name>locationService</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The LocationService Provider given by the activity </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="54" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1aaf47723fb7dbea8b4b853226414751f9" prot="private" static="no" mutable="no">
+        <type>final IServiceListener&lt; <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService" kindref="compound">LocationService</ref> &gt;</type>
+        <definition>final IServiceListener&lt;LocationService&gt; com.qualoutdoor.recorder.home.LocationFragment.locServiceListener</definition>
+        <argsstring></argsstring>
+        <name>locServiceListener</name>
+        <initializer>= new IServiceListener&lt;<ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService" kindref="compound">LocationService</ref>&gt;() {
+        @Override
+        public void onServiceAvailable(<ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService" kindref="compound">LocationService</ref> service) {
+            
+            service.requestLocationUpdates(<ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1af5fb1c9b499a730dbc82633e3ca9938f" kindref="member">locationRequest</ref>, <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1ab494bebfd465bfe1c6e816dd84e7c1b9" kindref="member">locListener</ref>);
+        }
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The service listener defines the behavior when the service becomes available </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="59" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a3dd24810ca51567a5c911196638ead94" prot="private" static="no" mutable="no">
+        <type>Location</type>
+        <definition>Location com.qualoutdoor.recorder.home.LocationFragment.location</definition>
+        <argsstring></argsstring>
+        <name>location</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current location </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="68" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="68" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a4fcaa88bffad9aaf7772832f7e9146da" compoundref="LocationFragment_8java" startline="149" endline="182">com.qualoutdoor.recorder.home.LocationFragment.updateLocationView</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a004a780fe8b36290a3dd0b4d0b0139d5" prot="private" static="no" mutable="no">
+        <type>TextView</type>
+        <definition>TextView com.qualoutdoor.recorder.home.LocationFragment.viewAccuracy</definition>
+        <argsstring></argsstring>
+        <name>viewAccuracy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The accuracy value text view </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="71" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a405f4a71f664401ad6e666067a015459" prot="private" static="no" mutable="no">
+        <type>TextView</type>
+        <definition>TextView com.qualoutdoor.recorder.home.LocationFragment.viewLatitude</definition>
+        <argsstring></argsstring>
+        <name>viewLatitude</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The latitude text view </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="73" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1ad07ba1fe99ac9a6bb2043a75789ccb10" prot="private" static="no" mutable="no">
+        <type>TextView</type>
+        <definition>TextView com.qualoutdoor.recorder.home.LocationFragment.viewLongitude</definition>
+        <argsstring></argsstring>
+        <name>viewLongitude</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The longitude text view </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="75" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a060e63c443aff5bb0ad7c73cc42e5cd7" prot="private" static="no" mutable="no">
+        <type>TextView</type>
+        <definition>TextView com.qualoutdoor.recorder.home.LocationFragment.viewAltitude</definition>
+        <argsstring></argsstring>
+        <name>viewAltitude</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The altitude text view </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="77" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1acb60fef2aa9baee7c8e611d835492868" prot="private" static="no" mutable="no">
+        <type>TextView</type>
+        <definition>TextView com.qualoutdoor.recorder.home.LocationFragment.viewSpeed</definition>
+        <argsstring></argsstring>
+        <name>viewSpeed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The speed text view </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="79" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1aa713236e64c21130b09b015bd1b75b00" prot="private" static="no" mutable="no">
+        <type>TextView</type>
+        <definition>TextView com.qualoutdoor.recorder.home.LocationFragment.viewTime</definition>
+        <argsstring></argsstring>
+        <name>viewTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The time text view </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="81" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1aa6c46dd3c92b8c8efcd04584b44861bf" prot="private" static="no" mutable="no">
+        <type>TextView</type>
+        <definition>TextView com.qualoutdoor.recorder.home.LocationFragment.viewProvider</definition>
+        <argsstring></argsstring>
+        <name>viewProvider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The provider text view </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="83" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a0be3a20b70c9d223e91aa2ddf89b28d9" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.home.LocationFragment.viewsInitialized</definition>
+        <argsstring></argsstring>
+        <name>viewsInitialized</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicate that the views have been initialized </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="86" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="86" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a4fcaa88bffad9aaf7772832f7e9146da" compoundref="LocationFragment_8java" startline="149" endline="182">com.qualoutdoor.recorder.home.LocationFragment.updateLocationView</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1af5fb1c9b499a730dbc82633e3ca9938f" prot="private" static="yes" mutable="no">
+        <type>final LocationRequest</type>
+        <definition>final LocationRequest com.qualoutdoor.recorder.home.LocationFragment.locationRequest</definition>
+        <argsstring></argsstring>
+        <name>locationRequest</name>
+        <initializer>= new LocationRequest()
+            .setInterval(0) 
+            .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Our location update request parameters </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="48" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1aa87703c32b2d5f9d5f6d3b1d5c58770d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.home.LocationFragment.onAttach</definition>
+        <argsstring>(Activity activity)</argsstring>
+        <name>onAttach</name>
+        <param>
+          <type>Activity</type>
+          <declname>activity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="89" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="89" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a13b521cbf2c5f68ab59d17887aa02a01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>View</type>
+        <definition>View com.qualoutdoor.recorder.home.LocationFragment.onCreateView</definition>
+        <argsstring>(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</argsstring>
+        <name>onCreateView</name>
+        <param>
+          <type>LayoutInflater</type>
+          <declname>inflater</declname>
+        </param>
+        <param>
+          <type>ViewGroup</type>
+          <declname>container</declname>
+        </param>
+        <param>
+          <type>Bundle</type>
+          <declname>savedInstanceState</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="105" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="105" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1aa3c26d451dfbc4269cac84d54d6b456c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.home.LocationFragment.onResume</definition>
+        <argsstring>()</argsstring>
+        <name>onResume</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="130" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="130" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a06e1ac7aa12f5307c20576749eb77b67" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.home.LocationFragment.onPause</definition>
+        <argsstring>()</argsstring>
+        <name>onPause</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="137" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="137" bodyend="146"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a4fcaa88bffad9aaf7772832f7e9146da" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.home.LocationFragment.updateLocationView</definition>
+        <argsstring>()</argsstring>
+        <name>updateLocationView</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Update the view related to the location </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="149" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="149" bodyend="182"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a3dd24810ca51567a5c911196638ead94" compoundref="LocationFragment_8java" startline="68">com.qualoutdoor.recorder.home.LocationFragment.location</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a0be3a20b70c9d223e91aa2ddf89b28d9" compoundref="LocationFragment_8java" startline="86">com.qualoutdoor.recorder.home.LocationFragment.viewsInitialized</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This fragment displays all the available information relative to the current location. Its parent activity must implements the LocationContext interface.</para><para><simplesect kind="author"><para>Gaborit Nicolas </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="176">
+        <label>com.qualoutdoor.recorder.home.LocationFragment</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment"/>
+        <childnode refid="177" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="177">
+        <label>Fragment</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="187">
+        <label>TextView</label>
+      </node>
+      <node id="185">
+        <label>LocationListener</label>
+      </node>
+      <node id="182">
+        <label>LocationRequest</label>
+      </node>
+      <node id="184">
+        <label>IServiceListener</label>
+      </node>
+      <node id="178">
+        <label>com.qualoutdoor.recorder.home.LocationFragment</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment"/>
+        <childnode refid="179" relation="public-inheritance">
+        </childnode>
+        <childnode refid="180" relation="usage">
+          <edgelabel>-locationService</edgelabel>
+        </childnode>
+        <childnode refid="182" relation="usage">
+          <edgelabel>-locationRequest</edgelabel>
+        </childnode>
+        <childnode refid="183" relation="usage">
+          <edgelabel>-locServiceListener</edgelabel>
+        </childnode>
+        <childnode refid="185" relation="usage">
+          <edgelabel>-locListener</edgelabel>
+        </childnode>
+        <childnode refid="186" relation="usage">
+          <edgelabel>-location</edgelabel>
+        </childnode>
+        <childnode refid="187" relation="usage">
+          <edgelabel>-viewProvider</edgelabel>
+          <edgelabel>-viewTime</edgelabel>
+          <edgelabel>-viewAccuracy</edgelabel>
+          <edgelabel>-viewSpeed</edgelabel>
+          <edgelabel>-viewLatitude</edgelabel>
+          <edgelabel>-viewAltitude</edgelabel>
+          <edgelabel>-viewLongitude</edgelabel>
+        </childnode>
+      </node>
+      <node id="183">
+        <label>IServiceListener&lt; com.qualoutdoor.recorder.location.LocationService &gt;</label>
+        <childnode refid="184" relation="template-instance">
+          <edgelabel>&lt; com::qualoutdoor::recorder::location::LocationService &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="179">
+        <label>Fragment</label>
+      </node>
+      <node id="181">
+        <label>ServiceProvider</label>
+      </node>
+      <node id="180">
+        <label>ServiceProvider&lt; com.qualoutdoor.recorder.location.LocationService &gt;</label>
+        <childnode refid="181" relation="template-instance">
+          <edgelabel>&lt; com::qualoutdoor::recorder::location::LocationService &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="186">
+        <label>Location</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" line="31" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/home/LocationFragment.java" bodystart="31" bodyend="183"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a3dd24810ca51567a5c911196638ead94" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>location</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1af5fb1c9b499a730dbc82633e3ca9938f" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>locationRequest</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a1a86c1aef13ddcaec231b52af6afe9db" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>locationService</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1ab494bebfd465bfe1c6e816dd84e7c1b9" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>locListener</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1aaf47723fb7dbea8b4b853226414751f9" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>locServiceListener</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1aa87703c32b2d5f9d5f6d3b1d5c58770d" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>onAttach</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a13b521cbf2c5f68ab59d17887aa02a01" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>onCreateView</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a06e1ac7aa12f5307c20576749eb77b67" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>onPause</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1aa3c26d451dfbc4269cac84d54d6b456c" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>onResume</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a4fcaa88bffad9aaf7772832f7e9146da" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>updateLocationView</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a004a780fe8b36290a3dd0b4d0b0139d5" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>viewAccuracy</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a060e63c443aff5bb0ad7c73cc42e5cd7" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>viewAltitude</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a405f4a71f664401ad6e666067a015459" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>viewLatitude</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1ad07ba1fe99ac9a6bb2043a75789ccb10" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>viewLongitude</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1aa6c46dd3c92b8c8efcd04584b44861bf" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>viewProvider</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1a0be3a20b70c9d223e91aa2ddf89b28d9" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>viewsInitialized</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1acb60fef2aa9baee7c8e611d835492868" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>viewSpeed</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_1aa713236e64c21130b09b015bd1b75b00" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::home::LocationFragment</scope><name>viewTime</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

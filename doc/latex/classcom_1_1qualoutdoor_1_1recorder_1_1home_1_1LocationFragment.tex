@@ -1,0 +1,228 @@
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment}{\section{com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment Class Reference}
+\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment}\index{com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment@{com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment}}
+}
+Inheritance diagram for com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_aa87703c32b2d5f9d5f6d3b1d5c58770d}{void {\bfseries on\-Attach} (Activity activity)}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_aa87703c32b2d5f9d5f6d3b1d5c58770d}
+
+\item 
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a13b521cbf2c5f68ab59d17887aa02a01}{View {\bfseries on\-Create\-View} (Layout\-Inflater inflater, View\-Group container, Bundle saved\-Instance\-State)}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a13b521cbf2c5f68ab59d17887aa02a01}
+
+\item 
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_aa3c26d451dfbc4269cac84d54d6b456c}{void {\bfseries on\-Resume} ()}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_aa3c26d451dfbc4269cac84d54d6b456c}
+
+\item 
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a06e1ac7aa12f5307c20576749eb77b67}{void {\bfseries on\-Pause} ()}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a06e1ac7aa12f5307c20576749eb77b67}
+
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a4fcaa88bffad9aaf7772832f7e9146da}{update\-Location\-View} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final Location\-Listener \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_ab494bebfd465bfe1c6e816dd84e7c1b9}{loc\-Listener}
+\item 
+Service\-Provider$<$ \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService}{Location\-Service} $>$ \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a1a86c1aef13ddcaec231b52af6afe9db}{location\-Service}
+\item 
+final I\-Service\-Listener\\*
+$<$ \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService}{Location\-Service} $>$ \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_aaf47723fb7dbea8b4b853226414751f9}{loc\-Service\-Listener}
+\item 
+Location \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a3dd24810ca51567a5c911196638ead94}{location}
+\item 
+Text\-View \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a004a780fe8b36290a3dd0b4d0b0139d5}{view\-Accuracy}
+\item 
+Text\-View \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a405f4a71f664401ad6e666067a015459}{view\-Latitude}
+\item 
+Text\-View \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_ad07ba1fe99ac9a6bb2043a75789ccb10}{view\-Longitude}
+\item 
+Text\-View \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a060e63c443aff5bb0ad7c73cc42e5cd7}{view\-Altitude}
+\item 
+Text\-View \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_acb60fef2aa9baee7c8e611d835492868}{view\-Speed}
+\item 
+Text\-View \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_aa713236e64c21130b09b015bd1b75b00}{view\-Time}
+\item 
+Text\-View \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_aa6c46dd3c92b8c8efcd04584b44861bf}{view\-Provider}
+\item 
+boolean \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a0be3a20b70c9d223e91aa2ddf89b28d9}{views\-Initialized} = false
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final Location\-Request \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_af5fb1c9b499a730dbc82633e3ca9938f}{location\-Request}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This fragment displays all the available information relative to the current location. Its parent activity must implements the Location\-Context interface.
+
+\begin{DoxyAuthor}{Author}
+Gaborit Nicolas 
+\end{DoxyAuthor}
+
+
+Definition at line 31 of file Location\-Fragment.\-java.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a4fcaa88bffad9aaf7772832f7e9146da}{\index{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}!update\-Location\-View@{update\-Location\-View}}
+\index{update\-Location\-View@{update\-Location\-View}!com::qualoutdoor::recorder::home::LocationFragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}}
+\subsubsection[{update\-Location\-View}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-update\-Location\-View (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a4fcaa88bffad9aaf7772832f7e9146da}
+Update the view related to the location 
+
+Definition at line 149 of file Location\-Fragment.\-java.
+
+
+
+References com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-location, and com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-views\-Initialized.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a3dd24810ca51567a5c911196638ead94}{\index{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}!location@{location}}
+\index{location@{location}!com::qualoutdoor::recorder::home::LocationFragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}}
+\subsubsection[{location}]{\setlength{\rightskip}{0pt plus 5cm}Location com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-location\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a3dd24810ca51567a5c911196638ead94}
+The current location 
+
+Definition at line 68 of file Location\-Fragment.\-java.
+
+
+
+Referenced by com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-update\-Location\-View().
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_af5fb1c9b499a730dbc82633e3ca9938f}{\index{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}!location\-Request@{location\-Request}}
+\index{location\-Request@{location\-Request}!com::qualoutdoor::recorder::home::LocationFragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}}
+\subsubsection[{location\-Request}]{\setlength{\rightskip}{0pt plus 5cm}final Location\-Request com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-location\-Request\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_af5fb1c9b499a730dbc82633e3ca9938f}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} LocationRequest()
+            .setInterval(0) 
+            .setPriority(LocationRequest.PRIORITY\_HIGH\_ACCURACY)
+\end{DoxyCode}
+Our location update request parameters 
+
+Definition at line 48 of file Location\-Fragment.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a1a86c1aef13ddcaec231b52af6afe9db}{\index{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}!location\-Service@{location\-Service}}
+\index{location\-Service@{location\-Service}!com::qualoutdoor::recorder::home::LocationFragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}}
+\subsubsection[{location\-Service}]{\setlength{\rightskip}{0pt plus 5cm}Service\-Provider$<${\bf Location\-Service}$>$ com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-location\-Service\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a1a86c1aef13ddcaec231b52af6afe9db}
+The Location\-Service Provider given by the activity 
+
+Definition at line 54 of file Location\-Fragment.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_ab494bebfd465bfe1c6e816dd84e7c1b9}{\index{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}!loc\-Listener@{loc\-Listener}}
+\index{loc\-Listener@{loc\-Listener}!com::qualoutdoor::recorder::home::LocationFragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}}
+\subsubsection[{loc\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}final Location\-Listener com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-loc\-Listener\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_ab494bebfd465bfe1c6e816dd84e7c1b9}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} LocationListener() \{
+        @Override
+        \textcolor{keyword}{public} \textcolor{keywordtype}{void} onLocationChanged(Location newLocation) \{
+            
+            \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a3dd24810ca51567a5c911196638ead94}{location} = newLocation;
+            
+            \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a4fcaa88bffad9aaf7772832f7e9146da}{updateLocationView}();
+        \};
+    \}
+\end{DoxyCode}
+The Location Listener, which update location views when the location changes 
+
+Definition at line 37 of file Location\-Fragment.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_aaf47723fb7dbea8b4b853226414751f9}{\index{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}!loc\-Service\-Listener@{loc\-Service\-Listener}}
+\index{loc\-Service\-Listener@{loc\-Service\-Listener}!com::qualoutdoor::recorder::home::LocationFragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}}
+\subsubsection[{loc\-Service\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}final I\-Service\-Listener$<${\bf Location\-Service}$>$ com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-loc\-Service\-Listener\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_aaf47723fb7dbea8b4b853226414751f9}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{new} IServiceListener<LocationService>() \{
+        @Override
+        \textcolor{keyword}{public} \textcolor{keywordtype}{void} onServiceAvailable(LocationService service) \{
+            
+            service.requestLocationUpdates(\hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_af5fb1c9b499a730dbc82633e3ca9938f}{locationRequest}, 
+      \hyperlink{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_ab494bebfd465bfe1c6e816dd84e7c1b9}{locListener});
+        \}
+    \}
+\end{DoxyCode}
+The service listener defines the behavior when the service becomes available 
+
+Definition at line 59 of file Location\-Fragment.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a004a780fe8b36290a3dd0b4d0b0139d5}{\index{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}!view\-Accuracy@{view\-Accuracy}}
+\index{view\-Accuracy@{view\-Accuracy}!com::qualoutdoor::recorder::home::LocationFragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}}
+\subsubsection[{view\-Accuracy}]{\setlength{\rightskip}{0pt plus 5cm}Text\-View com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-view\-Accuracy\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a004a780fe8b36290a3dd0b4d0b0139d5}
+The accuracy value text view 
+
+Definition at line 71 of file Location\-Fragment.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a060e63c443aff5bb0ad7c73cc42e5cd7}{\index{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}!view\-Altitude@{view\-Altitude}}
+\index{view\-Altitude@{view\-Altitude}!com::qualoutdoor::recorder::home::LocationFragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}}
+\subsubsection[{view\-Altitude}]{\setlength{\rightskip}{0pt plus 5cm}Text\-View com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-view\-Altitude\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a060e63c443aff5bb0ad7c73cc42e5cd7}
+The altitude text view 
+
+Definition at line 77 of file Location\-Fragment.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a405f4a71f664401ad6e666067a015459}{\index{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}!view\-Latitude@{view\-Latitude}}
+\index{view\-Latitude@{view\-Latitude}!com::qualoutdoor::recorder::home::LocationFragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}}
+\subsubsection[{view\-Latitude}]{\setlength{\rightskip}{0pt plus 5cm}Text\-View com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-view\-Latitude\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a405f4a71f664401ad6e666067a015459}
+The latitude text view 
+
+Definition at line 73 of file Location\-Fragment.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_ad07ba1fe99ac9a6bb2043a75789ccb10}{\index{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}!view\-Longitude@{view\-Longitude}}
+\index{view\-Longitude@{view\-Longitude}!com::qualoutdoor::recorder::home::LocationFragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}}
+\subsubsection[{view\-Longitude}]{\setlength{\rightskip}{0pt plus 5cm}Text\-View com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-view\-Longitude\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_ad07ba1fe99ac9a6bb2043a75789ccb10}
+The longitude text view 
+
+Definition at line 75 of file Location\-Fragment.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_aa6c46dd3c92b8c8efcd04584b44861bf}{\index{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}!view\-Provider@{view\-Provider}}
+\index{view\-Provider@{view\-Provider}!com::qualoutdoor::recorder::home::LocationFragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}}
+\subsubsection[{view\-Provider}]{\setlength{\rightskip}{0pt plus 5cm}Text\-View com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-view\-Provider\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_aa6c46dd3c92b8c8efcd04584b44861bf}
+The provider text view 
+
+Definition at line 83 of file Location\-Fragment.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a0be3a20b70c9d223e91aa2ddf89b28d9}{\index{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}!views\-Initialized@{views\-Initialized}}
+\index{views\-Initialized@{views\-Initialized}!com::qualoutdoor::recorder::home::LocationFragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}}
+\subsubsection[{views\-Initialized}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-views\-Initialized = false\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_a0be3a20b70c9d223e91aa2ddf89b28d9}
+Indicate that the views have been initialized 
+
+Definition at line 86 of file Location\-Fragment.\-java.
+
+
+
+Referenced by com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-update\-Location\-View().
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_acb60fef2aa9baee7c8e611d835492868}{\index{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}!view\-Speed@{view\-Speed}}
+\index{view\-Speed@{view\-Speed}!com::qualoutdoor::recorder::home::LocationFragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}}
+\subsubsection[{view\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}Text\-View com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-view\-Speed\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_acb60fef2aa9baee7c8e611d835492868}
+The speed text view 
+
+Definition at line 79 of file Location\-Fragment.\-java.
+
+\hypertarget{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_aa713236e64c21130b09b015bd1b75b00}{\index{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}!view\-Time@{view\-Time}}
+\index{view\-Time@{view\-Time}!com::qualoutdoor::recorder::home::LocationFragment@{com\-::qualoutdoor\-::recorder\-::home\-::\-Location\-Fragment}}
+\subsubsection[{view\-Time}]{\setlength{\rightskip}{0pt plus 5cm}Text\-View com.\-qualoutdoor.\-recorder.\-home.\-Location\-Fragment.\-view\-Time\hspace{0.3cm}{\ttfamily [private]}}}\label{classcom_1_1qualoutdoor_1_1recorder_1_1home_1_1LocationFragment_aa713236e64c21130b09b015bd1b75b00}
+The time text view 
+
+Definition at line 81 of file Location\-Fragment.\-java.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/com/qualoutdoor/recorder/home/Location\-Fragment.\-java\end{DoxyCompactItemize}

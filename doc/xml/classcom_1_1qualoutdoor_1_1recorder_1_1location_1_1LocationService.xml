@@ -1,0 +1,364 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::location::LocationService</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Service</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">ConnectionCallbacks</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">OnConnectionFailedListener</basecompoundref>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1_1PendingRequest" prot="private">com::qualoutdoor::recorder::location::LocationService::PendingRequest</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1adedcf04f6459e4109593aec315902c3f" prot="private" static="no" mutable="no">
+        <type>final IBinder</type>
+        <definition>final IBinder com.qualoutdoor.recorder.location.LocationService.mBinder</definition>
+        <argsstring></argsstring>
+        <name>mBinder</name>
+        <initializer>= new LocalBinder&lt;<ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService" kindref="compound">LocationService</ref>&gt;(this)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The interface binder for this service </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="66" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a1be76c7931903a411c5973db4a5185fd" prot="private" static="no" mutable="no">
+        <type>LinkedList&lt; <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1_1PendingRequest" kindref="compound">PendingRequest</ref> &gt;</type>
+        <definition>LinkedList&lt;PendingRequest&gt; com.qualoutdoor.recorder.location.LocationService.requestQueue</definition>
+        <argsstring></argsstring>
+        <name>requestQueue</name>
+        <initializer>= new LinkedList&lt;<ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1_1PendingRequest" kindref="compound">PendingRequest</ref>&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Store the locations listeners that asked for updates before the LocationClient was connected </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="86" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1ac762380166c206994d17c087bc1c8fe1" prot="private" static="no" mutable="no">
+        <type>LocationClient</type>
+        <definition>LocationClient com.qualoutdoor.recorder.location.LocationService.locationClient</definition>
+        <argsstring></argsstring>
+        <name>locationClient</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Our location client reference </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="89" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="89" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a3c6aad1fa5f2311357bd762861d9a7c9" compoundref="LocationService_8java" startline="166" endline="176">com.qualoutdoor.recorder.location.LocationService.removeLocationUpdate</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a1009c8b09c3497ee35ade5396f9ccb18" compoundref="LocationService_8java" startline="145" endline="158">com.qualoutdoor.recorder.location.LocationService.requestLocationUpdates</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1af905331a32eb5230aadc45d89a751a13" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.location.LocationService.servicesAvailable</definition>
+        <argsstring></argsstring>
+        <name>servicesAvailable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicates if Google Play Services are available </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="91" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1ae629a0993db046efe7f90bd59f02dcfa" prot="private" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.location.LocationService.clientConnected</definition>
+        <argsstring></argsstring>
+        <name>clientConnected</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicate if the client is connected </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="93" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="93" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a3c6aad1fa5f2311357bd762861d9a7c9" compoundref="LocationService_8java" startline="166" endline="176">com.qualoutdoor.recorder.location.LocationService.removeLocationUpdate</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a1009c8b09c3497ee35ade5396f9ccb18" compoundref="LocationService_8java" startline="145" endline="158">com.qualoutdoor.recorder.location.LocationService.requestLocationUpdates</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a3623b9672d920fec14ebf48c94bc0bba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.location.LocationService.onCreate</definition>
+        <argsstring>()</argsstring>
+        <name>onCreate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="96" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="96" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1ab35817d1fb418b4e4c412cc38333179f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.location.LocationService.onDestroy</definition>
+        <argsstring>()</argsstring>
+        <name>onDestroy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="116" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="116" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1aedf91ee366c1866c7b46278267dbece2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IBinder</type>
+        <definition>IBinder com.qualoutdoor.recorder.location.LocationService.onBind</definition>
+        <argsstring>(Intent intent)</argsstring>
+        <name>onBind</name>
+        <param>
+          <type>Intent</type>
+          <declname>intent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="126" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="126" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a574473b9ffe0f5313210d299df2cefaa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Location</type>
+        <definition>Location com.qualoutdoor.recorder.location.LocationService.getLastKnownLocation</definition>
+        <argsstring>()</argsstring>
+        <name>getLastKnownLocation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return the last known location </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="132" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="132" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a1009c8b09c3497ee35ade5396f9ccb18" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.location.LocationService.requestLocationUpdates</definition>
+        <argsstring>(LocationRequest locationRequest, LocationListener listener)</argsstring>
+        <name>requestLocationUpdates</name>
+        <param>
+          <type>LocationRequest</type>
+          <declname>locationRequest</declname>
+        </param>
+        <param>
+          <type>LocationListener</type>
+          <declname>listener</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Register the given LocationListener to receive location updates in respect of the given LocationRequest parameters</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>locationRequest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameters for the location updates </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>listener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The listener that will receive the updates </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="145" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="145" bodyend="158"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1ae629a0993db046efe7f90bd59f02dcfa" compoundref="LocationService_8java" startline="93">com.qualoutdoor.recorder.location.LocationService.clientConnected</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1ac762380166c206994d17c087bc1c8fe1" compoundref="LocationService_8java" startline="89">com.qualoutdoor.recorder.location.LocationService.locationClient</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a3c6aad1fa5f2311357bd762861d9a7c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.location.LocationService.removeLocationUpdate</definition>
+        <argsstring>(LocationListener listener)</argsstring>
+        <name>removeLocationUpdate</name>
+        <param>
+          <type>LocationListener</type>
+          <declname>listener</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Unregister the given listener</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>listener</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The listener to remove </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="166" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="166" bodyend="176"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1ae629a0993db046efe7f90bd59f02dcfa" compoundref="LocationService_8java" startline="93">com.qualoutdoor.recorder.location.LocationService.clientConnected</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1ac762380166c206994d17c087bc1c8fe1" compoundref="LocationService_8java" startline="89">com.qualoutdoor.recorder.location.LocationService.locationClient</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a64a91b71c1eca7764d4c43d7c69ea509" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.location.LocationService.onConnectionFailed</definition>
+        <argsstring>(ConnectionResult connectionResult)</argsstring>
+        <name>onConnectionFailed</name>
+        <param>
+          <type>ConnectionResult</type>
+          <declname>connectionResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="179" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="179" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a5c9f3f425c9cb88ce4f67257de846a14" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.location.LocationService.onConnected</definition>
+        <argsstring>(Bundle bundle)</argsstring>
+        <name>onConnected</name>
+        <param>
+          <type>Bundle</type>
+          <declname>bundle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="195" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="195" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a5c612c5f05feef63ff7a108c790742cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.location.LocationService.onDisconnected</definition>
+        <argsstring>()</argsstring>
+        <name>onDisconnected</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="219" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="219" bodyend="229"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1ad7f15b2d5c83c7034cdd4f00812cb9e4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.location.LocationService.areServicesConnected</definition>
+        <argsstring>()</argsstring>
+        <name>areServicesConnected</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check whether the Google Play Services are available </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="232" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="232" bodyend="238"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This service allows to access location data, it uses a Google Play Services LocationClient in order to receive location update. An app component can bind to it any time in order to monitor location.</para><para><heading level="4">Receiving location updates</heading>
+</para><para>There are two ways to access the current location :</para><para><heading level="5">Make a direct query</heading>
+</para><para>Call directly the method <computeroutput><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a574473b9ffe0f5313210d299df2cefaa" kindref="member">getLastKnownLocation()</ref></computeroutput> to get the last known location from the LocationClient used by the service.</para><para><heading level="5">Request for updates the way you would do with a LocationClient</heading>
+</para><para>This is usually the best option. It is exactly the same process as described in the <ulink url="http://developer.android.com/training/location/
+receive-location-updates.html">Android Documentation</ulink>, except you don&apos;t need to manage the connection of the LocationClient.</para><para><orderedlist>
+<listitem><para>First create an instance of LocationRequest and LocationListener</para></listitem><listitem><para>Override the callbacks in your LocationListener and suit the LocationRequest to your needs so it describes best how you wish to be updated (with <computeroutput>setInterval()</computeroutput> and other native methods).</para></listitem><listitem><para>Call <computeroutput><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a1009c8b09c3497ee35ade5396f9ccb18" kindref="member">requestLocationUpdates()</ref></computeroutput> giving these instance as arguments</para></listitem><listitem><para>Don&apos;t forget to call <computeroutput><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a3c6aad1fa5f2311357bd762861d9a7c9" kindref="member">removeLocationUpdate()</ref></computeroutput> when you don&apos;t want to be notified anymore.</para></listitem></orderedlist>
+</para><para><simplesect kind="author"><para>Gaborit Nicolas </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="191">
+        <label>GooglePlayServicesClient::OnConnectionFailedListener</label>
+      </node>
+      <node id="189">
+        <label>Service</label>
+      </node>
+      <node id="190">
+        <label>GooglePlayServicesClient::ConnectionCallbacks</label>
+      </node>
+      <node id="188">
+        <label>com.qualoutdoor.recorder.location.LocationService</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService"/>
+        <childnode refid="189" relation="public-inheritance">
+        </childnode>
+        <childnode refid="190" relation="public-inheritance">
+        </childnode>
+        <childnode refid="191" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="195">
+        <label>GooglePlayServicesClient::OnConnectionFailedListener</label>
+      </node>
+      <node id="193">
+        <label>Service</label>
+      </node>
+      <node id="198">
+        <label>LinkedList&lt; com.qualoutdoor.recorder.location.LocationService.PendingRequest &gt;</label>
+        <childnode refid="199" relation="template-instance">
+          <edgelabel>&lt; com::qualoutdoor::recorder::location::LocationService::PendingRequest &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="196">
+        <label>IBinder</label>
+      </node>
+      <node id="197">
+        <label>LocationClient</label>
+      </node>
+      <node id="194">
+        <label>GooglePlayServicesClient::ConnectionCallbacks</label>
+      </node>
+      <node id="192">
+        <label>com.qualoutdoor.recorder.location.LocationService</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService"/>
+        <childnode refid="193" relation="public-inheritance">
+        </childnode>
+        <childnode refid="194" relation="public-inheritance">
+        </childnode>
+        <childnode refid="195" relation="public-inheritance">
+        </childnode>
+        <childnode refid="196" relation="usage">
+          <edgelabel>-mBinder</edgelabel>
+        </childnode>
+        <childnode refid="197" relation="usage">
+          <edgelabel>-locationClient</edgelabel>
+        </childnode>
+        <childnode refid="198" relation="usage">
+          <edgelabel>-requestQueue</edgelabel>
+        </childnode>
+      </node>
+      <node id="199">
+        <label>LinkedList</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" line="63" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/location/LocationService.java" bodystart="61" bodyend="239"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1ad7f15b2d5c83c7034cdd4f00812cb9e4" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>areServicesConnected</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1ae629a0993db046efe7f90bd59f02dcfa" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>clientConnected</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a574473b9ffe0f5313210d299df2cefaa" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>getLastKnownLocation</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1ac762380166c206994d17c087bc1c8fe1" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>locationClient</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1adedcf04f6459e4109593aec315902c3f" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>mBinder</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1aedf91ee366c1866c7b46278267dbece2" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>onBind</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a5c9f3f425c9cb88ce4f67257de846a14" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>onConnected</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a64a91b71c1eca7764d4c43d7c69ea509" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>onConnectionFailed</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a3623b9672d920fec14ebf48c94bc0bba" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>onCreate</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1ab35817d1fb418b4e4c412cc38333179f" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>onDestroy</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a5c612c5f05feef63ff7a108c790742cb" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>onDisconnected</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a3c6aad1fa5f2311357bd762861d9a7c9" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>removeLocationUpdate</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a1009c8b09c3497ee35ade5396f9ccb18" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>requestLocationUpdates</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1a1be76c7931903a411c5973db4a5185fd" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>requestQueue</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1location_1_1LocationService_1af905331a32eb5230aadc45d89a751a13" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::location::LocationService</scope><name>servicesAvailable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

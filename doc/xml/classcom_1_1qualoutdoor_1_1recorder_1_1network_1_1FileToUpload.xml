@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::network::FileToUpload</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload_1acf965342e748e1d80c1fe84033efeb8a" prot="private" static="no" mutable="no">
+        <type>String</type>
+        <definition>String com.qualoutdoor.recorder.network.FileToUpload.fileName</definition>
+        <argsstring></argsstring>
+        <name>fileName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" line="12" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload_1a0c16a47c8e2db1f26b41b2c8a4269e27" prot="private" static="no" mutable="no">
+        <type>InputStream</type>
+        <definition>InputStream com.qualoutdoor.recorder.network.FileToUpload.content</definition>
+        <argsstring></argsstring>
+        <name>content</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" line="13" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload_1ab31f8d9fe40f9c7ed00299bdab866e23" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.network.FileToUpload.FileToUpload</definition>
+        <argsstring>(String fileName, InputStream content)</argsstring>
+        <name>FileToUpload</name>
+        <param>
+          <type>String</type>
+          <declname>fileName</declname>
+        </param>
+        <param>
+          <type>InputStream</type>
+          <declname>content</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" line="16" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" bodystart="16" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload_1a15699757be49837291a47aec4bc18782" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>String</type>
+        <definition>String com.qualoutdoor.recorder.network.FileToUpload.getFileName</definition>
+        <argsstring>()</argsstring>
+        <name>getFileName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" line="22" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" bodystart="22" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload_1aca5f7083002ec7cee65dea965abf0110" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.network.FileToUpload.setFileName</definition>
+        <argsstring>(String fileName)</argsstring>
+        <name>setFileName</name>
+        <param>
+          <type>String</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" line="25" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" bodystart="25" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload_1aabd0433a2a37b280bfdafae9ab6e75e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>InputStream</type>
+        <definition>InputStream com.qualoutdoor.recorder.network.FileToUpload.getContent</definition>
+        <argsstring>()</argsstring>
+        <name>getContent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" line="28" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" bodystart="28" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload_1a50660ee9a827a5a3e1903c8d3ce9c584" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.network.FileToUpload.setContent</definition>
+        <argsstring>(InputStream content)</argsstring>
+        <name>setContent</name>
+        <param>
+          <type>InputStream</type>
+          <declname>content</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" line="31" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" bodystart="31" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="110">
+        <label>String</label>
+      </node>
+      <node id="108">
+        <label>com.qualoutdoor.recorder.network.FileToUpload</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload"/>
+        <childnode refid="109" relation="usage">
+          <edgelabel>-content</edgelabel>
+        </childnode>
+        <childnode refid="110" relation="usage">
+          <edgelabel>-fileName</edgelabel>
+        </childnode>
+      </node>
+      <node id="109">
+        <label>InputStream</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" line="5" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/FileToUpload.java" bodystart="5" bodyend="37"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload_1a0c16a47c8e2db1f26b41b2c8a4269e27" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::FileToUpload</scope><name>content</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload_1acf965342e748e1d80c1fe84033efeb8a" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::FileToUpload</scope><name>fileName</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload_1ab31f8d9fe40f9c7ed00299bdab866e23" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::FileToUpload</scope><name>FileToUpload</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload_1aabd0433a2a37b280bfdafae9ab6e75e9" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::FileToUpload</scope><name>getContent</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload_1a15699757be49837291a47aec4bc18782" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::FileToUpload</scope><name>getFileName</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload_1a50660ee9a827a5a3e1903c8d3ce9c584" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::FileToUpload</scope><name>setContent</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload_1aca5f7083002ec7cee65dea965abf0110" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::network::FileToUpload</scope><name>setFileName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

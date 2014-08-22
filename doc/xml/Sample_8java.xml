@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="Sample_8java" kind="file">
+    <compoundname>Sample.java</compoundname>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample" prot="public">com::qualoutdoor::recorder::persistent::Sample</innerclass>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1persistent">com::qualoutdoor::recorder::persistent</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.qualoutdoor.recorder.persistent;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>android.util.SparseArray;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample" kindref="compound">Sample</ref><sp/>{</highlight></codeline>
+<codeline lineno="21" refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_1a52c7340819515588f1e6d95ede6e2c4a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext" kindref="compound">MeasureContext</ref><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_1a52c7340819515588f1e6d95ede6e2c4a" kindref="member">measureContext</ref>;</highlight></codeline>
+<codeline lineno="23" refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_1aa1aae6bf605a0fa9a350dace8a59e4fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>SparseArray&lt;String&gt;<sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_1aa1aae6bf605a0fa9a350dace8a59e4fd" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="25" refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_1a546a9b2be598d117d65a4f716318e882" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_1a546a9b2be598d117d65a4f716318e882" kindref="member">latitude</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>longitude;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_1ab6e3377acb6df03cf431064e5c2ed4a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_1ab6e3377acb6df03cf431064e5c2ed4a2" kindref="member">Sample</ref>(<ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext" kindref="compound">MeasureContext</ref><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_1a52c7340819515588f1e6d95ede6e2c4a" kindref="member">measureContext</ref>,<sp/>SparseArray&lt;String&gt;<sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_1aa1aae6bf605a0fa9a350dace8a59e4fd" kindref="member">data</ref>,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_1a546a9b2be598d117d65a4f716318e882" kindref="member">latitude</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>longitude)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.measureContext<sp/>=<sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_1a52c7340819515588f1e6d95ede6e2c4a" kindref="member">measureContext</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.data<sp/>=<sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_1aa1aae6bf605a0fa9a350dace8a59e4fd" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.latitude<sp/>=<sp/><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1Sample_1a546a9b2be598d117d65a4f716318e882" kindref="member">latitude</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this.longitude<sp/>=<sp/>longitude;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/Sample.java"/>
+  </compounddef>
+</doxygen>

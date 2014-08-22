@@ -1,0 +1,353 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::persistent::MeasureContext</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a90a42d87cdb2aeb2c6f1af038a9afdcf" prot="private" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.persistent.MeasureContext.TREE_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>TREE_LENGTH</name>
+        <initializer>= 6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="15" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1afcaeea53c13a931fb87e08dc1e117d07" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.persistent.MeasureContext.GROUP_INDEX</definition>
+        <argsstring></argsstring>
+        <name>GROUP_INDEX</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="17" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a7977df750eabea28ce82fa1ddd485dd0" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.persistent.MeasureContext.USER_INDEX</definition>
+        <argsstring></argsstring>
+        <name>USER_INDEX</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="18" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1ae303f49e8269bc9dc0ac38e1f64b08a3" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.persistent.MeasureContext.MCC_INDEX</definition>
+        <argsstring></argsstring>
+        <name>MCC_INDEX</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="19" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a41d8fd46881fc5bf70dc875c980bd47f" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.persistent.MeasureContext.MNC_INDEX</definition>
+        <argsstring></argsstring>
+        <name>MNC_INDEX</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="20" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a75e73bf6b2cad7bd8d5ad486531c595f" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.persistent.MeasureContext.NTC_INDEX</definition>
+        <argsstring></argsstring>
+        <name>NTC_INDEX</name>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="21" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a02eb38f0f7544f061e9053b399211652" prot="public" static="yes" mutable="no">
+        <type>final int</type>
+        <definition>final int com.qualoutdoor.recorder.persistent.MeasureContext.METRIC_INDEX</definition>
+        <argsstring></argsstring>
+        <name>METRIC_INDEX</name>
+        <initializer>= TREE_LENGTH - 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="22" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a6aad1973ffdd0a971e585bd2ffdf7749" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.persistent.MeasureContext.lengthTree</definition>
+        <argsstring></argsstring>
+        <name>lengthTree</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="24" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1acb05ac566e761fbdcf5f3fd1e8912543" prot="private" static="no" mutable="no">
+        <type>ArrayList&lt; Integer &gt;</type>
+        <definition>ArrayList&lt;Integer&gt; com.qualoutdoor.recorder.persistent.MeasureContext.stages</definition>
+        <argsstring></argsstring>
+        <name>stages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="29" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a2f2d5c3742f51491bf82b1bc068fffac" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.persistent.MeasureContext.cursor</definition>
+        <argsstring></argsstring>
+        <name>cursor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="32" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a28e5e2cf898f5c088ddc0bc671a899c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.persistent.MeasureContext.MeasureContext</definition>
+        <argsstring>()</argsstring>
+        <name>MeasureContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="34" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="34" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a1f3da609880a4aaf69c29cb94f61488f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext" kindref="compound">MeasureContext</ref></type>
+        <definition>MeasureContext com.qualoutdoor.recorder.persistent.MeasureContext.clone</definition>
+        <argsstring>()</argsstring>
+        <name>clone</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return a deep copy of this instance </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="45" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="45" bodyend="58"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1recording_1_1RecordingService_1a12f1be0452c47a4dfcdb99ce40f1d21f" compoundref="RecordingService_8java" startline="218" endline="303">com.qualoutdoor.recorder.recording.RecordingService.sample</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a7801f88d264dd4814f5b0a9d8a8ac5e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.persistent.MeasureContext.getlength</definition>
+        <argsstring>()</argsstring>
+        <name>getlength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="60" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="60" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1ae064b805fa6196a8e545e4ed461e8168" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.persistent.MeasureContext.getCursor</definition>
+        <argsstring>()</argsstring>
+        <name>getCursor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="64" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="64" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a87ab3849cdf6ec4d8608bcb343de9b70" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.persistent.MeasureContext.getStage</definition>
+        <argsstring>(int index)</argsstring>
+        <name>getStage</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="68" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="68" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a623c0d7464194d35b2e6e9f42a33ddf1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.persistent.MeasureContext.resetCursor</definition>
+        <argsstring>()</argsstring>
+        <name>resetCursor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="72" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="72" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a45e3bae7db643bf077962cba6748e6f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.persistent.MeasureContext.set</definition>
+        <argsstring>(int index, int value)</argsstring>
+        <name>set</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="77" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="77" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a0329b02d79c2b1c2501d0b89fc5fbf3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.persistent.MeasureContext.isCorrectlySet</definition>
+        <argsstring>()</argsstring>
+        <name>isCorrectlySet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="82" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="82" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1af48fc7bafca1551c317d487691feb1c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.persistent.MeasureContext.moveToChild</definition>
+        <argsstring>()</argsstring>
+        <name>moveToChild</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="105" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="105" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a8dcb049ccb0ab884df15ec1cc46ba7d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.persistent.MeasureContext.isAtEnd</definition>
+        <argsstring>()</argsstring>
+        <name>isAtEnd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="113" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="113" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a1d22cb9fae0cf53d2da5872f5e47e135" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.persistent.MeasureContext.reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="128" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="128" bodyend="135"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="228">
+        <label>ArrayList</label>
+      </node>
+      <node id="227">
+        <label>ArrayList&lt; Integer &gt;</label>
+        <childnode refid="228" relation="template-instance">
+          <edgelabel>&lt; Integer &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="226">
+        <label>com.qualoutdoor.recorder.persistent.MeasureContext</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext"/>
+        <childnode refid="227" relation="usage">
+          <edgelabel>-stages</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" line="13" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/persistent/MeasureContext.java" bodystart="13" bodyend="137"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a1f3da609880a4aaf69c29cb94f61488f" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>clone</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a2f2d5c3742f51491bf82b1bc068fffac" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>cursor</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1ae064b805fa6196a8e545e4ed461e8168" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>getCursor</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a7801f88d264dd4814f5b0a9d8a8ac5e6" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>getlength</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a87ab3849cdf6ec4d8608bcb343de9b70" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>getStage</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1afcaeea53c13a931fb87e08dc1e117d07" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>GROUP_INDEX</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a8dcb049ccb0ab884df15ec1cc46ba7d7" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>isAtEnd</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a0329b02d79c2b1c2501d0b89fc5fbf3e" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>isCorrectlySet</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a6aad1973ffdd0a971e585bd2ffdf7749" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>lengthTree</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1ae303f49e8269bc9dc0ac38e1f64b08a3" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>MCC_INDEX</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a28e5e2cf898f5c088ddc0bc671a899c3" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>MeasureContext</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a02eb38f0f7544f061e9053b399211652" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>METRIC_INDEX</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a41d8fd46881fc5bf70dc875c980bd47f" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>MNC_INDEX</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1af48fc7bafca1551c317d487691feb1c7" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>moveToChild</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a75e73bf6b2cad7bd8d5ad486531c595f" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>NTC_INDEX</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a1d22cb9fae0cf53d2da5872f5e47e135" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>reset</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a623c0d7464194d35b2e6e9f42a33ddf1" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>resetCursor</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a45e3bae7db643bf077962cba6748e6f1" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>set</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1acb05ac566e761fbdcf5f3fd1e8912543" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>stages</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a90a42d87cdb2aeb2c6f1af038a9afdcf" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>TREE_LENGTH</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1persistent_1_1MeasureContext_1a7977df750eabea28ce82fa1ddd485dd0" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::persistent::MeasureContext</scope><name>USER_INDEX</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

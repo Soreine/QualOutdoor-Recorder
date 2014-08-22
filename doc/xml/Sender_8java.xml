@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="Sender_8java" kind="file">
+    <compoundname>Sender.java</compoundname>
+    <innerclass refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1network_1_1Sender" prot="public">com::qualoutdoor::recorder::network::Sender</innerclass>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder_1_1network">com::qualoutdoor::recorder::network</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.qualoutdoor.recorder.network;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>java.io.InputStream;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*Classe<sp/>abstraite<sp/>dont<sp/>doivent<sp/>h�riter<sp/>toutes<sp/>les<sp/>solutions<sp/>d&apos;�changes<sp/>de<sp/>fichier</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>elles<sp/>devront<sp/>donc<sp/>implementer<sp/>la<sp/>m�thode<sp/>envoyerFichier<sp/>r�alisant<sp/>l&apos;envoi<sp/>d&apos;information<sp/></highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>et<sp/>toutes<sp/>les<sp/>proc�dures<sp/>auxilliaires<sp/>selon<sp/>le<sp/>protocole<sp/>correspondant</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1network_1_1Sender" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1network_1_1Sender" kindref="compound">Sender</ref><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>sendFile(String<sp/>URL,String<sp/>fileName,InputStream<sp/>content<sp/>);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/Sender.java"/>
+  </compounddef>
+</doxygen>

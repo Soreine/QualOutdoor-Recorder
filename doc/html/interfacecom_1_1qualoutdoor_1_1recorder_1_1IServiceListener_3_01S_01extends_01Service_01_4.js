@@ -1,0 +1,4 @@
+var interfacecom_1_1qualoutdoor_1_1recorder_1_1IServiceListener_3_01S_01extends_01Service_01_4 =
+[
+    [ "onServiceAvailable", "interfacecom_1_1qualoutdoor_1_1recorder_1_1IServiceListener_3_01S_01extends_01Service_01_4.html#a8ae86c5db9afafc83bf51b1cfb4e1ea9", null ]
+];

@@ -1,0 +1,797 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo" kind="class" prot="public">
+    <compoundname>com::qualoutdoor::recorder::telephony::CustomCellInfo</compoundname>
+    <basecompoundref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo" prot="public" virt="non-virtual">com.qualoutdoor.recorder.telephony.ICellInfo</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a8acfb6c3a7dfdb3dfbc27da18f49e77e" prot="private" static="no" mutable="no">
+        <type>Bundle</type>
+        <definition>Bundle com.qualoutdoor.recorder.telephony.CustomCellInfo.infoBundle</definition>
+        <argsstring></argsstring>
+        <name>infoBundle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This bundle hold all the cell infos. We are using bundles because they let us provide partial informations. Plus they are easily passed between activities. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="31" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="31" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a4d1f51ec74597facb936f02d07f05a38" compoundref="CustomCellInfo_8java" startline="289" endline="293">com.qualoutdoor.recorder.telephony.CustomCellInfo.getSignalStrength</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a638ed63a0341e0753ca2c8b12ceae1bd" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.telephony.CustomCellInfo.CELL_TYPE</definition>
+        <argsstring></argsstring>
+        <name>CELL_TYPE</name>
+        <initializer>= &quot;cell_type&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the cell type code. Holds an int. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="37" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="37" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a3603b4b5704ea4e03bc2d46071c57524" compoundref="CustomCellInfo_8java" startline="124" endline="141">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a1d11b3897313e6f2f3a68820886752c0" compoundref="CustomCellInfo_8java" startline="273" endline="276">com.qualoutdoor.recorder.telephony.CustomCellInfo.getCellType</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a33a6ffe22bfac0d38f9735ff411f8f12" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.telephony.CustomCellInfo.TIMESTAMP</definition>
+        <argsstring></argsstring>
+        <name>TIMESTAMP</name>
+        <initializer>= &quot;timestamp&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the timestamp value. Holds a long integer. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="39" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="39" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad28c67a38f2c50d99858da70b2c7744e" compoundref="CustomCellInfo_8java" startline="109" endline="116">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1aa1994d24bdd20e56e587aa7e2ac8f970" compoundref="CustomCellInfo_8java" startline="279" endline="281">com.qualoutdoor.recorder.telephony.CustomCellInfo.getTimeStamp</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a57373f5459c9605b6881c79bc4eb51cb" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.telephony.CustomCellInfo.IS_REGISTERED</definition>
+        <argsstring></argsstring>
+        <name>IS_REGISTERED</name>
+        <initializer>= &quot;is_registered&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores if the cell is registered. Holds a boolean. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="41" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="41" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad28c67a38f2c50d99858da70b2c7744e" compoundref="CustomCellInfo_8java" startline="109" endline="116">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1aad17258b7352df3ce4e7d3bce90279ca" compoundref="CustomCellInfo_8java" startline="284" endline="286">com.qualoutdoor.recorder.telephony.CustomCellInfo.isRegistered</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a1dbe98f06e11635cd0158322456b3057" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.telephony.CustomCellInfo.SIGNAL_STRENGTH</definition>
+        <argsstring></argsstring>
+        <name>SIGNAL_STRENGTH</name>
+        <initializer>= &quot;signal_strength&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the signal strength. Holds a bundle containing the signal strength values. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="46" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="46" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a4d1f51ec74597facb936f02d07f05a38" compoundref="CustomCellInfo_8java" startline="289" endline="293">com.qualoutdoor.recorder.telephony.CustomCellInfo.getSignalStrength</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad2bf09c37f3f7580f67e42cbb5a7aed7" compoundref="CustomCellInfo_8java" startline="222" endline="227">com.qualoutdoor.recorder.telephony.CustomCellInfo.putSignalStrength</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a75a77bb9f669b3a1aa876a28d304515c" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.telephony.CustomCellInfo.CID</definition>
+        <argsstring></argsstring>
+        <name>CID</name>
+        <initializer>= &quot;cid&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the Cell ID. Holds an int. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="48" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="48" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a3603b4b5704ea4e03bc2d46071c57524" compoundref="CustomCellInfo_8java" startline="124" endline="141">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1abaea62854f67e9964d86a8f71155f49e" compoundref="CustomCellInfo_8java" startline="296" endline="298">com.qualoutdoor.recorder.telephony.CustomCellInfo.getCid</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1abbcac278b7713cb160b37b86696ba40a" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.telephony.CustomCellInfo.LAC</definition>
+        <argsstring></argsstring>
+        <name>LAC</name>
+        <initializer>= &quot;lac&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the Location Area Code (GSM, WCDMA). Holds an int. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="50" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a3603b4b5704ea4e03bc2d46071c57524" compoundref="CustomCellInfo_8java" startline="124" endline="141">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a2b125c8112c0e721a03d0d8103875b13" compoundref="CustomCellInfo_8java" startline="301" endline="303">com.qualoutdoor.recorder.telephony.CustomCellInfo.getLac</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad76b1e387100db38e0a1a595549a600e" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.telephony.CustomCellInfo.MCC</definition>
+        <argsstring></argsstring>
+        <name>MCC</name>
+        <initializer>= &quot;mcc&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the Mobile Country Code. Holds an int. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="52" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="52" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a3603b4b5704ea4e03bc2d46071c57524" compoundref="CustomCellInfo_8java" startline="124" endline="141">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a99719532e25b5c6aad54f2bd8cf4d501" compoundref="CustomCellInfo_8java" startline="306" endline="308">com.qualoutdoor.recorder.telephony.CustomCellInfo.getMcc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1afd17b782dc967deb719feb1830c4bf08" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.telephony.CustomCellInfo.MNC</definition>
+        <argsstring></argsstring>
+        <name>MNC</name>
+        <initializer>= &quot;mnc&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the Mobile Network Code. Holds an int. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="54" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="54" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a3603b4b5704ea4e03bc2d46071c57524" compoundref="CustomCellInfo_8java" startline="124" endline="141">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a6d16d55ddbcecd9e9d572766b15cfec6" compoundref="CustomCellInfo_8java" startline="311" endline="313">com.qualoutdoor.recorder.telephony.CustomCellInfo.getMnc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a350eb321837733c01ad938780171b5d9" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.telephony.CustomCellInfo.PSC</definition>
+        <argsstring></argsstring>
+        <name>PSC</name>
+        <initializer>= &quot;psc&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the Primary Scrambling Code (WCDMA). Holds an int. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="56" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="56" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a97a065cf9b9a2c9886c4db7e79a61469" compoundref="CustomCellInfo_8java" startline="201" endline="219">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a0a100d98e502e0f0d2cc804952c1311e" compoundref="CustomCellInfo_8java" startline="316" endline="318">com.qualoutdoor.recorder.telephony.CustomCellInfo.getPsc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1adab6d65fadb5d7a446f5a8c10eab8a79" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.telephony.CustomCellInfo.PCI</definition>
+        <argsstring></argsstring>
+        <name>PCI</name>
+        <initializer>= &quot;pci&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the Physical Cell ID (LTE). Holds an int. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="58" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="58" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a5e4b002d86a4d579db2710555b57e833" compoundref="CustomCellInfo_8java" startline="149" endline="169">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a8d403f02347f23e0c8b3bf842b904265" compoundref="CustomCellInfo_8java" startline="321" endline="323">com.qualoutdoor.recorder.telephony.CustomCellInfo.getPci</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a67566ea7b47531de3a99e6aea5225212" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.telephony.CustomCellInfo.TAC</definition>
+        <argsstring></argsstring>
+        <name>TAC</name>
+        <initializer>= &quot;tac&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stores the Tracking Area Code (LTE). Holds an int. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="60" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="60" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a5e4b002d86a4d579db2710555b57e833" compoundref="CustomCellInfo_8java" startline="149" endline="169">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a892d670fa07339288766a151b9da2129" compoundref="CustomCellInfo_8java" startline="326" endline="328">com.qualoutdoor.recorder.telephony.CustomCellInfo.getTac</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a87dd7521694de75516af18a053fd2701" prot="private" static="yes" mutable="no">
+        <type>final String</type>
+        <definition>final String com.qualoutdoor.recorder.telephony.CustomCellInfo.TA</definition>
+        <argsstring></argsstring>
+        <name>TA</name>
+        <initializer>= &quot;ta&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Store the Timing Advance (LTE). Holds an int. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="62" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="62" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a5e4b002d86a4d579db2710555b57e833" compoundref="CustomCellInfo_8java" startline="149" endline="169">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</referencedby>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1abae9d77a5f1f6f451aabb43359c2c39a" compoundref="CustomCellInfo_8java" startline="331" endline="333">com.qualoutdoor.recorder.telephony.CustomCellInfo.getTimingAdvance</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a43d9dc5eb9e584f508a67fc2ace6c61c" prot="private" static="yes" mutable="no">
+        <type>final Bundle</type>
+        <definition>final Bundle com.qualoutdoor.recorder.telephony.CustomCellInfo.defaultBundle</definition>
+        <argsstring></argsstring>
+        <name>defaultBundle</name>
+        <initializer>= new Bundle()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A bundle we clone to initialize the default values for a <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo" kindref="compound">CustomCellInfo</ref> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="66" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="66" bodyend="-1"/>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a0fa8dfdd8d509a0361c1286ea28907f6" compoundref="CustomCellInfo_8java" startline="82" endline="85">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a500ec0f205a87fb2c7043d7b0fe72250" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.telephony.CustomCellInfo.[instance initializer]</definition>
+        <argsstring></argsstring>
+        <name>[instance initializer]</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="66" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a0fa8dfdd8d509a0361c1286ea28907f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</definition>
+        <argsstring>()</argsstring>
+        <name>CustomCellInfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create an empty <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo" kindref="compound">CustomCellInfo</ref> </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="82" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="82" bodyend="85"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a43d9dc5eb9e584f508a67fc2ace6c61c" compoundref="CustomCellInfo_8java" startline="66">com.qualoutdoor.recorder.telephony.CustomCellInfo.defaultBundle</references>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a361d82a592568ef3a648a4e2273fbc84" compoundref="CustomCellInfo_8java" startline="239" endline="261">com.qualoutdoor.recorder.telephony.CustomCellInfo.buildFromCellInfo</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a43aa08090aedc7865df681a21146ac18" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</definition>
+        <argsstring>(Bundle infos)</argsstring>
+        <name>CustomCellInfo</name>
+        <param>
+          <type>Bundle</type>
+          <declname>infos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo" kindref="compound">CustomCellInfo</ref> from a bundle containing the necessary informations.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>infos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bundle that contains all the known informations about the cell. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="95" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="95" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a3603b4b5704ea4e03bc2d46071c57524" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</definition>
+        <argsstring>(CellInfoGsm cell)</argsstring>
+        <name>CustomCellInfo</name>
+        <param>
+          <type>CellInfoGsm</type>
+          <declname>cell</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo" kindref="compound">CustomCellInfo</ref> from the Android CellInfoGsm implementation.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cell</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The CellInfoGsm to initialize from. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="124" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="124" bodyend="141"/>
+        <references refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1ad27215ddfa59d1422d2a1256bbe3b4a5" compoundref="ICellInfo_8java" startline="17">com.qualoutdoor.recorder.telephony.ICellInfo.CELL_GSM</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a638ed63a0341e0753ca2c8b12ceae1bd" compoundref="CustomCellInfo_8java" startline="37">com.qualoutdoor.recorder.telephony.CustomCellInfo.CELL_TYPE</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a75a77bb9f669b3a1aa876a28d304515c" compoundref="CustomCellInfo_8java" startline="48">com.qualoutdoor.recorder.telephony.CustomCellInfo.CID</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1abbcac278b7713cb160b37b86696ba40a" compoundref="CustomCellInfo_8java" startline="50">com.qualoutdoor.recorder.telephony.CustomCellInfo.LAC</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad76b1e387100db38e0a1a595549a600e" compoundref="CustomCellInfo_8java" startline="52">com.qualoutdoor.recorder.telephony.CustomCellInfo.MCC</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1afd17b782dc967deb719feb1830c4bf08" compoundref="CustomCellInfo_8java" startline="54">com.qualoutdoor.recorder.telephony.CustomCellInfo.MNC</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad2bf09c37f3f7580f67e42cbb5a7aed7" compoundref="CustomCellInfo_8java" startline="222" endline="227">com.qualoutdoor.recorder.telephony.CustomCellInfo.putSignalStrength</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a5e4b002d86a4d579db2710555b57e833" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</definition>
+        <argsstring>(CellInfoLte cell)</argsstring>
+        <name>CustomCellInfo</name>
+        <param>
+          <type>CellInfoLte</type>
+          <declname>cell</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo" kindref="compound">CustomCellInfo</ref> from the Android CellInfoLte implementation.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cell</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The CellInfoLte to initialize from. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="149" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="149" bodyend="169"/>
+        <references refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1aa4f53a54041f72afca755d9e0fd28381" compoundref="ICellInfo_8java" startline="19">com.qualoutdoor.recorder.telephony.ICellInfo.CELL_LTE</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a638ed63a0341e0753ca2c8b12ceae1bd" compoundref="CustomCellInfo_8java" startline="37">com.qualoutdoor.recorder.telephony.CustomCellInfo.CELL_TYPE</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a75a77bb9f669b3a1aa876a28d304515c" compoundref="CustomCellInfo_8java" startline="48">com.qualoutdoor.recorder.telephony.CustomCellInfo.CID</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1abae9d77a5f1f6f451aabb43359c2c39a" compoundref="CustomCellInfo_8java" startline="331" endline="333">com.qualoutdoor.recorder.telephony.CustomCellInfo.getTimingAdvance</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad76b1e387100db38e0a1a595549a600e" compoundref="CustomCellInfo_8java" startline="52">com.qualoutdoor.recorder.telephony.CustomCellInfo.MCC</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1afd17b782dc967deb719feb1830c4bf08" compoundref="CustomCellInfo_8java" startline="54">com.qualoutdoor.recorder.telephony.CustomCellInfo.MNC</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1adab6d65fadb5d7a446f5a8c10eab8a79" compoundref="CustomCellInfo_8java" startline="58">com.qualoutdoor.recorder.telephony.CustomCellInfo.PCI</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad2bf09c37f3f7580f67e42cbb5a7aed7" compoundref="CustomCellInfo_8java" startline="222" endline="227">com.qualoutdoor.recorder.telephony.CustomCellInfo.putSignalStrength</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a87dd7521694de75516af18a053fd2701" compoundref="CustomCellInfo_8java" startline="62">com.qualoutdoor.recorder.telephony.CustomCellInfo.TA</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a67566ea7b47531de3a99e6aea5225212" compoundref="CustomCellInfo_8java" startline="60">com.qualoutdoor.recorder.telephony.CustomCellInfo.TAC</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a7b6465c642331745f7b6e2706fd365fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</definition>
+        <argsstring>(CellInfoCdma cell)</argsstring>
+        <name>CustomCellInfo</name>
+        <param>
+          <type>CellInfoCdma</type>
+          <declname>cell</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo" kindref="compound">CustomCellInfo</ref> from the Android CellInfoCdma implementation.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cell</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The CellInfoCdma to initialize from. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="177" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="177" bodyend="192"/>
+        <references refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1aa5c8d4827f26d46fe9621f199c6b29fb" compoundref="ICellInfo_8java" startline="15">com.qualoutdoor.recorder.telephony.ICellInfo.CELL_CDMA</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a638ed63a0341e0753ca2c8b12ceae1bd" compoundref="CustomCellInfo_8java" startline="37">com.qualoutdoor.recorder.telephony.CustomCellInfo.CELL_TYPE</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad2bf09c37f3f7580f67e42cbb5a7aed7" compoundref="CustomCellInfo_8java" startline="222" endline="227">com.qualoutdoor.recorder.telephony.CustomCellInfo.putSignalStrength</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a97a065cf9b9a2c9886c4db7e79a61469" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</definition>
+        <argsstring>(CellInfoWcdma cell)</argsstring>
+        <name>CustomCellInfo</name>
+        <param>
+          <type>CellInfoWcdma</type>
+          <declname>cell</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo" kindref="compound">CustomCellInfo</ref> from the Android CellInfoWcdma implementation.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cell</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The CellInfoWcdma to initialize from. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="201" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="201" bodyend="219"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a638ed63a0341e0753ca2c8b12ceae1bd" compoundref="CustomCellInfo_8java" startline="37">com.qualoutdoor.recorder.telephony.CustomCellInfo.CELL_TYPE</references>
+        <references refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1a9ab4346644d241cb15eb93a90bbb307e" compoundref="ICellInfo_8java" startline="21">com.qualoutdoor.recorder.telephony.ICellInfo.CELL_WCDMA</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a75a77bb9f669b3a1aa876a28d304515c" compoundref="CustomCellInfo_8java" startline="48">com.qualoutdoor.recorder.telephony.CustomCellInfo.CID</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1abbcac278b7713cb160b37b86696ba40a" compoundref="CustomCellInfo_8java" startline="50">com.qualoutdoor.recorder.telephony.CustomCellInfo.LAC</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad76b1e387100db38e0a1a595549a600e" compoundref="CustomCellInfo_8java" startline="52">com.qualoutdoor.recorder.telephony.CustomCellInfo.MCC</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1afd17b782dc967deb719feb1830c4bf08" compoundref="CustomCellInfo_8java" startline="54">com.qualoutdoor.recorder.telephony.CustomCellInfo.MNC</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a350eb321837733c01ad938780171b5d9" compoundref="CustomCellInfo_8java" startline="56">com.qualoutdoor.recorder.telephony.CustomCellInfo.PSC</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad2bf09c37f3f7580f67e42cbb5a7aed7" compoundref="CustomCellInfo_8java" startline="222" endline="227">com.qualoutdoor.recorder.telephony.CustomCellInfo.putSignalStrength</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a8c9db0839b7c4b08e37fc6e619660411" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Bundle</type>
+        <definition>Bundle com.qualoutdoor.recorder.telephony.CustomCellInfo.getBundle</definition>
+        <argsstring>()</argsstring>
+        <name>getBundle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return a bundle containing the cell information.</para><para><simplesect kind="return"><para>This cell info as a Bundle </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="268" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="268" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a1d11b3897313e6f2f3a68820886752c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.telephony.CustomCellInfo.getCellType</definition>
+        <argsstring>()</argsstring>
+        <name>getCellType</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1a3663dca691f9e742d1cfd326f87509aa">getCellType</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the cell type code. The code returned indicates the technology associated with the cell.</para><para><simplesect kind="return"><para>The Cell Type code : CELL_UNKNOWN, CELL_CDMA, CELL_GSM, CELL_LTE, CELL_WCDMA </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="273" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="273" bodyend="276"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a638ed63a0341e0753ca2c8b12ceae1bd" compoundref="CustomCellInfo_8java" startline="37">com.qualoutdoor.recorder.telephony.CustomCellInfo.CELL_TYPE</references>
+        <references refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1ae937638061aa70b32f061198cf7462c1" compoundref="ICellInfo_8java" startline="13">com.qualoutdoor.recorder.telephony.ICellInfo.CELL_UNKNOWN</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1aa1994d24bdd20e56e587aa7e2ac8f970" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>long</type>
+        <definition>long com.qualoutdoor.recorder.telephony.CustomCellInfo.getTimeStamp</definition>
+        <argsstring>()</argsstring>
+        <name>getTimeStamp</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1a20aaca32b7aad64bca27b703e4f6dbb5">getTimeStamp</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Approximate time of this cell information in nanoseconds since boot </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="279" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="279" bodyend="281"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a33a6ffe22bfac0d38f9735ff411f8f12" compoundref="CustomCellInfo_8java" startline="39">com.qualoutdoor.recorder.telephony.CustomCellInfo.TIMESTAMP</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1aad17258b7352df3ce4e7d3bce90279ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean com.qualoutdoor.recorder.telephony.CustomCellInfo.isRegistered</definition>
+        <argsstring>()</argsstring>
+        <name>isRegistered</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1aced3d6782e7e962ab4a92e2e8af5e280">isRegistered</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>True if this cell is registered to the network. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="284" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="284" bodyend="286"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a57373f5459c9605b6881c79bc4eb51cb" compoundref="CustomCellInfo_8java" startline="41">com.qualoutdoor.recorder.telephony.CustomCellInfo.IS_REGISTERED</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a4d1f51ec74597facb936f02d07f05a38" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ISignalStrength" kindref="compound">ISignalStrength</ref></type>
+        <definition>ISignalStrength com.qualoutdoor.recorder.telephony.CustomCellInfo.getSignalStrength</definition>
+        <argsstring>()</argsstring>
+        <name>getSignalStrength</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1a313b608560918860243d82cb6407420d">getSignalStrength</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Return an object that encapsulate the signal strength from this cell </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="289" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="289" bodyend="293"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a8acfb6c3a7dfdb3dfbc27da18f49e77e" compoundref="CustomCellInfo_8java" startline="31">com.qualoutdoor.recorder.telephony.CustomCellInfo.infoBundle</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a1dbe98f06e11635cd0158322456b3057" compoundref="CustomCellInfo_8java" startline="46">com.qualoutdoor.recorder.telephony.CustomCellInfo.SIGNAL_STRENGTH</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1abaea62854f67e9964d86a8f71155f49e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.telephony.CustomCellInfo.getCid</definition>
+        <argsstring>()</argsstring>
+        <name>getCid</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1a7fb77e1eeb81e53a1c31b878a8d8d160">getCid</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the Cell Identity.</para><para><simplesect kind="return"><para>The CID. Integer.MAX_VALUE if unknown or not GSM, WCDMA, LTE. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="296" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="296" bodyend="298"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a75a77bb9f669b3a1aa876a28d304515c" compoundref="CustomCellInfo_8java" startline="48">com.qualoutdoor.recorder.telephony.CustomCellInfo.CID</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a2b125c8112c0e721a03d0d8103875b13" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.telephony.CustomCellInfo.getLac</definition>
+        <argsstring>()</argsstring>
+        <name>getLac</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1a33f1b49c1da6aea7ae84967dfef58160">getLac</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the Location Area Code.</para><para><simplesect kind="return"><para>The LAC. Integer.MAX_VALUE if unknown or not GSM, WCDMA. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="301" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="301" bodyend="303"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1abbcac278b7713cb160b37b86696ba40a" compoundref="CustomCellInfo_8java" startline="50">com.qualoutdoor.recorder.telephony.CustomCellInfo.LAC</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a99719532e25b5c6aad54f2bd8cf4d501" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.telephony.CustomCellInfo.getMcc</definition>
+        <argsstring>()</argsstring>
+        <name>getMcc</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1a369ff8e6df176bbc19bdbc598f590527">getMcc</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the Mobile Country Code.</para><para><simplesect kind="return"><para>The MCC. Integer.MAX_VALUE if unknown or not GSM, WCDMA, LTE. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="306" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="306" bodyend="308"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad76b1e387100db38e0a1a595549a600e" compoundref="CustomCellInfo_8java" startline="52">com.qualoutdoor.recorder.telephony.CustomCellInfo.MCC</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a6d16d55ddbcecd9e9d572766b15cfec6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.telephony.CustomCellInfo.getMnc</definition>
+        <argsstring>()</argsstring>
+        <name>getMnc</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1add4db1dc9e264e3cdc3568fbbb68d191">getMnc</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the Mobile Network Code.</para><para><simplesect kind="return"><para>The MNC. Integer.MAX_VALUE if unknown or not GSM, WCDMA, LTE. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="311" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="311" bodyend="313"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1afd17b782dc967deb719feb1830c4bf08" compoundref="CustomCellInfo_8java" startline="54">com.qualoutdoor.recorder.telephony.CustomCellInfo.MNC</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a0a100d98e502e0f0d2cc804952c1311e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.telephony.CustomCellInfo.getPsc</definition>
+        <argsstring>()</argsstring>
+        <name>getPsc</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1a277ddcdfb621c92dc4e82e8fb027c753">getPsc</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the primary scrambling code.</para><para><simplesect kind="return"><para>The CID. Integer.MAX_VALUE if unknown or not WCDMA. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="316" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="316" bodyend="318"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a350eb321837733c01ad938780171b5d9" compoundref="CustomCellInfo_8java" startline="56">com.qualoutdoor.recorder.telephony.CustomCellInfo.PSC</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a8d403f02347f23e0c8b3bf842b904265" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.telephony.CustomCellInfo.getPci</definition>
+        <argsstring>()</argsstring>
+        <name>getPci</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1a84723fda8dde5c00df6c2289d7fb454a">getPci</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the Physical Cell ID.</para><para><simplesect kind="return"><para>The PCI. Integer.MAX_VALUE if unknown or not LTE. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="321" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="321" bodyend="323"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1adab6d65fadb5d7a446f5a8c10eab8a79" compoundref="CustomCellInfo_8java" startline="58">com.qualoutdoor.recorder.telephony.CustomCellInfo.PCI</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a892d670fa07339288766a151b9da2129" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.telephony.CustomCellInfo.getTac</definition>
+        <argsstring>()</argsstring>
+        <name>getTac</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1a38f17ad0de3a83d1264a954f686c16a0">getTac</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the Tracking Area Code.</para><para><simplesect kind="return"><para>The TAC. Integer.MAX_VALUE if unknown or not LTE. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="326" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="326" bodyend="328"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a67566ea7b47531de3a99e6aea5225212" compoundref="CustomCellInfo_8java" startline="60">com.qualoutdoor.recorder.telephony.CustomCellInfo.TAC</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1abae9d77a5f1f6f451aabb43359c2c39a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int com.qualoutdoor.recorder.telephony.CustomCellInfo.getTimingAdvance</definition>
+        <argsstring>()</argsstring>
+        <name>getTimingAdvance</name>
+        <reimplements refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1ac46bfc48f45db5d3b654609dae963066">getTimingAdvance</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the Timing Advance value.</para><para><simplesect kind="return"><para>The Timing Advance. Integer.MAX_VALUE if unknown or not LTE. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="331" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="331" bodyend="333"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a87dd7521694de75516af18a053fd2701" compoundref="CustomCellInfo_8java" startline="62">com.qualoutdoor.recorder.telephony.CustomCellInfo.TA</references>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a5e4b002d86a4d579db2710555b57e833" compoundref="CustomCellInfo_8java" startline="149" endline="169">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad28c67a38f2c50d99858da70b2c7744e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</definition>
+        <argsstring>(CellInfo cell)</argsstring>
+        <name>CustomCellInfo</name>
+        <param>
+          <type>CellInfo</type>
+          <declname>cell</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo" kindref="compound">CustomCellInfo</ref> from the Android CellInfo implementation. This only initialize the generic fields from the CellInfo class.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cell</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The CellInfo to initialize from. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="109" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="109" bodyend="116"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a57373f5459c9605b6881c79bc4eb51cb" compoundref="CustomCellInfo_8java" startline="41">com.qualoutdoor.recorder.telephony.CustomCellInfo.IS_REGISTERED</references>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a33a6ffe22bfac0d38f9735ff411f8f12" compoundref="CustomCellInfo_8java" startline="39">com.qualoutdoor.recorder.telephony.CustomCellInfo.TIMESTAMP</references>
+      </memberdef>
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad2bf09c37f3f7580f67e42cbb5a7aed7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void com.qualoutdoor.recorder.telephony.CustomCellInfo.putSignalStrength</definition>
+        <argsstring>(CellSignalStrength cellSS)</argsstring>
+        <name>putSignalStrength</name>
+        <param>
+          <type>CellSignalStrength</type>
+          <declname>cellSS</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parse and put the signal strength into the bundle </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="222" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="222" bodyend="227"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a1dbe98f06e11635cd0158322456b3057" compoundref="CustomCellInfo_8java" startline="46">com.qualoutdoor.recorder.telephony.CustomCellInfo.SIGNAL_STRENGTH</references>
+        <referencedby refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a3603b4b5704ea4e03bc2d46071c57524" compoundref="CustomCellInfo_8java" startline="124" endline="141">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a361d82a592568ef3a648a4e2273fbc84" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo" kindref="compound">CustomCellInfo</ref></type>
+        <definition>static CustomCellInfo com.qualoutdoor.recorder.telephony.CustomCellInfo.buildFromCellInfo</definition>
+        <argsstring>(CellInfo cell)</argsstring>
+        <name>buildFromCellInfo</name>
+        <param>
+          <type>CellInfo</type>
+          <declname>cell</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a new <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo" kindref="compound">CustomCellInfo</ref> from an Android CellInfo, trying to detect the actual type of the provided CellInfo (CellInfoLte, CellInfoGsm, CellInfoWcdma or CellInfoCdma).</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cell</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The CellInfo to inspect thoroughly </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo" kindref="compound">CustomCellInfo</ref> containing all the information that could be grabbed from the input CellInfo. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="239" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="239" bodyend="261"/>
+        <references refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a0fa8dfdd8d509a0361c1286ea28907f6" compoundref="CustomCellInfo_8java" startline="82" endline="85">com.qualoutdoor.recorder.telephony.CustomCellInfo.CustomCellInfo</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Implementation of <ref refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo" kindref="compound">ICellInfo</ref> using a Bundle to store data.</para><para>The most convenient way to construct a <ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo" kindref="compound">CustomCellInfo</ref> is to use the static method <computeroutput><ref refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a361d82a592568ef3a648a4e2273fbc84" kindref="member">buildFromCellInfo(CellInfo cell)</ref></computeroutput> which take as argument a CellInfo and try to grab as much information as possible from it, trying to cast it to the different subclasses (CellInfoLte etc.).</para><para><simplesect kind="author"><para>Gaborit Nicolas </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="19">
+        <label>com.qualoutdoor.recorder.telephony.ICellInfo</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo"/>
+      </node>
+      <node id="18">
+        <label>com.qualoutdoor.recorder.telephony.CustomCellInfo</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="23">
+        <label>String</label>
+      </node>
+      <node id="22">
+        <label>Bundle</label>
+      </node>
+      <node id="21">
+        <label>com.qualoutdoor.recorder.telephony.ICellInfo</label>
+        <link refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo"/>
+      </node>
+      <node id="20">
+        <label>com.qualoutdoor.recorder.telephony.CustomCellInfo</label>
+        <link refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>-defaultBundle</edgelabel>
+          <edgelabel>-infoBundle</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>-CID</edgelabel>
+          <edgelabel>-PSC</edgelabel>
+          <edgelabel>-SIGNAL_STRENGTH</edgelabel>
+          <edgelabel>-MNC</edgelabel>
+          <edgelabel>-TAC</edgelabel>
+          <edgelabel>-PCI</edgelabel>
+          <edgelabel>-TA</edgelabel>
+          <edgelabel>-TIMESTAMP</edgelabel>
+          <edgelabel>-IS_REGISTERED</edgelabel>
+          <edgelabel>-MCC</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" line="24" column="1" bodyfile="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/telephony/CustomCellInfo.java" bodystart="24" bodyend="335"/>
+    <listofallmembers>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a500ec0f205a87fb2c7043d7b0fe72250" prot="package" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>[instance initializer]</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a361d82a592568ef3a648a4e2273fbc84" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>buildFromCellInfo</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1aa5c8d4827f26d46fe9621f199c6b29fb" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>CELL_CDMA</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1ad27215ddfa59d1422d2a1256bbe3b4a5" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>CELL_GSM</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1aa4f53a54041f72afca755d9e0fd28381" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>CELL_LTE</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a638ed63a0341e0753ca2c8b12ceae1bd" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>CELL_TYPE</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1ae937638061aa70b32f061198cf7462c1" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>CELL_UNKNOWN</name></member>
+      <member refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1ICellInfo_1a9ab4346644d241cb15eb93a90bbb307e" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>CELL_WCDMA</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a75a77bb9f669b3a1aa876a28d304515c" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>CID</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a0fa8dfdd8d509a0361c1286ea28907f6" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>CustomCellInfo</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a43aa08090aedc7865df681a21146ac18" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>CustomCellInfo</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad28c67a38f2c50d99858da70b2c7744e" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>CustomCellInfo</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a3603b4b5704ea4e03bc2d46071c57524" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>CustomCellInfo</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a5e4b002d86a4d579db2710555b57e833" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>CustomCellInfo</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a7b6465c642331745f7b6e2706fd365fc" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>CustomCellInfo</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a97a065cf9b9a2c9886c4db7e79a61469" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>CustomCellInfo</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a43d9dc5eb9e584f508a67fc2ace6c61c" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>defaultBundle</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a8c9db0839b7c4b08e37fc6e619660411" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>getBundle</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a1d11b3897313e6f2f3a68820886752c0" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>getCellType</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1abaea62854f67e9964d86a8f71155f49e" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>getCid</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a2b125c8112c0e721a03d0d8103875b13" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>getLac</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a99719532e25b5c6aad54f2bd8cf4d501" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>getMcc</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a6d16d55ddbcecd9e9d572766b15cfec6" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>getMnc</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a8d403f02347f23e0c8b3bf842b904265" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>getPci</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a0a100d98e502e0f0d2cc804952c1311e" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>getPsc</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a4d1f51ec74597facb936f02d07f05a38" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>getSignalStrength</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a892d670fa07339288766a151b9da2129" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>getTac</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1aa1994d24bdd20e56e587aa7e2ac8f970" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>getTimeStamp</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1abae9d77a5f1f6f451aabb43359c2c39a" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>getTimingAdvance</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a8acfb6c3a7dfdb3dfbc27da18f49e77e" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>infoBundle</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a57373f5459c9605b6881c79bc4eb51cb" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>IS_REGISTERED</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1aad17258b7352df3ce4e7d3bce90279ca" prot="public" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>isRegistered</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1abbcac278b7713cb160b37b86696ba40a" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>LAC</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad76b1e387100db38e0a1a595549a600e" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>MCC</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1afd17b782dc967deb719feb1830c4bf08" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>MNC</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1adab6d65fadb5d7a446f5a8c10eab8a79" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>PCI</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a350eb321837733c01ad938780171b5d9" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>PSC</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1ad2bf09c37f3f7580f67e42cbb5a7aed7" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>putSignalStrength</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a1dbe98f06e11635cd0158322456b3057" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>SIGNAL_STRENGTH</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a87dd7521694de75516af18a053fd2701" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>TA</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a67566ea7b47531de3a99e6aea5225212" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>TAC</name></member>
+      <member refid="classcom_1_1qualoutdoor_1_1recorder_1_1telephony_1_1CustomCellInfo_1a33a6ffe22bfac0d38f9735ff411f8f12" prot="private" virt="non-virtual"><scope>com::qualoutdoor::recorder::telephony::CustomCellInfo</scope><name>TIMESTAMP</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="ServiceProvider_8java" kind="file">
+    <compoundname>ServiceProvider.java</compoundname>
+    <innerclass refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1ServiceProvider_3_01S_01extends_01Service_01_4" prot="public">com::qualoutdoor::recorder::ServiceProvider&lt; S extends Service &gt;</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1ServiceProvider_3_01S_01extends_01Service_01_4_1_1ServiceNotBoundException" prot="public">com::qualoutdoor::recorder::ServiceProvider&lt; S extends Service &gt;::ServiceNotBoundException</innerclass>
+    <innernamespace refid="namespacecom_1_1qualoutdoor_1_1recorder">com::qualoutdoor::recorder</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">com.qualoutdoor.recorder;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>android.app.Service;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1ServiceProvider_3_01S_01extends_01Service_01_4" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal">ServiceProvider&lt;S<sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/>Service&gt;<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>S<sp/>getService()<sp/></highlight><highlight class="keywordflow">throws</highlight><highlight class="normal"><sp/>ServiceNotBoundException;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isAvailable();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">register</highlight><highlight class="normal">(IServiceListener&lt;S&gt;<sp/>listener);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>unregister(IServiceListener&lt;S&gt;<sp/>listener);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="classcom_1_1qualoutdoor_1_1recorder_1_1ServiceProvider_3_01S_01extends_01Service_01_4_1_1ServiceNotBoundException" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">ServiceNotBoundException<sp/></highlight><highlight class="keyword">extends</highlight><highlight class="normal"><sp/>RuntimeException<sp/>{</highlight></codeline>
+<codeline lineno="39" refid="classcom_1_1qualoutdoor_1_1recorder_1_1ServiceProvider_3_01S_01extends_01Service_01_4_1_1ServiceNotBoundException_1ad767586e42cb0f84138992c17c9f504b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>serialVersionUID<sp/>=<sp/>7232920276486060679L;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/ServiceProvider.java"/>
+  </compounddef>
+</doxygen>

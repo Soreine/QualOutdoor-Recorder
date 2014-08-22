@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespacecom_1_1qualoutdoor_1_1recorder_1_1network" kind="namespace">
+    <compoundname>com::qualoutdoor::recorder::network</compoundname>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1DataSendingManager" prot="public">com::qualoutdoor::recorder::network::DataSendingManager</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1EmailFileSender" prot="public">com::qualoutdoor::recorder::network::EmailFileSender</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToSendException" prot="public">com::qualoutdoor::recorder::network::FileToSendException</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FileToUpload" prot="public">com::qualoutdoor::recorder::network::FileToUpload</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1FtpFileSender" prot="public">com::qualoutdoor::recorder::network::FtpFileSender</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1HttpFileSender" prot="public">com::qualoutdoor::recorder::network::HttpFileSender</innerclass>
+    <innerclass refid="classcom_1_1qualoutdoor_1_1recorder_1_1network_1_1HttpTransfertException" prot="public">com::qualoutdoor::recorder::network::HttpTransfertException</innerclass>
+    <innerclass refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1network_1_1SendCompleteListener" prot="public">com::qualoutdoor::recorder::network::SendCompleteListener</innerclass>
+    <innerclass refid="interfacecom_1_1qualoutdoor_1_1recorder_1_1network_1_1Sender" prot="public">com::qualoutdoor::recorder::network::Sender</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/nicolas/Programmation/android-workspace/QualOutdoor-Recorder/src/com/qualoutdoor/recorder/network/DataSendingManager.java" line="1" column="1"/>
+  </compounddef>
+</doxygen>
