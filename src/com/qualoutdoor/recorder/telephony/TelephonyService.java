@@ -7,6 +7,7 @@ import java.util.List;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Handler;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
@@ -84,6 +85,7 @@ public class TelephonyService extends Service implements ITelephony {
     private final Runnable refresher = new Runnable() {
         @Override
         public void run() {
+            Log.d("Refresher", "Refresh telephony");
             try {
                 // Refresh all the telephony data
                 refreshData();
@@ -171,6 +173,29 @@ public class TelephonyService extends Service implements ITelephony {
         };
     };
 
+    /**
+     * The behavior when preferences changed. Used to update the texts and
+     * summary on change.
+     */
+    private final OnSharedPreferenceChangeListener prefListener = new OnSharedPreferenceChangeListener() {
+        public void onSharedPreferenceChanged(SharedPreferences prefs,
+                String key) {
+            if (key.equals(getString(R.string.pref_key_display_refresh_rate))) {
+                // Update the refresh rate preference
+                minimumRefreshRate = prefs.getInt(key, getResources()
+                        .getInteger(R.integer.default_display_refresh_rate))
+                        * MILLIS_IN_SECOND;
+            }
+            if (key.equals(getString(R.string.pref_key_force_display_refresh))) {
+                // Get the force refresh preference, default to false
+                forceRefresh = prefs.getBoolean(
+                        key,
+                        getResources().getBoolean(
+                                R.bool.pref_default_force_display_refresh));
+            }
+        };
+    };
+
     @Override
     public void onCreate() {
 
@@ -198,18 +223,17 @@ public class TelephonyService extends Service implements ITelephony {
         // Get the app preferences
         SharedPreferences prefs = PreferenceManager
                 .getDefaultSharedPreferences(this);
-        // Get the force refresh preference, default to false
-        forceRefresh = prefs.getBoolean(
-                getString(R.string.pref_key_force_display_refresh),
-                getResources().getBoolean(
-                        R.bool.pref_default_force_display_refresh));
-        // Get the refresh rate preference
-        minimumRefreshRate = prefs.getInt(
-                getString(R.string.pref_key_display_refresh_rate),
-                getResources().getInteger(
-                        R.integer.default_display_refresh_rate))
-                * MILLIS_IN_SECOND;
+        // Force the update of the force refresh preference
+        prefListener.onSharedPreferenceChanged(prefs,
+                getString(R.string.pref_key_force_display_refresh));
 
+        // Force the update of the refresh rate preference
+        prefListener.onSharedPreferenceChanged(prefs,
+                getString(R.string.pref_key_display_refresh_rate));
+
+        // Listen to changes to the preferences
+        prefs.registerOnSharedPreferenceChangeListener(prefListener);
+        
         // If the refresh is forced
         if (forceRefresh) {
             // Trigger the refreshing process
@@ -227,10 +251,12 @@ public class TelephonyService extends Service implements ITelephony {
 
     @Override
     public void onDestroy() {
+        super.onDestroy();
         // Unregister our listener from the telephony manager system service
         telephonyManager.listen(phoneStateListener,
                 PhoneStateListener.LISTEN_NONE);
-        super.onDestroy();
+        // The refresher should stop
+        forceRefresh = false;
     }
 
     @Override

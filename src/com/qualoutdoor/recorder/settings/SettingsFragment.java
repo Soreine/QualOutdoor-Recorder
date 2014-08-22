@@ -22,7 +22,7 @@ public class SettingsFragment extends PreferenceFragment {
      * The behavior when preferences changed. Used to update the texts and
      * summary on change.
      */
-    private OnSharedPreferenceChangeListener listener = new OnSharedPreferenceChangeListener() {
+    private final OnSharedPreferenceChangeListener listener = new OnSharedPreferenceChangeListener() {
 
         @Override
         public void onSharedPreferenceChanged(
