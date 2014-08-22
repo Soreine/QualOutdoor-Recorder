@@ -1,7 +1,9 @@
 package com.qualoutdoor.recorder.telephony;
 
 /**
- * This is an interface for accessing a signal strength information
+ * This is an interface for accessing a signal strength information.
+ * 
+ * @see CustomSignalStrength
  * 
  * @author Gaborit Nicolas
  */

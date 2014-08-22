@@ -62,17 +62,13 @@ public class CustomSignalStrength implements ISignalStrength {
 
     // TODO add a constructor from a SignalStrength object...
 
-    /** Return this signal strength bundle */
+    /**
+     * Return this signal strength as a Bundle.
+     * 
+     * @return The Bundle representing this signal strength
+     */
     public Bundle getBundle() {
         return valuesBundle;
-    }
-
-    /** Update the signal strength value */
-    public void update(CellSignalStrength cellSS) {
-        // Set the dBm value
-        this.valuesBundle.putInt(DBM, cellSS.getDbm());
-        // Set the asu level
-        this.valuesBundle.putInt(ASU, cellSS.getAsuLevel());
     }
 
     @Override

@@ -1,13 +1,11 @@
 package com.qualoutdoor.recorder.home;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.qualoutdoor.recorder.GenericFragment;
-import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.QualOutdoorRecorderApp;
+import com.qualoutdoor.recorder.R;
 
 /**
  * This is the pager adapter for the HomeFragment.
@@ -21,7 +19,6 @@ import com.qualoutdoor.recorder.QualOutdoorRecorderApp;
  * 
  */
 public class HomePagerAdapter extends FragmentPagerAdapter {
-
 
     /** Position of the location fragment */
     public static final int LOCATIONS = 0;
@@ -37,17 +34,12 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     public HomePagerAdapter(FragmentManager fm) {
         super(fm);
     }
-    
+
     @Override
     public Fragment getItem(int i) {
         // Initialize the resulting fragment
-        Fragment result = new GenericFragment();
-
-        // Initialize the arguments bundle
-        Bundle args = new Bundle();
-        // Set the title
-        args.putCharSequence(GenericFragment.FRAGMENT_TEXT, fragmentTitles[i]);
-
+        Fragment result = null;
+        
         // Switch on the fragment correct fragment
         switch (i) {
         case LOCATIONS:
@@ -60,9 +52,6 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
             result = new NeighborsFragment();
             break;
         }
-
-        // Attach the arguments
-        result.setArguments(args);
 
         return result;
     }

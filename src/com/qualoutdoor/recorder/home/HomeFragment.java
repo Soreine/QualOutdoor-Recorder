@@ -62,7 +62,7 @@ public class HomeFragment extends Fragment {
 
         // Set up the ViewPager
         mViewPager = (ViewPager) view.findViewById(R.id.pager);
-        // Setting the number of pages to keep alive
+        // Setting the number of offscreen pages to keep alive
         mViewPager.setOffscreenPageLimit(OFFSCREEN_PAGE_LIMIT);
         // Attaching the adapter
         mViewPager.setAdapter(homePagerAdapter);

@@ -23,6 +23,9 @@ import com.qualoutdoor.recorder.R;
  * TelephonyManager to access phone state informations. An app component can
  * bind to it any time in order to monitor the phone state.
  * 
+ * This class is able to refresh data based on the implemented callbacks of the
+ * Android API, but also to force the refresh itself at a regular pace.
+ * 
  * @author Gaborit Nicolas
  */
 public class TelephonyService extends Service implements ITelephony {
@@ -32,7 +35,8 @@ public class TelephonyService extends Service implements ITelephony {
     /** The number of milliseconds in a seconds */
     private static final int MILLIS_IN_SECOND = 1000;
     /** The interface binder for this service */
-    private IBinder mTelephonyBinder;
+    private final IBinder mTelephonyBinder = new LocalBinder<TelephonyService>(
+            this);
 
     /** Indicates if the datas must be force refreshed regularly */
     private boolean forceRefresh;
@@ -169,8 +173,6 @@ public class TelephonyService extends Service implements ITelephony {
 
     @Override
     public void onCreate() {
-        // Initialize a TelephonyBinder linked to this Service
-        mTelephonyBinder = new LocalBinder<TelephonyService>(this);
 
         // Retrieve an instance of Telephony Manager
         telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
@@ -348,7 +350,14 @@ public class TelephonyService extends Service implements ITelephony {
         updateCellInfos(telephonyManager.getAllCellInfo());
     }
 
-    /** Update the data state */
+    /**
+     * Update the data state.
+     * 
+     * @param state
+     *            The new data connection state code.
+     * @param networkType
+     *            The new network type code
+     */
     private void updateDataState(int state, int networkType) {
         // Update the current data connection state
         this.dataState = state;
@@ -358,7 +367,14 @@ public class TelephonyService extends Service implements ITelephony {
         notifyDataStateListeners(state, networkType);
     }
 
-    /** Update the call state */
+    /**
+     * Update the call state.
+     * 
+     * @param state
+     *            The new call state code
+     * @param incomingNumber
+     *            The incoming number string
+     */
     private void updateCallState(int state, String incomingNumber) {
         // Update the current call state
         this.callState = state;
@@ -371,6 +387,9 @@ public class TelephonyService extends Service implements ITelephony {
     /**
      * Parse a CellInfo list and update the allCellInfo, then notify the
      * listeners from the changes
+     * 
+     * @param cellInfos
+     *            The new CellInfo list
      */
     private void updateCellInfos(List<CellInfo> cellInfos) {
         // Reset the cell info array list
@@ -412,8 +431,11 @@ public class TelephonyService extends Service implements ITelephony {
     }
 
     /**
-     * Parse a CellInfo list and return the ICellInfo list * listeners from the
-     * changes
+     * Parse a CellInfo list and return the corresponding ICellInfo list
+     * 
+     * @param cellInfos
+     *            The CellInfo list to parse
+     * @return A list of ICellInfo converted from the input list
      */
     private List<ICellInfo> parseCellInfos(List<CellInfo> cellInfos) {
         // Initialize the result list
@@ -432,7 +454,12 @@ public class TelephonyService extends Service implements ITelephony {
         return result;
     }
 
-    /** Notify each cell info listeners with the current ICellInfo list */
+    /**
+     * Notify each cell info listeners with the current ICellInfo list.
+     * 
+     * @param cellInfos
+     *            The updated list of ICellInfo
+     */
     private void notifyCellInfoListeners(List<ICellInfo> cellInfos) {
         for (TelephonyListener listener : listenersCellInfo) {
             // For each listener, notify
@@ -443,6 +470,9 @@ public class TelephonyService extends Service implements ITelephony {
     /**
      * Notify each signal strength listeners with the current ISignalStrength
      * value
+     * 
+     * @param signalStrength
+     *            The new signal strength
      */
     private void notifySignalStrengthListeners(ISignalStrength signalStrength) {
         for (TelephonyListener listener : listenersSignalStrength) {

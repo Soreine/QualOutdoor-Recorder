@@ -1,7 +1,9 @@
 package com.qualoutdoor.recorder.telephony;
 
 /**
- * This is an interface for accessing a cell information
+ * This is an interface for accessing a cell information.
+ * 
+ * @see CustomCellInfo
  * 
  * @author Gaborit Nicolas
  */
@@ -88,7 +90,7 @@ public interface ICellInfo {
     /**
      * Get the Timing Advance value.
      * 
-     * @return The TA. Integer.MAX_VALUE if unknown or not LTE.
+     * @return The Timing Advance. Integer.MAX_VALUE if unknown or not LTE.
      */
     int getTimingAdvance();
 }

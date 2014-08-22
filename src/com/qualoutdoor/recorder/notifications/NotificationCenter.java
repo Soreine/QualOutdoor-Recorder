@@ -12,9 +12,10 @@ import com.qualoutdoor.recorder.MainActivity;
 import com.qualoutdoor.recorder.R;
 
 /**
- * This class is a utility class allowing the app to manage user notifications.
- * An exemple of notification is the "ongoing recording" notification which
- * tells the user that the app is currently recording
+ * This static class is a utility class allowing the app to manage some
+ * predefined user notifications. An exemple of notification is the
+ * "ongoing recording" notification which tells the user that the app is
+ * currently recording. There might be other notifications in the future.
  * 
  * @author Gaborit Nicolas
  */
@@ -23,7 +24,7 @@ public class NotificationCenter {
     /** The id of the background recording notification */
     public final static int BACKGROUND_RECORDING = 1337;
 
-    /** This class is not meant to be instantiated */
+    /* This class is not meant to be instantiated */
     private NotificationCenter() {}
 
     /** Obtain a notification corresponding to an ongoing recording process */
@@ -68,7 +69,14 @@ public class NotificationCenter {
         return notificationBuilder.build();
     }
 
-    /** Switch on/off the ongoing recording notification */
+    /**
+     * Activate the ongoing recording notification. This is not called manually
+     * anymore because the notification is managed directly by the service going
+     * foreground (see RecordingService).
+     * 
+     * @param context
+     *            The context used to emit the notification
+     */
     public static void notifyBackgroundRecording(Context context) {
         // Get the notification manager from the host activity
         NotificationManager mNotificationManager = (NotificationManager) context
@@ -78,6 +86,12 @@ public class NotificationCenter {
                 getRecordingNotification(context));
     }
 
+    /**
+     * Dismiss the ongoing recording notification
+     * 
+     * @param context
+     *            The context used to access the NotificationManager
+     */
     public static void dismissBackgroundRecording(Context context) {
         // Get the notification manager from the host activity
         NotificationManager mNotificationManager = (NotificationManager) context

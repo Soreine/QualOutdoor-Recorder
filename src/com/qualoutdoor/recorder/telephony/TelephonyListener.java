@@ -6,15 +6,18 @@ import java.util.List;
  * A listener class for monitoring changes in specific telephony states.
  * Override the methods for the state that you want to receive updates for, and
  * pass your TelephonyListener object, along with bitwise-or of the LISTEN_xxx
- * flags to ITelephony.listen()
+ * flags to `ITelephony.listen()`
+ * 
+ * Using the LISTEN_xxx flags inform the ITelephony implementation which events
+ * you wish to monitor.
  * 
  * @author Gaborit Nicolas
  */
 public class TelephonyListener {
 
-    /*********************************************
-     * Theses constant are used as bitwise mask, hence the power of two.
-     *********************************************/
+    /*
+     * Theses constant are used as bitwise masks, hence the power of two.
+     */
     /** Stop listening for updates. */
     public static final int LISTEN_NONE = 0;
     /** Listen for changes to the device call state. */

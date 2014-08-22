@@ -15,7 +15,11 @@ import android.widget.TextView;
 
 import com.qualoutdoor.recorder.R;
 
-/** Adapted from http://robobunny.com/wp/2013/08/24/android-seekbar-preference-v2/ */
+/**
+ * This class can be used to create a Preference that allows to select a value
+ * with a handle or seek bar. Adapted from [this
+ * source](http://robobunny.com/wp/2013/08/24/android-seekbar-preference-v2/).
+ */
 public class SeekBarPreference extends Preference implements
         OnSeekBarChangeListener {
 
@@ -24,8 +28,8 @@ public class SeekBarPreference extends Preference implements
     private static final int DEFAULT_VALUE = 50;
 
     private static final int MAX_DEFAULT = 100;
-    private static final int MIN_DEFAULT = 100;
-    private static final int INTERVAL_DEFAULT = 100;
+    private static final int MIN_DEFAULT = 0;
+    private static final int INTERVAL_DEFAULT = 1;
 
     private int mMaxValue = MAX_DEFAULT;
     private int mMinValue = MIN_DEFAULT;
@@ -64,8 +68,9 @@ public class SeekBarPreference extends Preference implements
         try {
 
             mMaxValue = a.getInteger(R.styleable.SeekBarPreference_maxValue,
-                    100);
-            mMinValue = a.getInteger(R.styleable.SeekBarPreference_minValue, 0);
+                    MAX_DEFAULT);
+            mMinValue = a.getInteger(R.styleable.SeekBarPreference_minValue,
+                    MIN_DEFAULT);
 
             mUnitsLeft = a.getString(R.styleable.SeekBarPreference_unitsLeft);
             mUnitsRight = a.getString(R.styleable.SeekBarPreference_unitsRight);
@@ -74,7 +79,8 @@ public class SeekBarPreference extends Preference implements
             if (mUnitsRight == null)
                 mUnitsRight = "";
 
-            mInterval = a.getInteger(R.styleable.SeekBarPreference_interval, 1);
+            mInterval = a.getInteger(R.styleable.SeekBarPreference_interval,
+                    INTERVAL_DEFAULT);
 
         } finally {
             // The typed array is a shared ressource that must be freed

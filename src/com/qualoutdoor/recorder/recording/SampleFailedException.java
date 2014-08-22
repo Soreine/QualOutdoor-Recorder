@@ -1,9 +1,10 @@
 package com.qualoutdoor.recorder.recording;
 
 /**
- * This exception is thrown when a sample request has failed. 
- * Reasons are : 
- * - The available data were too old 
+ * This exception is thrown when a sample request has failed. Possible reasons are :
+ * 
+ * - The available data were too old
+ * 
  * - The data could not be fetched
  * 
  * @author Gaborit Nicolas

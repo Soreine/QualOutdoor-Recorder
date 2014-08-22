@@ -7,7 +7,6 @@ package com.qualoutdoor.recorder.recording;
  * @author Gaborit Nicolas
  */
 public interface IRecordingListener {
-    /** Callback invoked when device call state changes. */
+    /** Callback invoked when the recording starts or stops. */
     void onRecordingChanged(boolean isRecording);
-
 }

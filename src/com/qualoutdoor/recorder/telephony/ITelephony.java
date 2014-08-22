@@ -27,8 +27,10 @@ public interface ITelephony {
     /** Data connection state: Suspended. */
     static final int DATA_SUSPENDED = 3;
 
-    // / The values of the network type code are taken from
-    // android.telephony.TelephonyManager
+    /*
+     * The values of the network type code are the same as in
+     * android.telephony.TelephonyManager
+     */
     /** Network type is unknown */
     static final int NETWORK_TYPE_UNKNOWN = 0;
     /** Current network is GPRS */

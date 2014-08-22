@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.qualoutdoor.recorder.R;
 
 /**
- * This view allows to display dynamically, as a table, the infos of a ICellInfo
+ * This view allows to display dynamically, as a table, the infos of an ICellInfo.
  * 
  * @author Gaborit Nicolas
  */

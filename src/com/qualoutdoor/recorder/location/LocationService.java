@@ -27,16 +27,16 @@ import com.qualoutdoor.recorder.R;
  * LocationClient in order to receive location update. An app component can bind
  * to it any time in order to monitor location.
  * 
- * ### Receiving location updates
+ * #### Receiving location updates
  * 
  * There are two ways to access the current location :
  * 
- * #### Make a direct query
+ * ##### Make a direct query
  * 
  * Call directly the method `getLastKnownLocation()` to get the last known
  * location from the LocationClient used by the service.
  * 
- * #### Request for updates the way you would do with a LocationClient
+ * ##### Request for updates the way you would do with a LocationClient
  * 
  * This is usually the best option. It is exactly the same process as described
  * in the [Android
@@ -63,7 +63,7 @@ public class LocationService extends Service implements
         GooglePlayServicesClient.OnConnectionFailedListener {
 
     /** The interface binder for this service */
-    private IBinder mBinder;
+    private final IBinder mBinder = new LocalBinder<LocationService>(this);
 
     /**
      * A structure that stores a reference to a listener along with the update
@@ -85,20 +85,15 @@ public class LocationService extends Service implements
      */
     private LinkedList<PendingRequest> requestQueue = new LinkedList<PendingRequest>();
 
-    /** Indicates if Google Play Services are available */
-    private boolean servicesAvailable;
-
     /** Our location client reference */
     private LocationClient locationClient;
-
+    /** Indicates if Google Play Services are available */
+    private boolean servicesAvailable;
     /** Indicate if the client is connected */
     private boolean clientConnected = false;
 
     @Override
     public void onCreate() {
-        // Initialize the binder
-        mBinder = new LocalBinder<LocationService>(this);
-
         // Create a new location client using this class to handle callbacks
         locationClient = new LocationClient(this, this, this);
         // Test if Google Play Services is available
@@ -152,7 +147,6 @@ public class LocationService extends Service implements
         // If the client is connected already
         if (clientConnected && locationClient != null) {
             // Ask for location updates
-
             Log.d("LocationService",
                     "Request updates every " + locationRequest.getInterval()
                             + "ms for " + listener.toString());
@@ -239,7 +233,7 @@ public class LocationService extends Service implements
         // Check that Google Play services are available
         int resultCode = GooglePlayServicesUtil
                 .isGooglePlayServicesAvailable(this);
-        // Return if Google Play services are available
+        // Return true if success
         return (ConnectionResult.SUCCESS == resultCode);
     }
 }

@@ -10,7 +10,9 @@ import android.preference.PreferenceManager;
 import com.qualoutdoor.recorder.R;
 
 /**
- * This fragment give access to the different settings sub-categories
+ * This fragment gives access to the different settings of the application. The
+ * essential of the logic is declared in the XML. Only some view updates are
+ * done here.
  * 
  * @author Gaborit Nicolas
  */
@@ -143,7 +145,7 @@ public class SettingsFragment extends PreferenceFragment {
             updateNetworkPolicySummary(prefs);
             updateProtocolSummary(prefs);
         }
-        // Register the listener
+        // Register the preference listener
         getPreferenceScreen().getSharedPreferences()
                 .registerOnSharedPreferenceChangeListener(listener);
     }
@@ -151,7 +153,7 @@ public class SettingsFragment extends PreferenceFragment {
     @Override
     public void onPause() {
         super.onPause();
-        // Unregister the listener
+        // Unregister the preference listener
         getPreferenceScreen().getSharedPreferences()
                 .unregisterOnSharedPreferenceChangeListener(listener);
     }

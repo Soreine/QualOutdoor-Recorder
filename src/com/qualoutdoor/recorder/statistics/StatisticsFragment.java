@@ -18,19 +18,24 @@ import com.qualoutdoor.recorder.R;
 public class StatisticsFragment extends Fragment {
 
     /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments representing each object in a collection. We use a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter} derivative,
-     * which will destroy and re-create fragments as needed, saving and
-     * restoring their state in the process. This is important to conserve
-     * memory and is a best practice when allowing navigation between objects in
-     * a potentially large collection.
+     * The limit of offscreen fragments cached. That's at most (LIMIT + 1 +
+     * LIMIT) fragments kept alive at once
+     */
+    /*
+     * We set it beyond our number of fragments for smooth transitions between
+     * the fragments. Be careful though, we shouldn't do this when our fragments
+     * will become resources demanding
+     */
+    private static final int OFFSCREEN_PAGE_LIMIT = 3;
+
+    /**
+     * The PagerAdapter that will provide fragments representing each an object
+     * in the collection.
      */
     private StatisticsPagerAdapter statisticsPagerAdapter;
 
     /**
-     * The {@link android.support.v4.view.ViewPager} that will display the
-     * object collection.
+     * The ViewPager that will display the object collection.
      */
     private ViewPager mViewPager;
 
@@ -58,10 +63,8 @@ public class StatisticsFragment extends Fragment {
 
         // Set up the ViewPager
         mViewPager = (ViewPager) view.findViewById(R.id.pager);
-        // Setting the limit of page cached to maximum (we do this as long as we
-        // do not have much complex views)
-        mViewPager.setOffscreenPageLimit(3); // Up to 3 + 1 + 3 pages will be
-                                             // kept active at once
+        // Setting the number of offscreen pages to keep alive
+        mViewPager.setOffscreenPageLimit(OFFSCREEN_PAGE_LIMIT);
         // Attaching the adapter
         mViewPager.setAdapter(statisticsPagerAdapter);
 

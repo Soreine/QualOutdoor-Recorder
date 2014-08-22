@@ -10,14 +10,14 @@ import android.widget.TextView;
 /**
  * A generic fragment, to be used in place of a *non implemented yet fragment*.
  * 
- * ~~~~~~{.java}
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.java}
  * // Creating a fragment
  * Fragment frag = new GenericFragment();
  * // Give it a content text
  * Bundle args = new Bundle();
  * args.putCharSequence(GenericFragment.FRAGMENT_TEXT, "Displayed text");
  * frag.setArgument(args);
- * ~~~~~~
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * @author Gaborit Nicolas
  */
 public class GenericFragment extends Fragment {

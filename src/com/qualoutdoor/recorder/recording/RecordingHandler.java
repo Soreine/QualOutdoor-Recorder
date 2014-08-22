@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.Semaphore;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -40,9 +39,19 @@ public class RecordingHandler extends Handler {
 
     /** Message code for starting recording */
     public static final int MESSAGE_START_RECORD = 101;
-    /** Message code for stoping recording */
+    /** Message code for stopping recording */
     public static final int MESSAGE_STOP_RECORD = 102;
-    /** Message code for initiating a conversion and upload of the database */
+    /**
+     * Message code for initiating a conversion and upload of the database. This
+     * message should always be sent along with the chosen protocol code as
+     * arg1. Example :
+     * 
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.java}
+     * Message msg = recordingHandler.obtainMessage(
+     *          RecordingHandler.MESSAGE_UPLOAD_DATABASE, chosenProtocol, 0);
+     * recordingHandler.sendMessage(msg);
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     */
     public static final int MESSAGE_UPLOAD_DATABASE = 103;
     /** Message code for a sample action (used only internally) */
     private static final int MESSAGE_SAMPLE = 104;

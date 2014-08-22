@@ -14,10 +14,10 @@ import android.telephony.CellSignalStrength;
 /**
  * Implementation of ICellInfo using a Bundle to store data.
  * 
- * The classic way to construct a CustomCellInfo is to use the static method
- * `buildFromCellInfo(CellInfo cell)` which take as argument a CellInfo and try to grab as much
- * information as possible from it, trying to cast it to the different
- * subclasses (CellInfoLte etc.).
+ * The most convenient way to construct a CustomCellInfo is to use the static
+ * method `buildFromCellInfo(CellInfo cell)` which take as argument a CellInfo
+ * and try to grab as much information as possible from it, trying to cast it to
+ * the different subclasses (CellInfoLte etc.).
  * 
  * @author Gaborit Nicolas
  */
@@ -30,7 +30,9 @@ public class CustomCellInfo implements ICellInfo {
      */
     private Bundle infoBundle;
 
-    /************ The bundle keys ****************/
+    /* *************************************
+     * The bundle keys
+     */
     /** Stores the cell type code. Holds an int. */
     private static final String CELL_TYPE = "cell_type";
     /** Stores the timestamp value. Holds a long integer. */
@@ -59,8 +61,7 @@ public class CustomCellInfo implements ICellInfo {
     /** Store the Timing Advance (LTE). Holds an int. */
     private static final String TA = "ta";
     /**
-     * This is a bundle we use to initialize the default values for a
-     * CustomCellInfo
+     * A bundle we clone to initialize the default values for a CustomCellInfo
      */
     private static final Bundle defaultBundle = new Bundle();
     {
@@ -259,7 +260,11 @@ public class CustomCellInfo implements ICellInfo {
         return result;
     }
 
-    /** Return a bundle containing the cell infos */
+    /**
+     * Return a bundle containing the cell information.
+     * 
+     * @return This cell info as a Bundle
+     */
     public Bundle getBundle() {
         return this.infoBundle;
     }

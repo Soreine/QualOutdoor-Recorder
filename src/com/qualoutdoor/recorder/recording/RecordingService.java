@@ -33,24 +33,29 @@ import com.qualoutdoor.recorder.telephony.TelephonyService;
 /**
  * This service when started will link to the TelephonyService and begin
  * sampling the phone state. One can bind to this service in order to modify the
- * sampling rate. It is needed to call stopService() on it in order to stop the
- * recording process.
+ * sampling rate. Starting the recording process is made by calling
+ * `Context.startService()`. It is needed to call `stopService()` on it in order
+ * to stop the recording process.
+ * 
+ * Intent recordingServiceIntent = new Intent(this, RecordingService.class);
+ * startService(recordingServiceIntent);
  * 
  * @author Gaborit Nicolas
  */
 public class RecordingService extends Service implements LocationListener {
 
     /** The interface binder for this service */
-    private IBinder mRecordingBinder;
+    private final IBinder mRecordingBinder = new LocalBinder<RecordingService>(
+            this);
 
     /** The TelephonyServiceConnection used to access the TelephonyService */
-    private LocalServiceConnection<TelephonyService> telServiceConnection = new LocalServiceConnection<TelephonyService>(
+    private final LocalServiceConnection<TelephonyService> telServiceConnection = new LocalServiceConnection<TelephonyService>(
             TelephonyService.class);
     /** The LocationServiceConnection used to access the LocationService */
-    private LocalServiceConnection<LocationService> locServiceConnection = new LocalServiceConnection<LocationService>(
+    private final LocalServiceConnection<LocationService> locServiceConnection = new LocalServiceConnection<LocationService>(
             LocationService.class);
     /** The Location Service listener */
-    private IServiceListener<LocationService> locServiceListener = new IServiceListener<LocationService>() {
+    private final IServiceListener<LocationService> locServiceListener = new IServiceListener<LocationService>() {
         @Override
         public void onServiceAvailable(LocationService service) {
             // Request location updates
@@ -59,41 +64,40 @@ public class RecordingService extends Service implements LocationListener {
         }
     };
 
-    /** The database context */
-    private MeasureContext databaseContext;
+    /** The current measure context */
+    private MeasureContext measureContext;
     /** The sampling rate in milliseconds */
     private int sampleRate;
-    /** The list of the measures to record */
+    /** The list of the metrics that should be sampled */
     private List<Integer> metrics;
     /** The last known location */
     private Location location;
     /** Our location request */
-    private LocationRequest locationRequest;
+    private final LocationRequest locationRequest = new LocationRequest();
 
     /** The recording handler */
     private RecordingHandler handler;
 
     @Override
     public void onCreate() {
-        // Initialize a RecordingBinder that knows this Service
-        mRecordingBinder = new LocalBinder<RecordingService>(this);
-
         // Get the sample rate preference
         SharedPreferences prefs = PreferenceManager
                 .getDefaultSharedPreferences(this);
         sampleRate = prefs.getInt(
                 getString(R.string.pref_key_display_sampling_rate),
                 getResources().getInteger(R.integer.default_sampling_rate))
-                * QualOutdoorRecorderApp.MILLIS_IN_SECOND;
+                * QualOutdoorRecorderApp.MILLIS_IN_SECOND; // Convert from
+                                                           // seconds to
+                                                           // milliseconds
 
-        // Initialize the location request
-        locationRequest = new LocationRequest().setInterval(sampleRate);
+        // Initialize the location request interval
+        locationRequest.setInterval(sampleRate);
 
         // Get the metrics preferences
         metrics = getMetricPreferences(prefs);
 
         // Initialize the measure context
-        databaseContext = new MeasureContext();
+        measureContext = new MeasureContext();
 
         // Initialize the RecordingHandler
         handler = new RecordingHandler(this, sampleRate);
@@ -111,7 +115,13 @@ public class RecordingService extends Service implements LocationListener {
         return mRecordingBinder;
     }
 
-    /** Set the sampling rate to the specified value in milliseconds */
+    /**
+     * Set the sampling rate to the specified value in milliseconds.
+     * 
+     * @param millis
+     *            The number of milliseconds that should pass between two
+     *            samples.
+     */
     public void setSamplingRate(int millis) {
         // Modify our value
         sampleRate = millis;
@@ -154,25 +164,39 @@ public class RecordingService extends Service implements LocationListener {
         super.onDestroy();
     }
 
-    /** Stop the recording process */
+    /** Stop the recording process. */
     public void stopRecording() {
         // Send a message to the handler in order to stop recording
         handler.sendEmptyMessage(RecordingHandler.MESSAGE_STOP_RECORD);
     }
 
-    /** Indicates whether the service is currently recording data */
+    /**
+     * Indicates whether the service is currently recording data
+     * 
+     * @return True if currently recording.
+     */
     public boolean isRecording() {
         // Hand over the call
         return handler.isRecording();
     }
 
-    /** Add a recording listener */
+    /**
+     * Register a recording listener
+     * 
+     * @param listener
+     *            The listener to register
+     */
     public void register(IRecordingListener listener) {
         // Hand over the call to the handler
         handler.register(listener);
     }
 
-    /** Remove a recording listener */
+    /**
+     * Unregister a recording listener.
+     * 
+     * @param listener
+     *            The listener to unregister
+     */
     public void unregister(IRecordingListener listener) {
         // Hand over the call to the handler
         handler.unregister(listener);
@@ -185,21 +209,21 @@ public class RecordingService extends Service implements LocationListener {
     }
 
     /**
-     * Fetch the current telephony data, and return the Sample object used for
-     * insertion by a SampleTask
+     * Fetch the current telephony data, and return the resulting Sample object
+     * 
+     * @return A newly created Sample
+     * @throws SampleFailedException
+     *             When the sample could not be made
      */
     public Sample sample() throws SampleFailedException {
 
-        // Get the services
+        // Get the Telephony service
         TelephonyService telService;
-        LocationService locService;
         try {
             telService = telServiceConnection.getService();
-            locService = locServiceConnection.getService();
         } catch (ServiceNotBoundException e) {
-            // Not able to sample because services are not available
-            throw new SampleFailedException(
-                    "Telephony services and/or Location services unavailable");
+            // Not able to sample because service is not available
+            throw new SampleFailedException("Telephony service unavailable");
         }
 
         // Fail if no location is known
@@ -211,7 +235,8 @@ public class RecordingService extends Service implements LocationListener {
 
         if (age > 2 * sampleRate) {
             // The data are too old
-            Log.d("SamplingRunnable", "Too old : " + age);
+            Log.d("RecordingService", "Sample() : Too old location : " + age
+                    + "ms");
             throw new SampleFailedException("Location was outdated");
         }
 
@@ -234,15 +259,17 @@ public class RecordingService extends Service implements LocationListener {
         }
 
         // Update the database context
-        databaseContext.set(MeasureContext.GROUP_INDEX, QualOutdoorRecorderApp.group);
-        databaseContext.set(MeasureContext.USER_INDEX, QualOutdoorRecorderApp.user);
-        databaseContext.set(MeasureContext.MCC_INDEX, primaryCell.getMcc());
-        databaseContext.set(MeasureContext.MNC_INDEX, primaryCell.getMnc());
-        databaseContext.set(MeasureContext.NTC_INDEX,
+        measureContext.set(MeasureContext.GROUP_INDEX,
+                QualOutdoorRecorderApp.group);
+        measureContext.set(MeasureContext.USER_INDEX,
+                QualOutdoorRecorderApp.user);
+        measureContext.set(MeasureContext.MCC_INDEX, primaryCell.getMcc());
+        measureContext.set(MeasureContext.MNC_INDEX, primaryCell.getMnc());
+        measureContext.set(MeasureContext.NTC_INDEX,
                 telService.getNetworkType());
 
         // Fetch the telephony measures
-        // Create the data hashmap
+        // Create the data array
         SparseArray<String> dataList = new SparseArray<String>(metrics.size());
 
         // Fill the fields
@@ -271,7 +298,7 @@ public class RecordingService extends Service implements LocationListener {
         }
 
         // Return the newly created Sample object
-        return new Sample(databaseContext.clone(), dataList,
+        return new Sample(measureContext.clone(), dataList,
                 location.getLatitude(), location.getLongitude());
     }
 
@@ -323,7 +350,8 @@ public class RecordingService extends Service implements LocationListener {
         int[] codes = {
                 QualOutdoorRecorderApp.FIELD_CELL_ID,
                 QualOutdoorRecorderApp.FIELD_SIGNAL_STRENGTH,
-                QualOutdoorRecorderApp.FIELD_CALL, QualOutdoorRecorderApp.FIELD_UPLOAD,
+                QualOutdoorRecorderApp.FIELD_CALL,
+                QualOutdoorRecorderApp.FIELD_UPLOAD,
                 QualOutdoorRecorderApp.FIELD_DOWNLOAD
         };
         // For each preference, add the corresponding integer code if true
