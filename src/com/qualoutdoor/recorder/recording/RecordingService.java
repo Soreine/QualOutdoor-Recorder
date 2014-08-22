@@ -7,6 +7,7 @@ import android.app.Notification;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Resources;
 import android.location.Location;
 import android.os.IBinder;
@@ -64,6 +65,23 @@ public class RecordingService extends Service implements LocationListener {
         }
     };
 
+    /**
+     * The behavior when preferences changed.
+     */
+    private final OnSharedPreferenceChangeListener prefListener = new OnSharedPreferenceChangeListener() {
+        public void onSharedPreferenceChanged(SharedPreferences prefs,
+                String key) {
+            if (key.equals(getString(R.string.pref_key_sampling_rate))) {
+                // Update the sample rate preference. Convert from seconds to
+                // milliseconds
+                int newSampleRate = prefs.getInt(key, getResources()
+                        .getInteger(R.integer.default_sampling_rate))
+                        * QualOutdoorRecorderApp.MILLIS_IN_SECOND; 
+                setSamplingRate(newSampleRate);
+            }
+        };
+    };
+
     /** The current measure context */
     private MeasureContext measureContext;
     /** The sampling rate in milliseconds */
@@ -83,12 +101,12 @@ public class RecordingService extends Service implements LocationListener {
         // Get the sample rate preference
         SharedPreferences prefs = PreferenceManager
                 .getDefaultSharedPreferences(this);
-        sampleRate = prefs.getInt(
-                getString(R.string.pref_key_display_sampling_rate),
-                getResources().getInteger(R.integer.default_sampling_rate))
-                * QualOutdoorRecorderApp.MILLIS_IN_SECOND; // Convert from
-                                                           // seconds to
-                                                           // milliseconds
+
+        // Initialize the sampling rate preference
+        sampleRate = prefs.getInt(getString(R.string.pref_key_sampling_rate),
+                getResources()
+                .getInteger(R.integer.default_sampling_rate))
+                * QualOutdoorRecorderApp.MILLIS_IN_SECOND; 
 
         // Initialize the location request interval
         locationRequest.setInterval(sampleRate);
@@ -102,6 +120,9 @@ public class RecordingService extends Service implements LocationListener {
         // Initialize the RecordingHandler
         handler = new RecordingHandler(this, sampleRate);
 
+        // Listen to preferences changes
+        prefs.registerOnSharedPreferenceChangeListener(prefListener);
+        
         // Bind to the telephony and location services
         telServiceConnection.bindToService(this);
         locServiceConnection.register(locServiceListener);

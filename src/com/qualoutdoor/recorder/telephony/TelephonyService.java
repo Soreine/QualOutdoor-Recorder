@@ -85,7 +85,6 @@ public class TelephonyService extends Service implements ITelephony {
     private final Runnable refresher = new Runnable() {
         @Override
         public void run() {
-            Log.d("Refresher", "Refresh telephony");
             try {
                 // Refresh all the telephony data
                 refreshData();
@@ -174,8 +173,7 @@ public class TelephonyService extends Service implements ITelephony {
     };
 
     /**
-     * The behavior when preferences changed. Used to update the texts and
-     * summary on change.
+     * The behavior when preferences changed.
      */
     private final OnSharedPreferenceChangeListener prefListener = new OnSharedPreferenceChangeListener() {
         public void onSharedPreferenceChanged(SharedPreferences prefs,
@@ -233,7 +231,7 @@ public class TelephonyService extends Service implements ITelephony {
 
         // Listen to changes to the preferences
         prefs.registerOnSharedPreferenceChangeListener(prefListener);
-        
+
         // If the refresh is forced
         if (forceRefresh) {
             // Trigger the refreshing process

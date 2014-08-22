@@ -23,7 +23,7 @@
             app:unitsLeft="@string/pref_left_text_display_refresh_rate"
             app:unitsRight="@string/pref_right_text_display_refresh_rate"/>
         <com.qualoutdoor.recorder.settings.SeekBarPreference
-            android:key="@string/pref_key_display_sampling_rate"
+            android:key="@string/pref_key_sampling_rate"
             android:title="@string/pref_title_sampling_rate"
             android:defaultValue="@integer/default_sampling_rate"
             app:maxValue="@integer/max_sampling_rate"
