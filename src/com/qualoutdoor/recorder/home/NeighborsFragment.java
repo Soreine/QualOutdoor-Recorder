@@ -22,7 +22,7 @@ import com.qualoutdoor.recorder.telephony.TelephonyService;
 
 /**
  * This fragment displays the list of the visible cells. Its parent activity
- * must implements the interface TelephonyContext.
+ * must implements the TelephonyContext interface.
  * 
  * @author Gaborit Nicolas
  */

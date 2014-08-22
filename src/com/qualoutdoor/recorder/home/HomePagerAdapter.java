@@ -10,25 +10,34 @@ import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.QualOutdoorRecorderApp;
 
 /**
- * This is the pager adapter for the HomeFragment
+ * This is the pager adapter for the HomeFragment.
+ * 
+ * We extend FragmentStatePagerAdapter, which will destroy and re-create
+ * fragments as needed, saving and restoring their state in the process. This is
+ * important to conserve memory and is a best practice when allowing navigation
+ * between objects in a potentially large collection.
  * 
  * @author Gaborit Nicolas
  * 
  */
 public class HomePagerAdapter extends FragmentPagerAdapter {
 
-    /** The order of the fragments */
+
+    /** Position of the location fragment */
     public static final int LOCATIONS = 0;
+    /** Position of the network fragment */
     public static final int NETWORK = 1;
+    /** Position of the neighbor cells fragment */
     public static final int NEIGHBORS = 2;
-    /** Number of fragments listed */
+
+    /** The fragment titles list */
     private static CharSequence[] fragmentTitles = QualOutdoorRecorderApp
             .getAppResources().getStringArray(R.array.home_pager_titles);
 
     public HomePagerAdapter(FragmentManager fm) {
         super(fm);
     }
-
+    
     @Override
     public Fragment getItem(int i) {
         // Initialize the resulting fragment

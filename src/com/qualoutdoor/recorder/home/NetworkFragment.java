@@ -5,7 +5,6 @@ import java.util.List;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.qualoutdoor.recorder.IServiceListener;
+import com.qualoutdoor.recorder.QualOutdoorRecorderApp;
 import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.ServiceProvider;
 import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
@@ -24,20 +24,17 @@ import com.qualoutdoor.recorder.telephony.ViewCellInfo;
 
 /**
  * This fragment displays the main informations of the phone state on a single
- * screen. Its parent activity must implements the interface TelephonyContext.
+ * screen. Its parent activity must implements the TelephonyContext interface.
  * 
  * @author Gaborit Nicolas
  */
 public class NetworkFragment extends Fragment {
 
-    /** The events monitored by the Telephony Listener */
-    private static final int events = TelephonyListener.LISTEN_CELL_INFO
-            | TelephonyListener.LISTEN_DATA_STATE;
     /**
      * The Telephony Listener, which defines the behavior against telephony
      * state changes
      */
-    private TelephonyListener telListener = new TelephonyListener() {
+    private final TelephonyListener telListener = new TelephonyListener() {
         @Override
         public void onCellInfoChanged(List<ICellInfo> cellInfos) {
             // Find the number of neighbors cells
@@ -65,6 +62,9 @@ public class NetworkFragment extends Fragment {
             updateNetworkTypeView();
         };
     };
+    /** The events monitored by the Telephony Listener */
+    private static final int events = TelephonyListener.LISTEN_CELL_INFO
+            | TelephonyListener.LISTEN_DATA_STATE;
 
     /** The TelephonyService Provider given by the activity */
     private ServiceProvider<TelephonyService> telephonyService;
@@ -72,7 +72,7 @@ public class NetworkFragment extends Fragment {
      * The service listener defines the behavior when the service becomes
      * available
      */
-    private IServiceListener<TelephonyService> telServiceListener = new IServiceListener<TelephonyService>() {
+    private final IServiceListener<TelephonyService> telServiceListener = new IServiceListener<TelephonyService>() {
         @Override
         public void onServiceAvailable(TelephonyService service) {
             // Register the telephony listener
@@ -85,7 +85,7 @@ public class NetworkFragment extends Fragment {
     /** The primary cell */
     private ICellInfo cellInfo;
     /** The number of detected neighboring cells */
-    private int neighborsCount;
+    private int neighborsCount = 0;
 
     /** The network type code text view */
     private TextView viewNetworkType;
@@ -94,16 +94,8 @@ public class NetworkFragment extends Fragment {
     /** The view indicating the number of neighboring cells */
     private TextView viewNeighborsCount;
     /** The network type code strings */
-    private String[] networkNames;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        // Initialize the network names from the ressources
-        networkNames = getResources().getStringArray(R.array.network_type_name);
-        // No neighbors have been detected yet
-        neighborsCount = 0;
-        super.onCreate(savedInstanceState);
-    }
+    private static final String[] networkNames = QualOutdoorRecorderApp
+            .getAppResources().getStringArray(R.array.network_type_name);
 
     @Override
     public void onAttach(Activity activity) {
@@ -175,7 +167,7 @@ public class NetworkFragment extends Fragment {
         }
     }
 
-    /** Update the Cell Info view */
+    /** Update the primary cell view */
     private void updateCellInfo() {
         // Check that the view has been initialized and we are attached to the
         // activity

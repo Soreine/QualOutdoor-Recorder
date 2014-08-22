@@ -12,18 +12,22 @@ import com.qualoutdoor.recorder.telephony.ICellInfo;
 import com.qualoutdoor.recorder.telephony.ViewCellInfo;
 
 /**
- * This adapter can feed a ListView with a cell info list.
+ * This adapter can feed a ListView with a cell info list, creating the
+ * appropriate ViewCellInfo.
  * 
  * @author Gaborit Nicolas
  */
 
 public class CellInfoListAdapter extends BaseAdapter {
 
+    /** The context that will contain the ViewCellInfo */
     private final Context context;
+
+    /** The list of ICellInfo to display */
     private ArrayList<ICellInfo> cellInfos;
 
     /**
-     * Create an adapter with the give cell info list.
+     * Create an adapter with the given cell info list.
      * 
      * @param context
      *            The context used to create the views
@@ -47,8 +51,20 @@ public class CellInfoListAdapter extends BaseAdapter {
         return cellInfoView;
     }
 
-    /** Update the cell info list */
+    /**
+     * Update the cell info list, replacing it with the given one.
+     * 
+     * @param cellInfos
+     *            The new list of CellInfo
+     */
     public void updateDataSet(List<ICellInfo> cellInfos) {
+        /*
+         * TODO rather than clearing the collection and filling it anew,
+         * consider updating existing cells (compare using cell id) and
+         * adding/removing the one that differs between new and old ICellInfo
+         * collection.
+         */
+
         // Clear the previous array
         this.cellInfos.clear();
         // Add all the cell infos

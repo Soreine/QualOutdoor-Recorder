@@ -24,17 +24,17 @@ import com.qualoutdoor.recorder.location.LocationService;
 
 /**
  * This fragment displays all the available information relative to the current
- * location. Its parent activity must implements the interface LocationContext.
+ * location. Its parent activity must implements the LocationContext interface.
  * 
  * @author Gaborit Nicolas
  */
 public class LocationFragment extends Fragment {
 
     /**
-     * The Location Listener, which defines the behavior against location
+     * The Location Listener, which update location views when the location
      * changes
      */
-    private LocationListener locListener = new LocationListener() {
+    private final LocationListener locListener = new LocationListener() {
         @Override
         public void onLocationChanged(Location newLocation) {
             // Update the location
@@ -46,7 +46,7 @@ public class LocationFragment extends Fragment {
 
     /** Our location update request parameters */
     private static final LocationRequest locationRequest = new LocationRequest()
-            .setInterval(1000) // Asking for the fastest update interval, YOLO
+            .setInterval(0) // Asking for the fastest update interval, YOLO
             .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY); // With high
                                                                   // accuracy
 
@@ -56,7 +56,7 @@ public class LocationFragment extends Fragment {
      * The service listener defines the behavior when the service becomes
      * available
      */
-    private IServiceListener<LocationService> locServiceListener = new IServiceListener<LocationService>() {
+    private final IServiceListener<LocationService> locServiceListener = new IServiceListener<LocationService>() {
         @Override
         public void onServiceAvailable(LocationService service) {
             // Register the location listener
