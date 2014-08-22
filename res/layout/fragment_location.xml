@@ -8,6 +8,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:text="(Location updated as often as possible)"
+            style="@style/ListItem"/>
+
         <TableLayout
             android:layout_width="match_parent"
             android:id="@+id/table"
