@@ -23,8 +23,7 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     public static final int NEIGHBORS = 2;
     /** Number of fragments listed */
     private static CharSequence[] fragmentTitles = QualOutdoorRecorderApp
-            .getContext().getResources()
-            .getStringArray(R.array.home_pager_titles);
+            .getAppResources().getStringArray(R.array.home_pager_titles);
 
     public HomePagerAdapter(FragmentManager fm) {
         super(fm);
@@ -38,7 +37,7 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
         // Initialize the arguments bundle
         Bundle args = new Bundle();
         // Set the title
-        args.putCharSequence(GenericFragment.FRAGMENT_NAME, fragmentTitles[i]);
+        args.putCharSequence(GenericFragment.FRAGMENT_TEXT, fragmentTitles[i]);
 
         // Switch on the fragment correct fragment
         switch (i) {

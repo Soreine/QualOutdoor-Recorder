@@ -3,7 +3,9 @@ package com.qualoutdoor.recorder;
 import android.app.Service;
 
 /**
- * A listener class to monitor when a service S becomes available
+ * A listener class to monitor when a service S becomes available. Implement the
+ * method `onServiceAvailable()` to define your behavior when the service
+ * becomes available.
  * 
  * @author Gaborit Nicolas
  */

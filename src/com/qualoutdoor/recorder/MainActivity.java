@@ -35,8 +35,16 @@ import com.qualoutdoor.recorder.telephony.TelephonyService;
 
 /**
  * The main activity of the application. This is the only entry point to the
- * application. Uses a NavigationDrawer to switch between different fragment of
- * the application.
+ * application.
+ * 
+ * Uses a NavigationDrawer to switch between different section of the
+ * application.
+ * 
+ * Defines an action bar from which one can start/stop a recording, make an
+ * upload, access the settings.
+ * 
+ * Acts as a RecordingContext, TelephonyContext and LocationContext to enable
+ * sub-fragments to access these services.
  * 
  * @author Gaborit Nicolas
  * 
@@ -44,7 +52,12 @@ import com.qualoutdoor.recorder.telephony.TelephonyService;
 public class MainActivity extends ActionBarActivity implements
         RecordingContext, TelephonyContext, LocationContext {
 
-    /**************** State variable *******************/
+    /*
+     * ########################################################################
+     * State variable and services
+     * ########################################################################
+     */
+
     /** The current network type code */
     private int mNetworkType = ITelephony.NETWORK_TYPE_UNKNOWN;
     /** The data connection state */
@@ -53,7 +66,7 @@ public class MainActivity extends ActionBarActivity implements
     private boolean mIsRecording = false;
 
     /** The telephony listener used to update the UI components in MainActivity */
-    private TelephonyListener telephonyListener = new TelephonyListener() {
+    private final TelephonyListener telephonyListener = new TelephonyListener() {
         @Override
         public void onDataStateChanged(int state, int networkType) {
             // Update the network var
@@ -66,26 +79,32 @@ public class MainActivity extends ActionBarActivity implements
             updateDataStateView();
         };
     };
-
     /** The events the telephony listener will monitor */
     private final static int telephonyEvents = TelephonyListener.LISTEN_DATA_STATE;
-    /** The TelephonyServiceConnection used to access the TelephonyService */
-    private LocalServiceConnection<TelephonyService> telServiceConnection = new LocalServiceConnection<TelephonyService>(
+
+    /** The LocalServiceConnection used to access the TelephonyService */
+    private final LocalServiceConnection<TelephonyService> telServiceConnection = new LocalServiceConnection<TelephonyService>(
             TelephonyService.class);
+    /** The LocalServiceConnection used to access the RecordingService */
+    private final LocalServiceConnection<RecordingService> recServiceConnection = new LocalServiceConnection<RecordingService>(
+            RecordingService.class);
+    /** The LocalServiceConnection used to access the LocationService */
+    private final LocalServiceConnection<LocationService> locServiceConnection = new LocalServiceConnection<LocationService>(
+            LocationService.class);
+
     /**
      * This component define the behavior when the TelephonyService becomes
      * available
      */
-    private IServiceListener<TelephonyService> telephonyServiceListener = new IServiceListener<TelephonyService>() {
+    private final IServiceListener<TelephonyService> telephonyServiceListener = new IServiceListener<TelephonyService>() {
         @Override
         public void onServiceAvailable(TelephonyService service) {
             // Register the telephony listener
             service.listen(telephonyListener, telephonyEvents);
         }
     };
-
     /** The recording listener used to update the UI components in MainActivity */
-    private IRecordingListener recordingListener = new IRecordingListener() {
+    private final IRecordingListener recordingListener = new IRecordingListener() {
         public void onRecordingChanged(boolean isRecording) {
             // Update the recording state
             mIsRecording = isRecording;
@@ -93,15 +112,11 @@ public class MainActivity extends ActionBarActivity implements
             updateRecordingButton();
         };
     };
-
-    /** The TelephonyServiceConnection used to access the TelephonyService */
-    private LocalServiceConnection<RecordingService> recServiceConnection = new LocalServiceConnection<RecordingService>(
-            RecordingService.class);
     /**
      * This component define the behavior when the RecordingService becomes
      * available
      */
-    private IServiceListener<RecordingService> recordingServiceListener = new IServiceListener<RecordingService>() {
+    private final IServiceListener<RecordingService> recordingServiceListener = new IServiceListener<RecordingService>() {
         @Override
         public void onServiceAvailable(RecordingService service) {
             // Register the recording listener
@@ -109,11 +124,12 @@ public class MainActivity extends ActionBarActivity implements
         }
     };
 
-    /** The LocationServiceConnection used to access the LocationService */
-    private LocalServiceConnection<LocationService> locServiceConnection = new LocalServiceConnection<LocationService>(
-            LocationService.class);
+    /*
+     * ########################################################################
+     * Navigation Drawer members
+     * ########################################################################
+     */
 
-    /*********** Navigation Drawer ****************/
     /** The current fragment title */
     private CharSequence fragmentTitle;
     /** The drawer title */
@@ -126,27 +142,46 @@ public class MainActivity extends ActionBarActivity implements
     /** The active section key in the savedInstanceState */
     private static final String ACTIVE_SECTION = "active_section";
 
-    /** Hold the navigation titles displayed in the Navigation Drawer */
-    private String[] navigationTitles;
     /** A reference to the Navigation Drawer layout */
     private DrawerLayout drawerLayout;
     /** The ListView associated to the Navigation Drawer */
     private ListView drawerList;
     /**
-     * A DrawerListener that integrate well with the ActionBar and handle the
-     * Navigation Drawer physical behaviors
+     * An ActionBarDrawerToggle used to tie together the NavigationDrawer and
+     * the ActionBar
      */
     private ActionBarDrawerToggle drawerToggle;
 
-    /*********** Action Bar Menu ****************/
+    /** The navigation drawer items click listener */
+    private class DrawerItemClickListener implements
+            ListView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position,
+                long id) {
+            // The behavior has been exported to the selectItem method.
+            selectItem(position);
+        }
+    }
+
+    /*
+     * ########################################################################
+     * Action bar views
+     * ########################################################################
+     */
 
     /**
      * The view located in the action bar which displays the current network
      * type
      */
     private TextView networkView;
-    /** The record action from the options menu */
+    /** The recording action from the action bar menu */
     private MenuItem recordMenuItem;
+
+    /*
+     * ########################################################################
+     * Methods
+     * ########################################################################
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -159,9 +194,6 @@ public class MainActivity extends ActionBarActivity implements
 
         // Initialize the drawer title
         drawerTitle = getResources().getString(R.string.title_activity_main);
-        // Retrieve the navigation titles
-        navigationTitles = getResources().getStringArray(
-                R.array.top_level_navigation_titles);
 
         // Initialize the Navigation Drawer's content
         {
@@ -173,12 +205,14 @@ public class MainActivity extends ActionBarActivity implements
                     GravityCompat.START);
             // Get the ListView reference
             drawerList = (ListView) findViewById(R.id.left_drawer);
-            // Items cannot be focused (as would an EditText for example)
+            // Items cannot be focused (unlike an EditText field for example)
             drawerList.setItemsCanFocus(false);
 
-            // Set the adapter for the list view
+            // Set the adapter for the list view, it provides the titles to
+            // display
             drawerList.setAdapter(new ArrayAdapter<String>(this,
-                    R.layout.view_drawer_list_item, navigationTitles));
+                    R.layout.view_drawer_list_item,
+                    NavigationDrawerItems.navigationTitles));
             // Set the list's click listener
             drawerList.setOnItemClickListener(new DrawerItemClickListener());
 
@@ -186,12 +220,14 @@ public class MainActivity extends ActionBarActivity implements
             // DrawerListener
             drawerToggle = new ActionBarDrawerToggle(this, /* host Activity */
             drawerLayout, /* DrawerLayout object */
-            R.drawable.ic_drawer, /* nav drawer icon to replace 'Up' caret */
+            R.drawable.ic_drawer, /*
+                                   * navigation drawer icon to replace the 'Up'
+                                   * caret
+                                   */
             R.string.drawer_open, /* "open drawer" description */
             R.string.drawer_close /* "close drawer" description */
             ) {
-
-                /**
+                /*
                  * Called when a drawer has settled in a completely closed
                  * state.
                  */
@@ -201,7 +237,7 @@ public class MainActivity extends ActionBarActivity implements
                     getSupportActionBar().setTitle(fragmentTitle);
                 }
 
-                /** Called when a drawer has settled in a completely open state. */
+                /* Called when a drawer has settled in a completely open state. */
                 public void onDrawerOpened(View drawerView) {
                     super.onDrawerOpened(drawerView);
                     // Set the ActionBar title to the drawer title
@@ -227,7 +263,7 @@ public class MainActivity extends ActionBarActivity implements
             // Retrieve the active section
             activeSection = savedInstanceState.getInt(ACTIVE_SECTION);
             // Get the corresponding fragment title
-            fragmentTitle = navigationTitles[activeSection];
+            fragmentTitle = NavigationDrawerItems.navigationTitles[activeSection];
             // Restore the previous ActionBar title (this depends on the state
             // of the drawer)
             getSupportActionBar().setTitle(
@@ -296,23 +332,18 @@ public class MainActivity extends ActionBarActivity implements
         locServiceConnection.unbindService();
     }
 
-    /** The navigation drawer items click listener */
-    private class DrawerItemClickListener implements
-            ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position,
-                long id) {
-            // The behavior has been exported to the selectItem method.
-            selectItem(position);
-        }
-    }
+    /*
+     * ########################################################################
+     * Update views methods
+     * ########################################################################
+     */
 
     /** Swaps fragments in the main content view on item selection */
     private void selectItem(int position) {
         // Check that we selected an different item than the active one
         if (position != activeSection) {
             // Create the corresponding fragment
-            Fragment fragment = NavigationDrawerBehavior.getFragment(position);
+            Fragment fragment = NavigationDrawerItems.getFragment(position);
 
             // Insert the fragment by replacing any existing fragment
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -323,7 +354,7 @@ public class MainActivity extends ActionBarActivity implements
             drawerList.setItemChecked(position, true);
 
             // Update the fragment title
-            fragmentTitle = navigationTitles[position];
+            fragmentTitle = NavigationDrawerItems.navigationTitles[position];
 
             // Set the ActionBar title to the fragment title
             getSupportActionBar().setTitle(fragmentTitle);
@@ -333,38 +364,6 @@ public class MainActivity extends ActionBarActivity implements
         }
         // Close the drawer
         drawerLayout.closeDrawer(drawerList);
-    }
-
-    /***********************************************************************/
-    /* ActionBar Options Menu */
-    /***********************************************************************/
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.action_bar_menu, menu);
-
-        // Initialize the record action reference
-        recordMenuItem = menu.findItem(R.id.action_record);
-
-        // Get the network item reference
-        MenuItem networkMenuItem = menu.findItem(R.id.network_info);
-        // Initialize the network info view reference
-        networkView = (TextView) MenuItemCompat.getActionView(networkMenuItem);
-
-        return true;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        // Update the recording button view
-        updateRecordingButton();
-        // Update the network view
-        updateNetworkView();
-        // Update the data state view
-        updateDataStateView();
-
-        return super.onPrepareOptionsMenu(menu);
     }
 
     /** Update the data state indicator in the UI */
@@ -437,6 +436,40 @@ public class MainActivity extends ActionBarActivity implements
         }
     }
 
+    /*
+     * ########################################################################
+     * ActionBar Options Menu
+     * ########################################################################
+     */
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.action_bar_menu, menu);
+
+        // Initialize the record action reference
+        recordMenuItem = menu.findItem(R.id.action_record);
+
+        // Get the network item reference
+        MenuItem networkMenuItem = menu.findItem(R.id.network_info);
+        // Initialize the network info view reference
+        networkView = (TextView) MenuItemCompat.getActionView(networkMenuItem);
+
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // Update the recording button view
+        updateRecordingButton();
+        // Update the network view
+        updateNetworkView();
+        // Update the data state view
+        updateDataStateView();
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Pass the event to ActionBarDrawerToggle, if it returns
@@ -480,20 +513,6 @@ public class MainActivity extends ActionBarActivity implements
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        // We desire to go back to the main section when back button is pressed,
-        // and
-        // to leave the app if we were in the main section already
-        if (activeSection == 0) {
-            // Defer to the system default behavior
-            super.onBackPressed();
-        } else {
-            selectItem(0);
-        }
-
-    }
-
     /** Action associated to the settings option menu item */
     private void openSettings() {
         // Create an intent toward the DisplaySettingsActivity
@@ -509,6 +528,26 @@ public class MainActivity extends ActionBarActivity implements
         // Start the activity
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        // We desire to go back to the main section when back button is pressed,
+        // and
+        // to leave the app if we were in the main section already
+        if (activeSection == 0) {
+            // Defer to the system default behavior
+            super.onBackPressed();
+        } else {
+            selectItem(0);
+        }
+
+    }
+
+    /*
+     * ########################################################################
+     * ServiceProvider Interface
+     * ########################################################################
+     */
 
     @Override
     public ServiceProvider<TelephonyService> getTelephonyServiceProvider() {

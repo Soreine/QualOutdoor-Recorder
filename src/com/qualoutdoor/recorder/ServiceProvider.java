@@ -4,7 +4,12 @@ import android.app.Service;
 
 /**
  * A component implementing this interface is able to provide a reference to a
- * Service of type 'S'.
+ * Service of type *S*.
+ * 
+ * @author Gaborit Nicolas
+ * 
+ * @param <S>
+ *            The type of the service provided
  */
 public interface ServiceProvider<S extends Service> {
 
@@ -25,9 +30,9 @@ public interface ServiceProvider<S extends Service> {
 
     /**
      * This runtime exception is thrown when one tries to access a service while
-     * not available.
+     * it isn't available.
      */
-    public class ServiceNotBoundException extends RuntimeException{
+    public class ServiceNotBoundException extends RuntimeException {
         /**
          * Generated serial version UID
          */

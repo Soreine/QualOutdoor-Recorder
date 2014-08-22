@@ -12,12 +12,18 @@ import android.os.IBinder;
 
 /**
  * This ServiceConnection is used to bind a component to a service within the
- * same process. Indeed we are assuming the IBinder returned by the service can
- * be cast to a LocalBinder.
+ * same process.
  * 
  * The binding process impact the lifecycle of a service. The service should be
  * kept alive as long as some component are bound to it. When no more components
  * are bound to it, chances are for it to be destroyed.
+ * 
+ * #### Please note
+ * 
+ * The service you are binding to through this connection must return a
+ * LocalBinder in `onBind()`. Indeed we are assuming the IBinder returned by the
+ * service can be cast to a LocalBinder. Using a LocalBinder requires the
+ * service to live within the same process as your component.
  * 
  * Note that this class is designed to bind a single context at a time. There
  * must be as many LocalServiceConnection as component to bind to one service.
@@ -37,18 +43,17 @@ public class LocalServiceConnection<S extends Service> implements
     private final Class<S> serviceClass;
     /** A reference to the connected service */
     private S service;
-    
+
     /** Indicates if the service is bound or not */
     private boolean isAvailable = false;
     /** Indicates if this ServiceConnection is bound to a service or not */
     private boolean isBound = false;
-    
+
     /** The reference to the context that has been bound through this connection */
     private Context context;
-    
+
     /** The collection of the registered ServiceListener */
     private List<IServiceListener<S>> listeners = new ArrayList<IServiceListener<S>>();
-
 
     /** This service connection is used to monitor the state of the service */
     private final ServiceConnection connection = new ServiceConnection() {
@@ -78,7 +83,7 @@ public class LocalServiceConnection<S extends Service> implements
 
     /**
      * Create a new LocalServiceConnection, we provide the service class for
-     * later use (@see bindToService method).
+     * later use (see `bindToService()` method).
      */
     public LocalServiceConnection(Class<S> serviceType) {
         this.serviceClass = serviceType;
@@ -96,7 +101,8 @@ public class LocalServiceConnection<S extends Service> implements
         // Check that this connection hasn't been bound already
         if (!isBound) {
             this.context = context;
-            // Create an intent toward Service S
+            // Create an intent toward Service S. This is where we need to know
+            // the class of S.
             Intent intent = new Intent(context, serviceClass);
             // Bind the context to the Service through this ServiceConnection
             isBound = context.bindService(intent, connection,
@@ -122,7 +128,7 @@ public class LocalServiceConnection<S extends Service> implements
         return isAvailable;
     }
 
-    /** Indicates wether this ServiceConnection is bound to a service */
+    /** Indicates wether this ServiceConnection is bound to a service already */
     public boolean isBound() {
         return isBound;
     }
@@ -154,6 +160,9 @@ public class LocalServiceConnection<S extends Service> implements
         listeners.remove(listener);
     }
 
+    /**
+     * Notify all the listeners that the service is now available
+     */
     private void notifyListeners() {
         // Read through the listeners list
         for (IServiceListener<S> listener : listeners) {

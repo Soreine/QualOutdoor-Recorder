@@ -38,7 +38,7 @@ public class StatisticsPagerAdapter extends FragmentPagerAdapter {
 
         // Initialize the arguments bundle
         Bundle args = new Bundle();
-        args.putCharSequence(GenericFragment.FRAGMENT_NAME, fragmentTitles[i]);
+        args.putCharSequence(GenericFragment.FRAGMENT_TEXT, fragmentTitles[i]);
 
         // Switch on the fragment name
         switch (i) {

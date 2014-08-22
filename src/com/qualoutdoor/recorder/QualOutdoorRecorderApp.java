@@ -1,11 +1,17 @@
 package com.qualoutdoor.recorder;
 
 import android.app.Application;
-import android.content.Context;
+import android.content.res.Resources;
 
 /**
  * Extending Application in order to hold some global constants that can't be
  * stored in the XML files, and giving global access to application resources.
+ * 
+ * It is now possible to access the resources easily from a static context as follows :
+ * 
+ * ~~~
+ * static Resources res = QualOutdoorRecorderApp.getAppResources();
+ * ~~~
  * 
  * @author Gaborit Nicolas
  */
@@ -44,11 +50,11 @@ public class QualOutdoorRecorderApp extends Application {
     }
 
     /**
-     * Provide a global access to the application context
+     * Provide a global access to the application resources
      * 
-     * @return The application context
+     * @return The resources relative to the application context
      */
-    public static Context getContext() {
-        return thisApp.getApplicationContext();
+    public static Resources getAppResources() {
+        return thisApp.getApplicationContext().getResources();
     }
 }

@@ -23,9 +23,38 @@ import com.qualoutdoor.recorder.LocalBinder;
 import com.qualoutdoor.recorder.R;
 
 /**
- * This service is allows to acces location data, it uses a Google Play Services
+ * This service allows to access location data, it uses a Google Play Services
  * LocationClient in order to receive location update. An app component can bind
  * to it any time in order to monitor location.
+ * 
+ * ### Receiving location updates
+ * 
+ * There are two ways to access the current location :
+ * 
+ * #### Make a direct query
+ * 
+ * Call directly the method `getLastKnownLocation()` to get the last known
+ * location from the LocationClient used by the service.
+ * 
+ * #### Request for updates the way you would do with a LocationClient
+ * 
+ * This is usually the best option. It is exactly the same process as described
+ * in the [Android
+ * Documentation](http://developer.android.com/training/location/
+ * receive-location-updates.html), except you don't need to manage the
+ * connection of the LocationClient.
+ * 
+ * 1. First create an instance of LocationRequest and LocationListener
+ * 
+ * 2. Override the callbacks in your LocationListener and suit the
+ * LocationRequest to your needs so it describes best how you wish to be updated
+ * (with `setInterval()` and other native methods).
+ * 
+ * 3. Call `requestLocationUpdates()` giving these instance as arguments
+ * 
+ * 4. Don't forget to call `removeLocationUpdate()` when you don't want to be
+ * notified anymore.
+ * 
  * 
  * @author Gaborit Nicolas
  */
@@ -35,9 +64,6 @@ public class LocationService extends Service implements
 
     /** The interface binder for this service */
     private IBinder mBinder;
-
-    /** The current location */
-    private Location location;
 
     /**
      * A structure that stores a reference to a listener along with the update
@@ -126,6 +152,10 @@ public class LocationService extends Service implements
         // If the client is connected already
         if (clientConnected && locationClient != null) {
             // Ask for location updates
+
+            Log.d("LocationService",
+                    "Request updates every " + locationRequest.getInterval()
+                            + "ms for " + listener.toString());
             locationClient.requestLocationUpdates(locationRequest, listener);
         } else {
             // Add it to the queue
@@ -141,6 +171,7 @@ public class LocationService extends Service implements
      */
     public void removeLocationUpdate(LocationListener listener) {
         // If the client is connected already
+        Log.d("LocationService", "Remove updates for " + listener.toString());
         if (clientConnected && locationClient != null) {
             // Ask for location updates
             locationClient.removeLocationUpdates(listener);
@@ -180,6 +211,9 @@ public class LocationService extends Service implements
                 break;
             }
             // Issue the request
+            Log.d("LocationService",
+                    "Request updates every " + pending.request.getInterval()
+                            + "ms for " + pending.listener.toString());
             locationClient.requestLocationUpdates(pending.request,
                     pending.listener);
         }

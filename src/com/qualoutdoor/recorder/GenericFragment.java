@@ -8,14 +8,22 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * A generic fragment, to be used in place of a 'non implemented yet fragment'.
+ * A generic fragment, to be used in place of a *non implemented yet fragment*.
  * 
+ * ~~~~~~{.java}
+ * // Creating a fragment
+ * Fragment frag = new GenericFragment();
+ * // Give it a content text
+ * Bundle args = new Bundle();
+ * args.putCharSequence(GenericFragment.FRAGMENT_TEXT, "Displayed text");
+ * frag.setArgument(args);
+ * ~~~~~~
  * @author Gaborit Nicolas
  */
 public class GenericFragment extends Fragment {
 
     // The name argument key
-    public static final String FRAGMENT_NAME = "fragment_name";
+    public static final String FRAGMENT_TEXT = "fragment_text";
 
     /** The name of the generic fragment (and the name to display) */
     private CharSequence name = "Generic Fragment";
@@ -30,7 +38,7 @@ public class GenericFragment extends Fragment {
         // Check that arguments were passed
         if (args != null) {
             // Check if we had a name passed as argument
-            CharSequence nameArg = args.getCharSequence(FRAGMENT_NAME);
+            CharSequence nameArg = args.getCharSequence(FRAGMENT_TEXT);
             if (nameArg != null) {
                 this.name = nameArg;
             }

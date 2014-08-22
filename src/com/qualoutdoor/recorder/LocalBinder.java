@@ -15,16 +15,26 @@ import android.os.Binder;
  */
 public class LocalBinder<S> extends Binder {
 
-    /** The service that provided this binder */
+    /** The service to give when `getService()` is called */
     private S myService;
 
-    /** A constructor for the binder to know its service */
+    /**
+     * A constructor for the binder to know its service
+     * 
+     * @param service
+     *            The service that will be given when `getService()` is called
+     */
+
     public LocalBinder(S service) {
         super();
         myService = service;
     }
 
-    /** Get the service that provided this binder */
+    /**
+     * Get the service that provided this binder
+     * 
+     * @return The service that created emitted this LocalBinder
+     */
     public S getService() {
         return myService;
     }

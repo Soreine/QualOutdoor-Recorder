@@ -1,7 +1,6 @@
 package com.qualoutdoor.recorder.telephony;
 
 import android.os.Bundle;
-import android.telephony.CellIdentityCdma;
 import android.telephony.CellIdentityGsm;
 import android.telephony.CellIdentityLte;
 import android.telephony.CellIdentityWcdma;
@@ -13,7 +12,12 @@ import android.telephony.CellInfoWcdma;
 import android.telephony.CellSignalStrength;
 
 /**
- * Implementation of ICellInfo using a Bundle to store data
+ * Implementation of ICellInfo using a Bundle to store data.
+ * 
+ * The classic way to construct a CustomCellInfo is to use the static method
+ * `buildFromCellInfo(CellInfo cell)` which take as argument a CellInfo and try to grab as much
+ * information as possible from it, trying to cast it to the different
+ * subclasses (CellInfoLte etc.).
  * 
  * @author Gaborit Nicolas
  */
@@ -28,31 +32,32 @@ public class CustomCellInfo implements ICellInfo {
 
     /************ The bundle keys ****************/
     /** Stores the cell type code. Holds an int. */
-    public static final String CELL_TYPE = "cell_type";
+    private static final String CELL_TYPE = "cell_type";
     /** Stores the timestamp value. Holds a long integer. */
-    public static final String TIMESTAMP = "timestamp";
+    private static final String TIMESTAMP = "timestamp";
     /** Stores if the cell is registered. Holds a boolean. */
-    public static final String IS_REGISTERED = "is_registered";
+    private static final String IS_REGISTERED = "is_registered";
     /**
      * Stores the signal strength. Holds a bundle containing the signal strength
      * values.
      */
-    public static final String SIGNAL_STRENGTH = "signal_strength";
+    private static final String SIGNAL_STRENGTH = "signal_strength";
     /** Stores the Cell ID. Holds an int. */
-    public static final String CID = "cid";
+    private static final String CID = "cid";
     /** Stores the Location Area Code (GSM, WCDMA). Holds an int. */
-    public static final String LAC = "lac";
+    private static final String LAC = "lac";
     /** Stores the Mobile Country Code. Holds an int. */
-    public static final String MCC = "mcc";
+    private static final String MCC = "mcc";
     /** Stores the Mobile Network Code. Holds an int. */
-    public static final String MNC = "mnc";
+    private static final String MNC = "mnc";
     /** Stores the Primary Scrambling Code (WCDMA). Holds an int. */
-    public static final String PSC = "psc";
+    private static final String PSC = "psc";
     /** Stores the Physical Cell ID (LTE). Holds an int. */
-    public static final String PCI = "pci";
+    private static final String PCI = "pci";
     /** Stores the Tracking Area Code (LTE). Holds an int. */
-    public static final String TAC = "tac";
-
+    private static final String TAC = "tac";
+    /** Store the Timing Advance (LTE). Holds an int. */
+    private static final String TA = "ta";
     /**
      * This is a bundle we use to initialize the default values for a
      * CustomCellInfo
@@ -69,9 +74,10 @@ public class CustomCellInfo implements ICellInfo {
         defaultBundle.putInt(PSC, Integer.MAX_VALUE);
         defaultBundle.putInt(PCI, Integer.MAX_VALUE);
         defaultBundle.putInt(TAC, Integer.MAX_VALUE);
+        defaultBundle.putInt(TA, Integer.MAX_VALUE);
     }
 
-    /** Create an empty CellInfo */
+    /** Create an empty CustomCellInfo */
     public CustomCellInfo() {
         // Clone the default bundle
         this.infoBundle = (Bundle) defaultBundle.clone();
@@ -99,7 +105,7 @@ public class CustomCellInfo implements ICellInfo {
      * @param cell
      *            The CellInfo to initialize from.
      */
-    public CustomCellInfo(CellInfo cell) {
+    private CustomCellInfo(CellInfo cell) {
         // initialize empty
         this();
         // Timestamp the data
@@ -156,6 +162,8 @@ public class CustomCellInfo implements ICellInfo {
             infoBundle.putInt(MNC, cellId.getMnc());
             infoBundle.putInt(TAC, cellId.getTac());
             infoBundle.putInt(PCI, cellId.getPci());
+            infoBundle.putInt(TA, cell.getCellSignalStrength()
+                    .getTimingAdvance());
         }
     }
 
@@ -175,9 +183,10 @@ public class CustomCellInfo implements ICellInfo {
         // Initialize Cell identity
         {
             // Get the cell identity
-            CellIdentityCdma cellId = cell.getCellIdentity();
-            // TODO Fill the available fields
-            // The CDMA cells are actually very different from the others...
+            // CellIdentityCdma cellId = cell.getCellIdentity();
+            // Fill the available fields
+            // TODO The CDMA cells are actually very different from the
+            // others...
         }
     }
 
@@ -208,7 +217,7 @@ public class CustomCellInfo implements ICellInfo {
         }
     }
 
-    /** Parse and put the signal strength in the bundle */
+    /** Parse and put the signal strength into the bundle */
     private void putSignalStrength(CellSignalStrength cellSS) {
         // Parse the CellSignalStrength by creating a CustomSignalStrength
         CustomSignalStrength ss = new CustomSignalStrength(cellSS);
@@ -311,6 +320,11 @@ public class CustomCellInfo implements ICellInfo {
     @Override
     public int getTac() {
         return infoBundle.getInt(TAC, Integer.MAX_VALUE);
+    }
+
+    @Override
+    public int getTimingAdvance() {
+        return infoBundle.getInt(TA, Integer.MAX_VALUE);
     }
 
 }

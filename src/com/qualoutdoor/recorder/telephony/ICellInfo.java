@@ -84,4 +84,11 @@ public interface ICellInfo {
      * @return The TAC. Integer.MAX_VALUE if unknown or not LTE.
      */
     int getTac();
+    
+    /**
+     * Get the Timing Advance value.
+     * 
+     * @return The TA. Integer.MAX_VALUE if unknown or not LTE.
+     */
+    int getTimingAdvance();
 }
