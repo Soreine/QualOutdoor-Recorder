@@ -33,7 +33,7 @@ import com.qualoutdoor.recorder.persistent.Sample;
  * messages. The possible actions are starting or stopping a record and
  * requesting an upload of the local database.
  * 
- * @author Gaborit Nicolas
+ * @author Gaborit Nicolas & Lucas Croixmarie
  */
 public class RecordingHandler extends Handler {
 
@@ -48,7 +48,7 @@ public class RecordingHandler extends Handler {
      * 
      * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{.java}
      * Message msg = recordingHandler.obtainMessage(
-     *          RecordingHandler.MESSAGE_UPLOAD_DATABASE, chosenProtocol, 0);
+     * RecordingHandler.MESSAGE_UPLOAD_DATABASE, chosenProtocol, 0);
      * recordingHandler.sendMessage(msg);
      * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      */
@@ -98,7 +98,7 @@ public class RecordingHandler extends Handler {
     @Override
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
-        // Identify the message code
+        // Identify the message code and call the appropriate action
         switch (msg.what) {
         case MESSAGE_START_RECORD:
             actionStartRecord();
@@ -189,14 +189,20 @@ public class RecordingHandler extends Handler {
 
     /** Action performed when a MESSAGE_SAMPLE is received */
     private void actionSample() {
-        // Try to make a sample
-        try {
-            Sample sample = recordingService.sample();
-            // Insert the sample in the database
-            new InsertSampleTask().execute(sample);
-        } catch (SampleFailedException e) {
-            // The sample failed, sample again later
-            this.sendEmptyMessageDelayed(MESSAGE_SAMPLE, sampleRate);
+        // Should we stop the recording ?
+        if (isRecording) {
+            // Try to make a sample
+            try {
+                Sample sample = recordingService.sample();
+                // Insert the sample in the database
+                new InsertSampleTask().execute(sample);
+            } catch (SampleFailedException e) {} finally {
+                // Sample again later
+                this.sendEmptyMessageDelayed(MESSAGE_SAMPLE, sampleRate);
+            }
+        } else {
+            // Finish recording
+            onFinishRecording();
         }
     }
 
@@ -290,15 +296,10 @@ public class RecordingHandler extends Handler {
      * This task insert a given Sample in the database
      */
     private class InsertSampleTask extends AsyncTask<Sample, Void, Void> {
-        /** The start time of this task */
-        private long startTime;
-
         @Override
         protected void onPreExecute() {
-            // Increment the number of sample task
+            // Increment the number of sample task running
             sampleTaskCount++;
-            // Save the date of execution
-            startTime = System.currentTimeMillis();
         }
 
         @Override
@@ -331,25 +332,9 @@ public class RecordingHandler extends Handler {
         protected void onPostExecute(Void result) {
             // The task is over
             sampleTaskCount--;
-            // Should we continue the recording ?
-            if (isRecording) {
-                // Get the elapsed time
-                long elapsedTime = System.currentTimeMillis() - startTime;
-                // Compensate the time taken for the insertion
-                if (elapsedTime > sampleRate) {
-                    // Call again as soon as possible
-                    RecordingHandler.this.sendEmptyMessage(MESSAGE_SAMPLE);
-                } else {
-                    // We are on schedule, call again for the next sample
-                    RecordingHandler.this.sendEmptyMessageDelayed(
-                            MESSAGE_SAMPLE, sampleRate - elapsedTime);
-                }
-                // We don't modify the sample task count because we are
-                // requesting another one
-            } else {
-                // Finish recording
-                onFinishRecording();
-            }
+            // Should we stop the recording ?
+            // Finish recording
+            onFinishRecording();
         }
     }
 
