@@ -157,7 +157,7 @@ public class RecordingHandler extends Handler {
             // Clear any remaining sample message
             removeMessages(MESSAGE_SAMPLE);
             // Finish recording if
-            onFinishRecording();
+            finishRecording();
         }
     }
 
@@ -202,7 +202,7 @@ public class RecordingHandler extends Handler {
             }
         } else {
             // Finish recording
-            onFinishRecording();
+            finishRecording();
         }
     }
 
@@ -221,10 +221,12 @@ public class RecordingHandler extends Handler {
     }
 
     /**
-     * Called when the recording process is finished and all the sampling tasks
-     * are done
+     * Close the database if needed then stop the RecordingService if no task
+     * are remaining in order to finish the recording process.
      */
-    private void onFinishRecording() {
+    private void finishRecording() {
+
+        Log.d("RecordingHandler","trying to finishRecording");
         // Check and close database
         checkCloseDatabase();
         // If no more sampling task are waiting
@@ -234,6 +236,7 @@ public class RecordingHandler extends Handler {
             recordingService.stopForeground(true);
             // Stop the recording service
             recordingService.stopSelf();
+            Log.d("RecordingHandler","Stopped Recording");
         }
     }
 
@@ -333,8 +336,10 @@ public class RecordingHandler extends Handler {
             // The task is over
             sampleTaskCount--;
             // Should we stop the recording ?
-            // Finish recording
-            onFinishRecording();
+            if (!isRecording) {
+                // Finish recording
+                finishRecording();
+            }
         }
     }
 
