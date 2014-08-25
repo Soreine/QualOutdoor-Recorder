@@ -1,6 +1,7 @@
 package com.qualoutdoor.recorder.network;
 
 import java.io.IOException;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -10,62 +11,54 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import android.util.Log;
 
-/*
- * Classe fille de Sender propre au transfert de type HTTP
- * 
- * Cette classe rï¿½unit les paramï¿½tres spï¿½cifiques ï¿½ un transfert d'information de type http
- * et les mï¿½thodes pour rï¿½aliser ce transfert
- * 
- * Une connexion HTTP est indï¿½pendante des transferts qu'elle met en oeuvre ainsi on dï¿½finit
- * diffï¿½rentes mï¿½thodes correspondant ï¿½ des actions ï¿½lï¿½mentaires qui seront ensuites reprises
- * dans la fonction envoyerFichier
-*/
+/**
+ * Child of Sender Class, implementing file sending with HTTP protocols. This kind of connection doesn't depends on 
+ * transfers that it set then different kind of sending are implemented. Attributes of this class are the specific parameters
+ * of a HTTP connection
+ * */
 
 public class HttpFileSender implements Sender{
-	//PARAMETRES PROPRES A UNE CONNEXION HTTP:
 	
-	private String fileFieldName;//nom du champs auquel se rapporte le fichier transferer
-	/*La prï¿½sence de ce paramï¿½tre peut s'averer problematique en effet elle crï¿½e une relation
-	 * ï¿½troite entre l'envoi d'un fichier particulier et une instance de HttpFileSender
-	 * alors qu'une mï¿½me instance pourrait ï¿½tre utilisï¿½ pour l'envoi de plusieurs fichiers
+	/**
+	 * name of the input of post form in which the file to upload will be associated with.
 	 * 
-	 *  La valeur du champs n'a pas une importance considï¿½rable, ainsi dans le cas oï¿½ l'on souhairait
-	 *  mettre fin ï¿½ cette dï¿½pendance on supprimera cet attribut et on laissera ï¿½ la fonction UploadFile
-	 *  le soin de fixer le nom du champ
-	 */
+	 *  this attributes makes HttpFileSender objects associated with a unique file to upload whereas
+	 *  its methods can handle multiple file sending in a single connection. If this association became
+	 *  problematic this attribute can be moved from here to UploadFile method */
+	private String fileFieldName;
 	
-	/*ATTENTION: ces paramï¿½tres ne sont pas spï¿½cifique aux transferts http mais ils permettent d'associer
-	 * une instance HttpFileSender avec une communication donnï¿½e et de limiter le nombre d'arguments 
-	 * des fonctions de la classe
-	 * 
-	 * Avec cette implementation il faut voir une instance comme un dialogue entre client et serveur
-	 * dans lequel circulent plusieurs types de donnï¿½es*/	
-	private HttpURLConnection connection;//la connexion correspondant au dialogue
-	private String delimiter;//chaine de caractï¿½re delimitant les entrï¿½es du formulaire
-	private OutputStream os;//output stream permettant d'ï¿½crire dans le contenu de la requete
-	private PrintWriter writer;//outil issu de os qui va nous permettre d'ecrire des octets dans la requete
+	/**HTTP connection in which form is uploaded*/
+	private HttpURLConnection connection;
+	/**String marking off form inputs*/
+	private String delimiter;
+	/**Output Stream enabling to write into HTTP request to send*/
+	private OutputStream os;
+	/**PrintWriter associated with os for writing characters into request*/
+	private PrintWriter writer;
 
-	/*Constructeur pertinant si on associe la connexion ï¿½ un envoi simple d'un fichier
-	 *Les autres attributs sont fixï¿½s avec la mï¿½thode initialize.
+	/**
+	 * Constructor
 	 */
 	public HttpFileSender(String fileFieldName) {
-		this.fileFieldName = fileFieldName;//on fixe donc le nom du champs correspond au fichier ï¿½ envoyer
+	    //input name associated to file to upload in post form is set
+		this.fileFieldName = fileFieldName;
 	}
 	
 	
-	/*Implementation de la mï¿½thode envoyerFichier
-	 * 
-	 * les paramï¿½tres sont donc les informations necessaires communes
-	 * la mï¿½thode fera donc appel aux fonctions dï¿½finies si dessous.
-	 * 
-	 * 
+	/**
+	 * Implementing sendFile method : connection is opened, form is sent, connection is closed then server response
+	 * is read : this method allows a single file sending in a request.
 	 */
 	@Override
 	public boolean sendFile(String url,String fileName,InputStream content){
 		try{
+		    //connection is initialized from an URL
 			this.initialize(url);
-			this.UploadTextFile(this.fileFieldName,fileName,content);
+			//file is uploaded
+			this.UploadFile(this.fileFieldName,fileName,content);
+			//connection is closed
 			this.endSending();
+			//server response is read
 			return this.readResponseStatus();
 		}catch(HttpTransfertException e){
 			return false;
@@ -74,36 +67,33 @@ public class HttpFileSender implements Sender{
         }
 	}
 	
-	
+	/**
+	 * Method for initializing HTTP connection from an URL
+	 */
 	public void initialize(String url) throws HttpTransfertException{
-	/*fonction qui permet l'initialisation d'une requete HTTP post ï¿½ partir d'une URL	
-	 *cette fonction permet de construire l'entete de la requete HTTP	
-	*/
 		try{
-			Log.d("DEBUG","...begining initialisation");
-			//on construit l'url ï¿½ partir de l'adresse passï¿½e en paramï¿½tre
+			//URL is built from then given string
 			URL targetAddress = new URL(url);
-			//ouverture de la connection vers l'addresse indiquï¿½e
+			//opening connection
 			this.connection = (HttpURLConnection) targetAddress.openConnection();
-			//on prï¿½cise le type de la requï¿½te
+			//setting request type
 			this.connection.setRequestMethod("POST");
-			//on autorise les flux entrants dans la connexion: pour pouvoir ï¿½crire les informations
+			//enabling input flows for writing information into connection
 			this.connection.setDoInput(true);
-			//on autotise les flux sortant de la connexion: pour pouvoir lire les informations
+			//enabling output flow for reading information from connection
 			this.connection.setDoOutput(true);
-			//on rend la connection TCP sous jacente persistente
+			//setting TCP connection persistent
 			this.connection.setRequestProperty("Connection", "Keep-Alive");
-			//on gï¿½nï¿½re un dï¿½limiteur
+			//mark generation
 			this.delimiter = "******"+Long.toString(System.currentTimeMillis())+"******";
-			//on prï¿½cise le format de la partiï¿½ donnï¿½es de la requete
+			//indicating how data inside request are organized
 			this.connection.setRequestProperty("Content-type", "multipart/form-data; boundary="+this.delimiter);
-			//on ï¿½tablit la connexion
+			//setting connection on
 			this.connection.connect();
-			//on crï¿½e un acces pour ï¿½crire dans la requï¿½te via un output stream
+			//getting an output stream to write inside
 			this.os = connection.getOutputStream();
-			//on dï¿½finit le writer associï¿½ ï¿½ l'output stream qui permettra d'ï¿½crire les octects dans le flux
+			//building writer associated with the previous output stream.
 		    this.writer = new PrintWriter(new OutputStreamWriter(os, "UTF-8"), true);
-		    Log.d("DEBUG","...initialisation complete...trying to send post request to"+url);	
 		    
 		}catch(MalformedURLException e){
 			Log.d("URL exception",e.toString());
@@ -116,56 +106,52 @@ public class HttpFileSender implements Sender{
 		}	
 	}
 	
+	
+	/**
+	 * Method enabling to insert in a post form a simple input field that contains for example
+	 * a name or a mail but not a file. Currently this method is not used. this method should be
+	 * called on a initialized connection
+	 * 
+	 * fieldName is the input name
+	 * val is the content of the input
+	 */
 	public void SendSimpleInput(String fieldName, String val){
-		/*cette fonction permet d'inserer un champ ï¿½lï¿½mentaire dans le formulaire ï¿½ envoyer
-		 *un input fieldName sera donc crï¿½e, comportant la valeur val
-		 *cette fonction ne sera appelï¿½ que sur un sender initialisï¿½.
-		*/
-			Log.d("DEBUG","...trying to write input" + fieldName +" in request");
-			//on indique une nouvelle entrï¿½e du formulaire dans la requete avec une limite
+			//indicating new input in form
 			this.writer.append("--"+this.delimiter+"\r\n");
-			//on indique une entrï¿½e du formulaire se rapportant au champ s'appelant fieldName
+			//indicating that it is a simple input named fieldName
 			this.writer.append("Content-Disposition: form-data; name=\""+fieldName+"\"\r\n");
-			//on indique le format de la valeur du champ : ici texte encodï¿½ avec UTF8
+			//indicating how input content is encoded
 			this.writer.append("Content-Type: text/plain; charset=UTF-8\r\n");
-			//on indique la valeur que l'on affecte au champ
+			//writing field content
 			this.writer.append("\r\n" + val + "\r\n");
-			//on ï¿½crit le flux dans la requete
+			//flow is written into request
 			this.writer.flush();
-			Log.d("DEBUG","...input writen");
 		
 	}
 	
-	public void UploadTextFile(String fieldName, String fileName,InputStream content)throws HttpTransfertException{
-		/*cette fonction permet d'inserer un fichier texte dans le formulaire ï¿½ envoyer
-		 *un input appelï¿½ filedName sera crï¿½e et affectï¿½ ï¿½ un fichier fileName dont le contenu 
-		 *sera rï¿½cuprï¿½rer par la lecture de content
-		 *cette fonction ne sera appelï¿½ que sur un sender initialisï¿½.
-		*/
+	/**
+	 * Method enabling to insert a File into post form. it will be associated with an input named fieldName.
+	 * File is passed in tow parts : its name first : fileName then its content : content.
+	 * This method sould be called on a initialized connection*/
+	public void UploadFile(String fieldName, String fileName,InputStream content)throws HttpTransfertException{
 		try{
-			Log.d("DEBUG","...trying to write file" + fileName +" in request");
-			Log.d("DEBUG","delimiter: "+this.delimiter);
-			//on indique une nouvelle entrï¿½e du formulaire dans la requete avec une limite
+			//indicating new form input
 			this.writer.append("--"+this.delimiter+"\r\n");
-			//on indique une entrï¿½e du formulaire se rapportant au champ s'appelant nomChamp
+			//indicating input's name
 			this.writer.append("Content-Disposition: form-data; name=\"" + fieldName+ "\"; filename=\"" + fileName+ "\"\r\n");
-			//on indique que le contenu correspond ï¿½ du texte
+			//indicating that input's content is text
 			this.writer.append("Content-Type: text/plain\r\n");
-			//on indique comment sera encodï¿½ le texte pour la transmission
+			//indicating how input's contents is encoded
 			this.writer.append("Content-Transfer-Encoding: binary\r\n");
 			this.writer.append("\r\n");
-			//on ï¿½crit le flux dans la requete
+			//flow is writen into request
 			this.writer.flush();
 		
-			/*il faut maintenant remplir la requï¿½te avec le contenu du fichier
-			 *on met en place un systï¿½me de lecture ï¿½criture
-			 *on definit un buffer intermediaire pour transvaser les donnï¿½es
-			 */
+			//reading/writing mecanisme to write file content into request
 			byte[] temp = new byte[1024];
-			//indicateur permettant de savoir si la lecture du fichier est terminï¿½e
 			int indic;
-			while((indic = content.read(temp)) != -1){//on lit le flux entrant dans le buffer
-				os.write(temp, 0, indic);//on ï¿½crit le buffer dans le flux sortant
+			while((indic = content.read(temp)) != -1){
+				os.write(temp, 0, indic);
 			}
 			
 			this.writer.append("\r\n");		
@@ -177,43 +163,33 @@ public class HttpFileSender implements Sender{
 		
 	}
 	
+	
+	/**
+	 * Method for ending http sending
+	 * */
 	public void endSending()throws HttpTransfertException{
-		/*fonction qui permet de clore le champ data de la requete
-		 * une fois que tous les champs ont ï¿½tï¿½ inscrits dedans
-		 * on aura donc achevï¿½ de remplir la requï¿½te qui sera donc 
-		 * communiquï¿½e ï¿½ l'adresse cible. 
-		 */
 		try{
-			
-			Log.d("DEBUG","...ending request");
-			//on inscrit le dï¿½limiteur final dans la requete. cette ligne signifie au server la fin de la requete
+		    //writing last mark 
 			this.writer.append("--"+this.delimiter+"--"+"\r\n");
-			//on ï¿½crit le flux dans la requete
+			//flow is written in request
 			this.writer.flush();	
-			//on ferme tous les outils d'ï¿½criture
+			//closing writing tools
 			this.writer.close();
 			this.os.close();
-			Log.d("DEBUG","...request ended");		
 		}catch(IOException e){
 			Log.d("end sending IO Exception", e.toString());
 			e.printStackTrace();
-			throw new HttpTransfertException("end sending closing outputstream exception :"+e.toString());
-			
+			throw new HttpTransfertException("end sending closing outputstream exception :"+e.toString());	
 		}	
-		
 	}
 	
-	/*fonction qui indique si le transfert s'est bien déroulé*/
+	/**
+	 * Method for reading server response to the sent request, 
+	 * returns true if transfer has been correctly done
+	 */
 	public boolean readResponseStatus() throws IOException{
 			int response = this.connection.getResponseCode();
 			return (response==HttpURLConnection.HTTP_OK);
 			
 		}
-	
-	
-	
-	
-	
-	
-
 }

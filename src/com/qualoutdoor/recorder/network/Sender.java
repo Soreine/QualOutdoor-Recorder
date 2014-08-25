@@ -2,12 +2,13 @@ package com.qualoutdoor.recorder.network;
 
 import java.io.InputStream;
 
-/*Classe abstraite dont doivent h�riter toutes les solutions d'�changes de fichier
- * elles devront donc implementer la m�thode envoyerFichier r�alisant l'envoi d'information 
- * et toutes les proc�dures auxilliaires selon le protocole correspondant
- */
+/**
+ * Abstract class parent of every class implementing file sending.
+ * */
 public interface Sender {
-	
+	/**
+	 * method used for uploading a file
+	 */
 	public  boolean sendFile(String URL,String fileName,InputStream content );
 	
 

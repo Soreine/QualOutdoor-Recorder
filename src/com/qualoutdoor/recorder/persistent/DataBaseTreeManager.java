@@ -2,150 +2,145 @@ package com.qualoutdoor.recorder.persistent;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
-/*Un DataBaseTree Manager va permettre l'insertion ordonn�e des lignes dans la table de reference selon une archiecture
- * arborescente. La nouvelle representation de l'arbre dans la base de donn�es �tant un "applatissage" de l'arbre
- * il va avoir un cuseur pointant sur une ligne de la table qui correspond � un noeud de l'arbre
-*/
+
+/**
+ * Class that permits to insert new measures into local database system while following tree architecture
+ * */
 public class DataBaseTreeManager {
-	private SQLiteDatabase db;//base de donn�e sur laquelle le manager envoie les requetes.
-	private TableDB table;//table de la base de donn�e sur laquelle il se d�place
+    /**Database to work on*/
+	private SQLiteDatabase db;
+	/**table of the database where the tree is stored*/
+	private TableDB table;
+	/**cursor moving on the tree nodes*/
+	private TreeCursor cursor;
 	
-	private TreeCursor cursor;//curseur qui pointera sur une ligne pr�cise de la table de reference donc sur un noeud de l'arbre
-	
-	/*Un manager est donc construit avec une bdd, une table sur laquelle il se d�place, on appelle la 
-	 * m�thode reset pour qu'il se positionnne sur la racine de l'arbre*/
 	public DataBaseTreeManager(SQLiteDatabase db, TableDB table) {
 		this.db = db;
 		this.table = table;
 		this.cursor=new TreeCursor();
 		this.cursor.init();
-		
 	}
 	
-	/*Fonction qui permet de trouver la ligne du dernier �l�ment du sous arbre dont le curseur pointe sur la racine*/
+	/**returns the last line of the sub tree engendered by the pointed node */
 	public int getSubTreeBoundary(){
-		//Log.d("debug tree","looking for boudary of sub tree rooted by " +this.cursor.getReference()+" on line "+this.cursor.getLine());
 		int lastChild;
+		//preparing SQL statement : searching next node brother/uncle
 		String selectQuery = "SELECT line , VALUE , LEVEL  FROM "+table.getName()+" WHERE level <= ? AND line > ?  ORDER BY LINE ASC ";
+		//executing it
 		Cursor c = db.rawQuery(selectQuery, new String[] {Integer.toString(this.cursor.level), Integer.toString(this.cursor.line)});
-		if (c.moveToFirst()) {//si un noeud de m�me �tage est trouv�
-			lastChild = c.getInt(0)-1;//on recup�re la ligne correspondant au dernier �l�ment du sous arbre
-			//Log.d("debug tree____","sub tree boundary found on line "+lastChild);
-			//Log.d("debug tree_____","next brother details are ref: "+c.getInt(1)+" lev: "+c.getInt(2)+" Line:"+c.getInt(0) );
-		}else{//sinon tous les autres �l�ments de la liste font partie du sous arbre
-			String countQuery = "SELECT Count(*) FROM "+table.getName();//on regarde le nombre d'�l�ments dans la table
+		if (c.moveToFirst()) {
+			lastChild = c.getInt(0)-1;
+		}else{
+		    //if no line is found, sub tree spread untill the end of the references table
+		    //counting the remaining lines
+			String countQuery = "SELECT Count(*) FROM "+table.getName();
 			Cursor c2 = db.rawQuery(countQuery,null);
 			c2.moveToFirst();
-			lastChild = c2.getInt(0)+1;//la ligne du dernier �l�ment de la liste correspond au nombre total de ligne grace � notre convention	 
+			lastChild = c2.getInt(0)+1;
 			c2.close();
-			//Log.d("debug tree____","sub tree boundary not found : considering last node of the whole tree, line is "+lastChild);
 		}  
 		c.close();
 		return lastChild;
 	}
 	
-	/*Fonction qui permet de savoir si un noeud de valeur ref est contenue dans le sous arbre dont le curseur est la racine
-	 * si le noeud est trouv�  la valeur true est renvoy�e et le curseur sera mis � jour sur ce dernier
-	 * et sinon le curseur n'est pas modifi� et la valeur false est retourn�e.
-	 * */
+	/**Checks if a specified node is included in sub tree engendered by pointed node if it's true, true
+	 * is returned and manager will point on it, else it won't move and returns false*/
 	public boolean contains(int ref){
 		boolean result;
-		//on rep�re les limites du sous arbre donc le cuseur pointe sur la racine afin de borner l'intervalle de recherche:
+		//getting subtree boundary in order to edge searching interval
 		int boundary = getSubTreeBoundary();
-		//Log.d("debug tree____","limite of sub tree rooted by "+this.cursor.getReference()+ "is "+boundary);
-		//on recherche la r�f�rence indiqu� en se limitant au boundary
+		//research query
 		String selectQuery = "SELECT  LINE , VALUE , LEVEL  FROM "+table.getName()+" WHERE VALUE = ? AND line <= ? AND line > ?";
+		//execution of the query
 		Cursor c = db.rawQuery(selectQuery, new String[] {Integer.toString(ref), Integer.toString(boundary),Integer.toString(this.cursor.line)});
-		if (c.moveToFirst()) {//si un noeud de m�me �tage est trouv� on update le curseur et on renvoie true
+		//if a node is found
+		if (c.moveToFirst()) {
 			this.cursor.update(c.getInt(0), c.getInt(1), c.getInt(2));
 			result = true;
-			//Log.d("____debug tree___","node found "+ref+" , details are line: "+c.getInt(0)+" ref: "+c.getInt(1)+" level:"+c.getInt(2));
+		//if not
 		}else{
-			//Log.d("____debug tree___","node not found "+ref);
 			result = false; 
 		}
 		c.close();
 		return result;	
 	}
 	
-	/*Fonction qui permet d'inserer un nouveau noeud dans l'arbre dans la ligne suivante
-	 * de celle qui est point�e � l'instant courant avec la valeur ref*/
+	/**Method that inserts a new line associated to a non leaf node into reference table just under the pointed 
+	 * one with the specified reference. Cursor is updated on it after insertion*/
 	public void insert(int ref){
-		/*il faut d�caler toutes les lignes dont l'index est strictement sup�rieur � la ligne courante*/
+		//incrementing index of line under the insertion index
 		String updateQuery1 = "UPDATE "+table.getName()+" SET line = line + 1 WHERE LINE > "+this.cursor.line+";";
 		db.execSQL(updateQuery1);
-		//on insert la nouvelle ligne
+		//new line insertion
 		String insertQuery = "INSERT INTO "+table.getName()+" (LINE,VALUE,LEVEL) VALUES ("+(this.cursor.line+1)+","+ref+","+(this.cursor.level+1)+");";
 		db.execSQL(insertQuery);
-		//on met a jour le curseur sur le nouveau noeud
+		//cursor updating
 		this.cursor.update(this.cursor.line+1, ref, this.cursor.level+1);	
 	}
 	
-	/*Fonction qui permet d'inserer une feuille dans l'arbre : exactement pareille que la fonction pr�c�dente
-	 * sauf que le curseur pointera vers le noeud pere de la feuille
-	 * */
+	/**Method that inserts a new line associated to a leaf node into reference table just under the pointed 
+	 * one with the specified reference, cursor is not updated after insertion
+	 */
 	public void insertLeaf(int ref){
-		/*il faut d�caler toutes les lignes dont l'index est strictement sup�rieur � la ligne courante*/
+	  //incrementing index of line under the insertion index
 		String updateQuery1 = "UPDATE "+table.getName()+" SET line = line + 1 WHERE LINE > "+this.cursor.line+";";
 		db.execSQL(updateQuery1);
-		//on insert la nouvelle ligne
+		//new line insertion
 		String insertQuery = "INSERT INTO "+table.getName()+" (LINE,VALUE,LEVEL) VALUES ("+(this.cursor.line+1)+","+ref+","+(this.cursor.level+1)+");";
 		db.execSQL(insertQuery);
 	}
 	
-	/*fonction qui permet devoir si un noeud existe et s'il n'existe pas, elle le cr��e*/
+	
+	/**
+	 * Function that make cursor focus on the child of the pointed line having the specified reference 
+	 * if it doesn't exist this child is create
+	 * */
 	public void findOrCreate(int ref){
-		if(!this.contains(ref)){//Si l'intervalle courant ne contient pas de noeud contenant la r�f�rence indiqu�e
-			//Log.d("____debug tree___","node created "+ref);
-			this.insert(ref);//alors on le cr�e
-		}//Dans tous les cas le DataBaseTreeManager aura ses bornes mises � jour
+		if(!this.contains(ref)){
+			this.insert(ref);
+		}
 	}
 	
-	/*Fonction qui permet de retouver un noeud p�re � partir d'un noeud fils,
-	 * l'intervalle point� doit donc correspondre � celui du fils;
-	 * 
-	 * le DataBaseTreeManager sera Mis a jour avec les bornes de l'intervalle du p�re
-	 * 
-	 * si l'element n'a pas de p�re alors le DataBaseTreeManager sera inchang�
-	 */
+	/**
+	 * Method that makes cursor pointing on the father of the current pointed node.
+	 * If current line doesn't not have father, cursor won't move.
+	 * */
 	public void getFather() throws DataBaseException{
-		if(this.cursor.level!=0){//Dans ce cas l'intervalle n'est pas la racine donc admet un p�re
-			//le p�re est la ligne la plus proche au dessus du curseur dont le level vaut le level courant +1
+		if(this.cursor.level!=0){
+		    //the father of the current line is the nearest above which had a level equals to the 
+		    //current level +1
+		    //here is the associated query
 			 String selectQuery = "SELECT max( LINE ) , VALUE , LEVEL FROM "+this.table.getName()+" WHERE LINE < ? AND LEVEL = ?";
 		     Cursor c = db.rawQuery(selectQuery, new String[] {Integer.toString(this.cursor.line), Integer.toString(this.cursor.level - 1) });
 		     if (c.moveToFirst()) {
-		    	 //on a retrouv� le p�re on met � jour les champs du curseur
+		    	 //father is found : cursor is updated
 	             this.cursor.update(c.getInt(0), c.getInt(1), c.getInt(2));
-	           // Log.d("debug tree","manager now pointing on " + c.getInt(1) +" on level "+ c.getInt(2));
 	        }else{
 	        	throw new DataBaseException("TREE MANAGER GET FATHER : can't find node father");
 	        }
 		    c.close();
-		}//si on pointe d�j� sur la racine, on ne fait rien.	
-		else{
-			//Log.d("debug tree","manager now pointing on root");
 		}
 	}
 	
 	
-	
-	/*Fonction qui permet de r�initialiser le manager en repla�ant son curseur sur la racine*/
+	/**Method reseting manager on tree root*/
 	public void reset(){
 		this.cursor.init();
 	}
 	
+	/**Returns the cursor's current position*/
 	public TreeCursor getCursor(){
 		return this.cursor;
 	}
 	
-	/*Fonction qui permet d'analyser la ligne suivante de la table de ref : utile pour l'�crivain*/
+	/**Makes manager move to the node associated to the next line in the reference table
+	 * returns true if this line exists, if not it returns false*/
 	public boolean moveToNextLine(){
 		boolean exists;
 		String selectQuery = "SELECT  LINE, VALUE , LEVEL FROM "+this.table.getName()+" WHERE LINE = ?";
 	     Cursor c = db.rawQuery(selectQuery, new String[] {Integer.toString(this.cursor.line+1)});
-	     if (c.moveToFirst()) {//si la ligne suivante existe
+	     if (c.moveToFirst()) {
 	    	 this.cursor.update(c.getInt(0), c.getInt(1),c.getInt(2));
 	    	 exists = true;
 	     }else{
@@ -155,30 +150,38 @@ public class DataBaseTreeManager {
 	     return exists;
 	}
 	
-	/*Classe interne qui permet simplement de caracteriser l'objet curseur*/
+	/**Internal class that describes cursor objects*/
 	public class TreeCursor {
-		private int line;//numero de la ligne point�e par le curseur;
-		private int reference;//le champs reference de la ligne point�e par le curseur;
-		private int level; //le champs level de la ligne point�e par le curseur;
+	    /**Current pointed line's index*/
+		private int line;
+		/**Current pointed line's reference*/
+		private int reference;
+		/**Current pointed line's level*/
+		private int level; 
 		
+		/**returns cursor's level*/
 		public int getLevel(){
 			return this.level;
 		}
 		
+		/**returns cursor's reference*/
 		public int getReference(){
 			return this.reference;
 		}
 		
+		/**returns cursor's line*/
 		public int getLine(){
 			return this.line;
 		}
 		
-		public void init(){//on positionne le curseur en root;
+		/**initialize cursor on the root*/
+		public void init(){
 			this.line=2;
 			this.reference=0;
 			this.level=0;
 		}
 		
+		/**update cursor with specified attributes*/
 		public void update(int li, int ref, int lev){
 			this.line=li;
 			this.reference=ref;

@@ -8,122 +8,105 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.SparseArray;
 
-/*Classe qui a pour but de faire l'intermediaire entre le code java de l'application
- * android et la base de donn�e SQLlite locale. Le code enverra des instructions � l'instance
- * de cette classe qui les convertira en des requ�tes SQL*/
+/**
+ * Class interfacing between java code of android app and SQL local database.
+ *  */
+
 
 public class SQLConnector {
 
-    private SQLiteDatabase db;// base de donn�e sur laquelle agir.
-    private SQLDataBaseCreator dbCreator;// createur de la base de donn�e
-
-    private DataBaseTreeManager manager;// manager de l'arbre de la bdd:MANAGER
-                                        // D'INSERTION
-
-    // le connector garde en memoire les derniers Group,USer,MCC,MNC,NTC,Metric
-    // acc�d�s afin d'indiquer au
-    // manager comment se d�placer dans l'arbre pour une nouvelle insertion.
-    // ce sixtuplet represe la position courante du manager apr�s insertion, il
-    // est stock� dans un contexte
-
+    /**database to interact with*/
+    private SQLiteDatabase db;
+    /**database creator*/
+    private SQLDataBaseCreator dbCreator;
+    /**database manager for inserting measure into database in following tree architecture*/
+    private DataBaseTreeManager manager;
+    /**Memory cache for leaf insertion in tree*/
     private MeasureContext oldContext;
-
-    /** Indicate if this connector is open already */
+    /** Value indicating if this connector is open already */
     private boolean isOpen = false;
 
-    // le constructeur engendre un nouveau createur de bdd
+    /**Constructor
+     * that calls database creator one*/
     public SQLConnector(Context context) {
         this.dbCreator = new SQLDataBaseCreator(context);
         this.oldContext = new MeasureContext();
     }
 
-    // open() permet de produire la base de donn�e � partir du constructeur
+    /**
+     * Method triggering the database content creation or if it's already done
+     * it just get its content 
+     * */
     public void open() throws SQLException {
-        // on cr�e ou on ouvre la base de donn�es qui sera en acces lecture
-        // ecriture
+        // creation or opening of database content
         this.db = this.dbCreator.getWritableDatabase();
-        // on change finalement on ne remet pas � zero la bdd
-        // elle sera flush�e � chaque nouvel envoi.
-        // on initialise le manager
+        // manager initialization
         this.manager = new DataBaseTreeManager(this.db,
                 this.dbCreator.getTableReference());
         // The connector is now opened
         this.isOpen = true;
     }
 
-    // fermeture de la base de donn�es
+    /**
+     * Method for closing access to the database
+     * */
     public void close() {
         this.dbCreator.close();
-        // The connector is closed
+        // The connector is now closed
         this.isOpen = false;
     }
 
-    /** Indicate if this connector is open already */
+    /** 
+     * Indicate if this connector is open already
+     */
     public boolean isOpen() {
         return this.isOpen;
     }
 
-    /*
-     * fonction qui permet d'inserer une ligne correspondant � une mesure dans
-     * la table de reference
+    /**
+     * Method for inserting a new leaf into reference table
      */
     public void insertReference(MeasureContext newContext, int ref)
             throws CollectMeasureException, DataBaseException {
-        // verification de la coh�rence des curseurs
+        // checking if contexts are coherents
         if (this.oldContext.getlength() != newContext.getlength()
                 || this.oldContext.getCursor() != newContext.getCursor()) {
             throw new CollectMeasureException(
                     "new context doesn't match with old one");
         }
-        // si les noeuds sont identiques
+        // when nodes are the same for old and new context
         if (newContext.getStage(newContext.getCursor()) == this.oldContext
                 .getStage(this.oldContext.getCursor())) {
-            // Log.d("****************DEBUG REFERENCE",
-            // "Noeuds identiques : "+newContext.getStage(newContext.getCursor()));
-            // si on est � la fin on insere la feuille
+            // if end of the tree is reached, it's time to insert leaf where manager is pointing
             if (this.oldContext.isAtEnd()) {
-                // Log.d("****************DEBUG REFERENCE",
-                // "on  insere la feuille "+ref);
                 this.manager.insertLeaf(ref);
-            } else {// sinon on compare les noeuds fils
-                // Log.d("****************DEBUG REFERENCE",
-                // "on  passe au noeud FILS");
-                this.oldContext.moveToChild();// on prend le fils
-                newContext.moveToChild();// on prend le fils
-                insertReference(newContext, ref);// on rappelle la fonction sur
-                                                 // les fils
+            } else {
+            // if it's not, insertReference is call again on the context but focusing of the stage under the current one   
+               //moving down on both context
+                this.oldContext.moveToChild();
+                newContext.moveToChild();
+                //calling againg the methode
+                insertReference(newContext, ref);
             }
-        } else {// si les noeuds ne sont pas identiques
-                // on determine la distance du noeud p�re du noeud de "conflit"
-                // � la fin de l'abre pour faire remonter le
-                // manager jusqu'� lui
-                // Log.d("****************DEBUG REFERENCE",
-                // "Noeuds diff�rents : new : "+newContext.getStage(newContext.getCursor())+" old :"+this.oldContext.getStage(this.oldContext.getCursor()));
+        } else {
+        //if nodes are different, distance between leaves and last shared node is calculated for 
+        //making manager recovering untill this node before going down along the right branch
             int distFatherLeaf = this.oldContext.getlength()
                     - this.oldContext.getCursor();
-            // on fait remonter le manager
+            // manager is recovering
             for (int i = 0; i < distFatherLeaf; i++) {
-                // Log.d("****************DEBUG REFERENCE","on remonte le manager");
                 this.manager.getFather();
             }
-            // on le fait maintenant redescendre en suivant le bon chemin et en
-            // mettant � jour oldContext
+            // manager is going along the right branch
             for (int u = 0; u < distFatherLeaf; u++) {
-                // Log.d("****************DEBUG REFERENCE","on descend le manager vers "+newContext.getStage(newContext.getCursor())
-                // );
-                // on se dirige vers le bon fils
                 manager.findOrCreate(newContext.getStage(newContext.getCursor()));
-                // mise a jour du vieux cuseur
+                // old context is updated with the new manager position
                 this.oldContext.set(this.oldContext.getCursor(),
-                        newContext.getStage(newContext.getCursor()));
-                // on descend d'un �tage
+                newContext.getStage(newContext.getCursor()));
                 this.oldContext.moveToChild();
                 newContext.moveToChild();
             }
-            // Log.d("****************DEBUG REFERENCE","FIN DE LA DESCENTE : "+newContext.getStage(newContext.getCursor())
-            // );
-            // � la fin on est arriv� au bout de l'arbre : on peut inserer la
-            // feuille:
+            //when end of tree is reached it's time to insert leaf where manager is pointing
             this.manager.insertLeaf(ref);
         }
 
@@ -131,125 +114,69 @@ public class SQLConnector {
 
     
 
-    /*
-     * Methode qui insere une mesure dans la table des mesures, elle renvoie
-     * l'identifiant de la ligne ins�r�e ou -1 en cas de probleme
+    /**
+     * Method for inserting leaf's details into measure table of the database,
+     * returns inserted line id or -1 if insertion went wrong.
      */
-    public int insertData(double d, double e, String data)
+    public int insertData(double lat, double lng, String data)
             throws DataBaseException {
         int id = -1;
-        // on pr�pare la requete d'insertion, la date est g�n�r�e par SQL
+        // preparing SQL statement for insertion, date is generated by MySQL
         String insertQuery = "INSERT INTO "
                 + this.dbCreator.getTableMeasure().getName()
-                + " ( LAT , LNG, DATA) VALUES (" + d + "," + e + ", '" + data
+                + " ( LAT , LNG, DATA) VALUES (" + lat + "," + lng + ", '" + data
                 + "' );";
-        db.execSQL(insertQuery);// Execution de la requete d'insertion
-        Cursor c = db.rawQuery("SELECT last_insert_rowid()", null);// on
-                                                                   // r�cup�re
-                                                                   // l'ID du
-                                                                   // dernier
-                                                                   // �l�ment
-                                                                   // ins�r�
-        if (c.moveToFirst()) {// si on retrouve bien la ligne ins�r�e on
-                              // retrouve son ID
+        //executing it
+        db.execSQL(insertQuery);
+        //getting last inserted row id
+        Cursor c = db.rawQuery("SELECT last_insert_rowid()", null);
+        if (c.moveToFirst()) {
             id = c.getInt(0);
         } else {
             throw new DataBaseException(
                     "SQL CONNECTOR : can't find ID of inserted measure ! ");
         }
-
         return id;
     }
 
-    /*
-     * Fonction qui permet l'insertion d'une mesure complete dans le r�seau de
-     * tables de Recorderla donn�e complete sera pr�sent� sous forme de hasmap
-     * de type FielD/Valuesauf pour les parametres destin�s aux tables de
-     * m�trique ou le nom de la table sera indiqu�
-     */
+    /**
+     * Method inserting a full measure into local database
+     * */
+  
     public void insertMeasure(MeasureContext newContext,
             SparseArray<String> data, double d, double e)
             throws DataBaseException, CollectMeasureException {
-
-        // INSERTIONS SUCESSIVES DANS LA TABLE DE MESURES
-        // CHAQUE INSERTION DE DATA EST SUIVIE PAR UNE INSERTION ASSOCIEE DANS
-        // LA TABLE DE REFERENCE
         int ref;
         int size = data.size();
-        for (int index = 0; index < size; index++) {// pour chaque metrique on
-                                                    // termine d'initilaliser le
-                                                    // nvx Contexte
-            newContext.set(newContext.getlength() - 1, data.keyAt(index));// on
-                                                                          // met
-                                                                          // la
-                                                                          // m�trique
-                                                                          // �
-                                                                          // la
-                                                                          // derniere
-                                                                          // case
-                                                                          // du
-                                                                          // contexte
+        for (int index = 0; index < size; index++) {
+            //for every leaf context is completed
+            newContext.set(newContext.getlength() - 1, data.keyAt(index));
+            //both cursors are reset for make sure that they are coherent
             this.oldContext.resetCursor();
             newContext.resetCursor();
-            // le contexte est pret
-            ref = this.insertData(d, e, data.valueAt(index));// on insert la
-                                                             // data dans la
-                                                             // table de mesure
-            this.insertReference(newContext, ref);// on recupere l'id donn�e
-                                                  // pour referencer la data
-                                                  // dans la table de reference
+            //inserting leaf details into measure table
+            ref = this.insertData(d, e, data.valueAt(index));
+            //inserting leaf into reference table
+            this.insertReference(newContext, ref);
         }
-
-        // TEST
-
-        // String select =
-        // "SELECT * FROM "+this.dbCreator.getTableReference().getName()
-        // +" ORDER BY LINE ASC" ;
-        // Cursor c = this.db.rawQuery(select,null);
-        // String str = DatabaseUtils.dumpCursorToString(c);
-        // Log.d("DEBUG REFERENCE",str);
-        // c.close();
-        //
-        // String select2 =
-        // "SELECT * FROM "+this.dbCreator.getTableMeasure().getName();
-        // Cursor c2 = this.db.rawQuery(select2,null);
-        // String str2 = DatabaseUtils.dumpCursorToString(c2);
-        // Log.d("DEBUG MEASURE",str2);
-        // c2.close();
-
     }
 
-    /*
-     * //methode qui permet de transformer le contenu de la table en un
-     * inputStream sous le format csv public InputStream getInputStream(){ try{
-     * //on initialise la requete � executer sur la bdd : ici on selectionne
-     * tout //le r�sultat est stock� dans un objet de type Cursor Cursor cursor
-     * = this.db.rawQuery("SELECT * FROM "+this.dbCreator.getTable("table_ref").
-     * getName(),null); Log.d("inputStream creation","CURSOR OK"); //on
-     * initialise une String que l'on va remplir par it�ration String str = "";
-     * while(cursor.moveToNext()){ //� chaque ligne renvoy� par la requete on
-     * remplit la String avec les valeurs qu'elle contient str = str
-     * +cursor.getInt
-     * (0)+","+cursor.getInt(1)+","+cursor.getInt(2)+","+cursor.getInt(3)+";"; }
-     * Log.d("inputStream creation", "STRING OK"); Log.d("STRING TO SEND",str);
-     * //une fois la lecture du resultat finie on ferme le curseur
-     * cursor.close(); //on transforme la string construite en inputstream
-     * InputStream is = new ByteArrayInputStream(str.getBytes()); return is;
-     * }catch(DataBaseException e){ e.printStackTrace(); } }
-     */
 
-    /*
-     * Fonction qui permet de retourner les d�tails d'une feuille pr�cise
+    /**
+     * Returns details of the specified leaf
      */
     public ArrayList<String> getLeafDetails(int ref) throws DataBaseException {
         ArrayList<String> list = new ArrayList<String>();
+        //preparing SQL statement
         String selectQuery = "SELECT DATE , LAT , LNG , DATA FROM "
                 + this.dbCreator.getTableMeasure().getName() + " WHERE ID = ?";
+        //executing it
         Cursor c = db.rawQuery(selectQuery, new String[] {
             Integer.toString(ref)
         });
         if (c.moveToFirst()) {
             for (int i = 0; i < c.getColumnCount(); i++) {
+                //filling the list with found results
                 list.add(c.getString(i));
             }
             return list;
@@ -258,9 +185,8 @@ public class SQLConnector {
         }
     }
 
-    /*
-     * Fonction qui retrourne un manager cal� sur l'arbre : utile pour le file
-     * generator qui en a besoin
+    /**
+     * Returns a manager initialized on the tree stored into reference table
      */
     public DataBaseTreeManager prepareManager() throws DataBaseException {
         DataBaseTreeManager manager = null;
@@ -269,53 +195,39 @@ public class SQLConnector {
         return manager;
     }
 
-    /* Fonction qui permet de verifier si des feuilles sont pr�sentes */
+    /**
+     * Checking if the stored tree is not empty : consists in counting lines of measures table
+     */
     public boolean hasLeaf() {
         boolean bool;
-        // on regarde s'il y a des lignes dans la table de mesure
+        // preparing SQL statement
         String selectQuery = "SELECT ID FROM "
                 + this.dbCreator.getTableMeasure().getName();
+        //exectuting it
         Cursor c = db.rawQuery(selectQuery, null);
-        if (c.moveToFirst()) {// s'il y en a on renvoie TRUE
+        if (c.moveToFirst()) {
+            //if leaves are found
             bool = true;
-        } else {// sinon on renvoie FALSE
+        } else {
+            //if not
             bool = false;
         }
         c.close();
         return bool;
     }
 
-    /*
-     * public void deleteLeaf(int ref) throws DataBaseException{
-     * 
-     * int nb =
-     * db.delete(this.dbCreator.getTableMeasure().getName(),"ID = ?",new
-     * String[] {Integer.toString(ref) }); if(nb!=1){ throw new
-     * DataBaseException("unicity not preserved!"); }
-     * 
-     * }
-     */
-
-    /*
-     * Reset complet du systeme de stockage apre�s envoi
-     * 
-     * flush des tables de stockage � utiliser apres envoi du fichier La table
-     * mesure est vid�e completement la table de reference est vid�e
-     * completement sauf de la ligne root (ls=1)
-     * 
-     * OldContexte remis � zero
-     * 
-     * Manager replac� sur la racine
-     */
+  /**
+   * Reseting the whole local storage system after file sending
+   * */
     public void completeReset() throws DataBaseException {
+        //dropping tables
         db.execSQL("DROP TABLE IF EXISTS '"
                 + this.dbCreator.getTableReference().getName() + "' ");
         db.execSQL("DROP TABLE IF EXISTS '"
                 + this.dbCreator.getTableMeasure().getName() + "'");
         this.dbCreator.onCreate(db);
-
+        //reseting cursors
         this.oldContext.reset();
-
         this.manager.reset();
 
     }

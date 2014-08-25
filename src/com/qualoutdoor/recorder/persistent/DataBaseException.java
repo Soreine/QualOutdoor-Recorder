@@ -1,6 +1,6 @@
 package com.qualoutdoor.recorder.persistent;
 
-/** Exception thrown if a problem occured when manipulating the database */
+/** Exception thrown if a problem occurred while manipulating the database */
 public class DataBaseException extends Exception {
 
     /**

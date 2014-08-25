@@ -3,13 +3,8 @@ package com.qualoutdoor.recorder.network;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.HashMap;
-
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.TextView;
+
 
 /**
  * AsyncTask able to send a specified file using a specified sending protocol.
@@ -27,11 +22,12 @@ public class DataSendingManager extends AsyncTask<Void, Void, Boolean> {
 	private SendCompleteListener callback;
 	
 	/**
-	 * Constructor of the class
-	 * @param url
-	 * @param filesToUpload
-	 * @param proto
-	 * @param cb
+	 * Constructor of the class:
+	 * 
+	 * @param url : the address to send data
+	 * @param filesToUpload : the file to be upload
+	 * @param proto : the protocol to use for sending
+	 * @param cb : the callback to call when asynchronous task ends
 	 */
 	public DataSendingManager(String url,File file,String proto,SendCompleteListener cb){
 		this.target=url;
@@ -47,7 +43,6 @@ public class DataSendingManager extends AsyncTask<Void, Void, Boolean> {
         try {
     		//sender objet initialisation
     		Sender sender = null;
-    		
     		//if http protocol is chosen for sending
     		if(this.protocole.equals("http")){
     		//set name of the input of the file in HTTP post formular that will be sent	
@@ -60,10 +55,8 @@ public class DataSendingManager extends AsyncTask<Void, Void, Boolean> {
     		}
     		//Once sender is set, it sends given file
     		boolean result;
-            
-                result = sender.sendFile(this.target, this.fileToUpload.getName(), new FileInputStream(fileToUpload));
-            
-    		//notify to post execution action whether file hase been correctly sent or not
+            result = sender.sendFile(this.target, this.fileToUpload.getName(), new FileInputStream(fileToUpload));
+    		//notify to post execution action whether file has been correctly sent or not
     		return result;
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
@@ -72,11 +65,11 @@ public class DataSendingManager extends AsyncTask<Void, Void, Boolean> {
         }
 
     }
-
+    
     /**
-     * When sending is over, callback is called in passing the sent file and in
+     *  When sending is over, callback is called in passing the sent file and in
      * indicating if sending was successful or not
-     */
+     * */
     @Override
 
     protected void onPostExecute(Boolean result) {
