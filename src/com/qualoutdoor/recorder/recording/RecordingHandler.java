@@ -362,39 +362,9 @@ public class RecordingHandler extends Handler {
 
         @Override
         public void onFileReady(ByteArrayOutputStream file) {
-            if (file == null) {
-                // No data waiting to be uploaded : toast it
-                Toast.makeText(recordingService,
-                        R.string.error_no_data_to_upload, Toast.LENGTH_SHORT)
-                        .show();
-            } else {
-                // Creation of a sending CallBack : called when one sending is
-                // done : if file had not been send it is stored into app file
-                // systeme
-                SendCompleteListener sendingCallback = new SendCompleteListener() {
-                    @Override
-                    public void onTaskCompleted(String protocol,
 
-                    File fileSent, boolean success) {
-                        if (!success) {// if files can't be send, it's stored
-                                       // into internal storage:
-                            Toast.makeText(recordingService,
-                                    R.string.error_sending_file,
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(recordingService,
-                                    R.string.information_upload_succeeded,
-                                    Toast.LENGTH_SHORT).show();
-                            // archive is deleted
-                            fileSent.delete();
-                        }
-
-                        // The upload task is over
-                        uploadTaskCount--;
-                        // Check if we should close the database
-                        checkCloseDatabase();
-                    }
-                };
+            // If some data were converted
+            if (file != null) {
                 // generating file name with timestamp to preserve unicity
                 String name = "file" + System.currentTimeMillis();
                 // adding file to archive
@@ -404,33 +374,70 @@ public class RecordingHandler extends Handler {
                     Log.e(RecordingHandler.class.toString(),
                             "Add to archive failed", e);
                 }
+            }
 
-                // sending archive
-                // File archive = new File(recordingService.getFilesDir(),
-                // QualOutdoorRecorderApp.ARCHIVE_NAME);
-                File archive = new File(
-                        Environment
-                                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
-                        QualOutdoorRecorderApp.ARCHIVE_NAME);
-                if (this.chosenProtocol == QualOutdoorRecorderApp.UPLOAD_PROTOCOL_HTTP) {
-                    // setting server URL : normaly feching if from constant
-                    // Class
-                    String url = QualOutdoorRecorderApp.URL_SERVER_HTTP;
-                    // creation and execution of a DataSendingManager : printing
-                    // widget has to be resolved
-                    DataSendingManager managerHTTP = new DataSendingManager(
-                            url, archive, "http", sendingCallback);
-                    managerHTTP.execute();
-                } else if (this.chosenProtocol == QualOutdoorRecorderApp.UPLOAD_PROTOCOL_FTP) {
-                    // setting server URL : normaly feching if from constant
-                    // Class
-                    String url = QualOutdoorRecorderApp.URL_SERVER_FTP;
-                    // creation and execution of a DataSendingManager : printing
-                    // widget has to be resolved
-                    DataSendingManager managerFTP = new DataSendingManager(url,
-                            archive, "ftp", sendingCallback);
-                    managerFTP.execute();
+            // The possibly existing archive file
+            File archive = new File(recordingService.getFilesDir(),
+                    QualOutdoorRecorderApp.ARCHIVE_NAME);
+
+            // If there is no data to send
+            if (!archive.exists()) {
+                // No data waiting to be uploaded : toast it
+                Toast.makeText(recordingService,
+                        R.string.error_no_data_to_upload, Toast.LENGTH_SHORT)
+                        .show();
+                // Don't upload anything
+                return;
+            }
+            // Else continue...
+
+            // Creation of a sending CallBack : called when one sending is
+            // done : if file had not been send it is stored into app file
+            // systeme
+            SendCompleteListener sendingCallback = new SendCompleteListener() {
+                @Override
+                public void onTaskCompleted(String protocol, File fileSent,
+                        boolean success) {
+                    if (!success) {// if files can't be send, it's stored
+                                   // into internal storage:
+                        Toast.makeText(recordingService,
+                                R.string.error_sending_file, Toast.LENGTH_SHORT)
+                                .show();
+                    } else {
+                        Toast.makeText(recordingService,
+                                R.string.information_upload_succeeded,
+                                Toast.LENGTH_SHORT).show();
+                        // archive is deleted
+                        fileSent.delete();
+                    }
+
+                    // The upload task is over
+                    uploadTaskCount--;
+                    // Check if we should close the database
+                    checkCloseDatabase();
                 }
+            };
+
+            // sending archive
+            if (this.chosenProtocol == QualOutdoorRecorderApp.UPLOAD_PROTOCOL_HTTP) {
+                // setting server URL : normaly feching if from constant
+                // Class
+                String url = QualOutdoorRecorderApp.URL_SERVER_HTTP;
+                // creation and execution of a DataSendingManager : printing
+                // widget has to be resolved
+                DataSendingManager managerHTTP = new DataSendingManager(url,
+                        archive, "http", sendingCallback);
+                managerHTTP.execute();
+            } else if (this.chosenProtocol == QualOutdoorRecorderApp.UPLOAD_PROTOCOL_FTP) {
+                // setting server URL : normaly feching if from constant
+                // Class
+                String url = QualOutdoorRecorderApp.URL_SERVER_FTP;
+                // creation and execution of a DataSendingManager : printing
+                // widget has to be resolved
+                DataSendingManager managerFTP = new DataSendingManager(url,
+                        archive, "ftp", sendingCallback);
+                managerFTP.execute();
+
             }
         }
     }
@@ -449,22 +456,18 @@ public class RecordingHandler extends Handler {
     public void addFileToArchive(String fileName,
             ByteArrayOutputStream fileContent) throws IOException {
         // The possibly already existing zip file
-        File archiveFile1 = new File(
-                Environment
-                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
+        File archiveFile1 = new File(recordingService.getFilesDir(),
                 QualOutdoorRecorderApp.ARCHIVE_NAME);
 
         // The new temporary zip file
-        File archiveFile2 = new File(
-                Environment
-                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
+        File archiveFile2 = new File(recordingService.getFilesDir(),
                 QualOutdoorRecorderApp.ARCHIVE_NAME + "2");
-        
+
         // For reading the entries of the existing archive
         ZipFile archive1 = null;
         // For writing into the temporary archive
         ZipOutputStream zos2 = null;
-        
+
         try {
             // Open a stream into the temporary archive
             FileOutputStream archiveStream2;
