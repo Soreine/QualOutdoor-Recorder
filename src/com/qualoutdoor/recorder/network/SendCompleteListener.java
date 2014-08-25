@@ -5,8 +5,6 @@ import java.io.File;
 
 /**
  * Callback class, called by DataSendingManager objects when sending is over
- * @author Lucas
- *
  */
 
 public interface SendCompleteListener {

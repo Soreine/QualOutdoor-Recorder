@@ -226,7 +226,7 @@ public class RecordingHandler extends Handler {
      */
     private void finishRecording() {
 
-        Log.d("RecordingHandler","trying to finishRecording");
+        Log.d("RecordingHandler", "trying to finishRecording");
         // Check and close database
         checkCloseDatabase();
         // If no more sampling task are waiting
@@ -236,7 +236,7 @@ public class RecordingHandler extends Handler {
             recordingService.stopForeground(true);
             // Stop the recording service
             recordingService.stopSelf();
-            Log.d("RecordingHandler","Stopped Recording");
+            Log.d("RecordingHandler", "Stopped Recording");
         }
     }
 
@@ -380,7 +380,8 @@ public class RecordingHandler extends Handler {
                             Toast.makeText(recordingService,
                                     R.string.information_upload_succeeded,
                                     Toast.LENGTH_SHORT).show();
-                            // TODO : remove archive
+                            // archive is deleted
+                            fileSent.delete();
                         }
 
                         // The upload task is over

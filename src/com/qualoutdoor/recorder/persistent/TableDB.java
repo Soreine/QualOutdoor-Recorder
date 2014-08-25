@@ -3,24 +3,28 @@ package com.qualoutdoor.recorder.persistent;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import android.util.Log;
 
+/**
+ * Class representing storage table into database
+ * */
 public class TableDB {
-
+    
+    /**name of the table*/
     private String name;
+    /**list of the table's columns : name and nature of them*/
     private HashMap<String, String> columns;
 
+    /**
+     * Constructor
+     */
     public TableDB(String n, HashMap<String, String> col) {
         this.name = n;
         this.columns = col;
-        // on r�cup�re les valeurs des types des colonnes pass� dans la hashmap:
-        ArrayList<String> SQLtypes = new ArrayList<String>();
-        for (String SQLtype : col.values()) {
-            SQLtypes.add(SQLtype);
-        }
-
     }
 
+    /**
+     * other constructor : columns name and type are given distinctly
+     * */
     public TableDB(String n, String[] value, String[] type) {
         if (value.length == type.length) {
             this.name = n;
@@ -35,10 +39,16 @@ public class TableDB {
 
     }
 
+    /**
+     * return table name
+     * */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * return the list of columns' name
+     * */
     public ArrayList<String> getColumsName() {
         ArrayList<String> columnsName = new ArrayList<String>();
         for (int i = 0; i < this.columns.size(); i++) {
@@ -47,10 +57,13 @@ public class TableDB {
         return columnsName;
     }
 
+    /**
+     * return the SQL statement into a string that order to create into SQL database
+     * the table described by the object
+     */
     public String createTableintoDB() {
         String columnsFields = "";
         int i = 0;
-        // construction des associations colonne/type de la requete de creation
         for (String col : this.getColumsName()) {
             if (i != 0) {
                 columnsFields = columnsFields + ",";
@@ -61,7 +74,6 @@ public class TableDB {
         }
         String request = "CREATE TABLE " + this.name + " ( " + columnsFields
                 + " );";
-        Log.d("DATA BASE DEBUG", request);
         return request;
     }
 

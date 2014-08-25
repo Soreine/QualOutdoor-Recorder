@@ -7,7 +7,7 @@ package com.qualoutdoor.recorder.network;
 public class HttpTransfertException extends Exception{
 
 	/**
-	 * 
+	 * Exception thrown when a incorrect instruction is done during http file sending
 	 */
 	private static final long serialVersionUID = 1L;
 
