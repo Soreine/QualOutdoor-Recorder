@@ -5,12 +5,17 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 import android.database.SQLException;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -401,7 +406,11 @@ public class RecordingHandler extends Handler {
                 }
 
                 // sending archive
-                File archive = new File(recordingService.getFilesDir(),
+                // File archive = new File(recordingService.getFilesDir(),
+                // QualOutdoorRecorderApp.ARCHIVE_NAME);
+                File archive = new File(
+                        Environment
+                                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
                         QualOutdoorRecorderApp.ARCHIVE_NAME);
                 if (this.chosenProtocol == QualOutdoorRecorderApp.UPLOAD_PROTOCOL_HTTP) {
                     // setting server URL : normaly feching if from constant
@@ -426,6 +435,8 @@ public class RecordingHandler extends Handler {
         }
     }
 
+    private static final byte[] BUFFER = new byte[4096 * 1024];
+
     /**
      * Add file into the archive destined for the pending uploads
      * 
@@ -437,21 +448,78 @@ public class RecordingHandler extends Handler {
      */
     public void addFileToArchive(String fileName,
             ByteArrayOutputStream fileContent) throws IOException {
-
-        File archive = new File(recordingService.getFilesDir(),
+        // The possibly already existing zip file
+        File archiveFile1 = new File(
+                Environment
+                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
                 QualOutdoorRecorderApp.ARCHIVE_NAME);
-        FileOutputStream archiveStream;
-        archiveStream = new FileOutputStream(archive);
-        ZipOutputStream zos = new ZipOutputStream(new BufferedOutputStream(
-                archiveStream));
-        String filename = fileName;
-        byte[] bytes = (fileContent.toByteArray());
-        ZipEntry entry = new ZipEntry(filename);
-        zos.putNextEntry(entry);
-        zos.write(bytes);
-        zos.closeEntry();
-        zos.close();
+
+        // The new temporary zip file
+        File archiveFile2 = new File(
+                Environment
+                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),
+                QualOutdoorRecorderApp.ARCHIVE_NAME + "2");
+        
+        // For reading the entries of the existing archive
+        ZipFile archive1 = null;
+        // For writing into the temporary archive
+        ZipOutputStream zos2 = null;
+        
+        try {
+            // Open a stream into the temporary archive
+            FileOutputStream archiveStream2;
+            archiveStream2 = new FileOutputStream(archiveFile2);
+            zos2 = new ZipOutputStream(new BufferedOutputStream(archiveStream2));
+
+            // Check if there was actually an existing zip file
+            if (archiveFile1.exists()) {
+                // Open a ZipFile from the existing archive
+                archive1 = new ZipFile(archiveFile1);
+
+                // Get the entries in the existing zip file
+                Enumeration<? extends ZipEntry> previousEntries = archive1
+                        .entries();
+                // Copy every previous entry into the new zip file
+                while (previousEntries.hasMoreElements()) {
+                    ZipEntry entry = previousEntries.nextElement();
+                    zos2.putNextEntry(entry);
+                    // If not a directory, copy the content
+                    if (!entry.isDirectory()) {
+                        // Copy the entry input stream into our output stream
+                        InputStream inputStream1 = archive1
+                                .getInputStream(entry);
+                        int bytesRead;
+                        while ((bytesRead = inputStream1.read(BUFFER)) != -1) {
+                            zos2.write(BUFFER, 0, bytesRead);
+                        }
+                    }
+                    zos2.closeEntry();
+                }
+            }
+
+            // Add our new content
+            String filename = fileName;
+            byte[] bytes = (fileContent.toByteArray());
+            ZipEntry entry = new ZipEntry(filename);
+            zos2.putNextEntry(entry);
+            zos2.write(bytes);
+            zos2.closeEntry();
+
+        } catch (IOException exc) {
+            Log.e("RecordingHandler", "addFileToArchive", exc);
+        } finally {
+            // Close the open files
+            if (archive1 != null)
+                archive1.close();
+            if (zos2 != null)
+                zos2.close();
+        }
+
+        // Delete the previous archive
+        Log.d("RecordingHandler", "Delete " + archiveFile1.delete());
+        // Rename the new zip file to replace the first zip file
+        Log.d("RecordingHandler",
+                "Rename " + archiveFile2.renameTo(archiveFile1));
 
     }
-
 }
