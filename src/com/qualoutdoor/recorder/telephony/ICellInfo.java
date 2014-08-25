@@ -1,5 +1,12 @@
 package com.qualoutdoor.recorder.telephony;
 
+/*
+ * TODO : Maybe it would be best if the calls in this
+ * interface were throwing an UnknownException when the
+ * CellInfo doesn't know the requested data, rather than
+ * responding with Integer.MAX_INT  
+ */
+
 /**
  * This is an interface for accessing a cell information.
  * 
@@ -86,7 +93,7 @@ public interface ICellInfo {
      * @return The TAC. Integer.MAX_VALUE if unknown or not LTE.
      */
     int getTac();
-    
+
     /**
      * Get the Timing Advance value.
      * 

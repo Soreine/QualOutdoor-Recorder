@@ -124,6 +124,8 @@ public class RecordingService extends Service implements LocationListener {
         prefs.registerOnSharedPreferenceChangeListener(prefListener);
         
         // Bind to the telephony and location services
+        // TODO it would be best to bind to the different services only when we
+        // are asked to record, that is when startRecording() is called.
         telServiceConnection.bindToService(this);
         locServiceConnection.register(locServiceListener);
         locServiceConnection.bindToService(this);
@@ -351,7 +353,7 @@ public class RecordingService extends Service implements LocationListener {
         LinkedList<Integer> result = new LinkedList<Integer>();
 
         // The preference id list
-        String[] preferenceKeys = {
+        String[] metricPreferenceKeys = {
                 getString(R.string.pref_key_sample_cell_id),
                 getString(R.string.pref_key_sample_signal_strength),
                 getString(R.string.pref_key_sample_call),
@@ -360,7 +362,7 @@ public class RecordingService extends Service implements LocationListener {
         };
         Resources res = getResources();
         // The default values list
-        boolean[] defaultValues = {
+        boolean[] metricDefaultValues = {
                 res.getBoolean(R.bool.pref_default_sample_cell_id),
                 res.getBoolean(R.bool.pref_default_sample_signal_strength),
                 res.getBoolean(R.bool.pref_default_sample_call),
@@ -376,8 +378,8 @@ public class RecordingService extends Service implements LocationListener {
                 QualOutdoorRecorderApp.FIELD_DOWNLOAD
         };
         // For each preference, add the corresponding integer code if true
-        for (int i = 0; i < preferenceKeys.length; i++) {
-            if (prefs.getBoolean(preferenceKeys[i], defaultValues[i]))
+        for (int i = 0; i < metricPreferenceKeys.length; i++) {
+            if (prefs.getBoolean(metricPreferenceKeys[i], metricDefaultValues[i]))
                 result.add(codes[i]);
         }
         return result;
