@@ -121,15 +121,19 @@ public class DataMapFragment extends Fragment implements LocationListener {
 
         // We only create a fragment if it doesn't already exist.
         if (mapFragment == null) {
-            // Create options for the Google Map
-            GoogleMapOptions options = new GoogleMapOptions();
-            options.tiltGesturesEnabled(false)
-                    .mapType(GoogleMap.MAP_TYPE_SATELLITE)
-                    .compassEnabled(false);
 
             // To programmatically add the map, we first create a
-            // SupportMapFragment.
-            mapFragment = SupportMapFragment.newInstance(options);
+            // SupportMapFragment and override the onActivityCreated callback
+            // for map initialization
+            mapFragment = new SupportMapFragment() {
+                @Override
+                public void onActivityCreated(Bundle savedInstanceState) {
+                    super.onActivityCreated(savedInstanceState);
+                    // The map is available from now on
+                    setUpMapIfNeeded();
+                    Log.d("DataMapFragment", "Map creation callback");
+                };
+            };
 
             // Then we add it using a FragmentTransaction.
             FragmentTransaction fragmentTransaction = getFragmentManager()
@@ -138,11 +142,6 @@ public class DataMapFragment extends Fragment implements LocationListener {
                     MAP_FRAGMENT_TAG);
             fragmentTransaction.commit();
         }
-
-        // We can't be guaranteed that the map is available because Google Play
-        // services might not be available.
-        setUpMapIfNeeded();
-
     }
 
     // Called when the fragment has to instantiate its own view
@@ -214,6 +213,12 @@ public class DataMapFragment extends Fragment implements LocationListener {
 
     /** Initialize the Map object */
     private void setUpMap() {
+        // Disable the compass
+        map.getUiSettings().setCompassEnabled(false);
+        // Disable tilt gestures
+        map.getUiSettings().setTiltGesturesEnabled(false);
+        // Set the map to satellite view
+        map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         // Activate the 'center on my location button'
         map.setMyLocationEnabled(true);
     }
