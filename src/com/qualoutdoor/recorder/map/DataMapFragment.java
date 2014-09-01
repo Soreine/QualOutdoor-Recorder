@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,8 +20,8 @@ import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
-import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.IServiceListener;
+import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.ServiceProvider;
 import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
 import com.qualoutdoor.recorder.location.LocationContext;
@@ -37,15 +38,17 @@ import com.qualoutdoor.recorder.telephony.TelephonyService;
  */
 public class DataMapFragment extends Fragment implements LocationListener {
 
-    private static final float startHue = 0;
-    private static final float endHue = 120;
+    private static final float SCALE_START_HUE = 60;
+    private static final float SCALE_END_HUE = 0;
 
     private ISignalStrength signalStrength;
 
-    // Reference to the Map object
+    /** Reference to the Map object */
     private GoogleMap map;
-    // Reference to the MapFragment
+    /** Reference to the MapFragment */
     private SupportMapFragment mapFragment;
+    /** Tag used to identify the MapFragment */
+    private static String MAP_FRAGMENT_TAG = "mapFragment";
 
     private ServiceProvider<TelephonyService> telephonyService;
 
@@ -111,27 +114,34 @@ public class DataMapFragment extends Fragment implements LocationListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Check if we're being restored from a previous state (in which
-        // case the Fragment is already initialized)
-        if (savedInstanceState != null) {
-            // Do nothing, otherwise we could end up with overlapping
-            // fragments
-            return;
+        // It isn't possible to set a fragment's id programmatically so we set a
+        // tag instead and search for it using that tag.
+        mapFragment = (SupportMapFragment) getFragmentManager()
+                .findFragmentByTag(MAP_FRAGMENT_TAG);
+
+        // We only create a fragment if it doesn't already exist.
+        if (mapFragment == null) {
+            // Create options for the Google Map
+            GoogleMapOptions options = new GoogleMapOptions();
+            options.tiltGesturesEnabled(false)
+                    .mapType(GoogleMap.MAP_TYPE_SATELLITE)
+                    .compassEnabled(false);
+
+            // To programmatically add the map, we first create a
+            // SupportMapFragment.
+            mapFragment = SupportMapFragment.newInstance(options);
+
+            // Then we add it using a FragmentTransaction.
+            FragmentTransaction fragmentTransaction = getFragmentManager()
+                    .beginTransaction();
+            fragmentTransaction.add(R.id.map_container, mapFragment,
+                    MAP_FRAGMENT_TAG);
+            fragmentTransaction.commit();
         }
 
-        // Create options for the Google Map
-        GoogleMapOptions options = new GoogleMapOptions();
-        options.tiltGesturesEnabled(false)
-                .mapType(GoogleMap.MAP_TYPE_SATELLITE).compassEnabled(false);// .camera(new
-                                                                             // CameraPosition.Builder().zoom(15).build());
-
-        // Create a new MapFragment to be placed in the fragment layout
-        mapFragment = SupportMapFragment.newInstance(options);
-
-        // TODO : see what does mapFragment.setRetainInstance(true);
-        // Add the fragment to the 'fragment_container' FrameLayout
-        getFragmentManager().beginTransaction()
-                .add(R.id.map_container, mapFragment).commit();
+        // We can't be guaranteed that the map is available because Google Play
+        // services might not be available.
+        setUpMapIfNeeded();
 
     }
 
@@ -179,27 +189,33 @@ public class DataMapFragment extends Fragment implements LocationListener {
     }
 
     /**
-     * Instantiate the Map object from the MapFragment if needed. This is called
-     * from onCreate and onResume to ensure that the map is always available.
-     * Returns true if the map is available.
+     * Instantiate and initialize the Map object from the MapFragment if needed.
+     * 
+     * @return true if the map is available.
      */
     private boolean setUpMapIfNeeded() {
         // Do a null check to confirm that we have not already instantiated the
         // map.
         if (map == null) {
             // Obtain the Map object from the MapFragment
-            if (mapFragment == null) {
-                mapFragment = (SupportMapFragment) getFragmentManager()
-                        .findFragmentById(R.id.map_container);
-            }
             map = mapFragment.getMap();
             // Check if we were successful in obtaining the map.
-            if (map == null) {
-                // Unsuccesful
+            if (map != null) {
+                // Map is available : initialize
+                setUpMap();
+            } else {
+                // The map is not available
                 return false;
             }
         }
+        // The map is initialized
         return true;
+    }
+
+    /** Initialize the Map object */
+    private void setUpMap() {
+        // Activate the 'center on my location button'
+        map.setMyLocationEnabled(true);
     }
 
     @Override
@@ -234,7 +250,8 @@ public class DataMapFragment extends Fragment implements LocationListener {
         hsv[1] = 255f;
         hsv[2] = 255f;
         float relativeAsu = ((float) signalStrength.getAsuLevel()) / 31; // MAX_ASU
-        hsv[0] = startHue + relativeAsu * (endHue - startHue);
+        hsv[0] = SCALE_START_HUE + relativeAsu
+                * (SCALE_END_HUE - SCALE_START_HUE);
         // Instantiates a new CircleOptions object and defines the radius in
         // meters
         CircleOptions circleOptions = new CircleOptions().radius(1)
