@@ -142,6 +142,9 @@ public class DataMapFragment extends Fragment implements LocationListener {
                     MAP_FRAGMENT_TAG);
             fragmentTransaction.commit();
         }
+        
+        // Set up the map if already available
+        setUpMapIfNeeded();
     }
 
     // Called when the fragment has to instantiate its own view
