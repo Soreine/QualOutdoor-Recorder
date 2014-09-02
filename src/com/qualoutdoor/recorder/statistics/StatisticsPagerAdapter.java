@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.qualoutdoor.recorder.GenericFragment;
 import com.qualoutdoor.recorder.charting.SignalStrengthPlotFragment;
+import com.qualoutdoor.recorder.charting.WebFragment;
 
 /**
  * The pager adapter for the StatisticsFragment.
@@ -21,8 +22,8 @@ import com.qualoutdoor.recorder.charting.SignalStrengthPlotFragment;
  */
 public class StatisticsPagerAdapter extends FragmentPagerAdapter {
 
-    /** Position of the cell info fragment */
-    private static final int CELL_INFO = 0;
+    /** Position of the WebView fragment */
+    private static final int WEB_VIEW = 0;
     /** Position of the neighboring cells fragment */
     private static final int NEIGHBOR = 1;
     /** Position of the graph fragment */
@@ -36,7 +37,7 @@ public class StatisticsPagerAdapter extends FragmentPagerAdapter {
      * example in the HomePagerAdapter class
      */
     private CharSequence[] fragmentTitles = {
-            "Cell Infos", "Neighbor Cells", "Graph", "Script Logs"
+            "WebView", "Neighbor Cells", "Graph", "Script Logs"
     };
 
     public StatisticsPagerAdapter(FragmentManager fm) {
@@ -54,7 +55,8 @@ public class StatisticsPagerAdapter extends FragmentPagerAdapter {
 
         // Switch on the fragment name
         switch (i) {
-        case CELL_INFO:
+        case WEB_VIEW:
+            result = new WebFragment();
             break;
         case NEIGHBOR:
             break;
