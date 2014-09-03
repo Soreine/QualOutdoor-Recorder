@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.qualoutdoor.recorder.GenericFragment;
 import com.qualoutdoor.recorder.charting.SignalStrengthPlotFragment;
-import com.qualoutdoor.recorder.charting.WebFragment;
 
 /**
  * The pager adapter for the StatisticsFragment.
