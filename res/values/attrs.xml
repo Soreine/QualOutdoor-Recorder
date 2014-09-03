@@ -21,5 +21,12 @@
         <attr name="unitsLeft" format="reference|string"></attr>
         <attr name="interval" format="reference|integer"></attr>
     </declare-styleable>
+    <declare-styleable name="HighChartView">
+        <attr name="chartTitle" format="reference|string" /> <!-- The title string -->
+        <attr name="xAxisTitle" format="reference|string" /> <!-- The title on the x-axis -->
+        <attr name="yAxisTitle" format="reference|string" /> <!-- The title on the y-axis -->
+        <attr name="xAxisLabelUnit" format="reference|string" /> <!-- The label to add to each value on the x-axis -->
+        <attr name="yAxisLabelUnit" format="reference|string" /> <!-- The label to add to each value on the y-axis -->
+    </declare-styleable>
 
 </resources>

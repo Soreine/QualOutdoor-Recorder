@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.qualoutdoor.recorder.GenericFragment;
-import com.qualoutdoor.recorder.charting.SignalStrengthPlotFragment;
 import com.qualoutdoor.recorder.charting.WebFragment;
 
 /**
@@ -61,7 +60,7 @@ public class StatisticsPagerAdapter extends FragmentPagerAdapter {
         case NEIGHBOR:
             break;
         case GRAPH:
-            result = new SignalStrengthPlotFragment();
+            // result = new SignalStrengthPlotFragment();
             break;
         case SCRIPT_LOGS:
             break;
@@ -75,7 +74,6 @@ public class StatisticsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // For this contrived example, we have a 10-object collection.
         return fragmentTitles.length;
     }
 
