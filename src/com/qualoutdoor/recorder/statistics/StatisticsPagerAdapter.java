@@ -56,7 +56,6 @@ public class StatisticsPagerAdapter extends FragmentPagerAdapter {
         // Switch on the fragment name
         switch (i) {
         case WEB_VIEW:
-            result = new WebFragment();
             break;
         case NEIGHBOR:
             break;
