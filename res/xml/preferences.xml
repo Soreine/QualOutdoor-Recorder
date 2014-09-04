@@ -20,6 +20,7 @@
             android:defaultValue="@integer/default_display_refresh_rate"
             app:maxValue="@integer/max_display_refresh_rate"
             app:minValue="@integer/min_display_refresh_rate"
+            app:interval="@integer/interval_display_refresh_rate"
             app:unitsLeft="@string/pref_left_text_display_refresh_rate"
             app:unitsRight="@string/pref_right_text_display_refresh_rate"/>
         <com.qualoutdoor.recorder.settings.SeekBarPreference
@@ -28,6 +29,7 @@
             android:defaultValue="@integer/default_sampling_rate"
             app:maxValue="@integer/max_sampling_rate"
             app:minValue="@integer/min_sampling_rate"
+            app:interval="@integer/interval_display_sampling_rate"
             app:unitsLeft="@string/pref_left_text_sampling_rate"
             app:unitsRight="@string/pref_right_text_sampling_rate"/>
         <com.qualoutdoor.recorder.settings.SeekBarPreference

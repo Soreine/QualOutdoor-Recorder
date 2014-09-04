@@ -33,8 +33,6 @@ public class TelephonyService extends Service implements ITelephony {
 
     /** This is the initial size for the cell info array list */
     private static final int ESTIMATED_MAX_CELLS = 10;
-    /** The number of milliseconds in a seconds */
-    private static final int MILLIS_IN_SECOND = 1000;
     /** The interface binder for this service */
     private final IBinder mTelephonyBinder = new LocalBinder<TelephonyService>(
             this);
@@ -140,6 +138,8 @@ public class TelephonyService extends Service implements ITelephony {
                 cellInfos = telephonyManager.getAllCellInfo();
                 if (cellInfos == null) {
                     Log.e("TelephonyService", "getAllCellInfo = null");
+                    // The list is empty
+                    cellInfos = new ArrayList<CellInfo>(0);
                     return;
                 }
             }
@@ -181,8 +181,7 @@ public class TelephonyService extends Service implements ITelephony {
             if (key.equals(getString(R.string.pref_key_display_refresh_rate))) {
                 // Update the refresh rate preference
                 minimumRefreshRate = prefs.getInt(key, getResources()
-                        .getInteger(R.integer.default_display_refresh_rate))
-                        * MILLIS_IN_SECOND;
+                        .getInteger(R.integer.default_display_refresh_rate));
             }
             if (key.equals(getString(R.string.pref_key_force_display_refresh))) {
                 // Get the force refresh preference, default to false
@@ -265,8 +264,14 @@ public class TelephonyService extends Service implements ITelephony {
 
     @Override
     public List<ICellInfo> getAllCellInfo() {
-        // Get the current cell infos, parse it and return it
-        return parseCellInfos(telephonyManager.getAllCellInfo());
+        // Get the current cell infos
+        List<CellInfo> cellInfos = telephonyManager.getAllCellInfo();
+        // If null, initialize empty
+        if (cellInfos == null) {
+            cellInfos = new ArrayList<CellInfo>(0);
+        }
+        // Parse it and return it
+        return parseCellInfos(cellInfos);
     }
 
     @Override
@@ -370,8 +375,14 @@ public class TelephonyService extends Service implements ITelephony {
      * notifications
      */
     private void refreshData() {
+        // Get the current cell infos
+        List<CellInfo> cellInfos = telephonyManager.getAllCellInfo();
+        // If null, initialize empty
+        if (cellInfos == null) {
+            cellInfos = new ArrayList<CellInfo>(0);
+        }
         // Update the cell infos (this update the signal strength too)
-        updateCellInfos(telephonyManager.getAllCellInfo());
+        updateCellInfos(cellInfos);
     }
 
     /**

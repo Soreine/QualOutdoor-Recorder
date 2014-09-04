@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.qualoutdoor.recorder.GenericFragment;
-import com.qualoutdoor.recorder.charting.WebFragment;
+
 
 /**
  * The pager adapter for the StatisticsFragment.
@@ -55,7 +55,6 @@ public class StatisticsPagerAdapter extends FragmentPagerAdapter {
         // Switch on the fragment name
         switch (i) {
         case WEB_VIEW:
-            result = new WebFragment();
             break;
         case NEIGHBOR:
             break;

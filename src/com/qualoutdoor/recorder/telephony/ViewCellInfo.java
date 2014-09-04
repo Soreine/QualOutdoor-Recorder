@@ -4,14 +4,15 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
-import android.view.View;
+import android.util.Log;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
 import com.qualoutdoor.recorder.R;
 
 /**
- * This view allows to display dynamically, as a table, the infos of an ICellInfo.
+ * This view allows to display dynamically, as a table, the infos of an
+ * ICellInfo.
  * 
  * @author Gaborit Nicolas
  */
@@ -56,20 +57,25 @@ public class ViewCellInfo extends GridLayout {
     private TextView viewPSCPCIvalue;
 
     public ViewCellInfo(Context context) {
-        // Only specify the context
-        this(context, null, 0);
+        super(context);
+        init(context);
     }
 
     public ViewCellInfo(Context context, AttributeSet attrs) {
-        // Only specify context and attributes set
-        this(context, attrs, 0);
+        super(context, attrs);
+        Log.d("ViewCellInfo","Context AttributeSet");
+        init(context);
     }
 
     public ViewCellInfo(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        init(context);
+    }
 
+    /** Initialization method from a Context, used in constructors */
+    private void init(Context context) {
         // Inflate the corresponding view hierarchy
-        View.inflate(context, R.layout.view_cell_info, this);
+        inflate(context, R.layout.view_cell_info, this);
 
         // Initialize with an empty ICellInfo
         cellInfo = new CustomCellInfo();

@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.qualoutdoor.recorder.GenericFragment;
 import com.qualoutdoor.recorder.QualOutdoorRecorderApp;
 import com.qualoutdoor.recorder.R;
 
