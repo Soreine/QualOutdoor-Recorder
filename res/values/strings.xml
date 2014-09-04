@@ -20,7 +20,7 @@
     <string name="title_display_settings">Settings</string>
     <string name="title_display_help">Help</string>
     <string name="title_location">Location</string>
-    <string name="title_network">Network</string>
+    <string name="title_device">Device</string>
     <string name="title_neighbors">Neighbors</string>
 
     <!-- Navigation Drawer -->
@@ -36,17 +36,21 @@
 
     <string-array name="home_pager_titles">
         <item>@string/title_location</item>
-        <item>@string/title_network</item>
+        <item>@string/title_device</item>
         <item>@string/title_neighbors</item>
     </string-array>
 
-    <!-- Network Fragment -->
+    <!-- Device Fragment -->
     <string name="neighbors_count">Number of neighbors</string>
     <string name="cell_id">Cell ID</string>
     <string name="signal_strength">Signal Strength</string>
-    <string name="mobile_network_code">Mobile Network Code</string>
-    <string name="network_type_code">Network Type Code</string>
-    <string name="mobile_country_code">Mobile Country Code</string>
+    <string name="network_type">Network Type</string>
+    <string name="primary_cell">Primary Cell</string>
+    <string name="model">Model</string>
+    <string name="imei">IMEI</string>
+    <string name="mac">MAC address</string>
+    <string name="ip">IP address</string>
+    <string name="timing_advance">Timing Advance</string>
 
     <!-- Location Fragment -->
     <string name="accuracy">Accuracy</string>
@@ -143,8 +147,7 @@
 
     <!-- Notifications -->
     <string name="notification_recording_title">Recording</string>
-    <string name="notification_recording_text">QualOutdoor is currently recording data&#8230;
-    </string>
+    <string name="notification_recording_text">QualOutdoor is currently recording data&#8230; </string>
 
     <!-- Toast messages -->
     <string name="error_recording_unavailable">Recording unavailable</string>

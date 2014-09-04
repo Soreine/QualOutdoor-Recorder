@@ -5,6 +5,7 @@ import java.util.List;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.format.Formatter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,7 @@ import com.qualoutdoor.recorder.telephony.ViewCellInfo;
  * 
  * @author Gaborit Nicolas
  */
-public class NetworkFragment extends Fragment {
+public class DeviceFragment extends Fragment {
 
     /**
      * The Telephony Listener, which defines the behavior against telephony
@@ -76,7 +77,17 @@ public class NetworkFragment extends Fragment {
         @Override
         public void onServiceAvailable(TelephonyService service) {
             // Register the telephony listener
-            telephonyService.getService().listen(telListener, events);
+            service.listen(telListener, events);
+
+            // Fill the text views
+            {
+                // Get the devide IMEI
+                viewImei.setText(service.getDeviceId());
+                // Get the MAC address
+                viewMac.setText(service.getMacAddress());
+                // Get the IP address TODO deprecated (can't format ipv6 addresses...)
+                viewIp.setText(Formatter.formatIpAddress(service.getIpAddress()));
+            }
         }
     };
 
@@ -93,6 +104,13 @@ public class NetworkFragment extends Fragment {
     private ViewCellInfo viewCellInfo;
     /** The view indicating the number of neighboring cells */
     private TextView viewNeighborsCount;
+    /** The view that displays the IMEI */
+    private TextView viewImei;
+    /** The view that displays the MAC address */
+    private TextView viewMac;
+    /** The view that displays the IP address */
+    private TextView viewIp;
+
     /** The network type code strings */
     private static final String[] networkNames = QualOutdoorRecorderApp
             .getAppResources().getStringArray(R.array.network_type_name);
@@ -117,15 +135,22 @@ public class NetworkFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         ScrollView view = (ScrollView) inflater.inflate(
-                R.layout.fragment_network, container, false);
+                R.layout.fragment_device, container, false);
         // Initialize the views references
         viewNetworkType = (TextView) view
                 .findViewById(R.id.network_type_code_value);
         viewNeighborsCount = (TextView) view
                 .findViewById(R.id.neighbors_count_value);
 
-        viewCellInfo = (ViewCellInfo) view
-             .findViewById(R.id.fragment_network_cell_info);
+        viewCellInfo = (ViewCellInfo) view.findViewById(R.id.cell_info);
+        viewImei = (TextView) view.findViewById(R.id.imei_value);
+        viewMac = (TextView) view.findViewById(R.id.mac_value);
+        viewIp = (TextView) view.findViewById(R.id.ip_value);
+
+        // Initialize the Model value
+        TextView viewModel = (TextView) view.findViewById(R.id.model_value);
+        // Get the model and constructor names
+        viewModel.setText(TelephonyService.getDeviceName());
 
         return view;
     }

@@ -12,6 +12,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- Allows applications to access information about networks -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Allows applications to access information about WiFi connection -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- Allows applications to access information about the phone state -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- Ask authorization for writing on the external storage -->

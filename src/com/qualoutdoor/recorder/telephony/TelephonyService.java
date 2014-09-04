@@ -8,6 +8,9 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
@@ -18,6 +21,7 @@ import android.util.Log;
 
 import com.qualoutdoor.recorder.LocalBinder;
 import com.qualoutdoor.recorder.R;
+import com.qualoutdoor.recorder.Utils;
 
 /**
  * This service is an Android implementation of ITelephony, it uses a
@@ -99,8 +103,11 @@ public class TelephonyService extends Service implements ITelephony {
         }
     };
 
-    /** An instance of TelephonyManager */
+    /** Reference to the TelephonyManager */
     private TelephonyManager telephonyManager;
+
+    /** Reference to the WiFiManager */
+    private WifiManager wifiManager;
 
     /** The events the phone state listener is monitoring */
     private static int nonForcedEvents = PhoneStateListener.LISTEN_CALL_STATE
@@ -198,6 +205,8 @@ public class TelephonyService extends Service implements ITelephony {
 
         // Retrieve an instance of Telephony Manager
         telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+        // Retrieve the WiFi Manager
+        wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
 
         // Initialize the current phone state values
         {
@@ -302,6 +311,46 @@ public class TelephonyService extends Service implements ITelephony {
     public ISignalStrength getSignalStrength() {
         // Return the current signal strength
         return signalStrength;
+    }
+
+    @Override
+    public String getDeviceId() {
+        // Return the device ID
+        return telephonyManager.getDeviceId();
+    }
+
+    @Override
+    public String getMacAddress() {
+        // Access the current WiFi connection state
+        WifiInfo wInfo = wifiManager.getConnectionInfo();
+        // Get the MAC address
+        String macAddress = wInfo.getMacAddress();
+        return macAddress;
+    }
+
+    @Override
+    public int getIpAddress() {
+        // Get the current IP address
+        return wifiManager.getConnectionInfo().getIpAddress();
+    }
+
+    /**
+     * Return the full device name, including model and manufacturer string
+     * 
+     * @return The full device name
+     */
+    public static String getDeviceName() {
+        // Get the manufacturer string
+        String manufacturer = Build.MANUFACTURER;
+        // Get the model string
+        String model = Build.MODEL;
+        // Check that the model string does not already contain the manufacturer
+        // string
+        if (model.startsWith(manufacturer)) {
+            return Utils.capitalize(model);
+        } else {
+            return Utils.capitalize(manufacturer) + " " + model;
+        }
     }
 
     @Override

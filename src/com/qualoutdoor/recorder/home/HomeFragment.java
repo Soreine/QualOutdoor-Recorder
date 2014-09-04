@@ -68,7 +68,7 @@ public class HomeFragment extends Fragment {
         mViewPager.setAdapter(homePagerAdapter);
 
         // Select the middle fragment on start
-        mViewPager.setCurrentItem(HomePagerAdapter.NETWORK);
+        mViewPager.setCurrentItem(HomePagerAdapter.DEVICE);
         return view;
     }
 

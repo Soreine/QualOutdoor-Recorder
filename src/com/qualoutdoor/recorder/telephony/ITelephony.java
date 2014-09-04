@@ -88,6 +88,26 @@ public interface ITelephony {
     ISignalStrength getSignalStrength();
 
     /**
+     * Return whatever string uniquely identifies the device (IMEI for GSM, MEID for CDMA)
+     * @return The device ID string
+     */
+    String getDeviceId();
+    
+    /**
+     * Return a string representation of the MAC Address if any WiFi connection
+     * is available
+     * 
+     * @return The MAC address as a string
+     */
+    String getMacAddress();
+    
+    /**
+     * Return the IP address of the device as an integer
+     * @return The IP address
+     */
+    int getIpAddress();
+    
+    /**
      * Register a listener object to receive notification concerning the
      * specified events type
      */

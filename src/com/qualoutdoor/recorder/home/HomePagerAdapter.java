@@ -24,7 +24,7 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     /** Position of the location fragment */
     public static final int LOCATIONS = 0;
     /** Position of the network fragment */
-    public static final int NETWORK = 1;
+    public static final int DEVICE = 1;
     /** Position of the neighbor cells fragment */
     public static final int NEIGHBORS = 2;
 
@@ -46,8 +46,8 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
         case LOCATIONS:
             result = new LocationFragment();
             break;
-        case NETWORK:
-            result = new NetworkFragment();
+        case DEVICE:
+            result = new DeviceFragment();
             break;
         case NEIGHBORS:
             result = new NeighborsFragment();

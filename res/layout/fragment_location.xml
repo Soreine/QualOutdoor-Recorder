@@ -15,7 +15,8 @@
         <TableLayout
             android:layout_width="match_parent"
             android:id="@+id/table"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:stretchColumns="1">
 
             <!-- Latitude -->
             <TableRow>

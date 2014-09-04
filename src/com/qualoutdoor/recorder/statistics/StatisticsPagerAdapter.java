@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.qualoutdoor.recorder.GenericFragment;
-
+import com.qualoutdoor.recorder.charting.SignalStrengthPlotFragment;
 
 /**
  * The pager adapter for the StatisticsFragment.
@@ -59,7 +59,7 @@ public class StatisticsPagerAdapter extends FragmentPagerAdapter {
         case NEIGHBOR:
             break;
         case GRAPH:
-            // result = new SignalStrengthPlotFragment();
+            result = new SignalStrengthPlotFragment();
             break;
         case SCRIPT_LOGS:
             break;

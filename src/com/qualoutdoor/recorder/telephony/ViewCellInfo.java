@@ -1,10 +1,10 @@
 package com.qualoutdoor.recorder.telephony;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
@@ -56,6 +56,9 @@ public class ViewCellInfo extends GridLayout {
     /** The PSC or PCI value view */
     private TextView viewPSCPCIvalue;
 
+    /** The background color when this cell is the primary cell */
+    private int connectedBackgroundColor;
+
     public ViewCellInfo(Context context) {
         super(context);
         init(context);
@@ -63,13 +66,33 @@ public class ViewCellInfo extends GridLayout {
 
     public ViewCellInfo(Context context, AttributeSet attrs) {
         super(context, attrs);
-        Log.d("ViewCellInfo","Context AttributeSet");
-        init(context);
+        init(context, attrs);
     }
 
     public ViewCellInfo(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        init(context, attrs);
+    }
+
+    /** Initialization when given an AttributeSet */
+    private void init(Context context, AttributeSet attrs) {
+        // Initialize the base
         init(context);
+
+        // Get the styled attributes
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
+                R.styleable.ViewCellInfo, 0, 0);
+
+        // Parse them
+        try {
+            connectedBackgroundColor = a.getColor(
+                    R.styleable.ViewCellInfo_connectedBackgroundColor,
+                    connectedBackgroundColor);
+
+        } finally {
+            // In any case release the array
+            a.recycle();
+        }
     }
 
     /** Initialization method from a Context, used in constructors */
@@ -99,6 +122,10 @@ public class ViewCellInfo extends GridLayout {
                     .findViewById(R.id.view_cell_info_psc_pci_value);
         }
 
+        // Set the default background color
+        connectedBackgroundColor = getResources().getColor(
+                R.color.blue_transparent);
+
         updateCellInfo(cellInfo);
     }
 
@@ -110,8 +137,7 @@ public class ViewCellInfo extends GridLayout {
         // If this is the registered cell, highlight with background drawable
         if (newCellInfo.isRegistered()) {
             // Set the registered background
-            this.setBackground(new ColorDrawable(getResources().getColor(
-                    R.color.blue_transparent)));
+            this.setBackground(new ColorDrawable(connectedBackgroundColor));
         } else {
             // Set a transparent background
             this.setBackground(new ColorDrawable(Color.TRANSPARENT));
