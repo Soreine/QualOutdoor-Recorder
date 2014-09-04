@@ -41,7 +41,7 @@
     </string-array>
 
     <!-- Device Fragment -->
-    <string name="neighbors_count">Number of neighbors</string>
+    <string name="neighbors_count">Visible cells</string>
     <string name="cell_id">Cell ID</string>
     <string name="signal_strength">Signal Strength</string>
     <string name="network_type">Network Type</string>

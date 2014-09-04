@@ -45,9 +45,6 @@ public class DeviceFragment extends Fragment {
                 if (cell.isRegistered()) {
                     // This is the primary cell
                     cellInfo = cell;
-                    // Don't count it in the neighbors count
-                    neighborsCount--;
-
                     // Stop searching
                     break;
                 }

@@ -264,7 +264,7 @@ public class RecordingService extends Service implements LocationListener {
         // The primary cell
         ICellInfo primaryCell = null;
         // Get all the cell infos
-        List<ICellInfo> cellInfos = telService.getAllCellInfo();
+        List<ICellInfo> cellInfos = telService.getAllICellInfo();
         // Find the registered cell
         for (ICellInfo cell : cellInfos) {
             // If primary cell

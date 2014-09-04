@@ -74,6 +74,21 @@
                 android:gravity="right|center_vertical"/>
         </FrameLayout>
 
+        <View style="@style/Divider"/>
+
+        <TextView
+            android:text="@string/primary_cell"
+            android:gravity="center"
+            style="@style/ListItem"/>
+
+        <com.qualoutdoor.recorder.telephony.ViewCellInfo
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cell_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:connectedBackgroundColor="@color/transparent">
+        </com.qualoutdoor.recorder.telephony.ViewCellInfo>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -86,18 +101,6 @@
                 android:text=""
                 android:gravity="right|center_vertical"/>
         </FrameLayout>
-
-        <TextView
-            android:text="@string/primary_cell"
-            style="@style/ListItem"/>
-
-        <com.qualoutdoor.recorder.telephony.ViewCellInfo
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/cell_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:connectedBackgroundColor="@color/transparent">
-        </com.qualoutdoor.recorder.telephony.ViewCellInfo>
 
     </LinearLayout>
 </ScrollView>

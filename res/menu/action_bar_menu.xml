@@ -17,9 +17,10 @@
         app:showAsAction="always"/>
     <item
         android:id="@+id/action_upload"
+        android:icon="@drawable/upload"
         android:orderInCategory="11"
         android:title="@string/action_upload"
-        app:showAsAction="never"/>
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_settings"
         android:alpha="125"

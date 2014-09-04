@@ -140,15 +140,9 @@ public class TelephonyService extends Service implements ITelephony {
             List<CellInfo> cellInfos = newCellInfos;
             // Return if cellInfos is null
             if (cellInfos == null) {
-                // Log.d("TelephonyService", "newCellInfo = null");
-                // Try getAllCellInfos
-                cellInfos = telephonyManager.getAllCellInfo();
-                if (cellInfos == null) {
-                    Log.e("TelephonyService", "getAllCellInfo = null");
-                    // The list is empty
-                    cellInfos = new ArrayList<CellInfo>(0);
-                    return;
-                }
+                Log.e("TelephonyService", "newCellInfo = null");
+                // Manually get all CellInfos
+                cellInfos = getAllCellInfo();
             }
 
             // Update the cell infos and notify
@@ -272,15 +266,26 @@ public class TelephonyService extends Service implements ITelephony {
     }
 
     @Override
-    public List<ICellInfo> getAllCellInfo() {
+    public List<ICellInfo> getAllICellInfo() {
+        // Parse all the cellInfos and return them
+        return parseCellInfos(getAllCellInfo());
+    }
+
+    /**
+     * Wrap the call to `TelephonyManager.getAllCellInfo()` and return an empty
+     * list instead of null when the method fails
+     * 
+     * @return The list of cell info, which can be empty
+     */
+    private List<CellInfo> getAllCellInfo() {
         // Get the current cell infos
         List<CellInfo> cellInfos = telephonyManager.getAllCellInfo();
         // If null, initialize empty
         if (cellInfos == null) {
+            Log.e("TelephonyService", "getAllCellInfo == null");
             cellInfos = new ArrayList<CellInfo>(0);
         }
-        // Parse it and return it
-        return parseCellInfos(cellInfos);
+        return cellInfos;
     }
 
     @Override
@@ -424,14 +429,8 @@ public class TelephonyService extends Service implements ITelephony {
      * notifications
      */
     private void refreshData() {
-        // Get the current cell infos
-        List<CellInfo> cellInfos = telephonyManager.getAllCellInfo();
-        // If null, initialize empty
-        if (cellInfos == null) {
-            cellInfos = new ArrayList<CellInfo>(0);
-        }
         // Update the cell infos (this update the signal strength too)
-        updateCellInfos(cellInfos);
+        updateCellInfos(getAllCellInfo());
     }
 
     /**

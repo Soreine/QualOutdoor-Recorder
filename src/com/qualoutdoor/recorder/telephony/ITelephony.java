@@ -68,7 +68,7 @@ public interface ITelephony {
      * Returns all the observed cell information including primary and
      * neighboring cells.
      */
-    List<ICellInfo> getAllCellInfo();
+    List<ICellInfo> getAllICellInfo();
 
     /** Returns a constant indicating the call state on the device. */
     int getCallState();
