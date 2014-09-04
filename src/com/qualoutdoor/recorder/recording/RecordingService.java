@@ -75,8 +75,8 @@ public class RecordingService extends Service implements LocationListener {
                 // Update the sample rate preference. Convert from seconds to
                 // milliseconds
                 int newSampleRate = prefs.getInt(key, getResources()
-                        .getInteger(R.integer.default_sampling_rate))
-                        * QualOutdoorRecorderApp.MILLIS_IN_SECOND; 
+                        .getInteger(R.integer.default_sampling_rate));
+
                 setSamplingRate(newSampleRate);
             }
         };
@@ -104,9 +104,7 @@ public class RecordingService extends Service implements LocationListener {
 
         // Initialize the sampling rate preference
         sampleRate = prefs.getInt(getString(R.string.pref_key_sampling_rate),
-                getResources()
-                .getInteger(R.integer.default_sampling_rate))
-                * QualOutdoorRecorderApp.MILLIS_IN_SECOND; 
+                getResources().getInteger(R.integer.default_sampling_rate));
 
         // Initialize the location request interval
         locationRequest.setInterval(sampleRate);
@@ -122,7 +120,7 @@ public class RecordingService extends Service implements LocationListener {
 
         // Listen to preferences changes
         prefs.registerOnSharedPreferenceChangeListener(prefListener);
-        
+
         // Bind to the telephony and location services
         // TODO it would be best to bind to the different services only when we
         // are asked to record, that is when startRecording() is called.
@@ -379,7 +377,8 @@ public class RecordingService extends Service implements LocationListener {
         };
         // For each preference, add the corresponding integer code if true
         for (int i = 0; i < metricPreferenceKeys.length; i++) {
-            if (prefs.getBoolean(metricPreferenceKeys[i], metricDefaultValues[i]))
+            if (prefs.getBoolean(metricPreferenceKeys[i],
+                    metricDefaultValues[i]))
                 result.add(codes[i]);
         }
         return result;

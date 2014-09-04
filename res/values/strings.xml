@@ -65,10 +65,10 @@
     <string name="pref_title_force_display_refresh">Force display refresh</string>
     <string name="pref_title_display_refresh_rate">Display refresh rate</string>
     <string name="pref_left_text_display_refresh_rate">Refresh every </string>
-    <string name="pref_right_text_display_refresh_rate"> sec</string>
+    <string name="pref_right_text_display_refresh_rate"> ms</string>
     <string name="pref_title_sampling_rate">Sampling rate</string>
     <string name="pref_left_text_sampling_rate">When recording, sample every</string>
-    <string name="pref_right_text_sampling_rate"> sec</string>
+    <string name="pref_right_text_sampling_rate"> ms</string>
     <string name="pref_title_sample_history">Sample history</string>
     <string name="pref_left_text_sample_history">Keep the last </string>
     <string name="pref_right_text_sample_history"> samples</string>
@@ -143,7 +143,8 @@
 
     <!-- Notifications -->
     <string name="notification_recording_title">Recording</string>
-    <string name="notification_recording_text">QualOutdoor is currently recording data&#8230; </string>
+    <string name="notification_recording_text">QualOutdoor is currently recording data&#8230;
+    </string>
 
     <!-- Toast messages -->
     <string name="error_recording_unavailable">Recording unavailable</string>
