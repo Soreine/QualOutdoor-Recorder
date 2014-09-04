@@ -1,9 +1,14 @@
 package com.qualoutdoor.recorder.network;
 
+import java.io.File;
 import java.util.regex.Pattern;
+
+import com.qualoutdoor.recorder.QualOutdoorRecorderApp;
+import com.qualoutdoor.recorder.recording.RecordingService;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.widget.Toast;
 
 /**
@@ -13,7 +18,7 @@ import android.widget.Toast;
 public class EmailFileSender {
 
     public static void sendFileByEmail(Context context, String dest,
-            FileToUpload file) {
+            RecordingService recordingService) {
         // email verifying pattern
         final Pattern rfc2822 = Pattern
                 .compile("^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$");
@@ -30,21 +35,20 @@ public class EmailFileSender {
                 dest
             });
             // setting subject
-            email.putExtra(Intent.EXTRA_SUBJECT, "my csv file");
+            email.putExtra(Intent.EXTRA_SUBJECT, "QualOutdoor : measures file");
 
-            // reading file content into a string
-            String stats;
-            java.util.Scanner s = new java.util.Scanner(file.getContent())
-                    .useDelimiter("\\A");
-            if (s.hasNext()) {
-                stats = s.next();
-            } else {
-                stats = "";
-
-            }
+            
+            //fetching file from memory
+            File file=new File(recordingService.getFilesDir(),
+                    QualOutdoorRecorderApp.ARCHIVE_NAME);
+            Uri uri =Uri.fromFile(file);
+            //setting email attachment
+            email.putExtra(Intent.EXTRA_STREAM,uri);
+            
+            
             // setting mail content with readed string
             email.putExtra(Intent.EXTRA_TEXT,
-                    "here are my csv measures : \r\n \r\n \r\n " + stats);
+                    "find attached measures file I generated");
             // setting mail type
             email.setType("message/rfc822");
             // launching intent
