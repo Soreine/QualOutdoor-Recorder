@@ -124,8 +124,8 @@ public class NetworkFragment extends Fragment {
         viewNeighborsCount = (TextView) view
                 .findViewById(R.id.neighbors_count_value);
 
-        //viewCellInfo = (ViewCellInfo) view
-        //        .findViewById(R.id.fragment_network_cell_info);
+        viewCellInfo = (ViewCellInfo) view
+             .findViewById(R.id.fragment_network_cell_info);
 
         return view;
     }
