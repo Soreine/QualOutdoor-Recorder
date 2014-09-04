@@ -189,7 +189,7 @@ public class DeviceFragment extends Fragment {
         }
     }
 
-    /** Update the primary cell view */
+    /** Update the cell views */
     private void updateCellInfo() {
         // Check that the view has been initialized and we are attached to the
         // activity

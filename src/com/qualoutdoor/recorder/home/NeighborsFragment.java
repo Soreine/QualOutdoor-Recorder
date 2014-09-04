@@ -9,10 +9,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.TextView;
 
-import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.IServiceListener;
+import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.ServiceProvider;
 import com.qualoutdoor.recorder.ServiceProvider.ServiceNotBoundException;
 import com.qualoutdoor.recorder.telephony.ICellInfo;
@@ -39,6 +41,10 @@ public class NeighborsFragment extends Fragment {
 
         @Override
         public void onCellInfoChanged(List<ICellInfo> cellInfos) {
+            // Find the number of neighbors cells
+            neighborsCount = cellInfos.size();
+            // Update the view
+            updateNeighborsCount();
             // Update the cell info list adapter
             listAdapter.updateDataSet(cellInfos);
         }
@@ -59,14 +65,19 @@ public class NeighborsFragment extends Fragment {
     };
 
     /** The cell info list adapter */
-    private CellInfoListAdapter listAdapter;
+    private CellInfoExpandableListAdapter listAdapter;
+
+    /** The view indicating the number of neighboring cells */
+    private TextView viewNeighborsCount;
+    /** The number of detected neighboring cells */
+    private int neighborsCount = 0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        // Initialize the cell info list adapter with an empty cell info list
-        listAdapter = new CellInfoListAdapter(getActivity(),
-                new ArrayList<ICellInfo>());
         super.onCreate(savedInstanceState);
+        // Initialize the cell info list adapter with an empty cell info list
+        listAdapter = new CellInfoExpandableListAdapter(getActivity(),
+                new ArrayList<ICellInfo>(0));
     }
 
     @Override
@@ -88,11 +99,20 @@ public class NeighborsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        // Inflate the list view
-        ListView view = (ListView) inflater.inflate(
-                R.layout.fragment_neighbors, container, false);
+        // Inflate the fragment view
+        View view = inflater.inflate(R.layout.fragment_neighbors, container,
+                false);
+
+        // Get the expandable list view
+        ExpandableListView listView = (ExpandableListView) view
+                .findViewById(R.id.neighbors_cell_list);
+
         // Set the adapter for the list
-        view.setAdapter(listAdapter);
+        listView.setAdapter((ExpandableListAdapter) listAdapter);
+
+        // Get the neighbors count view
+        viewNeighborsCount = (TextView) view
+                .findViewById(R.id.neighbors_count_value);
 
         return view;
     }
@@ -116,4 +136,18 @@ public class NeighborsFragment extends Fragment {
         super.onPause();
     }
 
+    /** Update the number of cells view */
+    private void updateNeighborsCount() {
+        // Check that the view has been initialized and we are attached to the
+        // activity
+        if (viewNeighborsCount != null && !isDetached()) {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    // Update the number of neighbors
+                    viewNeighborsCount.setText("" + neighborsCount);
+                }
+            });
+        }
+    }
 }
