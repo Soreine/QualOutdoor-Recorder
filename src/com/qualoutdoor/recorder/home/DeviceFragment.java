@@ -2,10 +2,13 @@ package com.qualoutdoor.recorder.home;
 
 import java.util.List;
 
+import org.json.JSONException;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.format.Formatter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +49,12 @@ public class DeviceFragment extends Fragment {
                     // This is the primary cell
                     cellInfo = cell;
                     // Stop searching
+                    try {
+                        Log.d("DeviceFragment", "Primary Cell :\n"
+                                + cell.toJSON().toString(4));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 }
             }
@@ -82,7 +91,8 @@ public class DeviceFragment extends Fragment {
                 viewImei.setText(service.getDeviceId());
                 // Get the MAC address
                 viewMac.setText(service.getMacAddress());
-                // Get the IP address TODO deprecated (can't format ipv6 addresses...)
+                // Get the IP address TODO deprecated (can't format ipv6
+                // addresses...)
                 viewIp.setText(Formatter.formatIpAddress(service.getIpAddress()));
             }
         }

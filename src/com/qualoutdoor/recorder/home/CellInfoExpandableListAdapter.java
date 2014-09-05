@@ -28,11 +28,14 @@ public class CellInfoExpandableListAdapter extends BaseExpandableListAdapter {
     private final Context context;
 
     /**
-     * The array of all the cell info list. The index corresponds to the cell
-     * type as specified in ICellInfo
+     * The array of all the cell info list, ordered by cell type. The index
+     * corresponds to the cell type as specified in ICellInfo
      */
     @SuppressWarnings("unchecked")
     private final ArrayList<ICellInfo>[] cellArray = new ArrayList[MAX_CATEGORIES];
+
+    /** The total number of cells */
+    private int total = 0;
 
     /** The list containing only the non empty cell groups indexes */
     private ArrayList<Integer> groupIndexes;
@@ -77,6 +80,9 @@ public class CellInfoExpandableListAdapter extends BaseExpandableListAdapter {
      *            The new list of CellInfo
      */
     public void updateDataSet(List<ICellInfo> cellInfos) {
+        // Update the number of cells
+        total = cellInfos.size();
+
         // Clear the cell info lists
         for (List<ICellInfo> list : cellArray) {
             list.clear();
@@ -89,11 +95,16 @@ public class CellInfoExpandableListAdapter extends BaseExpandableListAdapter {
 
         // Clear the groups list
         groupIndexes.clear();
+
         // Update the groups to display
         for (int i = 0; i < MAX_CATEGORIES; i++) {
+            // Add all
+            groupIndexes.add(i);
+
+            /* If only non empty should appear : */
             // If non empty, add it
-            if (!cellArray[i].isEmpty())
-                groupIndexes.add(i);
+            // if (!cellArray[i].isEmpty())
+            // groupIndexes.add(i);
         }
 
         // Notify data set changed
@@ -145,8 +156,12 @@ public class CellInfoExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded,
             View convertView, ViewGroup parent) {
+        // Get the cell list index
+        int groupIndex = groupIndexes.get(groupPosition);
+
         // The title of the category
-        String title = categoryTitles[groupIndexes.get(groupPosition)];
+        String title = cellArray[groupIndex].size() + " "
+                + categoryTitles[groupIndex];
 
         // The resulting view initialized with the previous view
         View result = convertView;

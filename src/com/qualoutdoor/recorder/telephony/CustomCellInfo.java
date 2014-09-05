@@ -1,5 +1,12 @@
 package com.qualoutdoor.recorder.telephony;
 
+import java.util.Set;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.qualoutdoor.recorder.Utils;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.telephony.CellIdentityGsm;
@@ -59,28 +66,11 @@ public class CustomCellInfo implements ICellInfo {
     protected static final String TAC = "tac";
     /** Store the Timing Advance (LTE). Holds an int. */
     protected static final String TA = "ta";
-    /**
-     * A bundle we clone to initialize the default values for a CustomCellInfo
-     */
-    protected static final Bundle defaultBundle = new Bundle();
-    {
-        defaultBundle.putInt(CELL_TYPE, CELL_UNKNOWN);
-        defaultBundle.putLong(TIMESTAMP, Long.MAX_VALUE);
-        defaultBundle.putBoolean(IS_REGISTERED, false);
-        defaultBundle.putInt(CID, Integer.MAX_VALUE);
-        defaultBundle.putInt(MCC, Integer.MAX_VALUE);
-        defaultBundle.putInt(MNC, Integer.MAX_VALUE);
-        defaultBundle.putInt(LAC, Integer.MAX_VALUE);
-        defaultBundle.putInt(PSC, Integer.MAX_VALUE);
-        defaultBundle.putInt(PCI, Integer.MAX_VALUE);
-        defaultBundle.putInt(TAC, Integer.MAX_VALUE);
-        defaultBundle.putInt(TA, Integer.MAX_VALUE);
-    }
 
     /** Create an empty CustomCellInfo */
     public CustomCellInfo() {
-        // Clone the default bundle
-        this.infoBundle = (Bundle) defaultBundle.clone();
+        // Initialize a new empty bundle
+        infoBundle = new Bundle();
     }
 
     /**
@@ -190,8 +180,6 @@ public class CustomCellInfo implements ICellInfo {
         }
     }
 
-
-
     /** Parse and put the signal strength into the bundle */
     protected void putSignalStrength(CellSignalStrength cellSS) {
         // Parse the CellSignalStrength by creating a CustomSignalStrength
@@ -252,12 +240,12 @@ public class CustomCellInfo implements ICellInfo {
 
     @Override
     public long getTimeStamp() {
-        return infoBundle.getLong(TIMESTAMP);
+        return infoBundle.getLong(TIMESTAMP, Long.MAX_VALUE);
     }
 
     @Override
     public boolean isRegistered() {
-        return infoBundle.getBoolean(IS_REGISTERED);
+        return infoBundle.getBoolean(IS_REGISTERED, false);
     }
 
     @Override
@@ -305,6 +293,12 @@ public class CustomCellInfo implements ICellInfo {
     @Override
     public int getTimingAdvance() {
         return infoBundle.getInt(TA, Integer.MAX_VALUE);
+    }
+
+    @Override
+    public JSONObject toJSON() {
+        // Convert the infoBundle into a JSON :
+        return Utils.bundleToJSON(infoBundle);
     }
 
 }

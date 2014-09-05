@@ -1,5 +1,7 @@
 package com.qualoutdoor.recorder.telephony;
 
+import org.json.JSONObject;
+
 /*
  * TODO : Maybe it would be best if the calls in this
  * interface were throwing an UnknownException when the
@@ -28,6 +30,13 @@ public interface ICellInfo {
     static final int CELL_WCDMA = 2;
 
     /**
+     * Return the JSON object corresponding to this ICellInfo
+     * 
+     * @return This ICellInfo as a JSON object
+     */
+    JSONObject toJSON();
+
+    /**
      * Get the cell type code. The code returned indicates the technology
      * associated with the cell.
      * 
@@ -36,10 +45,18 @@ public interface ICellInfo {
      */
     int getCellType();
 
-    /** Approximate time of this cell information in nanoseconds since boot */
+    /**
+     * Approximate time of this cell information in nanoseconds since boot.
+     * 
+     * @return The time since boot in ns. Long.MAX_VALUE if unknown.
+     */
     long getTimeStamp();
 
-    /** True if this cell is registered to the network. */
+    /**
+     * Indicate if this cell is connected.
+     * 
+     * @return true if connected to the device
+     */
     boolean isRegistered();
 
     /** Return an object that encapsulate the signal strength from this cell */
