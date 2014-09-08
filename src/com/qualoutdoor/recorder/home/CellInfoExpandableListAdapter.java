@@ -34,9 +34,6 @@ public class CellInfoExpandableListAdapter extends BaseExpandableListAdapter {
     @SuppressWarnings("unchecked")
     private final ArrayList<ICellInfo>[] cellArray = new ArrayList[MAX_CATEGORIES];
 
-    /** The total number of cells */
-    private int total = 0;
-
     /** The list containing only the non empty cell groups indexes */
     private ArrayList<Integer> groupIndexes;
 
@@ -98,13 +95,9 @@ public class CellInfoExpandableListAdapter extends BaseExpandableListAdapter {
 
         // Update the groups to display
         for (int i = 0; i < MAX_CATEGORIES; i++) {
-            // Add all
-            groupIndexes.add(i);
-
-            /* If only non empty should appear : */
             // If non empty, add it
-            // if (!cellArray[i].isEmpty())
-            // groupIndexes.add(i);
+            if (!cellArray[i].isEmpty())
+                groupIndexes.add(i);
         }
 
         // Notify data set changed
