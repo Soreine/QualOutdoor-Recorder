@@ -359,6 +359,26 @@ public class TelephonyService extends Service implements ITelephony {
     }
 
     @Override
+    public String getNetworkOperatorName() {
+        return telephonyManager.getNetworkOperatorName();
+    }
+
+    @Override
+    public String getSimOperatorName() {
+        return telephonyManager.getSimOperatorName();
+    }
+
+    @Override
+    public String getDeviceSoftwareVersion() {
+        return telephonyManager.getDeviceSoftwareVersion();
+    }
+
+    @Override
+    public boolean isNetworkRoaming() {
+        return telephonyManager.isNetworkRoaming();
+    }
+
+    @Override
     public void listen(TelephonyListener listener, int events) {
         // Check if we are unregistering a listener
         if (events == TelephonyListener.LISTEN_NONE) {

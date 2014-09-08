@@ -52,7 +52,9 @@ public class QualOutdoorRecorderApp extends Application {
 
     /** Number of milliseconds in a second */
     public static final int MILLIS_IN_SECOND = 1000;
-
+    /** Number of seconds in a minutes */
+    public static final int SECONDS_IN_MINUTE = 60;
+    
     /** Strings identifiers of sending protocol to use */
     public static final int UPLOAD_PROTOCOL_HTTP = 1;
     public static final int UPLOAD_PROTOCOL_FTP = 2;

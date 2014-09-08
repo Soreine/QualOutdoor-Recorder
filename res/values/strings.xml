@@ -21,6 +21,7 @@
     <string name="title_display_help">Help</string>
     <string name="title_location">Location</string>
     <string name="title_device">Device</string>
+    <string name="title_network">Network</string>
     <string name="title_neighbors">Neighbors</string>
 
     <!-- Navigation Drawer -->
@@ -37,10 +38,11 @@
     <string-array name="home_pager_titles">
         <item>@string/title_location</item>
         <item>@string/title_device</item>
+        <item>@string/title_network</item>
         <item>@string/title_neighbors</item>
     </string-array>
 
-    <!-- Device Fragment -->
+    <!-- Device and Network Fragment -->
     <string name="neighbors_count">Visible cells</string>
     <string name="cell_id">Cell ID</string>
     <string name="signal_strength">Signal Strength</string>
@@ -48,8 +50,14 @@
     <string name="primary_cell">Primary Cell</string>
     <string name="model">Model</string>
     <string name="imei">IMEI</string>
+    <string name="imeisv">IMEI SV</string>
     <string name="mac">MAC address</string>
     <string name="ip">IP address</string>
+    <string name="is_roaming">Roaming</string>
+    <string name="roaming">@string/yes</string>
+    <string name="not_roaming">@string/no</string>
+    <string name="operator">Operator</string>
+    <string name="sim_operator">Sim Operator</string>
     <string name="timing_advance">Timing Advance</string>
 
     <!-- Location Fragment -->
@@ -209,4 +217,7 @@
     <string name="unit_dbm">dBm</string>
     <string name="unit_asu">asu</string>
     <string name="unit_sec">sec</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

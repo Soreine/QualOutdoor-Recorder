@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.qualoutdoor.recorder.charting.HighChartView
+<com.qualoutdoor.recorder.charting.LineChartView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:chart="http://schemas.android.com/apk/res-auto"
     android:id="@+id/webview"
@@ -7,4 +7,6 @@
     android:layout_height="fill_parent"
     chart:chartTitle="Signal Strength"
     chart:yAxisTitle="RSSI"
-    chart:yAxisLabelUnit="{value} dBm"/>
+    chart:yAxisLabelUnit="{value} dBm"
+    chart:yAxisMax="0"
+    chart:yAxisMin="-113"/>

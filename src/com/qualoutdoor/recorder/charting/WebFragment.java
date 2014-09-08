@@ -22,7 +22,7 @@ import com.qualoutdoor.recorder.telephony.TelephonyService;
 public class WebFragment extends Fragment {
 
     /** Reference to the web view used in this fragment */
-    private HighChartView chartView;
+    private LineChartView chartView;
 
     /**
      * The Telephony Listener, which defines the behavior against telephony
@@ -65,21 +65,8 @@ public class WebFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         // Inflate the WebView from the xml layout file
-        chartView = (HighChartView) inflater.inflate(R.layout.fragment_web,
+        chartView = (LineChartView) inflater.inflate(R.layout.fragment_signal_strength_chart,
                 container, false);
-
-        WebSettings settings = chartView.getSettings();
-        // Enable Javascript
-        settings.setJavaScriptEnabled(true);
-        // Disable access to files outside of android_asset and android_res
-        settings.setAllowFileAccess(false);
-        // Allow JavaScript running in the context of a file scheme URL to
-        // access content from any origin (solve same origin policy violation
-        // but dangerous if we are accessing remote data)
-        settings.setAllowFileAccessFromFileURLs(true);
-
-        // Load local file
-        chartView.loadUrl("file:///android_asset/web/line-chart.html");
 
         return chartView;
     }

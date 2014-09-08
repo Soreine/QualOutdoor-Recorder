@@ -23,10 +23,12 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
 
     /** Position of the location fragment */
     public static final int LOCATIONS = 0;
-    /** Position of the network fragment */
+    /** Position of the device fragment */
     public static final int DEVICE = 1;
+    /** Position of the network fragment */
+    public static final int NETWORK = 2;
     /** Position of the neighbor cells fragment */
-    public static final int NEIGHBORS = 2;
+    public static final int NEIGHBORS = 3;
 
     /** The fragment titles list */
     private static CharSequence[] fragmentTitles = QualOutdoorRecorderApp
@@ -40,7 +42,7 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int i) {
         // Initialize the resulting fragment
         Fragment result = null;
-        
+
         // Switch on the fragment correct fragment
         switch (i) {
         case LOCATIONS:
@@ -48,6 +50,9 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
             break;
         case DEVICE:
             result = new DeviceFragment();
+            break;
+        case NETWORK:
+            result = new NetworkFragment();
             break;
         case NEIGHBORS:
             result = new NeighborsFragment();

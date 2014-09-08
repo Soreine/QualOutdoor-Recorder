@@ -8,14 +8,27 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:text="@string/primary_cell"
+            android:gravity="center"
+            style="@style/ListItem"/>
+
+        <com.qualoutdoor.recorder.telephony.ViewCellInfo
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cell_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:connectedBackgroundColor="@color/transparent">
+        </com.qualoutdoor.recorder.telephony.ViewCellInfo>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:text="@string/model"
+                android:text="@string/neighbors_count"
                 style="@style/ListItem"/>
             <TextView
-                android:id="@+id/model_value"
+                android:id="@+id/neighbors_count_value"
                 style="@style/ListItem"
                 android:text=""
                 android:gravity="right|center_vertical"/>
@@ -25,10 +38,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:text="@string/imei"
+                android:text="@string/network_type"
                 style="@style/ListItem"/>
             <TextView
-                android:id="@+id/imei_value"
+                android:id="@+id/network_type_code_value"
                 style="@style/ListItem"
                 android:text=""
                 android:gravity="right|center_vertical"/>
@@ -38,10 +51,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:text="@string/imeisv"
+                android:text="@string/operator"
                 style="@style/ListItem"/>
             <TextView
-                android:id="@+id/imeisv_value"
+                android:id="@+id/operator_value"
                 style="@style/ListItem"
                 android:text=""
                 android:gravity="right|center_vertical"/>
@@ -51,36 +64,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:text="@string/sim_operator"
+                android:text="@string/is_roaming"
                 style="@style/ListItem"/>
             <TextView
-                android:id="@+id/sim_operator_value"
-                style="@style/ListItem"
-                android:text=""
-                android:gravity="right|center_vertical"/>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="@string/mac"
-                style="@style/ListItem"/>
-            <TextView
-                android:id="@+id/mac_value"
-                style="@style/ListItem"
-                android:text=""
-                android:gravity="right|center_vertical"/>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:text="@string/ip"
-                style="@style/ListItem"/>
-            <TextView
-                android:id="@+id/ip_value"
+                android:id="@+id/is_roaming_value"
                 style="@style/ListItem"
                 android:text=""
                 android:gravity="right|center_vertical"/>

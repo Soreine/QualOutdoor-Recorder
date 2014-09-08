@@ -6,6 +6,9 @@
 /** This variable reference the chart object */
 var chart;
 
+// We want to display date according to our local timezone
+Highcharts.setOptions({global: {useUTC:false}});
+
 /** This is the default configuration object used for the line chart */
 var defaultConfig = {
     // Render the chart in the container div
@@ -17,8 +20,16 @@ var defaultConfig = {
     // Disable the lower right 'Highchart.com' credit
     credits: { enabled: false },
 
-    // Disable initial animation
-    plotOptions: { series: { animation: false } }
+    plotOptions: { 	
+	series: { 
+	// Disable initial animation	    
+	    animation: false,  
+	    // Disable markers
+            marker: {
+                enabled: false
+            }
+	}
+    }
 };
 
 /** This function can be called by Android in order to initialize the

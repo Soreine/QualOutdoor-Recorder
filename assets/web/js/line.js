@@ -11,9 +11,6 @@ var MAX_HISTORY = 10;
 
 /** This is the default configuration object used for the line chart */
 var lineConfig = {
-    // We want to draw a spline because it looks better <3
-    chart: { type: 'spline' },
-
     // We have only one serie
     series: [ {data:[]} ],
 
@@ -21,11 +18,24 @@ var lineConfig = {
     xAxis: { type: 'datetime' },
 
     // No legend needed because we don't have multiple series
-    legend: { enabled: false }
+    legend: { enabled: false },
+
+    
+    plotOptions: {
+        series: {
+            states: {
+                hover: {
+		    // Disable hover on series
+                    enabled: false
+                }
+            }
+        }
+    },
 };
 
 // Add our config to the chart.js default config
 defaultConfig = merge_into(defaultConfig, lineConfig);
+
 
 /** This function can be called by Android in order to initialize the
  * chart with the given config (in addition to the static

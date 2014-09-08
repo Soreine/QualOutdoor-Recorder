@@ -84,29 +84,54 @@ public interface ITelephony {
      */
     int getNetworkType();
 
-    /** Return the signal strength of the primary cell */
+    /** Returns the signal strength of the primary cell */
     ISignalStrength getSignalStrength();
 
     /**
-     * Return whatever string uniquely identifies the device (IMEI for GSM, MEID for CDMA)
+     * Returns whatever string uniquely identifies the device (IMEI for GSM,
+     * MEID for CDMA)
+     * 
      * @return The device ID string
      */
     String getDeviceId();
-    
+
     /**
-     * Return a string representation of the MAC Address if any WiFi connection
+     * Returns a string representation of the MAC Address if any WiFi connection
      * is available
      * 
      * @return The MAC address as a string
      */
     String getMacAddress();
-    
+
     /**
-     * Return the IP address of the device as an integer
+     * Returns the IP address of the device as an integer
+     * 
      * @return The IP address
      */
     int getIpAddress();
-    
+
+    /**
+     * Returns the alphabetic name of current registered operator.
+     * 
+     * @return The operator name if user is registered to a network.
+     */
+    String getNetworkOperatorName();
+
+    /** Returns the Service Provider Name (SPN). */
+    String getSimOperatorName();
+
+    /**
+     * Returns the software version number for the device, for example, the
+     * IMEI/SV for GSM phones.
+     */
+    String getDeviceSoftwareVersion();
+
+    /**
+     * Returns true if the device is considered roaming on the current network,
+     * for GSM purposes.
+     */
+    boolean isNetworkRoaming();
+
     /**
      * Register a listener object to receive notification concerning the
      * specified events type

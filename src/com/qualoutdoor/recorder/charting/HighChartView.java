@@ -1,9 +1,11 @@
 package com.qualoutdoor.recorder.charting;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import com.qualoutdoor.recorder.R;
@@ -15,8 +17,8 @@ import com.qualoutdoor.recorder.R;
  * @author Gaborit Nicolas
  * 
  */
+@SuppressLint("SetJavaScriptEnabled")
 public class HighChartView extends WebView {
-
 
     /** The chart title */
     private String chartTitle;
@@ -30,7 +32,11 @@ public class HighChartView extends WebView {
     private String xAxisLabelUnit;
     /** The label to add to each value on the y-axis */
     private String yAxisLabelUnit;
-    
+    /** The y axis max value */
+    private String yMax;
+    /** The y axis min value */
+    private String yMin;
+
     /** Called by javascript when the document is ready */
     private final JavascriptReady jsReady = new JavascriptReady() {
         @Override
@@ -45,7 +51,6 @@ public class HighChartView extends WebView {
             });
         }
     };
-    
 
     public HighChartView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -66,13 +71,26 @@ public class HighChartView extends WebView {
                     .getString(R.styleable.HighChartView_xAxisLabelUnit));
             yAxisLabelUnit = asJsValue(a
                     .getString(R.styleable.HighChartView_yAxisLabelUnit));
+            yMax = asJsValue(a.getString(R.styleable.HighChartView_yAxisMax));
+            yMin = asJsValue(a.getString(R.styleable.HighChartView_yAxisMin));
         } finally {
             // In any case release the array
             a.recycle();
         }
-        
+
+        // Set some settings of the WebView
+        WebSettings settings = getSettings();
+        // Enable Javascript
+        settings.setJavaScriptEnabled(true);
+        // Disable access to files outside of android_asset and android_res
+        settings.setAllowFileAccess(false);
+        // Allow JavaScript running in the context of a file scheme URL to
+        // access content from any origin (solve same origin policy violation
+        // but dangerous if we are accessing remote data)
+        settings.setAllowFileAccessFromFileURLs(true);
+
         // Add our callback for when javascript has initialized
-        this.addJavascriptInterface(jsReady, JavascriptReady.NAME);
+        addJavascriptInterface(jsReady, JavascriptReady.NAME);
     }
 
     /** Initialize the chart with our attribute values */
@@ -85,14 +103,14 @@ public class HighChartView extends WebView {
 
         jsonConfig += "{" + "title:{text:" + chartTitle + "}," + "xAxis:{"
                 + "title:{text:" + xAxisTitle + "}," + "labels:{format:"
-                + xAxisLabelUnit + "}," + "}," + "yAxis:{" + "title:{text:"
-                + yAxisTitle + "}," + "labels:{format:" + yAxisLabelUnit + "},"
-                + "}," + "}";
+                + xAxisLabelUnit + "}," + "}," + "yAxis:{" + "max:" + yMax
+                + "," + "min:" + yMin + "," + "title:{text:" + yAxisTitle
+                + "}," + "labels:{format:" + yAxisLabelUnit + "}," + "}," + "}";
 
         Log.d("HighChartView", jsonConfig);
 
         // Add this config to the chart
-        srcJS += "initConfig(" + jsonConfig + ")";
+        srcJS += "initConfig(" + jsonConfig + ");";
 
         // Execute the javascript
         execJS(srcJS);
@@ -108,12 +126,12 @@ public class HighChartView extends WebView {
         this.loadUrl("javascript:" + srcJS);
     }
 
-    /** If null return "null" else return "\"value\"" */
-    private String asJsValue(String value) {
+    /** Return the object as a value for a JSON string */
+    private String asJsValue(Object value) {
         if (value == null)
             return "null";
         else
-            return "\"" + value + "\"";
+            return "\"" + value.toString() + "\"";
     }
 
 }
