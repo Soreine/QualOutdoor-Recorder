@@ -77,9 +77,6 @@ public class CellInfoExpandableListAdapter extends BaseExpandableListAdapter {
      *            The new list of CellInfo
      */
     public void updateDataSet(List<ICellInfo> cellInfos) {
-        // Update the number of cells
-        total = cellInfos.size();
-
         // Clear the cell info lists
         for (List<ICellInfo> list : cellArray) {
             list.clear();
@@ -130,8 +127,21 @@ public class CellInfoExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public long getGroupId(int groupPosition) {
-        // The ID is the position in the groups
-        return groupPosition;
+        // Find the groupPosition-th group that is non empty
+        int nonEmptyCount = 0;
+        // Go through the categories, finding which are not empty
+        int groupId = -1;
+        for (int i = 0; i < MAX_CATEGORIES; i++) {
+            // Count if not empty
+            if (!cellArray[i].isEmpty())
+                nonEmptyCount++;
+            // Have we found the groupPosition-th group ?
+            if (nonEmptyCount == groupPosition + 1) {
+                groupId = i;
+                break;
+            }
+        }
+        return groupId;
     }
 
     @Override

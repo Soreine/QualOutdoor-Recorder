@@ -6,18 +6,24 @@
 /** This variable reference the chart object */
 var chart;
 
-// We want to display date according to our local timezone
-Highcharts.setOptions({global: {useUTC:false}});
+/* Set some global options */
+Highcharts.setOptions({
+    // We want to display date according to our local timezone
+    global: {useUTC:false},
+    
+    // Colorblind friendly palette, with colors close from ALSETT color scheme
+    colors:['#00557c', '#d56500', '#30005f', '#d5c400', '#ac0024']
+});
 
 /** This is the default configuration object used for the line chart */
 var defaultConfig = {
     // Render the chart in the container div
     chart: { renderTo: 'container' },
-    
+
     // Disable tooltips when selecting a data
     tooltip: { enabled: false },
 
-    // Disable the lower right 'Highchart.com' credit
+    // Disable the lower right 'Highcharto.com' credit
     credits: { enabled: false },
 
     plotOptions: { 	

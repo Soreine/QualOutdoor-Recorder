@@ -3,14 +3,10 @@
 /*  Requires chart.js. */
 /*##################################################*/
 
-/** This Javascript file is designed to allow the use of a line chart
- * inside an Android WebView. This line chart display only on series.
- * Depends upon chart.js. */
+/** This Javascript file is designed to allow the use of a bar chart
+ * inside an Android WebView. Depends upon chart.js. */
 
-/** The maximum number of data */
-var MAX_HISTORY = 10;
-
-/** This is the default configuration object used for the line chart */
+/** This is the default configuration object used for the bar chart */
 var lineConfig = {
     // We have only one serie
     series: [ {data:[]} ],

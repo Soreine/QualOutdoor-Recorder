@@ -2,26 +2,39 @@
 <!-- Version: 2 Organized by: Willie Tsang -->
 <resources>
 
-    <color name="blue_transparent">#4D33B5E5</color>
-    
     <color name="transparent">#00000000</color>
 
     <!-- Application -->
     <color name="normal_text">@color/android_darkgray</color>
     <color name="selected_item_background">@color/android_darkgray</color>
     <color name="selected_item_text">@color/android_lightgray</color>
-    <color name="network_info_highlight">@color/android_blue</color>
+    
+    <color name="statistic_pager_background">@color/alsett_dark_blue</color>
+    <color name="home_pager_background">@color/alsett_orange</color>
+    
+    <color name="network_info_highlight">@color/alsett_orange</color>
+    
+    <!-- Cell View -->
+    <color name="default_connected_cell_color">@color/alsett_orange_transparent</color>
+    
+    <!-- Navigation Drawer -->
+    <color name="nav_drawer_selected_background">@color/alsett_blue</color>
+    <color name="nav_drawer_not_selected_background">@color/transparent</color>
+    
     <!-- Action bar -->
     <color name="action_bar_enabled">#99333333</color>
     <color name="action_bar_disabled">#4D333333</color>
-    
+
     <!-- Buttons -->
     <color name="button_bg">@color/android_blue</color>
     <color name="button_bg_pressed">@color/android_darkblue</color>
 
-    <!-- ALSETT -->
-    <color name="alsett_blue">#5F5DE8</color>
-    <color name="alsett_lightblue">#61E8D2</color>
+    <!-- ALSETT colors -->
+    <color name="alsett_dark_blue">#004069</color>
+    <color name="alsett_blue">#0065a5</color>
+    <color name="alsett_orange">#f16904</color>
+    <color name="alsett_orange_transparent">#4df16904</color>
+    <color name="alsett_yellow">#d3c206</color>
 
     <!-- Android style -->
     <color name="android_green">#A4C639</color>

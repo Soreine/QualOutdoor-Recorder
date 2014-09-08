@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
+import com.qualoutdoor.recorder.QualOutdoorRecorderApp;
 import com.qualoutdoor.recorder.R;
 
 /**
@@ -26,8 +27,12 @@ public class ViewCellInfo extends GridLayout {
     public static final int ROW_COUNT = 3;
 
     /** The string ressource for the radio types */
-    private final CharSequence[] radioNames = getResources().getStringArray(
-            R.array.radio_type_name);
+    private static final CharSequence[] radioNames = QualOutdoorRecorderApp
+            .getAppResources().getStringArray(R.array.radio_type_name);
+
+    /** The default background color when the cell is connected */
+    private static final int DEFAULT_CONNECTED_CELL_COLOR = QualOutdoorRecorderApp
+            .getAppResources().getColor(R.color.default_connected_cell_color);
 
     /** The displayed ICellInfo */
     private ICellInfo cellInfo;
@@ -57,7 +62,7 @@ public class ViewCellInfo extends GridLayout {
     private TextView viewPSCPCIvalue;
 
     /** The background color when this cell is the primary cell */
-    private int connectedBackgroundColor;
+    private int connectedCellColor;
 
     public ViewCellInfo(Context context) {
         super(context);
@@ -85,9 +90,9 @@ public class ViewCellInfo extends GridLayout {
 
         // Parse them
         try {
-            connectedBackgroundColor = a.getColor(
+            connectedCellColor = a.getColor(
                     R.styleable.ViewCellInfo_connectedBackgroundColor,
-                    connectedBackgroundColor);
+                    connectedCellColor);
 
         } finally {
             // In any case release the array
@@ -123,8 +128,7 @@ public class ViewCellInfo extends GridLayout {
         }
 
         // Set the default background color
-        connectedBackgroundColor = getResources().getColor(
-                R.color.blue_transparent);
+        connectedCellColor = DEFAULT_CONNECTED_CELL_COLOR;
 
         updateCellInfo(cellInfo);
     }
@@ -137,7 +141,7 @@ public class ViewCellInfo extends GridLayout {
         // If this is the registered cell, highlight with background drawable
         if (newCellInfo.isRegistered()) {
             // Set the registered background
-            this.setBackground(new ColorDrawable(connectedBackgroundColor));
+            this.setBackground(new ColorDrawable(connectedCellColor));
         } else {
             // Set a transparent background
             this.setBackground(new ColorDrawable(Color.TRANSPARENT));
