@@ -33,9 +33,15 @@ public class TelephonyListener {
     /** Listen for changes to observed cell info. */
     public static final int LISTEN_CELL_INFO = 32;
 
+
     /** Constructor */
     public TelephonyListener() {}
 
+    /** The events this TelephonyListener will monitor */
+    public int events() {
+        return LISTEN_NONE;
+    }
+    
     /** Callback invoked when device call state changes. */
     public void onCallStateChanged(int state, String incomingNumber) {}
 

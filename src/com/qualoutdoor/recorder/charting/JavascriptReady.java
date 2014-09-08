@@ -9,12 +9,17 @@ import android.webkit.JavascriptInterface;
  * 
  * @author Gaborit Nicolas
  */
-public interface JavascriptReady {
+public abstract class JavascriptReady {
     
     /** This is the name of the component made available in Javascript */
     public static String NAME = "JavascriptReady";
-    
-    /** To be called when the DOM and Javascript have initialised */
+        
+    /** To be called by JS when the DOM and Javascript have initialised */
     @JavascriptInterface
-    public void onDocumentReady();
+    public void ready() {
+        onDocumentReady();
+    }
+    
+    /** The Java behavior when the document is ready */
+    public abstract void onDocumentReady();
 }

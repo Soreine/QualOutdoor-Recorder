@@ -39,6 +39,13 @@ public class DeviceFragment extends Fragment {
      * state changes
      */
     private final TelephonyListener telListener = new TelephonyListener() {
+        /** The events monitored by the Telephony Listener */
+        @Override
+        public int events() {
+            return TelephonyListener.LISTEN_CELL_INFO
+                    | TelephonyListener.LISTEN_DATA_STATE;
+        }
+
         @Override
         public void onCellInfoChanged(List<ICellInfo> cellInfos) {
             // Find the number of neighbors cells
@@ -69,9 +76,6 @@ public class DeviceFragment extends Fragment {
             updateNetworkTypeView();
         };
     };
-    /** The events monitored by the Telephony Listener */
-    private static final int events = TelephonyListener.LISTEN_CELL_INFO
-            | TelephonyListener.LISTEN_DATA_STATE;
 
     /** The TelephonyService Provider given by the activity */
     private ServiceProvider<TelephonyService> telephonyService;
@@ -83,7 +87,7 @@ public class DeviceFragment extends Fragment {
         @Override
         public void onServiceAvailable(TelephonyService service) {
             // Register the telephony listener
-            service.listen(telListener, events);
+            service.listen(telListener, telListener.events());
 
             // Fill the text views
             {

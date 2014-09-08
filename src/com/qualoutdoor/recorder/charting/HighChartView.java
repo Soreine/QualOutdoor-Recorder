@@ -3,6 +3,7 @@ package com.qualoutdoor.recorder.charting;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.webkit.WebView;
 
 import com.qualoutdoor.recorder.R;
@@ -16,21 +17,21 @@ import com.qualoutdoor.recorder.R;
  */
 public class HighChartView extends WebView {
 
-    /** The Javascript name of the chart variable */
-    private static CharSequence CHART = "chart";
 
-    /** The title string */
-    private CharSequence chartTitle = null;
+    /** The chart title */
+    private String chartTitle;
+    /** The chart subtitle */
+    // private String chartSubTitle; // TODO
     /** The title on the x-axis */
-    private CharSequence xAxisTitle = null;
+    private String xAxisTitle;
     /** The title on the y-axis */
-    private CharSequence yAxisTitle = null;
+    private String yAxisTitle;
     /** The label to add to each value on the x-axis */
-    private CharSequence xAxisLabelUnit = null;
+    private String xAxisLabelUnit;
     /** The label to add to each value on the y-axis */
-    private CharSequence yAxisLabelUnit = null;
-
-    /** Defines what to do when */
+    private String yAxisLabelUnit;
+    
+    /** Called by javascript when the document is ready */
     private final JavascriptReady jsReady = new JavascriptReady() {
         @Override
         public void onDocumentReady() {
@@ -44,61 +45,57 @@ public class HighChartView extends WebView {
             });
         }
     };
+    
 
-    public HighChartView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
+    public HighChartView(Context context, AttributeSet attrs) {
+        super(context, attrs);
         // Get the styled attributes
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
                 R.styleable.HighChartView, 0, 0);
 
         // Parse them
         try {
-            chartTitle = a.getString(R.styleable.HighChartView_chartTitle);
-            xAxisTitle = a.getString(R.styleable.HighChartView_xAxisTitle);
-            yAxisTitle = a.getString(R.styleable.HighChartView_yAxisTitle);
-            xAxisLabelUnit = a
-                    .getString(R.styleable.HighChartView_xAxisLabelUnit);
-            yAxisLabelUnit = a
-                    .getString(R.styleable.HighChartView_yAxisLabelUnit);
+            // For each value, wrap it into the good Object
+            chartTitle = asJsValue(a
+                    .getString(R.styleable.HighChartView_chartTitle));
+            xAxisTitle = asJsValue(a
+                    .getString(R.styleable.HighChartView_xAxisTitle));
+            yAxisTitle = asJsValue(a
+                    .getString(R.styleable.HighChartView_yAxisTitle));
+            xAxisLabelUnit = asJsValue(a
+                    .getString(R.styleable.HighChartView_xAxisLabelUnit));
+            yAxisLabelUnit = asJsValue(a
+                    .getString(R.styleable.HighChartView_yAxisLabelUnit));
         } finally {
             // In any case release the array
             a.recycle();
         }
-
+        
         // Add our callback for when javascript has initialized
         this.addJavascriptInterface(jsReady, JavascriptReady.NAME);
     }
 
     /** Initialize the chart with our attribute values */
-    private void init() {
+    public void init() {
         // The javascript code to execute
         String srcJS = "";
 
-        // Set the title
-        if (chartTitle == null)
-            // Disable the title
-            srcJS += CHART + ".setTitle({text: null});";
-        else
-            srcJS += setTitleJS(chartTitle);
+        // Create the config JSONOBject
+        String jsonConfig = "";
 
-        // Set the X title
-        if (xAxisTitle != null)
-            // Disable
-            srcJS += CHART + ".xAxis[0].setTitle({text:null});";
-        else
-            srcJS += CHART + ".xAxis[0].setTitle({text:'" + xAxisTitle + "'});";
-        // Set the X title
-        if (yAxisTitle == null)
-            // Disable
-            srcJS += CHART + ".yAxis[0].setTitle({text:null});";
-        else
-            srcJS += CHART + ".yAxis[0].setTitle({text:" + yAxisTitle + "});";
-        
-        //TODO
-        
+        jsonConfig += "{" + "title:{text:" + chartTitle + "}," + "xAxis:{"
+                + "title:{text:" + xAxisTitle + "}," + "labels:{format:"
+                + xAxisLabelUnit + "}," + "}," + "yAxis:{" + "title:{text:"
+                + yAxisTitle + "}," + "labels:{format:" + yAxisLabelUnit + "},"
+                + "}," + "}";
+
+        Log.d("HighChartView", jsonConfig);
+
+        // Add this config to the chart
+        srcJS += "initConfig(" + jsonConfig + ")";
+
         // Execute the javascript
         execJS(srcJS);
-        
     }
 
     /**
@@ -107,25 +104,16 @@ public class HighChartView extends WebView {
      * @param srcJS
      *            The Javascript source to be executed
      */
-    private void execJS(CharSequence srcJS) {
+    public void execJS(CharSequence srcJS) {
         this.loadUrl("javascript:" + srcJS);
     }
 
-    /** Set the title of the chart */
-    public void setTitle(CharSequence title) {
-        // Set the title value
-        chartTitle = title;
-        // Set the title in javascript
-        execJS(setTitleJS(title));
+    /** If null return "null" else return "\"value\"" */
+    private String asJsValue(String value) {
+        if (value == null)
+            return "null";
+        else
+            return "\"" + value + "\"";
     }
 
-    /**
-     * Generate the code for setting the title
-     * 
-     * @param title
-     * @return The JS code setting the title
-     */
-    private CharSequence setTitleJS(CharSequence title) {
-        return CHART + ".setTitle({text:'" + title + "'});";
-    }
 }

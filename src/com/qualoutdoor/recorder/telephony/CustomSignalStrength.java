@@ -73,14 +73,22 @@ public class CustomSignalStrength implements ISignalStrength {
 
     @Override
     public int getDbm() {
-        // Return the stored dBm value
-        return valuesBundle.getInt(DBM);
+        if (valuesBundle.containsKey(DBM))
+            // Return the stored dBm value
+            return valuesBundle.getInt(DBM);
+        else
+            // Return error value
+            return UNKNOWN_DBM;
     }
 
     @Override
     public int getAsuLevel() {
-        // Return the stored ASU level
-        return valuesBundle.getInt(ASU);
+        if (valuesBundle.containsKey(ASU))
+            // Return the stored ASU level
+            return valuesBundle.getInt(ASU);
+        else
+            // Return error value
+            return UNKNOWN_ASU;
     }
 
 }

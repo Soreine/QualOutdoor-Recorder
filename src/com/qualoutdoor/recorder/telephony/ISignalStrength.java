@@ -8,7 +8,13 @@ package com.qualoutdoor.recorder.telephony;
  * @author Gaborit Nicolas
  */
 public interface ISignalStrength {
-    /** Get the RSSI value as dBm */
+    
+    /** Error value for dBm level */
+    public static final int UNKNOWN_DBM = Integer.MAX_VALUE;
+    /** Error value for asu level */
+    public static final int UNKNOWN_ASU = 99;
+    
+    /** Get the RSSI value as dBm. Integer.MAX_VALUE if unknown */
     int getDbm();
 
     /**

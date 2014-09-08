@@ -6,4 +6,5 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     chart:chartTitle="Signal Strength"
-    chart:yAxisTitle="RSSI"/>
+    chart:yAxisTitle="RSSI"
+    chart:yAxisLabelUnit="{value} dBm"/>
