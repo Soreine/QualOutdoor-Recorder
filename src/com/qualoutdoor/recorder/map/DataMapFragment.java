@@ -119,30 +119,34 @@ public class DataMapFragment extends Fragment implements LocationListener {
         mapFragment = (SupportMapFragment) getFragmentManager()
                 .findFragmentByTag(MAP_FRAGMENT_TAG);
 
+        /*
+         * Don't know why this check causes the map to not be displayed after
+         * switching activities...
+         */
         // We only create a fragment if it doesn't already exist.
-        if (mapFragment == null) {
+        // if (mapFragment == null) {
 
-            // To programmatically add the map, we first create a
-            // SupportMapFragment and override the onActivityCreated callback
-            // for map initialization
-            mapFragment = new SupportMapFragment() {
-                @Override
-                public void onActivityCreated(Bundle savedInstanceState) {
-                    super.onActivityCreated(savedInstanceState);
-                    // The map is available from now on
-                    setUpMapIfNeeded();
-                    Log.d("DataMapFragment", "Map creation callback");
-                };
+        // To programmatically add the map, we first create a
+        // SupportMapFragment and override the onActivityCreated callback
+        // for map initialization
+        mapFragment = new SupportMapFragment() {
+            @Override
+            public void onActivityCreated(Bundle savedInstanceState) {
+                super.onActivityCreated(savedInstanceState);
+                // The map is available from now on
+                setUpMapIfNeeded();
+                Log.d("DataMapFragment", "Map creation callback");
             };
+        };
 
-            // Then we add it using a FragmentTransaction.
-            FragmentTransaction fragmentTransaction = getFragmentManager()
-                    .beginTransaction();
-            fragmentTransaction.add(R.id.map_container, mapFragment,
-                    MAP_FRAGMENT_TAG);
-            fragmentTransaction.commit();
-        }
-        
+        // Then we add it using a FragmentTransaction.
+        FragmentTransaction fragmentTransaction = getFragmentManager()
+                .beginTransaction();
+        fragmentTransaction.add(R.id.map_container, mapFragment,
+                MAP_FRAGMENT_TAG);
+        fragmentTransaction.commit();
+        // }
+
         // Set up the map if already available
         setUpMapIfNeeded();
     }
@@ -174,6 +178,7 @@ public class DataMapFragment extends Fragment implements LocationListener {
 
     @Override
     public void onPause() {
+        super.onPause();
         // If needed unregister our telephony listener
         try {
             telephonyService.getService().listen(telListener,
@@ -184,10 +189,12 @@ public class DataMapFragment extends Fragment implements LocationListener {
             locationService.getService().removeLocationUpdate(this);
         } catch (ServiceNotBoundException e) {}
 
+        // Remove map
+        map = null;
+
         // Unregister the services listeners
         telephonyService.unregister(telServiceListener);
         locationService.unregister(locServiceListener);
-        super.onPause();
     }
 
     /**
@@ -263,8 +270,8 @@ public class DataMapFragment extends Fragment implements LocationListener {
         // Instantiates a new CircleOptions object and defines the radius in
         // meters
         CircleOptions circleOptions = new CircleOptions().radius(1)
-                .strokeColor(0x00000000).center(latlng)
-                .fillColor(Color.HSVToColor(hsv));
+                .strokeColor(0x00000000) // transparent
+                .center(latlng).fillColor(Color.HSVToColor(hsv));
         map.addCircle(circleOptions);
     }
 
