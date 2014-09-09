@@ -8,10 +8,13 @@
  * Depends upon chart.js. */
 
 /** The maximum number of data */
-var MAX_HISTORY = 10;
+var MAX_HISTORY = 500;
+/** The timespan to display in milliseconds. TODO: make configurable */
+var TIMESPAN = 30*1000;
 
 /** This is the default configuration object used for the line chart */
-var lineConfig = {
+var LINE_CONFIG = {
+
     // We have only one serie
     series: [ {data:[]} ],
 
@@ -35,26 +38,18 @@ var lineConfig = {
 };
 
 // Add our config to the chart.js default config
-defaultConfig = merge_into(defaultConfig, lineConfig);
-
-
-/** This function can be called by Android in order to initialize the
- * chart with the given config (in addition to the static
- * configuration defined here).
- * @param {Object} config An option object as defined in the
- * HighCharts documentation */
-function initConfig(config) {
-    // Merge the given config into the default one
-    var finalConfig = merge_into(defaultConfig, config);
-    // Initialize the chart with this config
-    chart = new Highcharts.Chart(finalConfig);
-}
+DEFAULT_CONFIG = merge_into(DEFAULT_CONFIG, LINE_CONFIG);
 
 /** Add a new value to the serie data. Shift the data if MAX_HISTORY
  * is reached.
  * @param {Number|Array} value The value to add. Taken as y value if a
  * Number, or (x,y) value pair if Array */
 function addData(value) {
-    var shift = false; // (chart.series[0].data.length >= MAX_HISTORY);
-    chart.series[0].addPoint(value, true, shift);
+    // Should we get rid of the oldest value in order to insert the
+    // new one
+    var shift = (chart.series[0].data.length >= MAX_HISTORY);
+    // Add the value, without redrawing
+    chart.series[0].addPoint(value, false, shift);
+    // Recenter the view
+    chart.xAxis[0].setExtremes(value[0] - TIMESPAN, value[0]);
 };

@@ -59,7 +59,7 @@ public class CellInfoExpandableListAdapter extends BaseExpandableListAdapter {
 
         // Initialize the groups
         this.groupIndexes = new ArrayList<Integer>(MAX_CATEGORIES);
-
+        
         // Initiliaze the lists
         for (int i = 0; i < MAX_CATEGORIES; i++) {
             // Initiliaze empty

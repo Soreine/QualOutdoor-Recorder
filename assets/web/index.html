@@ -1,29 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no"/>
-    </head>
-    <body>
-	
-	<div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no"/>
+  </head>
+  <body>
+    <div style="overflow: hidden; width: 95vw; height:95vh;">
+      <div id="container" style="width: 100%; height: 100%;"></div>
+    </div>
 
-	    <img width="100px" src="images/logo.png"/>
-	    <br/>
-	    <p>QualOutdoor WebView !</p>
-
-	    <p>This animation is an example of Javascript running
-		inside the application</p>
-	    <script src="js/processing.js"></script>
-	    <canvas style="padding: 0;
-			   margin: auto;
-			   display: block;"
-		    data-processing-sources="UnfoldingLines.pde"></canvas>
-	    <noscript>
-		<p style="text-align:center">Javascript is required to
-		    view this little animation.</p>
-	    </noscript>
-	</div>
-    </body>
-
+    <script src="js/standalone-framework.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/test.js"></script>
+    <!-- Callback when the WebView finished loading -->
+    <script src="js/callback.js"></script> 
+  </body>
 </html>

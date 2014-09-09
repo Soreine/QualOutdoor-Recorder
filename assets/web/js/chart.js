@@ -6,17 +6,18 @@
 /** This variable reference the chart object */
 var chart;
 
+/** Colorblind friendly palette, with colors close from ALSETT color scheme */
+var COLOR_SCHEME = ['#00557c', '#d56500', '#30005f', '#d5c400', '#ac0024'];
+
 /* Set some global options */
 Highcharts.setOptions({
     // We want to display date according to our local timezone
     global: {useUTC:false},
-    
-    // Colorblind friendly palette, with colors close from ALSETT color scheme
-    colors:['#00557c', '#d56500', '#30005f', '#d5c400', '#ac0024']
+    colors: COLOR_SCHEME
 });
 
 /** This is the default configuration object used for the line chart */
-var defaultConfig = {
+var DEFAULT_CONFIG = {
     // Render the chart in the container div
     chart: { renderTo: 'container' },
 
@@ -45,7 +46,7 @@ var defaultConfig = {
  * HighCharts documentation */
 function initConfig(config) {
     // Merge the given config into the default one
-    var finalConfig = merge_into(defaultConfig, config);
+    var finalConfig = merge_into(DEFAULT_CONFIG, config);
     // Initialize the chart with this config
     chart = new Highcharts.Chart(finalConfig);
 }

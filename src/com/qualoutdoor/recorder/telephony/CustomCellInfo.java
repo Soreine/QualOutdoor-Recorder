@@ -5,6 +5,8 @@ import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.qualoutdoor.recorder.QualOutdoorRecorderApp;
+import com.qualoutdoor.recorder.R;
 import com.qualoutdoor.recorder.Utils;
 
 import android.os.Build;
@@ -35,6 +37,10 @@ public class CustomCellInfo implements ICellInfo {
      * activities.
      */
     protected Bundle infoBundle;
+
+    /** The name of the cells */
+    private static final String[] radioNames = QualOutdoorRecorderApp
+            .getAppResources().getStringArray(R.array.radio_type_name);
 
     /* *************************************
      * The bundle keys
@@ -301,4 +307,59 @@ public class CustomCellInfo implements ICellInfo {
         return Utils.bundleToJSON(infoBundle);
     }
 
+    /*
+     * Warning, this method may seem dirty... but I ain't got no time for this
+     * anymore
+     */
+    @Override
+    public String toString() {
+        // The resulting string
+        String result = "";
+
+        int type = getCellType();
+
+        // Begins with the common infos
+        result += "Cell type: " + radioNames[type] + "\n";
+        if (isRegistered())
+            result += "[Registered]\n";
+
+        // CDMA and UNKNOWN don't have others infos
+        if (type == CELL_CDMA || type == CELL_UNKNOWN)
+            return result;
+
+        result += "CID: " + stringify(getCid()) + "\n";
+        result += "MCC: " + stringify(getMcc()) + "\n";
+        result += "MNC: " + stringify(getMnc()) + "\n";
+
+        if (type == CELL_GSM) {
+            result += "LAC: " + stringify(getLac()) + "\n";
+            return result;
+        }
+
+        if (type == CELL_WCDMA) {
+            result += "LAC: " + stringify(getLac()) + "\n";
+            result += "PSC: " + stringify(getPsc()) + "\n";
+            return result;
+        }
+        
+        if(type == CELL_LTE) {
+            result += "TAC: " + stringify(getTac()) + "\n";
+            result += "Timing Advance: " + stringify(getTimingAdvance()) + "\n";
+            return result;
+        }
+        
+        return result;
+    }
+
+    /**
+     * Return a string representing the given value, or the cell_info_empty
+     * string if unknown (Integer.MAX_VALUE)
+     */
+    private String stringify(int value) {
+        if (value == Integer.MAX_VALUE) {
+            return "?";
+        } else {
+            return value + "";
+        }
+    }
 }

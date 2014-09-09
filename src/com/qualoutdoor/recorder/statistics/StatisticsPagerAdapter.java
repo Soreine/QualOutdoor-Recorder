@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.qualoutdoor.recorder.GenericFragment;
-import com.qualoutdoor.recorder.charting.SignalStrengthPlotFragment;
-import com.qualoutdoor.recorder.charting.WebFragment;
+import com.qualoutdoor.recorder.charting.NeighborsChartFragment;
+import com.qualoutdoor.recorder.charting.SignalStrengthChartFragment;
 
 /**
  * The pager adapter for the StatisticsFragment.
@@ -22,22 +22,18 @@ import com.qualoutdoor.recorder.charting.WebFragment;
  */
 public class StatisticsPagerAdapter extends FragmentPagerAdapter {
 
-    /** Position of the WebView fragment */
+    /** Position of the signal strength chart fragment */
     private static final int WEB_VIEW = 0;
-    /** Position of the neighboring cells fragment */
-    private static final int NEIGHBOR = 1;
-    /** Position of the graph fragment */
-    private static final int GRAPH = 2;
-    /** Position of the script logs fragment */
-    private static final int SCRIPT_LOGS = 3;
+    /** Position of the neighbors chart fragment */
+    private static final int NEIGHBORS = 1;
 
     /** The list of the fragment titles */
     /*
-     * TODO This is temporary hard coded. Should be reference in XML, see the
+     * TODO This is temporary hard coded. Should be referenced in XML, see the
      * example in the HomePagerAdapter class
      */
     private CharSequence[] fragmentTitles = {
-            "WebView", "Neighbor Cells", "Graph", "Script Logs"
+            "Signal Strength", "Neighbor Cells"
     };
 
     public StatisticsPagerAdapter(FragmentManager fm) {
@@ -56,14 +52,10 @@ public class StatisticsPagerAdapter extends FragmentPagerAdapter {
         // Switch on the fragment name
         switch (i) {
         case WEB_VIEW:
-            result = new WebFragment();
+            result = new SignalStrengthChartFragment();
             break;
-        case NEIGHBOR:
-            break;
-        case GRAPH:
-            result = new SignalStrengthPlotFragment();
-            break;
-        case SCRIPT_LOGS:
+        case NEIGHBORS:
+            result = new NeighborsChartFragment();
             break;
         }
 

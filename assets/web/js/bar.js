@@ -6,51 +6,99 @@
 /** This Javascript file is designed to allow the use of a bar chart
  * inside an Android WebView. Depends upon chart.js. */
 
+/** This JavascriptInterface allows access to the data to display */
+var BarData;
+
 /** This is the default configuration object used for the bar chart */
-var lineConfig = {
+var CELLS_CONFIG = {
+    
+    chart: {
+	// We use a bar chart
+	type: 'bar'
+    },
+
+    tooltip: {
+	// Enable tooltip
+	enabled: true,
+	// We format the tooltip with a callback to BarData
+        formatter: function () {
+	    // Get the tooltip of the x-th value
+            return BarData.getTooltip(this.x);
+        }
+    },
+    
     // We have only one serie
     series: [ {data:[]} ],
 
-    // Use a date format for the xAxis values
-    xAxis: { type: 'datetime' },
-
-    // No legend needed because we don't have multiple series
-    legend: { enabled: false },
-
-    
-    plotOptions: {
-        series: {
-            states: {
-                hover: {
-		    // Disable hover on series
-                    enabled: false
-                }
+    xAxis: {
+	// Display categories for x axis
+        type: 'category',
+        labels: {
+            style: {
+                fontSize: '13px',
+                fontFamily: 'Verdana, sans-serif'
             }
         }
     },
+
+    // No legend needed because we don't use series conventionally
+    legend: { enabled: false },
+
+    plotOptions: {
+        series: {
+	    // Display CID or PSC as a label over the bars
+            dataLabels: {
+                enabled: false, // TODO it does not work well...
+                align: 'right',
+                color: '#FFFFFF',
+		x: -10,
+                style: {
+                    fontSize: '1.3em'
+                }
+            },
+	    // Reduce the padding between bars
+            pointPadding: 0.1,
+            groupPadding: 0
+	},
+        states: {
+            hover: {
+		// Disable hover on series
+                enabled: false
+            }
+        },
+	bar: {
+	    // The value defining the base of the bars
+	    threshold: -120 // TODO: define as XML configuration
+	}
+    }
 };
 
 // Add our config to the chart.js default config
-defaultConfig = merge_into(defaultConfig, lineConfig);
+DEFAULT_CONFIG = merge_into(DEFAULT_CONFIG, CELLS_CONFIG);
 
+/** Called by Android when new data are available. */
+function updateData() {
+    // Get data size
+    var size = BarData.size();
+    // Construct the new data
+    var newData = [];
+    for (var i = 0; i < size; i++) {
+	// Construct the data
+	var data = {
+	    // Name to display on x axis
+	    name: BarData.getName(i),
+	    // The color of the group of data this data belongs to
+	    color: COLOR_SCHEME[BarData.getGroup(i)%COLOR_SCHEME.length],
+	    // The actual value of the bar
+	    y: BarData.getValue(i),
+	    // The label to display over the bar
+	    dataLabels: {format: BarData.getLabel(i)}
+	};
 
-/** This function can be called by Android in order to initialize the
- * chart with the given config (in addition to the static
- * configuration defined here).
- * @param {Object} config An option object as defined in the
- * HighCharts documentation */
-function initConfig(config) {
-    // Merge the given config into the default one
-    var finalConfig = merge_into(defaultConfig, config);
-    // Initialize the chart with this config
-    chart = new Highcharts.Chart(finalConfig);
+	// Add the data
+	newData.push(data);
+    }
+    
+    // Update the chart data
+    chart.series[0].setData(newData);
 }
-
-/** Add a new value to the serie data. Shift the data if MAX_HISTORY
- * is reached.
- * @param {Number|Array} value The value to add. Taken as y value if a
- * Number, or (x,y) value pair if Array */
-function addData(value) {
-    var shift = false; // (chart.series[0].data.length >= MAX_HISTORY);
-    chart.series[0].addPoint(value, true, shift);
-};

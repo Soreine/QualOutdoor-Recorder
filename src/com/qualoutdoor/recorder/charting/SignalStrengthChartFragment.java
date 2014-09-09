@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebSettings;
 
 import com.qualoutdoor.recorder.IServiceListener;
 import com.qualoutdoor.recorder.R;
@@ -18,8 +17,15 @@ import com.qualoutdoor.recorder.telephony.TelephonyContext;
 import com.qualoutdoor.recorder.telephony.TelephonyListener;
 import com.qualoutdoor.recorder.telephony.TelephonyService;
 
+/**
+ * This fragment displays a LineChartView plotting the signal strength over the
+ * time.
+ * 
+ * @author Gaborit Nicolas
+ * 
+ */
 @SuppressLint("SetJavaScriptEnabled")
-public class WebFragment extends Fragment {
+public class SignalStrengthChartFragment extends Fragment {
 
     /** Reference to the web view used in this fragment */
     private LineChartView chartView;
@@ -41,8 +47,10 @@ public class WebFragment extends Fragment {
             if (value != ISignalStrength.UNKNOWN_DBM) {
                 // Get the current time
                 long date = System.currentTimeMillis();
+
                 // Add a the new signalStrength value to the chart
-                chartView.execJS("addData([" + date + "," + value + "])");
+                chartView.addData(date, value);
+
             }
         };
     };
@@ -65,8 +73,8 @@ public class WebFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         // Inflate the WebView from the xml layout file
-        chartView = (LineChartView) inflater.inflate(R.layout.fragment_signal_strength_chart,
-                container, false);
+        chartView = (LineChartView) inflater.inflate(
+                R.layout.fragment_chart_signal_strength, container, false);
 
         return chartView;
     }

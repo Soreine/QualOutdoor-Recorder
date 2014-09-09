@@ -1,31 +1,98 @@
-var chart = new Highcharts.Chart({
-    chart: {
-        renderTo: 'container'
-    },
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'bar'
+        },
 
-    xAxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
-		     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    },
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    align: 'right',
+                    color: '#FFFFFF',
+                    x: -10,
+                    style: {
+                        fontSize: '1.3em'
+                    }
+                },
+                pointPadding: 0.1,
+                groupPadding: 0
+            },
 
-    series: [{
-        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-    }],
-    
-    // Disable the lower right 'Highchart.com' credit
-    credits: {
-	enabled: false
-    },
+	    bar: {
+		// The value defining the base of the bars
+		threshold: -120
+	    }
+        },
 
-    // Disable initial animation
-    plotOptions: {
-        series: {
-            animation: false
-        }
-    }
+        xAxis: {
+	    // Display categories as x axis
+            type: 'category'
+            }
+        },
+
+        legend: {
+            enabled: false
+        },
+
+        series: [{
+            data: [{
+                name: 'GSM',
+                color: '#00FF00',
+                y: 2,
+                dataLabels: {
+                    format: 'test',
+                    style: {
+                        fontWeight: 'bold'
+                    }
+                }
+            }, {
+                name: 'LTE',
+                color: '#FF00FF',
+                y: 5
+            }, {
+                name: 'GSM',
+                color: '#00FF00',
+                y: 2,
+                dataLabels: {
+                    format: 'test',
+                    style: {
+                        fontWeight: 'bold'
+                    }
+                }
+            }, {
+                name: 'LTE',
+                color: '#FF00FF',
+                y: 5
+            }, {
+                name: 'GSM',
+                color: '#00FF00',
+                y: 2,
+                dataLabels: {
+                    format: 'test',
+                    style: {
+                        fontWeight: 'bold'
+                    }
+                }
+            }, {
+                name: 'LTE',
+                color: '#FF00FF',
+                y: 5
+            }, {
+                name: 'GSM',
+                color: '#00FF00',
+                y: 2,
+                dataLabels: {
+                    format: 'test',
+                    style: {
+                        fontWeight: 'bold'
+                    }
+                }
+            }, {
+                name: 'LTE',
+                color: '#FF00FF',
+                y: 5
+            }]
+        }]
+    });
 });
-
-
-// End of document, callback the WebView
-android.changeTitle();
-
