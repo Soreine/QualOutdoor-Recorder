@@ -7,4 +7,4 @@
     android:layout_height="fill_parent"
     chart:chartTitle="Neighbors Cells"
     chart:yAxisTitle="RSSI (dBm)"
-    chart:yAxisMin="-120"/>
+    chart:yAxisMin="-140"/>

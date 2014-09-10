@@ -16,7 +16,6 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
@@ -32,7 +31,7 @@ import com.qualoutdoor.recorder.telephony.TelephonyListener;
 import com.qualoutdoor.recorder.telephony.TelephonyService;
 
 /**
- * An demo map fragment that displays signal strengths on a map
+ * A demo map fragment that displays signal strengths on a map
  * 
  * @author Gaborit Nicolas
  */
@@ -247,7 +246,7 @@ public class DataMapFragment extends Fragment implements LocationListener {
                             .getLongitude());
                     // Center the camera on the new location
                     CameraUpdate update = CameraUpdateFactory.newLatLngZoom(
-                            latlng, 19);
+                            latlng, 20);
 
                     // Move the camera
                     map.animateCamera(update);
@@ -260,18 +259,23 @@ public class DataMapFragment extends Fragment implements LocationListener {
         }
     }
 
+    /* TODO: Rewrite this hard coded mess... */
     private void createMarker(LatLng latlng) {
+        // The color of the marker
         float[] hsv = new float[3];
         hsv[1] = 255f;
         hsv[2] = 255f;
+        // Compute the hue
         float relativeAsu = ((float) signalStrength.getAsuLevel()) / 31; // MAX_ASU
         hsv[0] = SCALE_START_HUE + relativeAsu
                 * (SCALE_END_HUE - SCALE_START_HUE);
         // Instantiates a new CircleOptions object and defines the radius in
         // meters
-        CircleOptions circleOptions = new CircleOptions().radius(1)
+        CircleOptions circleOptions = new CircleOptions().radius(1) // Radius in
+                                                                    // meter
                 .strokeColor(0x00000000) // transparent
-                .center(latlng).fillColor(Color.HSVToColor(hsv));
+                .center(latlng) // on location
+                .fillColor(Color.HSVToColor(hsv)); // with good color
         map.addCircle(circleOptions);
     }
 

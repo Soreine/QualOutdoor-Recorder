@@ -68,7 +68,7 @@ var CELLS_CONFIG = {
         },
 	bar: {
 	    // The value defining the base of the bars
-	    threshold: -120 // TODO: define as XML configuration
+	    threshold: -140 // TODO: define as XML configuration
 	}
     }
 };

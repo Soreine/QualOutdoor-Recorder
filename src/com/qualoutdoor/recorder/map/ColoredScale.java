@@ -5,65 +5,67 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.content.res.TypedArray;
 import android.graphics.*;
+import android.graphics.Paint.Align;
 import android.graphics.Shader.TileMode;
+
 import java.lang.Override;
 import java.lang.String;
+
 import com.qualoutdoor.recorder.R;
 
 /**
- * @class Custom view that shows a colored scale with a label.
+ * @class Custom view that shows a colored scale with a label. Be careful, the
+ *        magic behind onMeasure cannot be mastered by ordinary programmers, I
+ *        haven't fully understood this art myself... Please excuse the poor
+ *        design of this class...
  * @author Gaborit Nicolas
  */
 public class ColoredScale extends View {
 
+    /** The text of the label */
     private String mText;
-    /** < The text of the label */
+    /** The text of the minimum value */
+    private String mMin;
+    /** The text of the maximum value */
+    private String mMax;
+    /** The label color */
     private int mTextColor;
-    /** < The label color */
-
+    /** The minimum value of the scale */
     private float mStartValue;
-    /** < The minimum value of the scale */
+    /** The maximum value of the scale */
     private float mEndValue;
-    /** < The maximum value of the scale */
+    /** The precision of graduation */
     private float mGraduationStep;
-    /** < The precision of graduation */
-
+    /** The starting color of the scale */
     private int mStartColor;
-    /** < The starting color of the scale */
+    /** The ending color of the scale */
     private int mEndColor;
-    /** < The ending color of the scale */
-
+    /** The starting color of the graduation lines */
     private int mGraduationStartColor;
-    /** < The starting color of the graduation lines */
+    /** The ending color of the graduation lines */
     private int mGraduationEndColor;
-    /** < The ending color of the graduation lines */
-
+    /** Paint that define the scale style */
     private Paint mScalePaint;
-    /** < Paint that define the scale style */
+    /** Paint that define the graduation style */
     private Paint mGraduationPaint;
-    /** < Paint that define the graduation style */
+    /** Paint that define the label style */
     private Paint mTextPaint;
-    /** < Paint that define the label style */
-
+    /** Whether a label should be displayed */
     private boolean mShowText = false;
-    /** < Whether a label should be displayed */
 
     // Values and objects which are set ahead of time
+    /** The X coordinate of the text label */
     private float mTextX = 0.0f;
-    /** < The X coordinate of the text label */
+    /** The Y coordinate of the text label */
     private float mTextY = 0.0f;
-    /** < The Y coordinate of the text label */
+    /** The width of the text label, in pixels */
     private float mTextWidth = 0.0f;
-    /** < The width of the text label, in pixels */
+    /** The height of the text label, in pixels */
     private float mTextHeight = 0.0f;
-    /** < The height of the text label, in pixels */
-
+    /** The length of graduation lines */
     private float mGraduationLength;
-    /** < The length of graduation lines */
-
+    /** The boundaries of the scale itself */
     private RectF mScaleRect = new RectF();
-
-    /** < The boundaries of the scale itself */
 
     /**
      * Class constructor taking only a context. Use this constructor to create
@@ -109,6 +111,8 @@ public class ColoredScale extends View {
             // each custom attribute in the R.styleable.ColoredScale array.
             mShowText = a.getBoolean(R.styleable.ColoredScale_showText, false);
             mText = a.getString(R.styleable.ColoredScale_label);
+            mMin = a.getString(R.styleable.ColoredScale_minLabel);
+            mMax = a.getString(R.styleable.ColoredScale_maxLabel);
             mTextHeight = a.getDimension(R.styleable.ColoredScale_labelHeight,
                     0.0f);
             mTextColor = a.getColor(R.styleable.ColoredScale_labelColor,
@@ -117,17 +121,16 @@ public class ColoredScale extends View {
             mEndValue = a.getFloat(R.styleable.ColoredScale_endValue, 1f);
             mGraduationStep = a.getFloat(
                     R.styleable.ColoredScale_graduationStep, 0.1f);
-
-            mStartColor = a.getColor(R.styleable.ColoredScale_startColor,
-                    0xff000000);
-            mEndColor = a.getColor(R.styleable.ColoredScale_endColor,
-                    0xffffffff);
             mGraduationStartColor = a.getColor(
                     R.styleable.ColoredScale_graduationStartColor,
                     getResources().getColor(R.color.android_darkgray));
             mGraduationEndColor = a.getColor(
                     R.styleable.ColoredScale_graduationEndColor, getResources()
                             .getColor(R.color.android_lightgray));
+            mStartColor = a.getColor(R.styleable.ColoredScale_startColor,
+                    0xff000000);
+            mEndColor = a.getColor(R.styleable.ColoredScale_endColor,
+                    0xffffffff);
         } finally {
             // release the TypedArray so that it can be reused.
             a.recycle();
@@ -285,6 +288,12 @@ public class ColoredScale extends View {
         LinearGradient scaleShader = new LinearGradient(mScaleRect.left,
                 mScaleRect.top, mScaleRect.right, mScaleRect.top, mStartColor,
                 mEndColor, TileMode.CLAMP);
+        /*
+         * TODO instead of using two colors only, define an attribute
+         * "color array" and use it to create a gradient that covers all those
+         * colors...
+         */
+
         // Attach this shader to the scale paint
         mScalePaint.setShader(scaleShader);
 
@@ -309,7 +318,15 @@ public class ColoredScale extends View {
 
         // Draw the label text
         if (getShowText()) {
+            // The label
+            mTextPaint.setTextAlign(Align.CENTER);
             canvas.drawText(mText, mTextX, mTextY, mTextPaint);
+            // The min value
+            mTextPaint.setTextAlign(Align.LEFT);
+            canvas.drawText(mMin, mScaleRect.left, mTextY, mTextPaint);
+            // The max value
+            mTextPaint.setTextAlign(Align.RIGHT);
+            canvas.drawText(mMax, mScaleRect.right, mTextY, mTextPaint);
         }
 
         // Draw graduations

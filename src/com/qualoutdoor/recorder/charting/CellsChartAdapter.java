@@ -29,8 +29,12 @@ public class CellsChartAdapter implements BarChartAdapter {
     public void updateDataSet(List<ICellInfo> cellInfos) {
         // Remove all the old ones
         cells.clear();
-        // Add all the new ones
-        cells.addAll(cellInfos);
+        // Add all the cells that does have signal strength info
+        for(ICellInfo cell : cellInfos) {
+            if(cell.getSignalStrength().getDbm() != ISignalStrength.UNKNOWN_DBM)
+                // Add it
+                cells.add(cell);
+        }
     }
 
     @Override

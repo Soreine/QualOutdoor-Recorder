@@ -26,9 +26,11 @@
             android:layout_weight="0.7"
             android:background="@color/transparent"
             custom:endColor="@color/red"
-            custom:label="RSSI"
+            custom:label="asu"
             custom:labelColor="@color/white"
             custom:labelHeight="18dp"
+            custom:maxLabel="31"
+            custom:minLabel="0"
             custom:showText="true"
             custom:startColor="@color/yellow" />
 
