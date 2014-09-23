@@ -1,15 +1,15 @@
 package com.qualoutdoor.recorder.map;
 
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Paint.Align;
+import android.graphics.RectF;
+import android.graphics.Shader.TileMode;
 import android.util.AttributeSet;
 import android.view.View;
-import android.content.res.TypedArray;
-import android.graphics.*;
-import android.graphics.Paint.Align;
-import android.graphics.Shader.TileMode;
-
-import java.lang.Override;
-import java.lang.String;
 
 import com.qualoutdoor.recorder.R;
 

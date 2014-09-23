@@ -27,6 +27,6 @@ public class BarChartView extends HighChartView {
     /** Call this method when the data of the adapter changed */
     public void updateData() {
         // Ask javascript to update his data
-        evaluateJavascript("updateData()", null);
+        execJS("updateData()");
     }
 }

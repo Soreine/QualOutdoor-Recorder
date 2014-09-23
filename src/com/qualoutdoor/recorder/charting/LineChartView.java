@@ -20,7 +20,7 @@ public class LineChartView extends HighChartView {
      * @param value The new value
      */
     public void addData(long date, int value) {
-        this.evaluateJavascript("addData([" + date + "," + value + "])", null);
+        execJS("addData([" + date + "," + value + "])");
     }
 
 }

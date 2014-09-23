@@ -113,20 +113,19 @@ public class HighChartView extends WebView {
         srcJS += "initConfig(" + jsonConfig + ");";
 
         // Execute the javascript
-        evaluateJavascript(srcJS, null);
+        execJS(srcJS);
     }
 
     /**
-     * Execute the given script in the WebView wrapped by this HighChartView
+     * Execute the given script in the WebView wrapped by this HighChartView. We
+     * use this because evaluateJavascript is not compatible prior to 4.?
      * 
      * @param srcJS
      *            The Javascript source to be executed
      */
-    /* Rather use evaluateJavascript !!
     public void execJS(CharSequence srcJS) {
         this.loadUrl("javascript:" + srcJS);
     }
-    */
 
     /** Return the object as a value for a JSON string */
     private String asJsValue(Object value) {
