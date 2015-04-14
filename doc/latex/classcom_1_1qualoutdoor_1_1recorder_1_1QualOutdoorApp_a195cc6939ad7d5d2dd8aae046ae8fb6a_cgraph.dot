@@ -1,9 +1,0 @@
-digraph "com.qualoutdoor.recorder.QualOutdoorApp.setCallState"
-{
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  rankdir="LR";
-  Node1 [label="com.qualoutdoor.recorder.\lQualOutdoorApp.setCallState",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
-  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
-  Node2 [label="com.qualoutdoor.recorder.\lQualOutdoorApp.notifyNetworkListeners",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcom_1_1qualoutdoor_1_1recorder_1_1QualOutdoorApp.html#a3d9228b4b2a55f80718d82d53fd6ca8c"];
-}

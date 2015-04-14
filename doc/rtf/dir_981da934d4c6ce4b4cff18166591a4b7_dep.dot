@@ -1,9 +1,0 @@
-digraph "src/com/qualoutdoor/recorder/telephony" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  subgraph clusterdir_d27a4643e8f320e40504dd9ecc4e195b {
-    graph [ bgcolor="#ddddee", pencolor="black", label="recorder" fontname="Helvetica", fontsize="10", URL="dir_d27a4643e8f320e40504dd9ecc4e195b.html"]
-  dir_981da934d4c6ce4b4cff18166591a4b7 [shape=box, label="telephony", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_981da934d4c6ce4b4cff18166591a4b7.html"];
-  }
-}

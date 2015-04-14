@@ -1,6 +1,0 @@
-digraph "com.qualoutdoor.recorder.notifications.NotificationCenter"
-{
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="{com.qualoutdoor.recorder.notifications.\lNotificationCenter\n|+ BACKGROUND_RECORDING\l|+ getRecordingNotification()\l+ notifyBackgroundRecording()\l+ dismissBackgroundRecording()\l- NotificationCenter()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
-}
